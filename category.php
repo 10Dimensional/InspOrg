@@ -1,8 +1,5 @@
 <?php
-                /*
-                	Template Name: generic-page
-                */ 
-                
+
                 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +34,7 @@
 		</div>
 			<section class="text-section style-red">
 			<div class="holder">
-				<?php the_field('headline'); ?>
+				<?php echo category_description(); ?>
 			</div>
 			</section>
 	<div class="events-section">
@@ -48,7 +45,7 @@
 // The Loop
 while ( have_posts() ) : the_post(); ?>
 					<section class="box">
-						<a class="btn-lightbox" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img class="image" src="images/img-41.jpg" alt="image description"></a>
+						<a class="btn-lightbox" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="description">
 							<div class="date-box">
 								<em class="date"><?php the_time('F jS, Y') ?></em>

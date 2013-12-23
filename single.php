@@ -1,6 +1,6 @@
 <?php
                 /*
-                	Template Name: generic-page
+                	Blog Post Page
                 */ 
                 
                 ?>
@@ -21,9 +21,10 @@
 <body>
 	<div id="wrapper">
 		<?php get_header() ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 		<div class="w1">
 			<div id="bg" class="bg-without-mask">
-				<img src="<?php the_field('featured_image'); ?>" alt="">
+				<?php the_post_thumbnail(); ?>
 			</div>
 			<nav>
 				<ul class="breadcrumbs">
@@ -44,7 +45,7 @@
 			<div class="main-holder">
 				<div id="content" class="main-col">
 					<div class="section-box">
-						<?php while ( have_posts() ) : the_post(); ?>
+						
 
 <?php the_content(); ?>
 			<?php endwhile; // end of the loop. ?>						</div>
