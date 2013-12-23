@@ -1,0 +1,49 @@
+<?php 
+register_nav_menus( array('' => ''));
+register_sidebar(array('name' => __( 'Footer Left' ),'id' => 'footer-left','description' => __( 'Footer Left' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Footer right' ),'id' => 'footer-right','description' => __( 'Footer Right' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Inspire Sidebar' ),'id' => 'inspire-sidebar','description' => __( 'Inspire Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Right Sidebar' ),'id' => 'right-sidebar','description' => __( 'Right Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Blog Sidebar' ),'id' => 'blog-sidebar','description' => __( 'Blog Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
+
+
+
+function the_breadcrumb() {
+	if (!is_home()) {
+		echo '<a href="';
+		echo get_option('home');
+		echo '">';
+		bloginfo('name');
+		echo "</a> » ";
+		if (is_category() || is_single()) {
+			the_category('title_li=');
+			if (is_single()) {
+				echo " » ";
+				the_title();
+			}
+		} elseif (is_page()) {
+			echo the_title();
+		}
+	}
+}
+
+
+// register wp_nav_menu
+add_action( 'init', 'register_my_menus' );
+function register_my_menus() {
+	register_nav_menus( array(
+	'primary-menu' => __( 'Primary Menu', 'inspirada' ),
+	'footer-menu' => __( 'Footer Menu', 'inspirada' )
+	
+	)
+	);
+}
+
+// remove ul wp_nav_menu
+function remove_ul ( $menu ){
+    return preg_replace( array( '#^<ul[^>]*>#', '#</ul>$#' ), '', $menu );
+}
+add_filter( 'wp_nav_menu', 'remove_ul' );
+
+add_theme_support( 'post-thumbnails' ); 
+?>

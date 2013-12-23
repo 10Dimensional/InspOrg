@@ -1,0 +1,39 @@
+.vicinity-section .panel{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4dfeffff', endColorstr='#4dfeffff',GradientType=0 );
+}
+.info-table tr.even td{
+	background:none;
+}
+.personality-section{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffffff', endColorstr='#40ffffff',GradientType=0 );
+}
+.photo-carousel .btn-next,
+.photo-carousel .btn-prev{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ea6950', endColorstr='#99ea6950',GradientType=0 );
+}
+.items-columns .box .hover-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#80000000',GradientType=0 );
+}
+.gallery-list .hover-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#80000000',GradientType=0 );
+}
+.items-columns .box .hover-box,
+.gallery-list .hover-box{
+	visibility:hidden;
+}
+.items-columns .box .holder:hover .hover-box,
+.gallery-list a:hover .hover-box{
+	visibility:visible;
+}
+.items-columns .box .holder:hover > img{
+	filter: alpha(opacity=50);
+}
+.cycle-gallery .text-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#cc000000',GradientType=0 );
+}
+.contact-block{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffffff', endColorstr='#40ffffff',GradientType=0 );
+}
+.gallery-tabset a{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#73ffffff', endColorstr='#73ffffff',GradientType=0 );
+}

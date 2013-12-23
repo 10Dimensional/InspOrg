@@ -1,0 +1,144 @@
+/* hide original element */
+.jcf-hidden {
+	display: block !important;
+	position: absolute !important;
+	left: -9999px !important; /* change to right: -9999px on RTL sites */
+}
+/* custom select styles */
+.select-area {
+	background:url(../images/bg-slider-line.png);
+	background:rgba(255,255,255, 0.70);
+	position: relative;
+	overflow: hidden;
+	cursor: default;
+	font-size:13px;
+	line-height:18px;
+	height: 18px;
+	float:left;
+}
+.select-focus {
+	border-color: #f00;
+}
+.select-area .center {
+	white-space: nowrap;
+	display:block;
+	overflow:hidden;
+	text-align:center;
+	padding: 0 0 0 2px;
+	margin:0 15px 0 0;
+}
+.select-disabled {
+	background: #b8e6ed;
+}
+.select-area .select-opener {
+	background:url(../images/select-btn.png) 50% 50% no-repeat;
+	position: absolute;
+	height: 100%;
+	width: 14px;
+	right: 0;
+	top: 0;
+}
+.select-options {
+	position: absolute;
+	overflow: hidden;
+	background:url(../images/bg-slider-line.png);
+	background:rgba(255,255,255, 0.70);
+	font-size:13px;
+	line-height:16px;
+	z-index: 2000;
+}
+.select-options .drop-holder {
+	border: 1px solid #777;
+	overflow: hidden;
+	height: 1%;
+}
+.select-options ul {
+	list-style: none;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+.select-options ul li {
+	width: 100%;
+	float: left;
+}
+.select-options ul a {
+	text-decoration: none;
+	padding: 2px 5px;
+	display: block;
+	cursor: default;
+	color: #000;
+	height: 1%;
+}
+.select-options .item-selected a {
+	text-decoration: none;
+	background: #26a1b1;
+	color: #fff;
+}
+/* select options optgroup example styles */
+.select-options .optgroup {
+	clear: both;
+}
+.select-options .optgroup strong {
+	display: block;
+	padding: 5px;
+}
+.select-options .optgroup ul a {
+	padding-left: 30px;
+}
+/* custom scrollbars styles */
+.scrollable-area-wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100% !important;
+	padding:0 32px 0 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.scrollable-area-wrapper .hscrollbar,
+.scrollable-area-wrapper .vscrollbar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20px;
+	height:20px;
+}
+.scrollable-area-wrapper .hscroll-left,
+.scrollable-area-wrapper .vscroll-up,
+.scrollable-area-wrapper .hscroll-right,
+.scrollable-area-wrapper .vscroll-down {
+	width: 0;
+	height: 0;
+	float: left;
+}
+.scrollable-area-wrapper .hscroll-line,
+.scrollable-area-wrapper .vscroll-line {
+	background: #00899f;
+	width: 3px;
+	float: left;
+	margin:0 0 0 9px;
+}
+.scrollable-area-wrapper .hscroll-slider,
+.scrollable-area-wrapper .vscroll-slider {
+	background: url('../images/sprite.png') no-repeat -501px -97px;
+	width: 21px !important;
+	height: 41px !important;
+	left:-9px;
+}
+.scrollable-area-wrapper .hscrollbar {
+	position: static;
+	height: 20px;
+	top: auto;
+}
+.scrollable-area-wrapper .hscroll-line {
+	height: 3px;
+	margin:8px 0 0;
+	width: auto;
+}
+.scrollable-area-wrapper .hscroll-slider{
+	width: 41px !important;
+	height: 21px !important;
+	top:-9px;
+	background-position:-427px -124px;
+}
