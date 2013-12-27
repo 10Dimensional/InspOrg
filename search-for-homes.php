@@ -113,39 +113,45 @@
                             </div>
 
                             <div class="select-row">
-                                <input type="text" name="stories" />
-                                <select>
-                                    <option selected="selected">Stories</option>
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
+                                <select name="stories">
+                                    <option selected="selected" value="0">Stories</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                                 </select>
-                                    <input type="text" name="garage_bays" />
-                                <select>
-                                    <option selected="selected">Garage Bays</option>
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
+                                <select name="garage_bays">
+                                    <option selected="selected" value="0">Garage Bays</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                                 </select>
                             </div>
                             
                             <div class="radio-area">
                                 <strong class="title">Search By Builder</strong>
+                                
                                 <div class="rad-holder">
-                                    <input id="radio-01" type="radio" name="radio-1" />
+                                    <input id="radio-01" type="radio" name="builder" value="Beazer" />
                                     <label for="radio-01">Beazer</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-02" type="radio" name="radio-1" />
+                                    <input id="radio-02" type="radio" name="builder" value="KB Home" />
                                     <label for="radio-02">KB Home</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-03" type="radio" name="radio-1" />
+                                    <input id="radio-03" type="radio" name="builder" value="Pardee" />
                                     <label for="radio-03">Pardee</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-04" type="radio" name="radio-1" />
+                                    <input id="radio-04" type="radio" name="builder" value="Toll Brothers" />
                                     <label for="radio-04">Toll Brothers</label>
+                                </div>
+                                <div class="rad-holder">
+                                    <input id="radio-00" type="radio" name="builder" value="all" />
+                                    <label for="radio-00">All</label>
+                                </div>
+                                <div class="rad-holder">
+                                    
                                 </div>
                             </div>
 
@@ -233,18 +239,22 @@
                                             <?php
                                                 
                                                 
-                                                foreach ($properties as $property) { ?>
+                                                foreach ($properties as $property) { 
+                                                    $beds = ($property->beds_min === $property->beds_max) ? $property->beds_min : $property->beds_min.' - '.$property->beds_max;
+                                                    $baths = ($property->baths_min === $property->baths_max) ? $property->baths_min : $property->baths_min.' - '.$property->baths_max;
+                                                    $garage_bays = ($property->garage_bays_min === $property->garage_bays_max) ? $property->garage_bays_min : $property->garage_bays_min.' - '.$property->garage_bays_max;
+                                                ?>
                                                     <tr>
                                                         <td><?php echo $property->builder; ?></td>
                                                         <td><?php echo $property->series; ?></td>
                                                         <td><?php echo $property->model; ?></td>
                                                         <td><?php echo number_format($property->sq_ft); ?></td>
-                                                        <td><?php echo $property->beds; ?></td>
-                                                        <td><?php echo $property->baths; ?></td>
+                                                        <td><?php echo $beds; ?></td>
+                                                        <td><?php echo $baths; ?></td>
                                                         <td><?php echo $property->stories; ?></td>
-                                                        <td><?php echo $property->garage_bays; ?></td>
+                                                        <td><?php echo $garage_bays; ?></td>
                                                         <td><a href="#">Slideshow</a></td>
-                                                        <td><a href="#">Download</a></td>
+                                                        <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
                                                     </tr>
                                                 <?php } ?>                                 
                                             
