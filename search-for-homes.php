@@ -3,7 +3,30 @@
                 	Template Name: search-for-homes
                 */ 
                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties" );
+                $price_min = ($_GET['price_min']) ? $_GET['price_min'] : 0;
+                $price_max = ($_GET['price_max']) ? $_GET['price_max'] : 999999999;
+                $beds = ($_GET['beds']) ? $_GET['beds'] : 0;
+                $builder = (!$_GET['builder'] || $_GET['builder'] === 'all') ? false : $_GET['builder'];
+                $stories = ($_GET['stories'] === 0) ? false : $_GET['stories'];
+                $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
+                $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
+                
+                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_min >= '.$beds.' AND sq_ft >= '.$sq_ft;    
+                
+                if ($builder) {
+                    $where_clause .= ' AND builder = "'.$builder.'"';
+                }
+                
+                if ($stories) {
+                    $where_clause .= ' AND stories = '.$stories;
+                }
+                
+                if ($garage_bays) {
+                    $where_clause .= ' AND garage_bays_min = '.$garage_bays;
+                }
+                                
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause" );
+                
                 
                 ?>
 <!DOCTYPE html>
