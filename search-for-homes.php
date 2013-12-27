@@ -35,11 +35,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	
 	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/bootstrap.min.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
@@ -196,93 +199,93 @@
                                 <h1>Request Information</h1>
                                 <p>At vero eos et accusamus et ius to ud odio as dignissimos du cimus qui et blanditiis prae et sentium voluptatum deleniti at que cor yiy rupti quos dio dolo res et quas molestias en exc en pturi sint occaecati cup iditate nonik provident, simi liq ue sunt in culpa qui offi cia deserunt mo llitia animi, id est laborum et id est laborum et id est laborum et</p>
                             
-                               <a class="button" href="#">Request Information</a>
+                               <a class="button" href="#" data-toggle="modal" data-target="#requestInfo">Request Information</a>
                             
                             </div>
                         </div>
                         <div class="table-block">
                             <div class="scrollable-area anyscrollable">
                                 <div class="table-holder">
-                                    <table class="info-table">
-                                        <thead>
-                                            <tr>
-                                                <th><span>Builder</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Series</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Model</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Sq Ft</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Bdrms</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Baths</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Stories</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Garage Bays</span>
-                                                    <ul class="sort-btns">
-                                                    	<li><a href="#">increase</a></li>
-                                                    	<li><a href="#">decrease</a></li>
-                                                    </ul>
-                                                </th>
-                                                <th><span>Renderings</span></th>
-                                                <th><span>Info Pack</span></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="result_body">
-                                            <?php
+                                    <form id="frmPropertyList">
+                                        <table class="info-table">
+                                            <thead>
+                                                <tr>
+                                                    <th><span>Builder</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Series</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Model</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Sq Ft</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Bdrms</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Baths</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Stories</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Garage Bays</span>
+                                                        <ul class="sort-btns">
+                                                        	<li><a href="#">increase</a></li>
+                                                        	<li><a href="#">decrease</a></li>
+                                                        </ul>
+                                                    </th>
+                                                    <th><span>Renderings</span></th>
+                                                    <th><span>Info Pack</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="result_body">
+                                                <?php
+                                                    foreach ($properties as $property) { 
+                                                        $beds = ($property->beds_min === $property->beds_max) ? $property->beds_min : $property->beds_min.' - '.$property->beds_max;
+                                                        $baths = ($property->baths_min === $property->baths_max) ? $property->baths_min : $property->baths_min.' - '.$property->baths_max;
+                                                        $garage_bays = ($property->garage_bays_min === $property->garage_bays_max) ? $property->garage_bays_min : $property->garage_bays_min.' - '.$property->garage_bays_max;
+                                                    ?>
+                                                        <tr>
+                                                            <td><?php echo $property->builder; ?></td>
+                                                            <td><?php echo $property->series; ?></td>
+                                                            <td><?php echo $property->model; ?></td>
+                                                            <td><?php echo number_format($property->sq_ft); ?></td>
+                                                            <td><?php echo $beds; ?></td>
+                                                            <td><?php echo $baths; ?></td>
+                                                            <td><?php echo $property->stories; ?></td>
+                                                            <td><?php echo $garage_bays; ?></td>
+                                                            <td><a href="#">Slideshow</a></td>
+                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
+                                                        </tr>
+                                                    <?php } ?>                                 
                                                 
-                                                
-                                                foreach ($properties as $property) { 
-                                                    $beds = ($property->beds_min === $property->beds_max) ? $property->beds_min : $property->beds_min.' - '.$property->beds_max;
-                                                    $baths = ($property->baths_min === $property->baths_max) ? $property->baths_min : $property->baths_min.' - '.$property->baths_max;
-                                                    $garage_bays = ($property->garage_bays_min === $property->garage_bays_max) ? $property->garage_bays_min : $property->garage_bays_min.' - '.$property->garage_bays_max;
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $property->builder; ?></td>
-                                                        <td><?php echo $property->series; ?></td>
-                                                        <td><?php echo $property->model; ?></td>
-                                                        <td><?php echo number_format($property->sq_ft); ?></td>
-                                                        <td><?php echo $beds; ?></td>
-                                                        <td><?php echo $baths; ?></td>
-                                                        <td><?php echo $property->stories; ?></td>
-                                                        <td><?php echo $garage_bays; ?></td>
-                                                        <td><a href="#">Slideshow</a></td>
-                                                        <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
-                                                    </tr>
-                                                <?php } ?>                                 
-                                            
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -318,6 +321,68 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="requestInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Request Info</h4>
+            </div>
+            <div class="modal-body">
+                <form id="frmRequestInfo" role="form">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <textarea class="form-control" id="comment" name="comment" placeholder="Comment"></textarea>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="builders[]"> Beazer Homes
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="builders[]"> KB Home
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="builders[]"> Pardee Homes
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="builders[]"> Toll Brothers
+                        </label>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="submitRequestInfo" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 	<?php get_footer() ?>
 <?php wp_footer() ?></body>
 </html>
