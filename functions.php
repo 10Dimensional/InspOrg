@@ -56,8 +56,8 @@ if(function_exists('get_roster_slider')){
 	function roster_add_pub_date($slider_excerpt,$post_id,$roster_slider_curr,$roster_slider_css){
 		$the_post = get_post($post_id);
 		$pub_date = mysql2date(get_option('date_format'), $the_post->post_date);
-		$pub_date_html = '<div class="roster_pub_date">'.__('','roster-slider').$pub_date.'</div>';
-		$slider_excerpt = $pub_date_html.$slider_title;
+		$pub_date_html = '<div class="roster_pub_date" style="font-size:11px;color:#888;">'.__('','roster-slider').$pub_date.'</div>';
+		$post_title = $pub_date_html.$post_title;
 		return $slider_excerpt;
 	}
 	add_filter('roster_slide_excerpt_html','roster_add_pub_date',10,4);
