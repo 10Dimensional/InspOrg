@@ -2492,6 +2492,8 @@ img.aligncenter{
 }
 .section-box p{
 	margin:0;
+	margin-bottom: 20px;
+	text-indent: 20px;
 }
 .news-block{
 	overflow:hidden;
