@@ -3131,6 +3131,10 @@ margin-top: -9px;
 	#wrapper{
 		padding:0;
 	}
+	.buttons-list li {
+		display: block;
+		margin: 30px auto;
+	}
 	.images-lightbox{
 		width:766px;
 	}
