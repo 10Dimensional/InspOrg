@@ -1581,6 +1581,13 @@ img.aligncenter{
 .content-section.style-3 h1{
 	color:#27a2b2;
 }
+.faq-tabs {
+	margin-top: -375px;
+	margin-bottom: 50px;
+}
+#content .faq-box {
+	margin:0;
+}
 .btn-next-holder{
 	position:absolute;
 	width:100%;

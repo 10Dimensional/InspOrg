@@ -46,23 +46,24 @@
 		<div id="main">
 			<div class="main-holder">
 				<div id="content" class="main-col">
-					<div class="section-box">
+					<div class="section-box faq-box">
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php the_content(); ?>
 						<?php endwhile; // end of the loop. ?>						
 					</div>
-					
-					<ul class="nav nav-tabs">
-						<li><a href="#tab01" data-toggle="tab">One</a></li>
-						<li><a href="#tab02" data-toggle="tab">Two</a></li>
-						<li><a href="#tab03" data-toggle="tab">Three</a></li>
-						<li><a href="#tab04" data-toggle="tab">Four</a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane active" id="tab01"><?php the_block('Tab One'); ?></div>
-						<div class="tab-pane" id="tab02"><?php the_block('Tab Two'); ?></div>
-						<div class="tab-pane" id="tab03"><?php the_block('Tab Three'); ?></div>
-						<div class="tab-pane" id="tab04"><?php the_block('Tab Four'); ?></div>
+					<div class="faq-tabs">
+						<ul class="nav nav-tabs">
+							<li><a href="#tab01" data-toggle="tab">One</a></li>
+							<li><a href="#tab02" data-toggle="tab">Two</a></li>
+							<li><a href="#tab03" data-toggle="tab">Three</a></li>
+							<li><a href="#tab04" data-toggle="tab">Four</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab01"><?php the_block('Tab One'); ?></div>
+							<div class="tab-pane" id="tab02"><?php the_block('Tab Two'); ?></div>
+							<div class="tab-pane" id="tab03"><?php the_block('Tab Three'); ?></div>
+							<div class="tab-pane" id="tab04"><?php the_block('Tab Four'); ?></div>
+						</div>
 					</div>
 
 				</div>
