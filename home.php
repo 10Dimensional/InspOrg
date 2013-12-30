@@ -23,8 +23,7 @@
 		<?php get_header() ?>
 		<div class="w1">
 			<div id="bg">
-				<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-01.jpg" alt="">
-			</div>
+<?php if( function_exists('cyclone_slider') ) cyclone_slider('homepage'); ?>			</div>
 			<div class="intro-section">
 				<div class="heading">
 					<a href="#" class="btn-explore">EXPLORE INSPIRADA</a>
