@@ -1532,17 +1532,17 @@ img.aligncenter{
 	background:#f6eec0;
 }
 .content-section .list{
-	margin:0;
-	padding:0;
-	list-style:none;
-	float:right;
-	width:321px;
-	margin:0 0 0 10px;
-	padding:17px 0 3px 30px;
-	border:1px solid #387673;
-	border-width:0 0 0 3px;
-	font-size:12px;
-	line-height:17px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	width: 321px;
+	margin: 0 10px 0 0;
+	padding: 17px 0 3px 30px;
+	border: 1px solid #387673;
+	border-width: 0 3px 0 0;
+	font-size: 12px;
+	line-height: 17px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
