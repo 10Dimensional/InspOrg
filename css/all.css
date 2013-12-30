@@ -295,6 +295,9 @@ img.aligncenter{
 	height: 36px;
 	z-index:5;
 }
+#nav ul li.has-drop-down.hover .sub-menu li {
+	display:block;
+}
 #nav ul li:first-child{
 	border-width:0;
 }
@@ -2489,6 +2492,8 @@ img.aligncenter{
 }
 .section-box p{
 	margin:0;
+	margin-bottom: 20px;
+	text-indent: 20px;
 }
 .news-block{
 	overflow:hidden;
@@ -3127,6 +3132,10 @@ margin-top: -9px;
 	}
 	#wrapper{
 		padding:0;
+	}
+	.buttons-list li {
+		display: block;
+		margin: 30px auto;
 	}
 	.images-lightbox{
 		width:766px;
