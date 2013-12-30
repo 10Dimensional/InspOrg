@@ -11,7 +11,7 @@
                 $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
                 $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
                 
-                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_min >= '.$beds.' AND sq_ft >= '.$sq_ft;    
+                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
                 
                 if ($builder) {
                     $where_clause .= ' AND builder = "'.$builder.'"';
@@ -197,7 +197,7 @@
                                 <h1>Request Information</h1>
                                 <p>At vero eos et accusamus et ius to ud odio as dignissimos du cimus qui et blanditiis prae et sentium voluptatum deleniti at que cor yiy rupti quos dio dolo res et quas molestias en exc en pturi sint occaecati cup iditate nonik provident, simi liq ue sunt in culpa qui offi cia deserunt mo llitia animi, id est laborum et id est laborum et id est laborum et</p>
                             
-                               <a class="button" href="#" data-toggle="modal" data-target="#requestInfo">Request Information</a>
+                               <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Request Information</a>
                             
                             </div>
                         </div>
@@ -288,6 +288,7 @@
                             </div>
                         </div>
                     </div>
+                    <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:15px 200px 15px;">Request Information</a>
                     <ul class="companies-list">
                     	<li>
                             <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
@@ -352,22 +353,22 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="builders[]"> Beazer Homes
+                            <input type="checkbox" name="builders[]" value="beazer homes"> Beazer Homes
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="builders[]"> KB Home
+                            <input type="checkbox" name="builders[]" value="kb home"> KB Home
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="builders[]"> Pardee Homes
+                            <input type="checkbox" name="builders[]" value="pardee homes"> Pardee Homes
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="builders[]"> Toll Brothers
+                            <input type="checkbox" name="builders[]" value="toll brothers"> Toll Brothers
                         </label>
                     </div>
                 </form>
