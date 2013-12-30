@@ -143,11 +143,9 @@
                                     <option selected="selected" value="0">Stories</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="3">3</option>
                                 </select>
                                 <select name="garage_bays">
                                     <option selected="selected" value="0">Garage Bays</option>
-                                    <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                 </select>
