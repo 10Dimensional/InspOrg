@@ -295,6 +295,9 @@ img.aligncenter{
 	height: 36px;
 	z-index:5;
 }
+#nav ul li.has-drop-down.hover .sub-menu li {
+	display:block;
+}
 #nav ul li:first-child{
 	border-width:0;
 }
