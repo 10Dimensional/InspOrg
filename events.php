@@ -63,6 +63,7 @@ setup_postdata($post); ?>
 							</div>
 						</div>
 					</section>
+					<?php endforeach; wp_reset_postdata(); ?>
 			<?php endwhile; // End Loop ?>
 				</div>
 			</div>
