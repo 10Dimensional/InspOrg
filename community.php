@@ -13,8 +13,6 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
@@ -31,11 +29,17 @@
 				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
 				<span class="text"><?php the_field('headline'); ?></span>
 			</h1>
-			<section class="content-section add">
+				<section class="content-section add">
+				<div class="holder">
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php the_content(); ?>
-			<?php endwhile; // end of the loop. ?>			</section>
+			<?php endwhile; // end of the loop. ?>
+			<div class="btn-next-holder">
+						<a href="#amenities" class="btn-next-section go">More: Amenities</a>
+					</div>			
+			</div>
+			</section>
 			<section id="amenities" class="content-section style-1">
 				<div class="holder">
 					<?php the_field('amenities'); ?>

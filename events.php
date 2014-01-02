@@ -1,5 +1,9 @@
 <?php
 
+                /*
+                	Template Name: news & events
+                	                */ 
+
                 ?>
 <!DOCTYPE html>
 <html>
@@ -10,6 +14,8 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
@@ -27,12 +33,12 @@
 			</nav>
 			<h1 class="page-title page-title-4">
 				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-				<span class="text"><?php single_cat_title( $prefix = '', $display = true ); ?></span>
+				<span class="text"><?php the_title(); ?></span>
 			</h1>
 		</div>
 			<section class="text-section style-red">
 			<div class="holder">
-				<?php echo category_description(); ?>
+				<?php the_field('headliner'); ?>
 			</div>
 			</section>
 	<div class="events-section">
@@ -41,7 +47,9 @@
 				<?php
 
 // The Loop
-while ( have_posts() ) : the_post(); ?>
+$myposts = get_posts('');
+foreach($myposts as $post) :
+setup_postdata($post); ?>
 					<section class="box">
 						<a class="btn-lightbox" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="description">
@@ -55,9 +63,10 @@ while ( have_posts() ) : the_post(); ?>
 							</div>
 						</div>
 					</section>
+					<?php endforeach; wp_reset_postdata(); ?>
+			<?php endwhile; // End Loop ?>
 				</div>
 			</div>
-			<?php endwhile; // End Loop ?>
 				<?php get_footer() ?>
 <?php wp_footer() ?></body>
 </html>
