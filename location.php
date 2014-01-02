@@ -40,19 +40,27 @@
 					</div>			
 			</div>
 			</section>
-			<section id="amenities" class="content-section style-1">
+			<section id="schools" class="content-section style-1">
 				<div class="holder">
-					<?php the_field('amenities'); ?>
+					<?php the_field('schools'); ?>
 					<div class="btn-next-holder">
 						<a href="#shopping" class="btn-next-section go">More: Shopping</a>
 					</div>
 				</div>
 			</section>
-			<section id="homes" class="content-section style-2">
+			<section id="shopping" class="content-section style-2">
 				<div class="holder">
-					<?php the_field('homes'); ?>
+					<?php the_field('shopping'); ?>
 					<div class="btn-next-holder">
 						<a href="#dining" class="btn-next-section go">More: Dining</a>
+					</div>
+				</div>
+			</section>
+			<section id="dining" class="content-section style-3">
+				<div class="holder">
+					<?php the_field('dining'); ?>
+						<div class="btn-next-holder">
+						<a href="#henderson" class="btn-next-section go">More: Henderson</a>
 					</div>
 				</div>
 			</section>
@@ -60,11 +68,11 @@
 				<div class="holder">
 					<?php the_field('henderson'); ?>
 						<div class="btn-next-holder">
-						<a href="#henderson" class="btn-next-section go">More: Henderson</a>
+						<a href="#attractions" class="btn-next-section go">More: Attractions</a>
 					</div>
 				</div>
 			</section>
-						<section id="henderson" class="content-section style-3">
+						<section id="attractions" class="content-section style-3">
 				<div class="holder">
 					<?php the_field('areaattractions'); ?>
 				</div>
