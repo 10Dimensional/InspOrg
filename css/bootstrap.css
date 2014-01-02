@@ -2011,10 +2011,6 @@ textarea.form-control {
   margin-left: -20px;
 }
 
-.radio + .radio,
-.checkbox + .checkbox {
-  margin-top: -5px;
-}
 
 .radio-inline,
 .checkbox-inline {

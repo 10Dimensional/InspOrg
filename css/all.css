@@ -1005,6 +1005,7 @@ margin-left: 17%;
 	line-height:10px;
 	text-decoration:none;
 	border-radius: 50%;
+	padding:0;
 }
 .filter-form .slider-bar .btn-plus{
 	float:right;
@@ -1082,7 +1083,7 @@ margin-left: 17%;
 }
 .filter-form input[type="submit"]{
 	display:block;
-	margin:15px auto;
+	margin:0 auto 21px;
 	padding:0;
 	border:none;
 	background:#00899f;
@@ -1096,9 +1097,6 @@ margin-left: 17%;
 .filter-form input[type="submit"]:hover{
 	color:#00899f;
 	background:#fff;
-}
-.filter-form .rad-holder label {
-	font-size: 15px;
 }
 .filter-form .matches-counter{
 	overflow:hidden;
@@ -1153,6 +1151,21 @@ margin-left: 17%;
 	background:#8ad6e1;
 	background:rgba(255,255,255, 0.5);
 }
+.modal-header {background:#7cc9e7;}
+.modal-content {border-radius:0; overflow:hidden;}
+.modal-body {float:left; width:100%;}
+.modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
+.modal-body .checkbox label {float:none;}
+.modal-body input[type="text"], .modal-body input[type="email"], .modal-body textarea {width:205px; display:inline;}
+.modal-dialog {width:650px;}
+.modal-body textarea {height:180px;}
+#requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
+.frmSub {width:400px; margin:auto; padding-top:25px;}
+.threeHundred {width:300px;}
+.modal-footer {float:left; width:100%;}
+.floatLeft {float:left;}
+.floatRight {float:right;}
+.modal-body label {width:90px; float:left;}
 .button:active{
 	background:#8ad6e1;
 	background:rgba(255,255,255, 0.5);
@@ -1540,7 +1553,7 @@ margin-left: 17%;
 	position:relative;
 }
 .content-section.add > .holder{
-	padding-top:16px;
+	padding-top:40px;
 }
 .content-section.style-1{
 	background:#fff;
@@ -1556,7 +1569,7 @@ margin-left: 17%;
 	padding: 0;
 	list-style: none;
 	float: left;
-	width: 275px;
+	width: 240px;
 	margin: 0 10px 0 0;
 	padding: 17px 15px 3px 30px;
 	border: 1px solid #387673;
