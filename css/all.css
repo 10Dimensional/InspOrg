@@ -1151,6 +1151,11 @@ margin-left: 17%;
 	background:#8ad6e1;
 	background:rgba(255,255,255, 0.5);
 }
+.builder_logos {padding:20px 0; border-top:#69c1e4 solid 1px;}
+.builder_logos .beazer {background:url('../images/beazer_logo.jpg') no-repeat; width:25%; float:left;}
+.builder_logos .pardee_homes {background:url('../images/pardee_logo.jpg') no-repeat; width:25%; float:left;}
+.builder_logos .kb_home {background:url('../images/kb_logo.jpg') no-repeat; width:25%; float:left;}
+.builder_logos .toll_bros {background:url('../images/toll_logo.jpg') no-repeat; width:25%; float:left;}
 .modal-header {background:#7cc9e7;}
 .modal-content {border-radius:0; overflow:hidden;}
 .modal-body {float:left; width:100%;}
