@@ -1082,7 +1082,7 @@ margin-left: 17%;
 }
 .filter-form input[type="submit"]{
 	display:block;
-	margin:0 auto 21px;
+	margin:15px auto;
 	padding:0;
 	border:none;
 	background:#00899f;
@@ -1096,6 +1096,9 @@ margin-left: 17%;
 .filter-form input[type="submit"]:hover{
 	color:#00899f;
 	background:#fff;
+}
+.filter-form .rad-holder label {
+	font-size: 15px;
 }
 .filter-form .matches-counter{
 	overflow:hidden;
@@ -1552,12 +1555,17 @@ margin-left: 17%;
 	margin: 0;
 	padding: 0;
 	list-style: none;
+<<<<<<< HEAD
 	float: left;
 	width: 240px;
+=======
+	float: right;
+	width: 275px;
+>>>>>>> f04cbe4ec9f61fcbe076f147a935d8552b47c2b0
 	margin: 0 10px 0 0;
 	padding: 17px 15px 3px 30px;
 	border: 1px solid #387673;
-	border-width: 0 3px 0 0;
+	border-width: 0 0 0 3px;
 	font-size: 12px;
 	line-height: 17px;
 	-moz-box-sizing: border-box;
