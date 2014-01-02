@@ -29,11 +29,17 @@
 				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
 				<span class="text"><?php the_field('headline'); ?></span>
 			</h1>
-			<section class="content-section add">
+				<section class="content-section add">
+				<div class="holder">
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php the_content(); ?>
-			<?php endwhile; // end of the loop. ?>			</section>
+			<?php endwhile; // end of the loop. ?>
+			<div class="btn-next-holder">
+						<a href="#amenities" class="btn-next-section go">More: Amenities</a>
+					</div>			
+			</div>
+			</section>
 			<section id="amenities" class="content-section style-1">
 				<div class="holder">
 					<?php the_field('amenities'); ?>
