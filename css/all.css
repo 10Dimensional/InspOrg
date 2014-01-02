@@ -1156,12 +1156,13 @@ margin-left: 17%;
 .modal-body {float:left; width:100%;}
 .modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
 .modal-body .checkbox label {float:none;}
-.modal-body .step2 ul li {list-style-type:disc; padding-right:100px;}
+.modal-body .step2 ul li {list-style-type:disc; width:50%; float:left;}
 .modal-body input[type="text"], .modal-body input[type="email"], .modal-body textarea {width:205px; display:inline;}
 .modal-dialog {width:650px;}
 .modal-body textarea {height:180px;}
 #requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
-.frmSub {width:400px; margin:auto; padding-top:25px;}
+.frmSub {width:400px; margin:auto; padding-top:25px; clear:both;}
+.step2_head {text-align:center;}
 .threeHundred {width:300px;}
 .modal-footer {float:left; width:100%;}
 .floatLeft {float:left;}
