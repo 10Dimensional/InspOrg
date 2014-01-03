@@ -4279,21 +4279,25 @@ li {list-style-type: none;}
 .builder_logos {border-top:#69c1e4 solid 1px; margin-top:25px;}
 .builder_logos a {height:70px;}
 .builder_logos a:hover {background-color:#7cc9e7;}
-.builder_logos .beazer_homes {background:url('../images/beazer_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
-.builder_logos .pardee_homes {background:url('../images/pardee_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
+.builder_logos .beazer_homes {background:url('../images/beazer_logo.png') no-repeat center; width:25%; float:left; display:block;}
+.builder_logos .pardee_homes {background:url('../images/pardee_logo.png') no-repeat center; width:25%; float:left; display:block;}
 .builder_logos .kb_home {background:url('../images/kb_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
-.builder_logos .toll_bros {background:url('../images/toll_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
+.builder_logos .toll_bros {background:url('../images/toll_logo.png') no-repeat center; width:25%; float:left; display:block;}
 .modal-header {background:#7cc9e7;}
 .modal-content {border-radius:0; overflow:hidden;}
 .modal-body {float:left; width:100%; padding-bottom:0;}
+.modal-body .step2 .frmSub p {display:block; clear:both; float:none; text-align:center; width:auto;}
+.modal-body .step2 .frmSub .btn {margin:auto; display:block; float:none;}
 .modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
 .modal-body .checkbox label {float:none;}
 .modal-body .step2 ul li {list-style-type:disc; width:50%; float:left;}
 .modal-body input[type="text"], .modal-body input[type="email"], .modal-body textarea {width:205px; display:inline;}
 .modal-dialog {width:650px;}
+.modal-body .btn-primary {border-radius:0; background:#0093a8; text-transform:uppercase; color:#fff;}
 .modal-body textarea {height:180px;}
--#requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
+#requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
 .frmSub {width:400px; margin:auto; padding-top:25px; clear:both;}
+.frmSub p {color:#3a6a7a; font:16px 'arimoregular', Helvetica, sans-serif;}
 .step2_head {text-align:center;}
 .threeHundred {width:300px;}
 .modal-footer {float:left; width:100%;}
