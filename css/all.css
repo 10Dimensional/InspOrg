@@ -4276,14 +4276,16 @@ li {list-style-type: none;}
 .roster_slider_set .roster_slideri p.more{color:#0067B7;font-family:Verdana,Geneva,sans-serif;font-size:11px;} 
 .roster_slider_set .roster_next{background: url('../images/sprite.png') no-repeat -4px -181px no-repeat 0 0 !important; top:45%;} 
 .roster_slider_set .roster_prev{background: transparent url(http://166.78.0.133/wp-content/plugins/roster-slider/css/skins/default/buttons/default/prev.png) no-repeat 0 0;top:45%;}
-.builder_logos {padding:20px 0; border-top:#69c1e4 solid 1px;}
-.builder_logos .beazer_homes {background:url('../images/beazer_logo.jpg') no-repeat; width:25%; float:left; display:block;}
-.builder_logos .pardee_homes {background:url('../images/pardee_logo.jpg') no-repeat; width:25%; float:left; display:block;}
-.builder_logos .kb_home {background:url('../images/kb_logo.jpg') no-repeat; width:25%; float:left; display:block;}
-.builder_logos .toll_bros {background:url('../images/toll_logo.jpg') no-repeat; width:25%; float:left; display:block;}
+.builder_logos {border-top:#69c1e4 solid 1px; margin-top:25px;}
+.builder_logos a {height:70px;}
+.builder_logos a:hover {background-color:#7cc9e7;}
+.builder_logos .beazer_homes {background:url('../images/beazer_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
+.builder_logos .pardee_homes {background:url('../images/pardee_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
+.builder_logos .kb_home {background:url('../images/kb_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
+.builder_logos .toll_bros {background:url('../images/toll_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
 .modal-header {background:#7cc9e7;}
 .modal-content {border-radius:0; overflow:hidden;}
-.modal-body {float:left; width:100%;}
+.modal-body {float:left; width:100%; padding-bottom:0;}
 .modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
 .modal-body .checkbox label {float:none;}
 .modal-body .step2 ul li {list-style-type:disc; width:50%; float:left;}
