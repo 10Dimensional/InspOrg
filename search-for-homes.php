@@ -84,13 +84,13 @@
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="true" />
                                         <input class="steps" type="hidden" value="1000" />
-                                        <input class="min" type="hidden" value="0" />
+                                        <input class="min" type="hidden" value="190000" />
                                         <input class="max" type="hidden" value="500000" />
-                                        <input class="v1" type="hidden" name="price_min" value="180000" />
+                                        <input class="v1" type="hidden" name="price_min" value="195000" />
                                         <input class="v2" type="hidden" name="price_max" value="350000" />
                                     </div>
                                     <div class="range-values add">
-                                        <strong>$<span class="disp-v1">180,000</span></strong>
+                                        <strong>$<span class="disp-v1">195,000</span></strong>
                                         <strong class="max">$<span class="disp-v2">650,000</span></strong>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="0" />
+                                        <input class="min" type="hidden" value="2" />
                                         <input class="max" type="hidden" value="6" />
                                         <input class="v1" type="hidden" name="beds" value="2" />
                                     </div>
@@ -120,8 +120,8 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="0" />
-                                        <input class="max" type="hidden" value="10000" />
+                                        <input class="min" type="hidden" value="1500" />
+                                        <input class="max" type="hidden" value="5000" />
                                         <input class="v1" name="sq_ft" type="hidden" value="1500" />
                                     </div>
                                     <div class="range-values">
