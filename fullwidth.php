@@ -21,7 +21,7 @@
 		<?php get_header() ?>
 		<div class="w1">
 			<div id="bg" class="bg-without-mask">
-				<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-07.jpg" alt="">
+				<img src="<?php the_field('hero_image'); ?>" alt="">
 			</div>
 			<nav>
 				<ul class="breadcrumbs">
@@ -29,7 +29,7 @@
 				</ul>
 			</nav>
 			<h1 class="page-title page-title-4">
-				<span class="icon"><img src="<?php bloginfo('template_url') ?>/images/icon-05.png" alt=""></span>
+				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
 				<span class="text"><?php the_field('headline'); ?></span>
 			</h1>
 		</div>

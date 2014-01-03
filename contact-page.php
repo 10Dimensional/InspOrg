@@ -21,7 +21,7 @@
 		<?php get_header() ?>
 		<div class="w1">
 			<div id="bg" class="bg-without-mask">
-				<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-05.jpg" alt="">
+				<img src="<?php the_field('hero_image'); ?>" alt="">
 			</div>
 			<nav>
 				<ul class="breadcrumbs">

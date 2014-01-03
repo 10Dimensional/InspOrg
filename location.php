@@ -56,15 +56,15 @@
 					</div>
 				</div>
 			</section>
-			<section id="dining" class="content-section style-3">
+			<section id="dining" class="content-section style-1">
 				<div class="holder">
 					<?php the_field('dining'); ?>
-						<div class="btn-next-holder">
+					<div class="btn-next-holder">
 						<a href="#henderson" class="btn-next-section go">More: Henderson</a>
 					</div>
 				</div>
-			</section>
-			<section id="henderson" class="content-section style-3">
+			</section>			
+			<section id="henderson" class="content-section style-2">
 				<div class="holder">
 					<?php the_field('henderson'); ?>
 						<div class="btn-next-holder">

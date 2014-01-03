@@ -1,9 +1,7 @@
 <?php
-
-                /*
-                	Template Name: news & events
+            /*
+                	Template Name: events
                 	                */ 
-
                 ?>
 <!DOCTYPE html>
 <html>
@@ -33,23 +31,29 @@
 			</nav>
 			<h1 class="page-title page-title-4">
 				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-				<span class="text"><?php the_title(); ?></span>
+				<span class="text"><?php single_cat_title( $prefix = '', $display = true ); ?></span>
 			</h1>
 		</div>
 			<section class="text-section style-red">
 			<div class="holder">
-				<?php the_field('headliner'); ?>
+				<?php echo category_description(); ?>
 			</div>
 			</section>
 	<div class="events-section">
 			<div class="holder">
 				<div class="frame">
-				<?php
-
-// The Loop
-$myposts = get_posts('');
-foreach($myposts as $post) :
-setup_postdata($post); ?>
+<?php
+    $args=array(
+      'post_type' => 'post',
+      'post_status' => 'publish',
+      'posts_per_page' => 8,
+      'caller_get_posts'=> 1
+      );
+    $my_query = null;
+    $my_query = new WP_Query($args);
+    if( $my_query->have_posts() ) {
+      echo '';
+      while ($my_query->have_posts()) : $my_query->the_post(); ?>      
 					<section class="box">
 						<a class="btn-lightbox" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="description">
@@ -63,8 +67,10 @@ setup_postdata($post); ?>
 							</div>
 						</div>
 					</section>
-					<?php endforeach; wp_reset_postdata(); ?>
-			<?php endwhile; // End Loop ?>
+			<?php
+      endwhile;
+    }
+wp_reset_query(); ?>
 				</div>
 			</div>
 				<?php get_footer() ?>
