@@ -19,7 +19,7 @@ jQuery(window).load(function(){
 	initLightbox();
 	//initCycleCarousel();
 	initAnchorLinks();
-	//initSort();
+	initSort();
 	initSliderBlocks();
 	initTabs();
 
