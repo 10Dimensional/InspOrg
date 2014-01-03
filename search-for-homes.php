@@ -84,9 +84,9 @@
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="true" />
                                         <input class="steps" type="hidden" value="1000" />
-                                        <input class="min" type="hidden" value="190000" />
+										<input class="min" type="hidden" value="190000" /> 
                                         <input class="max" type="hidden" value="500000" />
-                                        <input class="v1" type="hidden" name="price_min" value="195000" />
+										<input class="v1" type="hidden" name="price_min" value="195000" /> 
                                         <input class="v2" type="hidden" name="price_max" value="350000" />
                                     </div>
                                     <div class="range-values add">
@@ -103,7 +103,7 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="2" />
+                                        <input class="min" type="hidden" value="0" />
                                         <input class="max" type="hidden" value="6" />
                                         <input class="v1" type="hidden" name="beds" value="2" />
                                     </div>
@@ -187,10 +187,8 @@
                         <div class="info-block">
                             <div class="scrollable-area">
                                 <h1>Request Information</h1>
-                                <p>At vero eos et accusamus et ius to ud odio as dignissimos du cimus qui et blanditiis prae et sentium voluptatum deleniti at que cor yiy rupti quos dio dolo res et quas molestias en exc en pturi sint occaecati cup iditate nonik provident, simi liq ue sunt in culpa qui offi cia deserunt mo llitia animi, id est laborum et id est laborum et id est laborum et</p>
-                            
-                               <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Request Information</a>
-                            
+                                <p>Not Ready To Choose? No problem. Let us send you more information on your builder(s) of interest. </p>								
+<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
                             </div>
                         </div>
                         <div class="table-block">
@@ -242,7 +240,7 @@
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Garage Bays</span>
+                                                    <th><span>Garages</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
@@ -319,8 +317,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Please send me information about my requested home selections from:</h4>
-            </div>
+ <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information<br />are on their way!</div></h4>             </div>
             <div class="modal-body">
                 <div class="step1">
                     <form id="frmRequestInfo" role="form">
@@ -379,6 +376,12 @@
                     <div class="frmSub">
                         <p class="floatLeft threeHundred">We appreciate your interest!</p>
                         <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Continue</button>
+                          </div>	 	
+	                    <div class="builder_logos">	 	
+                        <a href="http://www.beazer.com" target="_blank" class="beazer_homes"></a>	 	
+						<a href="#" target="_blank" class="kb_home"></a>	 	
+                       <a href="http://www.pardeehomes.com/" target="_blank" class="pardee_homes"></a>	 	
+                        <a href="http://www.tollbrothers.com/NV/Toll_Brothers_at_Inspirada" target="_blank" class="toll_bros"></a>	
                     </div>
                 </div>
             </div>
