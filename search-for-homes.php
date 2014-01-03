@@ -11,7 +11,7 @@
                 $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
                 $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
                 
-                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_min >= '.$beds.' AND sq_ft >= '.$sq_ft;    
+                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
                 
                 if ($builder) {
                     $where_clause .= ' AND builder = "'.$builder.'"';
@@ -39,20 +39,14 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
-	
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/bootstrap.min.js"></script>
-	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
-	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper">
     <?php get_header() ?>
     <div class="w1">
 		<div id="bg" class="bg-without-mask">
-			<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-03.jpg" alt="">
-		</div>
+				<img src="<?php the_field('hero_image'); ?>" alt="">
+						</div>
 		<nav>
 			<ul class="breadcrumbs">
                 <?php the_breadcrumb(); ?>
@@ -90,20 +84,19 @@
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="true" />
                                         <input class="steps" type="hidden" value="1000" />
-                                        <input class="min" type="hidden" value="0" />
-                                        <input class="max" type="hidden" value="1000000" />
-                                        <input class="v1" type="hidden" value="180000" />
-                                        <input class="v2" type="hidden" value="650000" />
+										<input class="min" type="hidden" value="190000" /> 
+                                        <input class="max" type="hidden" value="500000" />
+										<input class="v1" type="hidden" name="price_min" value="195000" /> 
+                                        <input class="v2" type="hidden" name="price_max" value="350000" />
                                     </div>
                                     <div class="range-values add">
-                                        <strong>$<span class="disp-v1">180,000</span></strong>
+                                        <strong>$<span class="disp-v1">195,000</span></strong>
                                         <strong class="max">$<span class="disp-v2">650,000</span></strong>
                                     </div>
                                 </div>
                             </div>
                             
                             <strong class="title">Bedrooms</strong>
-                                <input type="text" name="beds" />
                             <div class="slider-bar range-block">
                                 <a class="btn btn-minus" href="#">–</a>
                                 <a class="btn btn-plus" href="#">+</a>
@@ -111,8 +104,8 @@
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
                                         <input class="min" type="hidden" value="0" />
-                                        <input class="max" type="hidden" value="8" />
-                                        <input class="v1" type="hidden" value="2" />
+                                        <input class="max" type="hidden" value="6" />
+                                        <input class="v1" type="hidden" name="beds" value="2" />
                                     </div>
                                     <div class="range-values">
                                         <strong><span class="disp-v1">2</span>+</strong>
@@ -121,16 +114,15 @@
                             </div>
 
                             <strong class="title">Square Footage</strong>
-                                <input type="text" name="sq_ft" />
                             <div class="slider-bar range-block">
                                 <a class="btn btn-minus" href="#">–</a>
                                 <a class="btn btn-plus" href="#">+</a>
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="0" />
-                                        <input class="max" type="hidden" value="10000" />
-                                        <input class="v1" type="hidden" value="1500" />
+                                        <input class="min" type="hidden" value="1500" />
+                                        <input class="max" type="hidden" value="5000" />
+                                        <input class="v1" name="sq_ft" type="hidden" value="1500" />
                                     </div>
                                     <div class="range-values">
                                         <strong><span class="disp-v1">1500</span>+</strong>
@@ -143,11 +135,9 @@
                                     <option selected="selected" value="0">Stories</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="3">3</option>
                                 </select>
                                 <select name="garage_bays">
                                     <option selected="selected" value="0">Garage Bays</option>
-                                    <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                 </select>
@@ -197,10 +187,8 @@
                         <div class="info-block">
                             <div class="scrollable-area">
                                 <h1>Request Information</h1>
-                                <p>At vero eos et accusamus et ius to ud odio as dignissimos du cimus qui et blanditiis prae et sentium voluptatum deleniti at que cor yiy rupti quos dio dolo res et quas molestias en exc en pturi sint occaecati cup iditate nonik provident, simi liq ue sunt in culpa qui offi cia deserunt mo llitia animi, id est laborum et id est laborum et id est laborum et</p>
-                            
-                               <a class="button" href="#" data-toggle="modal" data-target="#requestInfo">Request Information</a>
-                            
+                                <p>Not Ready To Choose? No problem. Let us send you more information on your builder(s) of interest. </p>								
+<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
                             </div>
                         </div>
                         <div class="table-block">
@@ -252,7 +240,7 @@
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Garage Bays</span>
+                                                    <th><span>Garages</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
@@ -290,6 +278,7 @@
                             </div>
                         </div>
                     </div>
+                    <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:15px 200px 15px;">Request Information</a>
                     <ul class="companies-list">
                     	<li>
                             <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
@@ -328,56 +317,73 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Request Info</h4>
-            </div>
+ <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information<br />are on their way!</div></h4>             </div>
             <div class="modal-body">
-                <form id="frmRequestInfo" role="form">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" />
+                <div class="step1">
+                    <form id="frmRequestInfo" role="form">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="builders[]" value="beazer homes"> Beazer Homes
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="builders[]" value="kb home"> KB Home
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="builders[]" value="pardee homes"> Pardee Homes
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="builders[]" value="toll brothers"> Toll Brothers
+                            </label>
+                        </div>
+                        <div class="floatLeft">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+                            </div>
+                        </div>
+                        <div class="floatRight">
+                            <div class="form-group">
+                                <label for="comment">Comment</label>
+                                <textarea class="form-control" id="comment" name="comment" placeholder="Comment"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="frmSub">
+                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be sent to your email address.</p>
+                        <button id="submitRequestInfo" type="button" class="btn btn-primary">Continue</button>
                     </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" />
+                </div>
+                <div class="step2" style="display:none;">
+                    <ul id="modelList"></ul>
+                    <div class="frmSub">
+                        <p class="floatLeft threeHundred">We appreciate your interest!</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Continue</button>
+                          </div>	 	
+	                    <div class="builder_logos">	 	
+                        <a href="http://www.beazer.com" target="_blank" class="beazer_homes"></a>	 	
+						<a href="#" target="_blank" class="kb_home"></a>	 	
+                       <a href="http://www.pardeehomes.com/" target="_blank" class="pardee_homes"></a>	 	
+                        <a href="http://www.tollbrothers.com/NV/Toll_Brothers_at_Inspirada" target="_blank" class="toll_bros"></a>	
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
-                    </div>
-                    <div class="form-group">
-                        <label for="comment">Comment</label>
-                        <textarea class="form-control" id="comment" name="comment" placeholder="Comment"></textarea>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="builders[]"> Beazer Homes
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="builders[]"> KB Home
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="builders[]"> Pardee Homes
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="builders[]"> Toll Brothers
-                        </label>
-                    </div>
-                </form>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="submitRequestInfo" type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

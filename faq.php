@@ -19,10 +19,7 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
 
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
+	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
@@ -31,8 +28,8 @@
 		<?php get_header() ?>
 		<div class="w1">
 			<div id="bg" class="bg-without-mask">
-				<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-07.jpg" alt="">
-			</div>
+				<img src="<?php the_field('hero_image'); ?>" alt="">
+							</div>
 			<nav>
 				<ul class="breadcrumbs">
 <?php the_breadcrumb(); ?>
@@ -46,23 +43,24 @@
 		<div id="main">
 			<div class="main-holder">
 				<div id="content" class="main-col">
-					<div class="section-box">
+					<div class="section-box faq-box">
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php the_content(); ?>
 						<?php endwhile; // end of the loop. ?>						
 					</div>
-					
-					<ul class="nav nav-tabs">
-						<li><a href="#tab01" data-toggle="tab">One</a></li>
-						<li><a href="#tab02" data-toggle="tab">Two</a></li>
-						<li><a href="#tab03" data-toggle="tab">Three</a></li>
-						<li><a href="#tab04" data-toggle="tab">Four</a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane active" id="tab01"><?php the_block('Tab One'); ?></div>
-						<div class="tab-pane" id="tab02"><?php the_block('Tab Two'); ?></div>
-						<div class="tab-pane" id="tab03"><?php the_block('Tab Three'); ?></div>
-						<div class="tab-pane" id="tab04"><?php the_block('Tab Four'); ?></div>
+					<div class="faq-tabs">
+						<ul class="nav nav-tabs">
+							<li><a href="#tab01" data-toggle="tab">One</a></li>
+							<li><a href="#tab02" data-toggle="tab">Two</a></li>
+							<li><a href="#tab03" data-toggle="tab">Three</a></li>
+							<li><a href="#tab04" data-toggle="tab">Four</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab01"><?php the_block('Tab One'); ?></div>
+							<div class="tab-pane" id="tab02"><?php the_block('Tab Two'); ?></div>
+							<div class="tab-pane" id="tab03"><?php the_block('Tab Three'); ?></div>
+							<div class="tab-pane" id="tab04"><?php the_block('Tab Four'); ?></div>
+						</div>
 					</div>
 
 				</div>

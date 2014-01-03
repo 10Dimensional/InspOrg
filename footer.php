@@ -4,7 +4,7 @@
 	<?php if ( ! dynamic_sidebar('footer-left') ) : ?>
 				<?php endif; ?>
 		<div id="footermenu">
- <?php wp_nav_menu( array('menu' => 'Footer Menu', 'items_wrap' => 'INSPIRADA 2014. All Rights Reserved.  %3$s', )); ?>
+ <?php wp_nav_menu( array('menu' => 'Footer Menu', 'items_wrap' => '&copy;INSPIRADA 2014. All Rights Reserved.  %3$s', )); ?>
 	</div>
 										</section>
 			<section class="contacts-column">

@@ -1,6 +1,6 @@
 <?php
             /*
-                	Template Name: category
+                	Template Name: events
                 	                */ 
                 ?>
 <!DOCTYPE html>
@@ -42,10 +42,18 @@
 	<div class="events-section">
 			<div class="holder">
 				<div class="frame">
-				<?php
-
-// The Loop
-while ( have_posts() ) : the_post(); ?>
+<?php
+    $args=array(
+      'post_type' => 'post',
+      'post_status' => 'publish',
+      'posts_per_page' => 8,
+      'caller_get_posts'=> 1
+      );
+    $my_query = null;
+    $my_query = new WP_Query($args);
+    if( $my_query->have_posts() ) {
+      echo '';
+      while ($my_query->have_posts()) : $my_query->the_post(); ?>      
 					<section class="box">
 						<a class="btn-lightbox" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="description">
@@ -59,7 +67,10 @@ while ( have_posts() ) : the_post(); ?>
 							</div>
 						</div>
 					</section>
-			<?php endwhile; // End Loop ?>
+			<?php
+      endwhile;
+    }
+wp_reset_query(); ?>
 				</div>
 			</div>
 				<?php get_footer() ?>
