@@ -1,6 +1,6 @@
 <?php
                 /*
-                	Template Name: search-for-homes
+                	Template Name: Beazer Homes
                 */ 
                 
                 $price_min = ($_GET['price_min']) ? $_GET['price_min'] : 0;
@@ -11,7 +11,7 @@
                 $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
                 $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
                 
-                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
+                $where_clause = 'WHERE builder = "Beazer Homes" AND price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
                 
                 if ($builder) {
                     $where_clause .= ' AND builder = "'.$builder.'"';
@@ -39,6 +39,9 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	<style>
+	    div.scrollable-area-wrapper.noscroll-horizontal.noscroll-vertical, div.scrollable-area.anyscrollable {height:auto !important;}
+	</style>
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper">
@@ -70,127 +73,10 @@
 
             <?php endwhile; // end of the loop. ?>
             
-            
-            <section class="filter-section">
-                <div class="panel">
-                    <h1>Search by Preferences</h1>
-                    <form id="frmPropertySearch" class="filter-form" action="#">
-                        <fieldset>
-                            <strong class="title">Price Range</strong>
-                            <div class="slider-bar range-box">
-                                <a class="btn btn-minus" href="#">–</a>
-                                <a class="btn btn-plus" href="#">+</a>
-                                <div class="range-holder">
-                                    <div class="slider-range">
-                                        <input class="range" type="hidden" value="true" />
-                                        <input class="steps" type="hidden" value="1000" />
-										<input class="min" type="hidden" value="190000" /> 
-                                        <input class="max" type="hidden" value="500000" />
-										<input class="v1" type="hidden" name="price_min" value="195000" /> 
-                                        <input class="v2" type="hidden" name="price_max" value="350000" />
-                                    </div>
-                                    <div class="range-values add">
-                                        <strong>$<span class="disp-v1">195,000</span></strong>
-                                        <strong class="max">$<span class="disp-v2">650,000</span></strong>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <strong class="title">Bedrooms</strong>
-                            <div class="slider-bar range-block">
-                                <a class="btn btn-minus" href="#">–</a>
-                                <a class="btn btn-plus" href="#">+</a>
-                                <div class="range-holder">
-                                    <div class="slider-range">
-                                        <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="0" />
-                                        <input class="max" type="hidden" value="6" />
-                                        <input class="v1" type="hidden" name="beds" value="2" />
-                                    </div>
-                                    <div class="range-values">
-                                        <strong><span class="disp-v1">2</span>+</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <strong class="title">Square Footage</strong>
-                            <div class="slider-bar range-block">
-                                <a class="btn btn-minus" href="#">–</a>
-                                <a class="btn btn-plus" href="#">+</a>
-                                <div class="range-holder">
-                                    <div class="slider-range">
-                                        <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="1500" />
-                                        <input class="max" type="hidden" value="5000" />
-                                        <input class="v1" name="sq_ft" type="hidden" value="1500" />
-                                    </div>
-                                    <div class="range-values">
-                                        <strong><span class="disp-v1">1500</span>+</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="select-row">
-                                <select name="stories">
-                                    <option selected="selected" value="0">Stories</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </select>
-                                <select name="garage_bays">
-                                    <option selected="selected" value="0">Garage Bays</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            
-                            <div class="radio-area">
-                                <strong class="title">Search By Builder</strong>
-                                
-                                <div class="rad-holder">
-                                    <input id="radio-01" type="radio" name="builder" value="Beazer" />
-                                    <label for="radio-01">Beazer</label>
-                                </div>
-                                <div class="rad-holder">
-                                    <input id="radio-02" type="radio" name="builder" value="KB Home" />
-                                    <label for="radio-02">KB Home</label>
-                                </div>
-                                <div class="rad-holder">
-                                    <input id="radio-03" type="radio" name="builder" value="Pardee" />
-                                    <label for="radio-03">Pardee</label>
-                                </div>
-                                <div class="rad-holder">
-                                    <input id="radio-04" type="radio" name="builder" value="Toll Brothers" />
-                                    <label for="radio-04">Toll Brothers</label>
-                                </div>
-                                <div class="rad-holder">
-                                    <input id="radio-00" type="radio" name="builder" value="all" />
-                                    <label for="radio-00">All</label>
-                                </div>
-                                <div class="rad-holder">
-                                    
-                                </div>
-                            </div>
-
-                            <input type="submit" value="FILTER" />
-                            <div class="matches-counter">
-                                <strong class="number"><?php echo count($properties); ?></strong>matches
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="map-block"><img class="placeholder" alt="image description" src="/wp-content/uploads/2013/12/map-placeholder.png" /></div>
-            </section>
-            
+            <?php if ($properties) { ?>
             <div id="result_shell">
     		    <section class="info-section">
                     <div class="holder">
-                        <div class="info-block">
-                            <div class="scrollable-area">
-                                <h1>Request Information</h1>
-                                <p>Not Ready To Choose? No problem. Let us send you more information on your builder(s) of interest. </p>								
-<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
-                            </div>
-                        </div>
                         <div class="table-block">
                             <div class="scrollable-area anyscrollable">
                                 <div class="table-holder">
@@ -278,35 +164,10 @@
                             </div>
                         </div>
                     </div>
-                    <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:15px 200px 15px;">Request Information</a>
-                    <ul class="companies-list">
-                    	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
-                            <strong class="title">Beazer Homes</strong>
-                    
-                            <dl><dt><strong>Coming Spring 2015</strong></dt><dd></dd><dt><strong>Phone:</strong></dt><dd>(702) 987-0055</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd></dl>
-                        </li>
-                    	<li>
-                            <div class="img-holder"><a href="3"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
-                            <strong class="title">KB Home</strong>
-                    
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 266-9900</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@kbhome.com">info@kbhome.com</a></dd></dl>
-                        </li>
-                    	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
-                            <strong class="title">Pardee Homes</strong>
-                    
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 614-1400</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@pardeehomes.com">info@pardeehomes.com</a></dd></dl>
-                        </li>
-                    	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
-                            <strong class="title">Toll Brothers</strong>
-                    
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 243-9800</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@tollbrothers.com">info@tollbrothers.com</a></dd></dl>
-                        </li>
-                    </ul>
+                    <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:15px 25px 15px;">Request Information</a>
                 </section>
-    		</div>                
+    		</div>
+    		<?php } ?>             
 		</div>
 	</div>
 </div>
