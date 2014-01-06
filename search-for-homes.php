@@ -267,7 +267,7 @@
                                                             <td><?php echo $property->stories; ?></td>
                                                             <td><?php echo $garage_bays; ?></td>
                                                             <td><a href="#">Slideshow</a></td>
-                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
+                                                            <td style="text-align:center"><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
                                                         </tr>
                                                     <?php } ?>                                 
                                                 
