@@ -4257,11 +4257,11 @@ li {list-style-type: none;}
 
 
 .roster_slider_set{width:492px;padding:0 24px;} 
-.roster_slider_set .sldr_title{font-family: Trebuchet MS,sans-serif;font-size:18px;font-weight:bold;font-style:normal;color:#3F4C6B;margin:5px 0 10px 0} 
-.roster_slider_set .roster_slideri:nth-child(n+1) {background-color:#9aa747 !important;width:135px;height:170px;} 
-.roster_slider_set .roster_slideri:nth-child(n+2) {background-color:#0493a6 !important;width:135px;height:170px;}
-.roster_slider_set .roster_slideri:nth-child(n+3) {background-color:#e96a50 !important;width:135px;height:170px;}
-.roster_slider_set .roster_slideri:nth-child(n+4) {background-color:#2fc6bd !important;width:135px;height:170px;} 
+.roster_slider_set .sldr_title{font-family: Trebuchet MS,sans-serif;font-size:18px;font-weight:bold;font-style:normal;color:#3F4C6B;margin:5px 0 10px 0; display: none;} 
+.roster_slider_set .roster_slideri:nth-child(n+1) {background-color:#9aa747 !important;width:135px;height:170px; border: none !important;} 
+.roster_slider_set .roster_slideri:nth-child(n+2) {background-color:#0493a6 !important;width:135px;height:170px; border: none !important;}
+.roster_slider_set .roster_slideri:nth-child(n+3) {background-color:#e96a50 !important;width:135px;height:170px; border: none !important;}
+.roster_slider_set .roster_slideri:nth-child(n+4) {background-color:#2fc6bd !important;width:135px;height:170px; border: none !important;} 
 .roster_slider_set .roster_slider_thumbnail{display: block; width: 100%; height: auto; margin: 0 0 6px;} 
 .roster_slider_set .roster_slideri h2{color: #fff !important; text-decoration: none !important;} 
 .roster_slider_set .roster_slideri h2 a{font: 12px/14px 'roboto_slabbold', 'Times New Roman', Times, serif !important; text-transform: none !important; text-align: left !important; color: #fff !important;
