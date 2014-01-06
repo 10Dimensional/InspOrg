@@ -4115,6 +4115,7 @@ li {list-style-type: none;}
 }
 .events-section .description{
 	overflow:hidden;
+	padding-top: 7px;
 }
 .events-section .date-box{
 	float:right;
@@ -4125,15 +4126,7 @@ li {list-style-type: none;}
 	text-align:center;
 	color:#fff;
 	margin:0 0 0 9px;
-}
-.events-section .date-box:before{
-	content:'';
-	position:absolute;
-	top:0;
-	right:100%;
-	width:1px;
-	height:9999px;
-	background:#fff;
+	border-left: white 1px solid;
 }
 .events-section .date-box a{
 	color:#fff;
@@ -4156,6 +4149,7 @@ li {list-style-type: none;}
 }
 .events-section .text-wrap{
 	overflow:hidden;
+	height: 130px;
 }
 .events-section h1{
 	font:14px/20px 'arimobold', Arial, Helvetica, sans-serif;
@@ -4276,28 +4270,22 @@ li {list-style-type: none;}
 .roster_slider_set .roster_slideri p.more{color:#0067B7;font-family:Verdana,Geneva,sans-serif;font-size:11px;} 
 .roster_slider_set .roster_next{background: url('../images/sprite.png') no-repeat -4px -181px no-repeat 0 0 !important; top:45%;} 
 .roster_slider_set .roster_prev{background: transparent url(http://166.78.0.133/wp-content/plugins/roster-slider/css/skins/default/buttons/default/prev.png) no-repeat 0 0;top:45%;}
-.builder_logos {border-top:#69c1e4 solid 1px; margin-top:25px;}
-.builder_logos a {height:70px;}
-.builder_logos a:hover {background-color:#7cc9e7;}
-.builder_logos .beazer_homes {background:url('../images/beazer_logo.png') no-repeat center; width:25%; float:left; display:block;}
-.builder_logos .pardee_homes {background:url('../images/pardee_logo.png') no-repeat center; width:25%; float:left; display:block;}
-.builder_logos .kb_home {background:url('../images/kb_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
-.builder_logos .toll_bros {background:url('../images/toll_logo.png') no-repeat center; width:25%; float:left; display:block;}
+.builder_logos {padding:20px 0; border-top:#69c1e4 solid 1px;}
+.builder_logos .beazer_homes {background:url('../images/beazer_logo.jpg') no-repeat; width:25%; float:left; display:block;}
+.builder_logos .pardee_homes {background:url('../images/pardee_logo.jpg') no-repeat; width:25%; float:left; display:block;}
+.builder_logos .kb_home {background:url('../images/kb_logo.jpg') no-repeat; width:25%; float:left; display:block;}
+.builder_logos .toll_bros {background:url('../images/toll_logo.jpg') no-repeat; width:25%; float:left; display:block;}
 .modal-header {background:#7cc9e7;}
 .modal-content {border-radius:0; overflow:hidden;}
-.modal-body {float:left; width:100%; padding-bottom:0;}
-.modal-body .step2 .frmSub p {display:block; clear:both; float:none; text-align:center; width:auto;}
-.modal-body .step2 .frmSub .btn {margin:auto; display:block; float:none;}
+.modal-body {float:left; width:100%;}
 .modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
 .modal-body .checkbox label {float:none;}
 .modal-body .step2 ul li {list-style-type:disc; width:50%; float:left;}
 .modal-body input[type="text"], .modal-body input[type="email"], .modal-body textarea {width:205px; display:inline;}
 .modal-dialog {width:650px;}
-.modal-body .btn-primary {border-radius:0; background:#0093a8; text-transform:uppercase; color:#fff;}
 .modal-body textarea {height:180px;}
-#requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
+-#requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
 .frmSub {width:400px; margin:auto; padding-top:25px; clear:both;}
-.frmSub p {color:#3a6a7a; font:16px 'arimoregular', Helvetica, sans-serif;}
 .step2_head {text-align:center;}
 .threeHundred {width:300px;}
 .modal-footer {float:left; width:100%;}
