@@ -523,6 +523,7 @@ margin-left: 17%;
 	line-height:16px;
 	overflow:hidden;
 	max-width:1000px;
+	color: white;
 }
 .breadcrumbs li{
 	float:left;
@@ -542,7 +543,7 @@ margin-left: 17%;
 	content:'';
 }
 .breadcrumbs a{
-	color:#000;
+	color:#fff;
 	text-decoration:none;
 }
 .breadcrumbs a:hover{
