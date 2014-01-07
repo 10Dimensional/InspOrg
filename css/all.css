@@ -4256,7 +4256,7 @@ li {list-style-type: none;}
 #footermenu li {display: inline; }
 
 
-.roster_slider_set{width:492px;padding:0 24px;} 
+.roster_slider_set{width:540px !important;padding:0 24px;} 
 .roster_slider_set .sldr_title{font-family: Trebuchet MS,sans-serif;font-size:18px;font-weight:bold;font-style:normal;color:#3F4C6B;margin:5px 0 10px 0; display: none;} 
 .roster_slider_set .roster_slideri:nth-child(n+1) {background-color:#9aa747 !important;width:135px;height:170px; border: none !important;} 
 .roster_slider_set .roster_slideri:nth-child(n+2) {background-color:#0493a6 !important;width:135px;height:170px; border: none !important;}
@@ -4266,6 +4266,7 @@ li {list-style-type: none;}
 .roster_slider_set .roster_slideri h2{color: #fff !important; text-decoration: none !important;} 
 .roster_slider_set .roster_slideri h2 a{font: 12px/14px 'roboto_slabbold', 'Times New Roman', Times, serif !important; text-transform: none !important; text-align: left !important; color: #fff !important;
 } 
+.roster_slider div.roster_slideri { padding: 0px; }
 .roster_slider_set .roster_slideri span{font-family: Verdana,Geneva,sans-serif;font-size:11px;font-weight:normal;font-style:normal;color:#222222;} 
 .roster_slider_set .roster_slideri p.more{color:#0067B7;font-family:Verdana,Geneva,sans-serif;font-size:11px;} 
 .roster_slider_set .roster_next{background: url('../images/sprite.png') no-repeat -4px -181px no-repeat 0 0 !important; top:45%;} 
