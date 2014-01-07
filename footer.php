@@ -1,7 +1,7 @@
 	<footer id="footer">
 		<div class="footer-holder">
 			<section class="column">
-				<h2>Featured Posts</h2>
+				<h1>Featured Posts</h1>
 				<div class="carousel">
 					<div class="carousel-holder">
 						<div class="mask">
