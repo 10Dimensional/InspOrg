@@ -30,7 +30,7 @@
 													<em class="date"><?php echo date('m.d.y', strtotime($f_post->post_date)); ?></em>
 													<h1><a href="#"></a><?php echo $f_post->post_title; ?></h1>
 													<p><?php echo get_the_excerpt(); ?></p>
-													<a href="<?php echo get_permalink($f_post->ID); ?>">Read more</a>
+													<a href="<?php echo get_permalink($f_post->ID); ?>" style="color: #0093a8">MORE >></a>
 												</div>
 											</div>
 										</section>
