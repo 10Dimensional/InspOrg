@@ -79,11 +79,8 @@ a{
 }
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
-<<<<<<< HEAD
-=======
 a.anchor{display: block; position: relative; top: -109px; visibility: hidden;}
 .ui-slider-handle:focus {outline: 0;}
->>>>>>> bcf59689d3fbfbf5a45f281aeaaa4cefdb2674a1
 input,
 textarea,
 select{
