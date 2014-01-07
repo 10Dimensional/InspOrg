@@ -79,6 +79,10 @@ a{
 }
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
+<<<<<<< HEAD
+=======
+a.anchor{display: block; position: relative; top: -109px; visibility: hidden;}
+>>>>>>> bad6e5574f306e9f7c02237b2cb3719949086ec7
 .ui-slider-handle:focus {outline: 0;}
 input,
 textarea,
