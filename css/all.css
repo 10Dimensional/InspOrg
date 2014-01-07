@@ -80,6 +80,7 @@ a{
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
 a.anchor{display: block; position: relative; top: -109px; visibility: hidden;}
+.ui-slider-handle:focus {outline: 0;}
 input,
 textarea,
 select{
