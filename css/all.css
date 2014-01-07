@@ -79,10 +79,6 @@ a{
 }
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
-<<<<<<< HEAD
-=======
-a.anchor{display: block; position: relative; top: -109px; visibility: hidden;}
->>>>>>> bad6e5574f306e9f7c02237b2cb3719949086ec7
 .ui-slider-handle:focus {outline: 0;}
 input,
 textarea,
@@ -598,7 +594,7 @@ margin-left: 17%;
 	background-image:url(../images/hexagon-2.png);
 }
 .page-title-1 .icon img{
-	margin:0 0 0;
+	margin:0px 0 0;
 }
 .page-title-2 .icon{
 	background-image:url(../images/hexagon-3.png);
