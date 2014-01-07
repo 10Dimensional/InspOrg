@@ -40,6 +40,7 @@
 					</div>			
 			</div>
 			</section>
+			<a class="anchor" id="schools-menu"></a>
 			<section id="schools" class="content-section style-1">
 				<div class="holder">
 					<?php the_field('schools'); ?>
@@ -48,6 +49,7 @@
 					</div>
 				</div>
 			</section>
+			<a class="anchor" id="shopping-menu"></a>
 			<section id="shopping" class="content-section style-2">
 				<div class="holder">
 					<?php the_field('shopping'); ?>
@@ -56,6 +58,7 @@
 					</div>
 				</div>
 			</section>
+			<a class="anchor" id="dining-menu"></a>
 			<section id="dining" class="content-section style-1">
 				<div class="holder">
 					<?php the_field('dining'); ?>
@@ -63,7 +66,8 @@
 						<a href="#henderson" class="btn-next-section go">More: Henderson</a>
 					</div>
 				</div>
-			</section>			
+			</section>
+			<a class="anchor" id="henderson-menu"></a>			
 			<section id="henderson" class="content-section style-2">
 				<div class="holder">
 					<?php the_field('henderson'); ?>
@@ -72,7 +76,8 @@
 					</div>
 				</div>
 			</section>
-						<section id="attractions" class="content-section style-3">
+			<a class="anchor" id="attractions-menu"></a>
+			<section id="attractions" class="content-section style-3">
 				<div class="holder">
 					<?php the_field('areaattractions'); ?>
 				</div>
