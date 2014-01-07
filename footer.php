@@ -1,7 +1,7 @@
 	<footer id="footer">
 		<div class="footer-holder">
 			<section class="column">
-				<h1>Featured Posts</h1>
+				<h1>LIVE INSPIRED - THE INSPIRADA BLOG</h1>
 				<div class="carousel">
 					<div class="carousel-holder">
 						<div class="mask">
