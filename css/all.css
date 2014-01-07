@@ -79,11 +79,7 @@ a{
 }
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
-<<<<<<< HEAD
-=======
-a.anchor{display: block; position: relative; top: -109px; visibility: hidden;}
 .ui-slider-handle:focus {outline: 0;}
->>>>>>> bcf59689d3fbfbf5a45f281aeaaa4cefdb2674a1
 input,
 textarea,
 select{
@@ -3224,6 +3220,42 @@ margin-top: -9px;
 	.features-section{
 		padding:0 20px 0;
 	}
+		.buttons-list li:nth-child(n+1) {
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+		.buttons-list li:nth-child(n+2) {
+		margin: 0 auto;
+		margin-bottom: 20px;
+
+
+	}
+		.buttons-list li:nth-child(n+3) {
+		margin: 0 auto;
+
+	}
+	.events-section > .holder {
+		width: 90% 
+		}
+	.events-section {
+		width: 80% 
+		}
+	.events-section .box {
+		width: 20%
+		}
+	#main {
+		width: 90%
+		}
+	.section-box {
+		width: 80%;
+		padding-left: 15px;
+		}
+	.page-title {
+	margin-left: 10%
+	}
+	.btn-next-section {
+		margin: 0 auto;
+		}
 	.footer-holder .column{
 		float:none;
 		margin:0 auto 20px;
