@@ -158,7 +158,7 @@ img.aligncenter{
 	width:100%;
 	height:100%;
 	z-index:12;
-	margin-left: 0;
+	left: 0;
 	background:url(../images/bg-mask.png) repeat;
 }
 #bg.bg-without-mask:after{
@@ -1094,7 +1094,8 @@ margin-left: 7%;
 }
 .filter-form input[type="submit"]{
 	display:block;
-	margin:0 auto 21px;	
+	margin:0 auto 17px;	
+	margin-top: 14px;
 	padding:0;
 	border:none;
 	background:#00899f;
@@ -4471,4 +4472,9 @@ box-sizing: border-box;
 	}
 label {
 display: inline !important;
+}
+#mbTitle {
+font: 16px/20px "roboto_slabbold","Times New Roman",Times,serif;
+color: #f5fcc7;
+text-transform: uppercase;
 }
