@@ -44,7 +44,7 @@
 <div id="wrapper">
     <?php get_header() ?>
     <div class="w1">
-		<div id="bg" class="bg-without-mask">
+		<div id="bg" class="bg-with-mask">
 				<img src="<?php the_field('hero_image'); ?>" alt="">
 						</div>
 		<nav>
@@ -59,7 +59,7 @@
 	</div>
 	<section class="text-section">
 		<div class="holder">
-				<?php the_field('searchheadliner'); ?>
+				<?php the_field('headliner'); ?>
 					</div>
 	</section>
 	<div class="search-section">
@@ -148,7 +148,7 @@
                                 
                                 <div class="rad-holder">
                                     <input id="radio-01" type="radio" name="builder" value="Beazer" />
-                                    <label for="radio-01">Beazer</label>
+                                    <label for="radio-01">Beazer <br>Coming Spring 2015</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-02" type="radio" name="builder" value="KB Home" />
@@ -156,7 +156,7 @@
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="radio" name="builder" value="Pardee" />
-                                    <label for="radio-03">Pardee</label>
+                                    <label for="radio-03">Pardee <br>Coming in June</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="radio" name="builder" value="Toll Brothers" />
@@ -167,7 +167,7 @@
                                     <label for="radio-00">All</label>
                                 </div>
                                 <div class="rad-holder">
-                                    
+                               
                                 </div>
                             </div>
 
@@ -186,8 +186,8 @@
                     <div class="holder">
                         <div class="info-block">
                             <div class="scrollable-area">
-                                <h1>Request Information</h1>
-                                <p>Not Ready To Choose? No problem. Let us send you more information on your builder(s) of interest. </p>								
+                                <h1>Not Ready To Choose?</h1>
+                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>								
 <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
                             </div>
                         </div>
@@ -246,8 +246,8 @@
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Images</span></th>
-                                                    <th><span>Interested?</span></th>
+                                                    <th><span>Renderings</span></th>
+                                                    <th><span>Info Pack</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="result_body">
@@ -267,7 +267,7 @@
                                                             <td><?php echo $property->stories; ?></td>
                                                             <td><?php echo $garage_bays; ?></td>
                                                             <td><a href="#">Slideshow</a></td>
-                                                            <td style="text-align:center"><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
+                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
                                                         </tr>
                                                     <?php } ?>                                 
                                                 
@@ -278,7 +278,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:15px 200px 15px;">Request Information</a>
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
                     <ul class="companies-list">
                     	<li>
                             <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>

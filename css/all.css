@@ -1162,6 +1162,17 @@ margin-left: 7%;
 	background:#8ad6e1;
 	background:rgba(255,255,255, 0.5);
 }
+.button-request {
+display: inline-block;
+vertical-align: top;
+font: 16px/18px 'roboto_slabbold', 'Times New Roman', Times, serif;
+text-transform: uppercase;
+padding: 9px 5px 8px;
+text-align: center;
+color: #fff;
+text-decoration: none;
+background: #0093a8;
+}
 .button:active{
 	background:#8ad6e1;
 	background:rgba(255,255,255, 0.5);
