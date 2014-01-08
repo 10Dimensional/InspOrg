@@ -79,10 +79,6 @@ a{
 }
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
-<<<<<<< HEAD
-=======
-a.anchor{display: block; position: relative; top: -109px; visibility: hidden;}
->>>>>>> bad6e5574f306e9f7c02237b2cb3719949086ec7
 .ui-slider-handle:focus {outline: 0;}
 input,
 textarea,
@@ -161,7 +157,10 @@ img.aligncenter{
 	position:absolute;
 	width:100%;
 	height:100%;
-	background:url(../images/bg-mask.png);
+	z-index:12;
+	margin-top: -100px;
+	margin-left: 0;
+	background:url(../images/bg-mask.png) repeat;
 }
 #bg.bg-without-mask:after{
 	width:0;
@@ -190,7 +189,7 @@ img.aligncenter{
 	clear:both;
 }
 .logo{
-	width:261px;
+	width:180px;
 	height:80px;
 	background:url(../images/logo.png) no-repeat;
 	text-indent:-9999px;
@@ -598,7 +597,7 @@ margin-left: 17%;
 	background-image:url(../images/hexagon-2.png);
 }
 .page-title-1 .icon img{
-	margin:12px 0 0;
+	margin:0px 0 0;
 }
 .page-title-2 .icon{
 	background-image:url(../images/hexagon-3.png);
@@ -3205,7 +3204,7 @@ margin-top: -9px;
 		padding:0;
 		float:none;
 		width:auto;
-		margin:0 0 -9px;
+		margin: 20px auto 20px;
 	}
 	#nav > li{
 		float:none;
@@ -3218,7 +3217,7 @@ margin-top: -9px;
 		padding:0 10px 28px;
 	}
 	.intro-section h1{
-		font-size:50px;
+		font-size:35px;
 		line-height:60px;
 		padding-top:15px;
 	}
