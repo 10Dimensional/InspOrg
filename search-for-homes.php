@@ -11,7 +11,7 @@
                 $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
                 $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
                 
-                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
+                $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
                 
                 if ($builder) {
                     $where_clause .= ' AND builder = "'.$builder.'"';
@@ -86,8 +86,8 @@
                                         <input class="steps" type="hidden" value="1000" />
 										<input class="min" type="hidden" value="190000" /> 
                                         <input class="max" type="hidden" value="500000" />
-										<input class="v1" type="hidden" name="price_min" value="195000" /> 
-                                        <input class="v2" type="hidden" name="price_max" value="350000" />
+										<input class="v1" type="hidden" name="price_min" value="<?php echo ($_GET['price_min']) ? $_GET['price_min'] : '195000'; ?>" /> 
+                                        <input class="v2" type="hidden" name="price_max" value="<?php echo ($_GET['price_max']) ? $_GET['price_max'] : '350000'; ?>" />
                                     </div>
                                     <div class="range-values add">
                                         <strong>$<span class="disp-v1">195,000</span></strong>
@@ -103,9 +103,10 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="0" />
+                                        <input class="steps" type="hidden" value="1" />
+                                        <input class="min" type="hidden" value="2" />
                                         <input class="max" type="hidden" value="6" />
-                                        <input class="v1" type="hidden" name="beds" value="2" />
+                                        <input class="v1" type="hidden" name="beds" value="<?php echo ($_GET['beds']) ? $_GET['beds'] : '2'; ?>" />
                                     </div>
                                     <div class="range-values">
                                         <strong><span class="disp-v1">2</span>+</strong>
@@ -122,7 +123,7 @@
                                         <input class="range" type="hidden" value="max" />
                                         <input class="min" type="hidden" value="1500" />
                                         <input class="max" type="hidden" value="5000" />
-                                        <input class="v1" name="sq_ft" type="hidden" value="1500" />
+                                        <input class="v1" name="sq_ft" type="hidden" value="<?php echo ($_GET['sq_ft']) ? $_GET['sq_ft'] : '1500'; ?>" />
                                     </div>
                                     <div class="range-values">
                                         <strong><span class="disp-v1">1500</span>+</strong>
@@ -132,14 +133,14 @@
 
                             <div class="select-row">
                                 <select name="stories">
-                                    <option selected="selected" value="0">Stories</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
+                                    <option <?php echo (!$_GET['stories']) ? 'selected="selected"' : ''; ?> value="0">Stories</option>
+                                    <option value="1" <?php echo ($_GET['stories'] === '1') ? 'selected="selected"' : ''; ?>>1</option>
+                                    <option value="2" <?php echo ($_GET['stories'] === '2') ? 'selected="selected"' : ''; ?>>2</option>
                                 </select>
                                 <select name="garage_bays">
-                                    <option selected="selected" value="0">Garage Bays</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    <option <?php echo (!$_GET['garage_bays']) ? 'selected="selected"' : ''; ?> value="0">Garage Bays</option>
+                                    <option value="2" <?php echo ($_GET['garage_bays'] === '2') ? 'selected="selected"' : ''; ?>>2</option>
+                                    <option value="3" <?php echo ($_GET['garage_bays'] === '3') ? 'selected="selected"' : ''; ?>>3</option>
                                 </select>
                             </div>
                             
