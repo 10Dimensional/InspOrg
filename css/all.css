@@ -4341,7 +4341,7 @@ line-height: 1 !important;
 .builder_logos .toll_bros {background:url('../images/toll_logo.png') no-repeat center; width:25%; float:left; display:block;}
 .modal-header {background:#7cc9e7;}
 .modal-content {border-radius:0; overflow:hidden;}
-.modal-body {float:left; width:100%;}
+.modal-body {float:left; width:100%; padding-bottom:0;}
 .modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
 .modal-body .checkbox label {float:none;}
 .modal-body .step2 ul li {list-style-type:disc; width:50%; float:left;}
