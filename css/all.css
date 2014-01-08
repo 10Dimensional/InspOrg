@@ -80,6 +80,9 @@ a{
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
 .ui-slider-handle:focus {outline: 0;}
+.slideshow-modal .modal-body {padding: 0px;}
+.slideshow-modal .modal-content {margin-top: 20%; background-color: transparent;}
+.slideshow-close {position: absolute; top: 20px; right: 20px; z-index: 10;}
 input,
 textarea,
 select{
