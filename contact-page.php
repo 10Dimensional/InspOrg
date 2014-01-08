@@ -20,7 +20,7 @@
 	<div id="wrapper">
 		<?php get_header() ?>
 		<div class="w1">
-			<div id="bg" class="bg-without-mask">
+			<div id="bg" class="bg-with-mask">
 				<img src="<?php the_field('hero_image'); ?>" alt="">
 			</div>
 			<nav>
@@ -41,8 +41,26 @@
 <?php the_content(); ?>
 
 			<?php endwhile; // end of the loop. ?>
-
+<div class="companies-info-block">
+<div class="holder">
+	<?php the_field('contactright'); ?>
+	</div>
+<div class="social-bar">
+<div class="frame">
+<ul class="social-networks">
+<li><a href="#" title="twitter" class="twitter">twitter</a></li>
+<li><a href="#" title="linkedin" class="linkedin">linkedin</a></li>
+<li><a href="#" title="facebook" class="facebook">facebook</a></li>
+<li><a href="#" title="youtube" class="youtube">youtube</a></li>
+<li><a href="#" title="pinterest" class="pinterest">pinterest</a></li>
+<li><a href="#" title="instagram" class="instagram">instagram</a></li>
+</ul>
+</div>
+	</div>
+	</section>
 		</section>
+</div>
+
 		</div>
 <!--		<section class="start-section">
 			<div class="holder">
