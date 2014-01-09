@@ -55,6 +55,7 @@ function initSliderBlocks() {
 		function refreshNumbers(e, ui) {
 			var value =  sliderBlock.slider(range ? 'values' : 'value');
 			inputV1.val(range ? value[0] : value);
+			
 			if(inputV2.length) inputV2.val(range ? value[1] : value);
 			displayV1.text(numberWithCommas(range ? value[0] : value));
 			if(displayV2.length) displayV2.text(numberWithCommas(range ? value[1] : value));
@@ -66,15 +67,15 @@ function initSliderBlocks() {
 			min: parseFloat(inputMin.val()),
 			max: parseFloat(inputMax.val()),
 			change: refreshNumbers,
-			slide: refreshNumbers
-		};
-		if(range){
-			opt['values'] = [parseFloat(inputV1.val()), parseFloat(inputV2.val())];
+			slide: refreshNumbers,
 		}
-		else{
-			opt['value'] = parseFloat(inputV1.val());
-		};
 		
+		if (range) {
+			opt['values'] = [parseFloat(inputV1.val()), parseFloat(inputV2.val())];
+		} else {
+			opt['value'] = parseFloat(inputV1.val());
+		}
+
 		sliderBlock.slider(opt);
 		if (inputRange.val() == 'max') {
 			var btn = holder.find('.ui-slider-handle');

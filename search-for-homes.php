@@ -97,13 +97,12 @@
                             </div>
                             
                             <strong class="title">Bedrooms</strong>
-                            <div class="slider-bar range-block">
+                            <div class="slider-bar range-box">
                                 <a class="btn btn-minus" href="#">–</a>
                                 <a class="btn btn-plus" href="#">+</a>
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
-                                        <input class="steps" type="hidden" value="1" />
                                         <input class="min" type="hidden" value="2" />
                                         <input class="max" type="hidden" value="6" />
                                         <input class="v1" type="hidden" name="beds" value="<?php echo ($_GET['beds']) ? $_GET['beds'] : '2'; ?>" />
@@ -115,7 +114,7 @@
                             </div>
 
                             <strong class="title">Square Footage</strong>
-                            <div class="slider-bar range-block">
+                            <div class="slider-bar range-box">
                                 <a class="btn btn-minus" href="#">–</a>
                                 <a class="btn btn-plus" href="#">+</a>
                                 <div class="range-holder">
