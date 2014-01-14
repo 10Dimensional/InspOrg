@@ -83,7 +83,7 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="true" />
-                                        <input class="steps" type="hidden" value="1000" />
+                                        <input class="steps" type="hidden" value="10000" />
 										<input class="min" type="hidden" value="190000" /> 
                                         <input class="max" type="hidden" value="500000" />
 										<input class="v1" type="hidden" name="price_min" value="<?php echo ($_GET['price_min']) ? $_GET['price_min'] : '195000'; ?>" /> 
