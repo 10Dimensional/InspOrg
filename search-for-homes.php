@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
-                                    <label for="radio-03">Pardee Homes--Coming in June</label>
+                                    <label for="radio-03">Pardee Homes--Coming June 2014</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
