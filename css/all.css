@@ -4403,14 +4403,18 @@ line-height: 1 !important;
 .modal-body input[type="text"], .modal-body input[type="email"], .modal-body textarea {width:205px; display:inline;}
 .modal-dialog {width:650px;}
 .modal-body textarea {height:180px;}
--#requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
-.frmSub {width:400px; margin:auto; padding-top:25px; clear:both;}
+#requestInfo .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px; float:right; font: 16px 'roboto_slabbold', 'Times New Roman', Times, serif !important;}
+#requestInfo .step2 .btn-primary {float:none;}
+.frmSub {margin:auto; padding:25px 0; clear:both; overflow:hidden;}
 .step2_head {text-align:center;}
+.step2_head strong {font: 18px 'roboto_slabbold', Helvetica, sans-serif;}
 .threeHundred {width:300px;}
+
 .modal-footer {float:left; width:100%;}
 .floatLeft {float:left;}
 .floatRight {float:right;}
-.modal-body label {width:90px; float:left;}
+.modal-body label {width:90px; float:left; font:14px 'arimoregular', Helvetica, sans-serif; padding-top:10px;}
+.step2 a {font:14px 'arimoregular', Helvetica, sans-serif;}
 .events-section .date-box:before{
 content:'';
 position:absolute;
@@ -4533,7 +4537,7 @@ input[type="checkbox"] {
 }
 
 .step1_head {
-	font: 16px/20px "roboto_slabbold","Times New Roman",Times,serif;
+	font: 18px "roboto_slabbold","Times New Roman",Times,serif;
 }
 
 .gform_wrapper .ginput_complex .ginput_full input[type=text], .gform_wrapper .ginput_complex .ginput_full input[type=url], .gform_wrapper .ginput_complex .ginput_full input[type=email], .gform_wrapper .ginput_complex .ginput_full input[type=tel], .gform_wrapper .ginput_complex .ginput_full input[type=number], .gform_wrapper .ginput_complex .ginput_full input[type=password] {
