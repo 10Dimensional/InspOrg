@@ -86,8 +86,8 @@
                                         <input class="steps" type="hidden" value="10000" />
 										<input class="min" type="hidden" value="190000" /> 
                                         <input class="max" type="hidden" value="500000" />
-										<input class="v1" type="hidden" name="price_min" value="<?php echo ($_GET['price_min']) ? $_GET['price_min'] : '195000'; ?>" /> 
-                                        <input class="v2" type="hidden" name="price_max" value="<?php echo ($_GET['price_max']) ? $_GET['price_max'] : '350000'; ?>" />
+										<input class="v1" type="hidden" name="price_min" value="<?php echo ($_GET['price_min']) ? $_GET['price_min'] : '190000'; ?>" /> 
+                                        <input class="v2" type="hidden" name="price_max" value="<?php echo ($_GET['price_max']) ? $_GET['price_max'] : '500000'; ?>" />
                                     </div>
                                     <div class="range-values add">
                                         <strong>$<span class="disp-v1">195,000</span></strong>
@@ -103,6 +103,7 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
+                                        <input class="steps" type="hidden" value="1" />
                                         <input class="min" type="hidden" value="2" />
                                         <input class="max" type="hidden" value="6" />
                                         <input class="v1" type="hidden" name="beds" value="<?php echo ($_GET['beds']) ? $_GET['beds'] : '2'; ?>" />
@@ -120,6 +121,7 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
+                                        <input class="steps" type="hidden" value="100" />
                                         <input class="min" type="hidden" value="1500" />
                                         <input class="max" type="hidden" value="5000" />
                                         <input class="v1" name="sq_ft" type="hidden" value="<?php echo ($_GET['sq_ft']) ? $_GET['sq_ft'] : '1500'; ?>" />
@@ -147,24 +149,20 @@
                                 <strong class="title">Search By Builder</strong>
                                 
                                 <div class="rad-holder">
-                                    <input id="radio-01" type="radio" name="builder" value="Beazer" />
+                                    <input id="radio-01" type="checkbox" name="builder[]" value="Beazer" />
                                     <label for="radio-01">Beazer <br>Coming Spring 2015</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-02" type="radio" name="builder" value="KB Home" />
+                                    <input id="radio-02" type="checkbox" name="builder[]" value="KB Home" />
                                     <label for="radio-02">KB Home</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-03" type="radio" name="builder" value="Pardee" />
-                                    <label for="radio-03">Pardee <br>Coming in June</label>
+                                    <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
+                                    <label for="radio-03">Pardee Homes<br>Coming in June</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-04" type="radio" name="builder" value="Toll Brothers" />
+                                    <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
                                     <label for="radio-04">Toll Brothers</label>
-                                </div>
-                                <div class="rad-holder">
-                                    <input id="radio-00" type="radio" name="builder" value="all" />
-                                    <label for="radio-00">All</label>
                                 </div>
                                 <div class="rad-holder">
                                
