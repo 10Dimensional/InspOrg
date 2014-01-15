@@ -63,7 +63,7 @@ function initSliderBlocks() {
 		// initialize slider
 		var opt = {
 			range: range,
-			step: inputStep.length ? parseFloat(inputStep.val()) : 1,
+			step: (inputStep.length) ? parseFloat(inputStep.val()) : ((inputSteps.length) ? parseFloat(inputSteps.val()) : 1),
 			min: parseFloat(inputMin.val()),
 			max: parseFloat(inputMax.val()),
 			change: refreshNumbers,
@@ -75,7 +75,8 @@ function initSliderBlocks() {
 		} else {
 			opt['value'] = parseFloat(inputV1.val());
 		}
-
+        
+        console.log(opt);
 		sliderBlock.slider(opt);
 		if (inputRange.val() == 'max') {
 			var btn = holder.find('.ui-slider-handle');
@@ -89,20 +90,20 @@ function initSliderBlocks() {
 			})
 			plus.on('click', function(e) {
 				e.preventDefault();
-				sliderBlock.slider( "value", sliderBlock.slider( "value")+1 )
+				sliderBlock.slider( "value", sliderBlock.slider( "value") + parseFloat(inputSteps.val()) )
 			});
 			minus.on('click', function(e) {
 				e.preventDefault();
-				sliderBlock.slider( "value", sliderBlock.slider( "value")-1 )
+				sliderBlock.slider( "value", sliderBlock.slider( "value") - parseFloat(inputSteps.val()) )
 			});
 		} else {
 			plus.on('click', function(e) {
 				e.preventDefault();
-				sliderBlock.slider("values", [sliderBlock.slider("values")[0], sliderBlock.slider("values")[1] + 1000])
+				sliderBlock.slider("values", [sliderBlock.slider("values")[0], sliderBlock.slider("values")[1] + parseFloat(inputSteps.val())])
 			});
 			minus.on('click', function(e) {
 				e.preventDefault();
-				sliderBlock.slider("values", [sliderBlock.slider("values")[0] - inputSteps.val(), sliderBlock.slider("values")[1]])
+				sliderBlock.slider("values", [sliderBlock.slider("values")[0] - parseFloat(inputSteps.val()), sliderBlock.slider("values")[1]])
 			});
 		}
 		// refresh numbers onload
@@ -111,11 +112,29 @@ function initSliderBlocks() {
 };
 
 function initSort(){
+	jQuery.tablesorter.addParser({ 
+	    // set a unique id 
+	    id: 'thousands',
+	    is: function(s) { 
+	        // return false so this parser is not auto detected 
+	        return false; 
+	    }, 
+	    format: function(s) {
+	        // format your data for normalization 
+	        return s.replace('$','').replace(/,/g,'');
+	    }, 
+	    // set type, either numeric or text 
+	    type: 'numeric' 
+	});
+	
 	jQuery('.info-table').tablesorter({
 		widgets: ['zebra'],
-		 headers: { 
+		headers: {
+			3: {
+				sorter: 'thousands'
+			}, 
 			9: {
-			sorter: false
+				sorter: false
 			},
 			10: {
 				sorter: false
