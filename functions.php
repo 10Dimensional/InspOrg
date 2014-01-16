@@ -4,6 +4,7 @@ register_sidebar(array('name' => __( 'Footer Left' ),'id' => 'footer-left','desc
 register_sidebar(array('name' => __( 'Footer right' ),'id' => 'footer-right','description' => __( 'Footer Right' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Inspire Sidebar' ),'id' => 'inspire-sidebar','description' => __( 'Inspire Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Right Sidebar' ),'id' => 'right-sidebar','description' => __( 'Right Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Vicinity Sidebar' ),'id' => 'vicinity-sidebar','description' => __( 'Vicinity Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Blog Sidebar' ),'id' => 'blog-sidebar','description' => __( 'Blog Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 
 
@@ -58,8 +59,9 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 function theme_name_scripts() {
 	wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/js/jquery-ui.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script( 'bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'mapbox', '//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js', '', '', true );
 	wp_enqueue_script( 'jquery-main', get_template_directory_uri() . '/js/jquery.main.js', array('jquery', 'jquery-ui'), '1.0.0', true );
-	wp_enqueue_script( 'mapbox', '//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js', array('jquery'), '1.0.0', true );
+	
 
 	//wp_dequeue_script('jquery.cycle1');
 }

@@ -671,9 +671,9 @@ margin-left: 7%;
     list-style: none;
     margin: 0;
     padding: 0;
-    z-index: 100;
+    z-index: 40;
 }
- 
+ .leaflet-top, .leaflet-bottom {z-index:40 !important;}
 #map-ui a {
     font: normal 13px/18px 'Helvetica Neue', Helvetica, sans-serif;
     background: #FFF;

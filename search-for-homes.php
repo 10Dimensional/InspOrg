@@ -39,6 +39,7 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper">
@@ -150,11 +151,7 @@
                                 
                                 <div class="rad-holder">
                                     <input id="radio-01" type="checkbox" name="builder[]" value="Beazer" />
-<<<<<<< HEAD
                                     <label for="radio-01">Beazer—Coming Spring 2015</label>
-=======
-                                    <label for="radio-01">Beazer--Coming Spring 2015</label>
->>>>>>> 74bc694e43f1301d9b1c923cd0f24cdc5e234efb
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-02" type="checkbox" name="builder[]" value="KB Home" />
@@ -162,11 +159,7 @@
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
-<<<<<<< HEAD
                                     <label for="radio-03">Pardee Homes—Coming June 2014</label>
-=======
-                                    <label for="radio-03">Pardee Homes--Coming June 2014</label>
->>>>>>> 74bc694e43f1301d9b1c923cd0f24cdc5e234efb
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
@@ -184,14 +177,18 @@
                         </fieldset>
                     </form>
                 </div>
-                <div class="map-block"><img class="placeholder" alt="image description" src="/wp-content/uploads/2013/12/map-placeholder.png" /></div>
-
-                <div class="clearfix"></div>
-                <div class="holder table-holder">
+                    
+                    <div id="map" class="map-block"><ul id='map-ui'></ul></div>
+     
+            </section>
+            
+            <div id="result_shell">
+    		    <section class="info-section">
+                    <div class="holder">
                         <div class="info-block">
                             <div class="scrollable-area">
                                 <h1>Not Ready To Choose?</h1>
-                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>                                
+                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>                                                                
 <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
                             </div>
                         </div>
@@ -204,58 +201,57 @@
                                                 <tr>
                                                     <th><span>Builder</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Series</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Model</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Sq Ft</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Bd</span>
+                                                    <th><span>Bdrms</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Ba</span>
+                                                    <th><span>Baths</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Stories</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Garages</span>
                                                         <ul class="sort-btns">
-                                                            <li><a href="#">increase</a></li>
-                                                            <li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Images</span></th>
-                                                    <th><span>Interested?</span></th>
+                                                    <th><span>Interested</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="result_body">
-                                                <h1 class="filter-h1">Please apply filters to see results</h1>
                                                 <?php
                                                     foreach ($properties as $property) { 
                                                         $beds = ($property->beds_min === $property->beds_max) ? $property->beds_min : $property->beds_min.' - '.$property->beds_max;
@@ -316,16 +312,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="clearfix"></div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:10px 200px 15px;">Request Information</a>
-            </section>
-            
-            <div id="result_shell">
-    		    <section class="info-section">
-                    
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
                     <ul class="companies-list">
                     	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
+                            <div class="img-holder"><a href="beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                             <strong class="title">Beazer Homes</strong>
                     
                             <dl>
@@ -338,7 +328,7 @@
                                 </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="3"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
+                            <div class="img-holder"><a href="kb-home"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
                             <strong class="title">KB Home</strong>
                     
                             <dl>
@@ -351,7 +341,7 @@
                             </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
+                            <div class="img-holder"><a href="pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
                             <strong class="title">Pardee Homes</strong>
                     
                             <dl>
@@ -364,7 +354,7 @@
                             </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
+                            <div class="img-holder"><a href="toll-brothers"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
                             <strong class="title">Toll Brothers</strong>
                     
                             <dl>

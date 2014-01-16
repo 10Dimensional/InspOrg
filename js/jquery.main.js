@@ -22,9 +22,56 @@ jQuery(window).load(function(){
 	initSort();
 	initSliderBlocks();
 	initTabs();
-
+    if(jQuery('#map').length) initMap();
 	jQuery('.range-block').slider();
 });
+
+var map = '';
+var ui = '';
+function initMap() {
+    map = L.mapbox.map('map', 'lucidagency.srbjra4i');
+    ui = document.getElementById('map-ui');
+     
+    addLayer(L.mapbox.tileLayer('lucidagency.f4h4obt9'), 'Beazer', 1);
+    addLayer(L.mapbox.tileLayer('lucidagency.5tn019k9'), 'KB', 2);
+    addLayer(L.mapbox.tileLayer('lucidagency.e3mu0udi'), 'Necessities', 3);
+    addLayer(L.mapbox.tileLayer('lucidagency.8yr5dn29'), 'Pardee', 4);
+    addLayer(L.mapbox.tileLayer('lucidagency.n0e2vs4i'), 'Parks', 5);
+    addLayer(L.mapbox.tileLayer('lucidagency.x65n4s4i'), 'Pools', 6);
+    addLayer(L.mapbox.tileLayer('lucidagency.88lzyqfr'), 'Schools', 7);
+    addLayer(L.mapbox.tileLayer('lucidagency.luxwp14i'), 'Toll', 8);
+    addLayer(L.mapbox.tileLayer('lucidagency.6jchm2t9'), 'Trails', 9);
+   
+};
+
+function addLayer(layer, name, zIndex) {
+    layer.setZIndex(zIndex);
+ 
+    // Create a simple layer switcher that toggles layers on
+    // and off.
+    var item = document.createElement('li');
+    var link = document.createElement('a');
+ 
+    link.href = '#';
+    link.className = '';
+    link.innerHTML = name;
+ 
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+ 
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    item.appendChild(link);
+    ui.appendChild(item);
+}
 
 // handle slider blocks
 function initSliderBlocks() {
