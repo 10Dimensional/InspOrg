@@ -11,7 +11,7 @@
                 $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
                 $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
                 
-                $where_clause = 'WHERE price_min >= '.$price_min.' AND price_max <= '.$price_max.' AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
+                $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
                 
                 if ($builder) {
                     $where_clause .= ' AND builder = "'.$builder.'"';
@@ -83,11 +83,11 @@
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="true" />
-                                        <input class="steps" type="hidden" value="1000" />
+                                        <input class="steps" type="hidden" value="10000" />
 										<input class="min" type="hidden" value="190000" /> 
                                         <input class="max" type="hidden" value="500000" />
-										<input class="v1" type="hidden" name="price_min" value="195000" /> 
-                                        <input class="v2" type="hidden" name="price_max" value="350000" />
+										<input class="v1" type="hidden" name="price_min" value="<?php echo ($_GET['price_min']) ? $_GET['price_min'] : '190000'; ?>" /> 
+                                        <input class="v2" type="hidden" name="price_max" value="<?php echo ($_GET['price_max']) ? $_GET['price_max'] : '500000'; ?>" />
                                     </div>
                                     <div class="range-values add">
                                         <strong>$<span class="disp-v1">195,000</span></strong>
@@ -97,15 +97,16 @@
                             </div>
                             
                             <strong class="title">Bedrooms</strong>
-                            <div class="slider-bar range-block">
+                            <div class="slider-bar range-box">
                                 <a class="btn btn-minus" href="#">–</a>
                                 <a class="btn btn-plus" href="#">+</a>
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
-                                        <input class="min" type="hidden" value="0" />
+                                        <input class="steps" type="hidden" value="1" />
+                                        <input class="min" type="hidden" value="2" />
                                         <input class="max" type="hidden" value="6" />
-                                        <input class="v1" type="hidden" name="beds" value="2" />
+                                        <input class="v1" type="hidden" name="beds" value="<?php echo ($_GET['beds']) ? $_GET['beds'] : '2'; ?>" />
                                     </div>
                                     <div class="range-values">
                                         <strong><span class="disp-v1">2</span>+</strong>
@@ -114,15 +115,16 @@
                             </div>
 
                             <strong class="title">Square Footage</strong>
-                            <div class="slider-bar range-block">
+                            <div class="slider-bar range-box">
                                 <a class="btn btn-minus" href="#">–</a>
                                 <a class="btn btn-plus" href="#">+</a>
                                 <div class="range-holder">
                                     <div class="slider-range">
                                         <input class="range" type="hidden" value="max" />
+                                        <input class="steps" type="hidden" value="100" />
                                         <input class="min" type="hidden" value="1500" />
                                         <input class="max" type="hidden" value="5000" />
-                                        <input class="v1" name="sq_ft" type="hidden" value="1500" />
+                                        <input class="v1" name="sq_ft" type="hidden" value="<?php echo ($_GET['sq_ft']) ? $_GET['sq_ft'] : '1500'; ?>" />
                                     </div>
                                     <div class="range-values">
                                         <strong><span class="disp-v1">1500</span>+</strong>
@@ -132,14 +134,14 @@
 
                             <div class="select-row">
                                 <select name="stories">
-                                    <option selected="selected" value="0">Stories</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
+                                    <option <?php echo (!$_GET['stories']) ? 'selected="selected"' : ''; ?> value="0">Stories</option>
+                                    <option value="1" <?php echo ($_GET['stories'] === '1') ? 'selected="selected"' : ''; ?>>1</option>
+                                    <option value="2" <?php echo ($_GET['stories'] === '2') ? 'selected="selected"' : ''; ?>>2</option>
                                 </select>
                                 <select name="garage_bays">
-                                    <option selected="selected" value="0">Garage Bays</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    <option <?php echo (!$_GET['garage_bays']) ? 'selected="selected"' : ''; ?> value="0">Garage Bays</option>
+                                    <option value="2" <?php echo ($_GET['garage_bays'] === '2') ? 'selected="selected"' : ''; ?>>2</option>
+                                    <option value="3" <?php echo ($_GET['garage_bays'] === '3') ? 'selected="selected"' : ''; ?>>3</option>
                                 </select>
                             </div>
                             
@@ -147,24 +149,20 @@
                                 <strong class="title">Search By Builder</strong>
                                 
                                 <div class="rad-holder">
-                                    <input id="radio-01" type="radio" name="builder" value="Beazer" />
-                                    <label for="radio-01">Beazer <br>Coming Spring 2015</label>
+                                    <input id="radio-01" type="checkbox" name="builder[]" value="Beazer" />
+                                    <label for="radio-01">Beazer—Coming Spring 2015</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-02" type="radio" name="builder" value="KB Home" />
+                                    <input id="radio-02" type="checkbox" name="builder[]" value="KB Home" />
                                     <label for="radio-02">KB Home</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-03" type="radio" name="builder" value="Pardee" />
-                                    <label for="radio-03">Pardee <br>Coming in June</label>
+                                    <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
+                                    <label for="radio-03">Pardee Homes—Coming June 2014</label>
                                 </div>
                                 <div class="rad-holder">
-                                    <input id="radio-04" type="radio" name="builder" value="Toll Brothers" />
+                                    <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
                                     <label for="radio-04">Toll Brothers</label>
-                                </div>
-                                <div class="rad-holder">
-                                    <input id="radio-00" type="radio" name="builder" value="all" />
-                                    <label for="radio-00">All</label>
                                 </div>
                                 <div class="rad-holder">
                                
@@ -179,15 +177,13 @@
                     </form>
                 </div>
                 <div class="map-block"><img class="placeholder" alt="image description" src="/wp-content/uploads/2013/12/map-placeholder.png" /></div>
-            </section>
-            
-            <div id="result_shell">
-    		    <section class="info-section">
-                    <div class="holder">
+
+                <div class="clearfix"></div>
+                <div class="holder table-holder">
                         <div class="info-block">
                             <div class="scrollable-area">
                                 <h1>Not Ready To Choose?</h1>
-                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>								
+                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>                                
 <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
                             </div>
                         </div>
@@ -200,57 +196,58 @@
                                                 <tr>
                                                     <th><span>Builder</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Series</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Model</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Sq Ft</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Bdrms</span>
+                                                    <th><span>Bd</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Baths</span>
+                                                    <th><span>Ba</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Stories</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Garages</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                            <li><a href="#">increase</a></li>
+                                                            <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Renderings</span></th>
-                                                    <th><span>Info Pack</span></th>
+                                                    <th><span>Images</span></th>
+                                                    <th><span>Interested?</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="result_body">
+                                                <h1 class="filter-h1">Please apply filters to see results</h1>
                                                 <?php
                                                     foreach ($properties as $property) { 
                                                         $beds = ($property->beds_min === $property->beds_max) ? $property->beds_min : $property->beds_min.' - '.$property->beds_max;
@@ -311,31 +308,65 @@
                             </div>
                         </div>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
+                    <div class="clearfix"></div>
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:10px 200px 15px;">Request Information</a>
+            </section>
+            
+            <div id="result_shell">
+    		    <section class="info-section">
+                    
                     <ul class="companies-list">
                     	<li>
                             <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                             <strong class="title">Beazer Homes</strong>
                     
-                            <dl><dt><strong>Coming Spring 2015</strong></dt><dd></dd><dt><strong>Phone:</strong></dt><dd>(702) 987-0055</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd></dl>
+                            <dl>
+                                <dt><strong>Coming Spring 2015</strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 987-0055</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd>
+                                </dl>
                         </li>
                     	<li>
                             <div class="img-holder"><a href="3"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
                             <strong class="title">KB Home</strong>
                     
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 266-9900</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@kbhome.com">info@kbhome.com</a></dd></dl>
+                            <dl>
+                                <dt><strong></strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 266-9900</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@kbhome.com">info@kbhome.com</a></dd>
+                            </dl>
                         </li>
                     	<li>
                             <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
                             <strong class="title">Pardee Homes</strong>
                     
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 614-1400</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@pardeehomes.com">info@pardeehomes.com</a></dd></dl>
+                            <dl>
+                                <dt><strong>Coming June 2014</strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 614-1400</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@pardeehomes.com">info@pardeehomes.com</a></dd>
+                            </dl>
                         </li>
                     	<li>
                             <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
                             <strong class="title">Toll Brothers</strong>
                     
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 243-9800</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@tollbrothers.com">info@tollbrothers.com</a></dd></dl>
+                            <dl>
+                                <dt><strong></strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 243-9800</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@tollbrothers.com">info@tollbrothers.com</a></dd>
+                            </dl>
                         </li>
                     </ul>
                 </section>

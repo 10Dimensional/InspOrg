@@ -21,12 +21,12 @@
 	<div id="wrapper">
 		<?php get_header() ?>
 		<div class="w1">
-			<div id="bg" class="bg-without-mask">
+			<div id="bg" class="bg-with-mask">
 				<img src="<?php the_field('hero_image'); ?>" alt="">
 				</div>
 			<nav>
 				<ul class="breadcrumbs">
-<?php the_breadcrumb(); ?>
+					<?php the_breadcrumb(); ?>
 				</ul>
 			</nav>
 			<h1 class="page-title page-title-4">
@@ -47,11 +47,6 @@
 						<?php if ( ! dynamic_sidebar('right-sidebar') ) : ?>
 		<?php endif; ?>
 			</div>
-			<section class="start-section add">
-			<div class="holder">
-					<?php the_field('closer'); ?>
-			</div>
-		</section>
 	</div>
 	<?php get_footer() ?>
 <?php wp_footer() ?></body>

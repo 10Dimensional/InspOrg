@@ -34,114 +34,112 @@
 			<section class="vicinity-section">
 				<div class="panel">
 					<section>
-						<h1 class="title-1">Community</h1>
-						<ul class="accordion community-list">
-							<li>
-								<a href="#" class="opener">Fitness</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-							<li class="style-1">
-								<a href="#" class="opener">Parks</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-							<li class="style-2">
-								<a href="#" class="opener">Pools</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-							<li class="style-3">
-								<a href="#" class="opener">Trailhead/Trails</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-						</ul>
-					</section>
-					<section>
-						<h1 class="title-2">Vicinity</h1>
-						<ul class="accordion vicinity-list">
-							<li>
-								<a href="#" class="opener">Entertainment</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-							<li class="style-1">
-								<a href="#" class="opener">School Site</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-							<li class="style-2">
-								<a href="#" class="opener">Shopping</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-							<li class="style-3">
-								<a href="#" class="opener">Sports</a>
-								<div class="slide">
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-									<strong class="title">Park Name</strong>
-									<p>602.222.2222 | <a href="#">website</a></p>
-								</div>
-							</li>
-						</ul>
+					<ul id='map-ui'></ul>
 					</section>
 				</div>
-				<div class="map-block">
-					<img src="<?php bloginfo('template_url') ?>/images/map-placeholder-1.jpg" alt="image description">
-				</div>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js'></script>
+  <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
+  
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:relative; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+<style>
+#map-ui {
+    top: 75px;
+    left: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+}
+
+#map-ui a {
+    font: normal 13px/18px 'Helvetica Neue', Helvetica, sans-serif;
+    background: #FFF;
+    color: #3C4E5A;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #BBB;
+    border-bottom-width: 0;
+    min-width: 138px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+#map-ui a:hover {
+    background: #ECF5FA;
+}
+
+#map-ui li:last-child a {
+    border-bottom-width: 1px;
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+}
+
+#map-ui li:first-child a {
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+
+#map-ui a.active {
+    background: #3887BE;
+    border-color: #3887BE;
+    border-top-color: #FFF;
+    color: #FFF;
+}
+</style>
+<div id='map' style="width: 760px; height: 758px;"></div>
+<script>
+var map = L.mapbox.map('map', 'lucidagency.srbjra4i');
+var ui = document.getElementById('map-ui');
+
+addLayer(L.mapbox.tileLayer('lucidagency.f4h4obt9'), 'Beazer', 1);
+addLayer(L.mapbox.tileLayer('lucidagency.5tn019k9'), 'KB', 2);
+addLayer(L.mapbox.tileLayer('lucidagency.e3mu0udi'), 'Necessities', 3);
+addLayer(L.mapbox.tileLayer('lucidagency.8yr5dn29'), 'Pardee', 4);
+addLayer(L.mapbox.tileLayer('lucidagency.n0e2vs4i'), 'Parks', 5);
+addLayer(L.mapbox.tileLayer('lucidagency.x65n4s4i'), 'Pools', 6);
+addLayer(L.mapbox.tileLayer('lucidagency.88lzyqfr'), 'Schools', 7);
+addLayer(L.mapbox.tileLayer('lucidagency.luxwp14i'), 'Toll', 8);
+addLayer(L.mapbox.tileLayer('lucidagency.6jchm2t9'), 'Trails', 9);
+
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
+
+    // Create a simple layer switcher that toggles layers on
+    // and off.
+    var item = document.createElement('li');
+    var link = document.createElement('a');
+
+    link.href = '#';
+    link.className = 'active';
+    link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    item.appendChild(link);
+    ui.appendChild(item);
+}
+</script>				</div>
 			</section>
-		</div>
-<!--			<section class="start-section">
-		<div class="holder">
-					<?php echo $post->post_content ?>
-			</div>
-		</section> -->
 	</blogcontent>
 	</div>
 	<?php get_footer() ?>

@@ -16,7 +16,7 @@ function the_breadcrumb() {
 		bloginfo('name');
 		echo "</a> » ";
 		if (is_category() || is_single()) {
-			the_category('title_li=');
+			the_category(' » ');
 			if (is_single()) {
 				echo " » ";
 				the_title();
@@ -59,6 +59,7 @@ function theme_name_scripts() {
 	wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/js/jquery-ui.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script( 'bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'jquery-main', get_template_directory_uri() . '/js/jquery.main.js', array('jquery', 'jquery-ui'), '1.0.0', true );
+	wp_enqueue_script( 'mapbox', '//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js', array('jquery'), '1.0.0', true );
 
 	//wp_dequeue_script('jquery.cycle1');
 }

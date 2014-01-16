@@ -36,7 +36,7 @@
 <?php the_content(); ?>
 			<?php endwhile; // end of the loop. ?>
 			<div class="btn-next-holder">
-						<a href="#schools" class="btn-next-section go">More: Schools</a>
+						<a href="#schools" class="btn-next-section go">Schools</a>
 					</div>			
 			</div>
 			</section>
@@ -45,7 +45,7 @@
 				<div class="holder">
 					<?php the_field('schools'); ?>
 					<div class="btn-next-holder">
-						<a href="#shopping" class="btn-next-section go">More: Shopping</a>
+						<a href="#shopping" class="btn-next-section go">Shopping</a>
 					</div>
 				</div>
 			</section>
@@ -54,7 +54,7 @@
 				<div class="holder">
 					<?php the_field('shopping'); ?>
 					<div class="btn-next-holder">
-						<a href="#dining" class="btn-next-section go">More: Dining</a>
+						<a href="#dining" class="btn-next-section go">Dining</a>
 					</div>
 				</div>
 			</section>
@@ -63,7 +63,7 @@
 				<div class="holder">
 					<?php the_field('dining'); ?>
 					<div class="btn-next-holder">
-						<a href="#henderson" class="btn-next-section go">More: Henderson</a>
+						<a href="#henderson" class="btn-next-section go">Henderson</a>
 					</div>
 				</div>
 			</section>
@@ -72,7 +72,7 @@
 				<div class="holder">
 					<?php the_field('henderson'); ?>
 						<div class="btn-next-holder">
-						<a href="#attractions" class="btn-next-section go">More: Attractions</a>
+						<a href="#attractions" class="btn-next-section go">Attractions</a>
 					</div>
 				</div>
 			</section>

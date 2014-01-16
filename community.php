@@ -30,13 +30,13 @@
 				<span class="text"><?php the_field('headline'); ?></span>
 			</h1>
 				<section class="content-section add">
-				<div class="holder">
+				<div class="holder" style="padding-top: 0px;">
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php the_content(); ?>
 			<?php endwhile; // end of the loop. ?>
 			<div class="btn-next-holder">
-						<a href="#amenities" class="btn-next-section go">More: Amenities</a>
+						<a href="#amenities" class="btn-next-section go">Amenities</a>
 					</div>			
 			</div>
 			</section>
@@ -44,7 +44,7 @@
 				<div class="holder">
 					<?php the_field('amenities'); ?>
 					<div class="btn-next-holder">
-						<a href="#homes" class="btn-next-section go">More: Homes</a>
+						<a href="#homes" class="btn-next-section go">Homes</a>
 					</div>
 				</div>
 			</section>
@@ -52,7 +52,7 @@
 				<div class="holder">
 					<?php the_field('homes'); ?>
 					<div class="btn-next-holder">
-						<a href="#henderson" class="btn-next-section go">More: Henderson</a>
+						<a href="#henderson" class="btn-next-section go">Henderson</a>
 					</div>
 				</div>
 			</section>

@@ -1,7 +1,7 @@
 	<footer id="footer">
 		<div class="footer-holder">
 			<section class="column">
-				<h1>LIVE INSPIRED - THE INSPIRADA BLOG</h1>
+				<h1>LIVE INSPIRED—THE INSPIRADA BLOG</h1>
 				<div class="carousel">
 					<div class="carousel-holder">
 						<div class="mask">
@@ -30,7 +30,7 @@
 													<em class="date"><?php echo date('m.d.y', strtotime($f_post->post_date)); ?></em>
 													<h1><a href="#"></a><?php echo $f_post->post_title; ?></h1>
 													<p><?php echo get_the_excerpt(); ?></p>
-													<a href="<?php echo get_permalink($f_post->ID); ?>" style="color: black; text-decoration: underline;">MORE >></a>
+													<a href="<?php echo get_permalink($f_post->ID); ?>" style="color: black; text-decoration: none;">MORE >></a>
 												</div>
 											</div>
 										</section>
@@ -51,7 +51,7 @@
 	<?php if ( ! dynamic_sidebar('footer-left') ) : ?>
 				<?php endif; ?>
 		<div id="footermenu">
- <?php wp_nav_menu( array('menu' => 'Footer Menu', 'items_wrap' => '&copy;INSPIRADA 2014. All Rights Reserved.  %3$s', )); ?>
+ <?php wp_nav_menu( array('menu' => 'Footer Menu', 'items_wrap' => '&copy; INSPIRADA 2014. All Rights Reserved.  %3$s', )); ?>
 	</div>
 										</section>
 			<section class="contacts-column">

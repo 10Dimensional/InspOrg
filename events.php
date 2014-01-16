@@ -20,7 +20,7 @@
 	<div id="wrapper">
 		<?php get_header() ?>
 		<div class="w1">
-			<div id="bg" class="bg-without-mask">
+			<div id="bg" class="bg-with-mask">
 				<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-07.jpg" alt="">
 			</div>
 			<nav>
@@ -35,7 +35,7 @@
 		</div>
 			<section class="text-section style-red">
 			<div class="holder">
-				<?php echo category_description(); ?>
+				<?php the_field('headliner'); ?>
 			</div>
 			</section>
 	<div class="events-section">
@@ -54,7 +54,7 @@
       echo '';
       while ($my_query->have_posts()) : $my_query->the_post(); ?>      
 					<section class="box">
-						<a class="btn-lightbox" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
+						<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="description">
 							<div class="date-box">
 								<em class="date"><?php the_time('F jS, Y') ?></em>
@@ -72,6 +72,7 @@
 wp_reset_query(); ?>
 				</div>
 			</div>
+		</div>
 				<?php get_footer() ?>
 <?php wp_footer() ?></body>
 </html>

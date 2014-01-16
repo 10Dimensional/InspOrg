@@ -47,25 +47,25 @@
 <div id="wrapper">
     <?php get_header() ?>
     <div class="w1">
-		<div id="bg" class="bg-without-mask">
-				<img src="<?php the_field('hero_image'); ?>" alt="">
-						</div>
+		<div id="bg" class="bg-with-mask">
+<?php 
+    echo do_shortcode("[metaslider id=836]"); 
+?>						</div>
 		<nav>
 			<ul class="breadcrumbs">
                 <?php the_breadcrumb(); ?>
 			</ul>
 		</nav>
-		<h1 class="page-title page-title-1">
-			<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-			<span class="text"><?php the_field('headline'); ?></span>
+		<h1 class="page-title page-title-1" style="padding:0;">
+			<img src="<?php bloginfo('template_url') ?>/images/kb-for-builders-page.png" class="kb">
 		</h1>
 	</div>
 	<section class="text-section">
 		<div class="holder">
-				<?php the_field('searchheadliner'); ?>
+				<?php the_field('headliner'); ?>
 					</div>
 	</section>
-	<div class="search-section">
+	<div class="search-section" style="background:#69c1e4;">
 		<div class="holder">
             <?php while ( have_posts() ) : the_post(); ?>
 
@@ -81,7 +81,7 @@
                             <div class="scrollable-area anyscrollable">
                                 <div class="table-holder">
                                     <form id="frmPropertyList">
-                                        <table class="info-table">
+                                        <table class="info-table info-table-interior">
                                             <thead>
                                                 <tr>
                                                     <th><span>Builder</span>
@@ -152,7 +152,19 @@
                                                             <td><?php echo $baths; ?></td>
                                                             <td><?php echo $property->stories; ?></td>
                                                             <td><?php echo $garage_bays; ?></td>
-                                                            <td><a href="#">Slideshow</a></td>
+                                                            <td>
+                                                                <?php switch($property->model) {
+                                                                    case 'Monet 1576':
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">Slideshow</a>';
+                                                                        break;
+                                                                    case 'Monet 1736':
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">Slideshow</a>';
+                                                                        break;
+                                                                    case 'Monet 1843':
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">Slideshow</a>';
+                                                                        break;
+                                                                } ?>
+                                                            </td>
                                                             <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
                                                         </tr>
                                                     <?php } ?>                                 
@@ -164,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:15px 25px 15px;">Request Information</a>
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: -26px 25px 15px;">Request Information</a>
                 </section>
     		</div>
     		<?php } ?>             
@@ -248,6 +260,40 @@
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--Slideshow modals -->
+<div class="modal fade slideshow-modal" id="Monet1576" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=908]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Monet1736" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=906]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Monet1843" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=903]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 	<?php get_footer() ?>
