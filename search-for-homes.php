@@ -150,7 +150,11 @@
                                 
                                 <div class="rad-holder">
                                     <input id="radio-01" type="checkbox" name="builder[]" value="Beazer" />
+<<<<<<< HEAD
                                     <label for="radio-01">Beazer—Coming Spring 2015</label>
+=======
+                                    <label for="radio-01">Beazer--Coming Spring 2015</label>
+>>>>>>> 74bc694e43f1301d9b1c923cd0f24cdc5e234efb
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-02" type="checkbox" name="builder[]" value="KB Home" />
@@ -158,7 +162,11 @@
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
+<<<<<<< HEAD
                                     <label for="radio-03">Pardee Homes—Coming June 2014</label>
+=======
+                                    <label for="radio-03">Pardee Homes--Coming June 2014</label>
+>>>>>>> 74bc694e43f1301d9b1c923cd0f24cdc5e234efb
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
