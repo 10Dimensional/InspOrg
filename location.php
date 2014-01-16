@@ -30,7 +30,8 @@
 				<span class="text"><?php the_field('headline'); ?></span>
 			</h1>
 				<section class="content-section add">
-				<div class="holder">
+				<div class="holder" style="padding-top: 0;
+">
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php the_content(); ?>
@@ -68,16 +69,9 @@
 				</div>
 			</section>
 			<a class="anchor" id="henderson-menu"></a>			
-			<section id="henderson" class="content-section style-2">
+			<section id="henderson" class="content-section style-2" style="background: #81cbe8">
 				<div class="holder">
 					<?php the_field('henderson'); ?>
-						<div class="btn-next-holder">
-						<a href="#attractions" class="btn-next-section go">Attractions</a>
-					</div>
-				</div>
-			</section>
-			<a class="anchor" id="attractions-menu"></a>
-			<section id="attractions" class="content-section style-3">
 				<div class="holder">
 					<?php the_field('areaattractions'); ?>
 				</div>

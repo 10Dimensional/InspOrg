@@ -4681,3 +4681,25 @@ ul.vicinity li {
 		list-style-type: disc;
 		margin-bottom: 5px;
 }
+
+#map-ui a.active {
+    background: #3887BE;
+    border-color: #3887BE;
+    border-top-color: #FFF;
+    color: #FFF;
+}
+
+.leaflet-container {
+	background: #c7ce99 !important;
+	}
+
+#bg-vicinity {
+overflow: hidden;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+background: #69c1e4;
+}

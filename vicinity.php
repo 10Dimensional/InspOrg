@@ -13,13 +13,16 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <body>
 <div id="wrapper">
 		<?php get_header() ?>
 		<div class="w1">
-			<div id="bg">
+			<div id="bg-vicinity">
 				<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-02.jpg" alt="">
 			</div>
 			<nav>
@@ -29,21 +32,69 @@
 			</nav>
 			<h1 class="page-title">
 				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-				<span class="text"><?php the_field('headline'); ?></span>
+				<span class="text"><?php the_field('headline'); ?></span><br>
+				<span class="text" style="font:20px 'arimoregular', Helvetica, sans-serif; padding-top: 56px;"><?php the_field('paragraph'); ?></span>
 			</h1>
-			<section class="vicinity-section">
-				<div class="panel">
-					<section>
-					<ul id='map-ui'></ul>
-					</section>
-				</div>
+			<section class="vicinity-section" style="min-height:760px;">
+                <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
+                    <section>
+                        <h1>Builders</h1>
+                        <ul class="accordion builders-list">
+                            <li class="style-1">
+                                <a href="#" class="opener" id="Beazer">Beazer</a>
+                                <p>Coming Spring 2015</p>
+                            </li>
+                            <li class="style-2">
+                                <a href="#" class="opener" id="KB Home">KB Home</a>
+                                </li>
+                            <li class="style-3">
+                                <a href="#" class="opener" id="Pardee Homes">Pardee Homes</a>
+                                <p>Coming this June</p>
+
+                            </li>
+                            <li class="style-4">
+                                <a href="#" class="opener" id="Toll Brothers">Toll Brothers</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h1 class="title-1">Community</h1>
+                        <ul class="accordion community-list">
+                            <!--<li class="style-3">
+                                <a href="#" class="opener" id="Schools">Schools</a>
+                            </li>-->
+                            <li class="style-1">
+                                <a href="#" class="opener" id="Parks">Parks</a>
+                                  <div class="slide" id="parks_holder" style="width: 202px; display: none;">
+                                    <ul class="vicinity">
+                                    <li>Aventura Park (Fall 2014)</li>
+                                    <li>Capriola Park (Under Construction)</li>
+                                    <li>Potenza Park (Under construction)</li>
+                                    <li>Solista Park (Completed)</li>
+                                    </ul>
+                                    </div>
+                            </li>
+                            <li class="style-2">
+                                <a href="#" class="opener" id="Pools">Pools</a>
+                            </li>
+                            <li class="style-3">
+                                <a href="#" class="opener" id="Trails">Trails</a>
+                            </li>
+                            <li class="style-4">
+                                <a href="#" class="opener" id="Nearby Necessities">Nearby Necessities</a>
+                            </li>
+                        </ul>
+                        
+                    </section>
+                    <ul id='map-ui'></ul>
+                </div>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js'></script>
   <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
   
   <style>
     body { margin:0; padding:0; }
-    #map { position:relative; top:0; bottom:0; width:100%; }
+    #map { position: absolute; z-index: 1; margin-top: 342px; top:0; bottom:0; width:100%; }
   </style>
 </head>
 <body>
@@ -99,28 +150,27 @@ var map = L.mapbox.map('map', 'lucidagency.srbjra4i');
 var ui = document.getElementById('map-ui');
 
 addLayer(L.mapbox.tileLayer('lucidagency.f4h4obt9'), 'Beazer', 1);
-addLayer(L.mapbox.tileLayer('lucidagency.5tn019k9'), 'KB', 2);
-addLayer(L.mapbox.tileLayer('lucidagency.e3mu0udi'), 'Necessities', 3);
-addLayer(L.mapbox.tileLayer('lucidagency.8yr5dn29'), 'Pardee', 4);
+addLayer(L.mapbox.tileLayer('lucidagency.5tn019k9'), 'KB Home', 2);
+addLayer(L.mapbox.tileLayer('lucidagency.8yr5dn29'), 'Pardee Homes', 3);
+addLayer(L.mapbox.tileLayer('lucidagency.luxwp14i'), 'Toll Brothers', 4);
 addLayer(L.mapbox.tileLayer('lucidagency.n0e2vs4i'), 'Parks', 5);
-addLayer(L.mapbox.tileLayer('lucidagency.x65n4s4i'), 'Pools', 6);
-addLayer(L.mapbox.tileLayer('lucidagency.88lzyqfr'), 'Schools', 7);
-addLayer(L.mapbox.tileLayer('lucidagency.luxwp14i'), 'Toll', 8);
-addLayer(L.mapbox.tileLayer('lucidagency.6jchm2t9'), 'Trails', 9);
+addLayer(L.mapbox.tileLayer('lucidagency.6jchm2t9'), 'Trails', 6);
+addLayer(L.mapbox.tileLayer('lucidagency.x65n4s4i'), 'Pools', 7);
+addLayer(L.mapbox.tileLayer('lucidagency.e3mu0udi'), 'Nearby Necessities', 8);
 
 function addLayer(layer, name, zIndex) {
     layer
         .setZIndex(zIndex)
-        .addTo(map);
+        //.addTo(map);
 
     // Create a simple layer switcher that toggles layers on
     // and off.
-    var item = document.createElement('li');
-    var link = document.createElement('a');
+    //var item = document.createElement('li');
+    var link = document.getElementById(name);
 
-    link.href = '#';
-    link.className = 'active';
-    link.innerHTML = name;
+    //link.href = '#';
+    //link.className = 'active';
+    //link.innerHTML = name;
 
     link.onclick = function(e) {
         e.preventDefault();
@@ -128,17 +178,33 @@ function addLayer(layer, name, zIndex) {
 
         if (map.hasLayer(layer)) {
             map.removeLayer(layer);
-            this.className = '';
+            this.className = 'opener';
+
+            if(name === "Parks") {
+                document.getElementById('parks_holder').style.display="none";
+            }
         } else {
             map.addLayer(layer);
-            this.className = 'active';
+            this.className = 'active opener';
+
+            if(name === "Parks") {
+                document.getElementById('parks_holder').style.display="block";
+            }
         }
     };
 
-    item.appendChild(link);
-    ui.appendChild(item);
+    //item.appendChild(link);
+    //ui.appendChild(item);
 }
-</script>				</div>
+</script>
+<aside id="sidebar-vicinity" class="main-col"><div class="vicinity-box">
+<h2>Nearby</h2>
+						<?php if ( ! dynamic_sidebar('vicinity-sidebar') ) : ?>
+		<?php endif; ?></div>
+			</div>				</div>
+
+
+
 			</section>
 	</blogcontent>
 	</div>
