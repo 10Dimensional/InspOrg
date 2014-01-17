@@ -185,7 +185,7 @@ img.aligncenter{
 	border:1px solid #fefefe;
 	border-width:0 0 1px;
 	box-shadow: 0 0 8px rgba(0,0,0, 0.4);
-	z-index:50;
+	z-index:99999;
 }
 .header-holder{
 	max-width:1000px;
@@ -562,6 +562,7 @@ margin-left: 7%;
 	text-transform: capitalize; 
 	padding:0 0 0 98px;
 	margin:0 auto 40px;
+	height: 105px;
 	position:relative;
 	max-width:1003px;
 	text-shadow:0 0 7px rgba(0,0,0, 0.8);
@@ -663,58 +664,9 @@ margin-left: 7%;
 .vicinity-section .panel .title-2{
 	background:#03394c;
 }
-
-#map-ui {
-    position: absolute;
-    top: 75px;
-    left: 10px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 40;
-}
- .leaflet-top, .leaflet-bottom {z-index:40 !important;}
-#map-ui a {
-    font: normal 13px/18px 'Helvetica Neue', Helvetica, sans-serif;
-    background: #FFF;
-    color: #3C4E5A;
-    display: block;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #BBB;
-    border-bottom-width: 0;
-    min-width: 138px;
-    padding: 10px;
-    text-decoration: none;
-}
- 
-#map-ui a:hover {
-    background: #ECF5FA;
-}
- 
-#map-ui li:last-child a {
-    border-bottom-width: 1px;
-    -webkit-border-radius: 0 0 3px 3px;
-    border-radius: 0 0 3px 3px;
-}
- 
-#map-ui li:first-child a {
-    -webkit-border-radius: 3px 3px 0 0;
-    border-radius: 3px 3px 0 0;
-}
- 
-#map-ui a.active {
-    background: #3887BE;
-    border-color: #3887BE;
-    border-top-color: #FFF;
-    color: #FFF;
-}
-
 .map-block{
 	overflow:hidden;
 	position:relative;
-	width:695px;
-	height:816px;
 }
 .map-block img{
 	display:block;
@@ -1329,7 +1281,9 @@ background: #0093a8;
 	display:table;
 	width:100%;
 	table-layout:fixed;
-}
+	border: 1px solid #0b94aa;
+    border-width: 2px 0 0;
+	}
 .companies-list li{
 	display:table-cell;
 	vertical-align:top;
@@ -1630,10 +1584,10 @@ background: #0093a8;
 	width: 230px;
 	margin: 0 10px 0 0;
 	padding: 17px 15px 3px 30px;
-	border: 1px solid #333;
+	border: 1px solid #666;
 	border-width: 0 0 0 1px;
 	font-size: 12px;
-	line-height: 17px;
+	line-height: 14px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -1652,7 +1606,7 @@ background: #0093a8;
 	margin: 0 10px 0 0;
 	padding: 17px 15px 3px 30px;
 	font-size: 12px;
-	line-height: 17px;
+	line-height: 14px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -1731,7 +1685,6 @@ background: #0093a8;
 .photo-carousel{
 	float:left;
 	position:relative;
-	width:359px;
 	margin:7px 23px 10px 0;
 }
 .photo-carousel .mask{
@@ -2591,7 +2544,8 @@ background: #0093a8;
 .section-box img{
 	display:block;
 	width:auto;
-	margin:0 0 13px;
+	margin:0 0 3px;
+	padding: 10px;
 }
 .section-box h1{
 	font:22px/22px 'roboto_slabbold', 'Times New Roman', Times, serif;
@@ -4564,6 +4518,68 @@ text-transform: uppercase;
 	width: 95%;
 }
 
+#map-ui {
+   position: absolute;
+    top: 75px;
+   left: 10px;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+  z-index: 40;
+}
+ .leaflet-top, .leaflet-bottom {z-index:40 !important;}
+#map-ui a {
+  font: normal 13px/18px 'Helvetica Neue', Helvetica, sans-serif;
+   background: #FFF;
+   color: #3C4E5A;
+   display: block;
+  margin: 0;
+   padding: 0;
+   border: 1px solid #BBB;
+   border-bottom-width: 0;
+  min-width: 138px;
+  padding: 10px;
+  text-decoration: none;
+}
+ 
+#map-ui a:hover {
+    background: #ECF5FA;
+}
+
+#map-ui li:last-child a {
+   border-bottom-width: 1px;
+   -webkit-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+ 
+#map-ui li:first-child a {
+   -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+ 
+#map-ui a.active {
+   background: #3887BE;
+   border-color: #3887BE;
+  border-top-color: #FFF;
+    color: #FFF;
+}
+
+ .map-block{
+ 	overflow:hidden;
+ 	position:relative;
+	width:695px;
+	height:816px;
+ }
+ .map-block img{
+ 	display:block;
+ 	background: #0093a8;
+ 	display:table;
+ 	width:100%;
+ 	table-layout:fixed;
+   border-width: 2px 0 0;
+}
+
+
 input[type="checkbox"] {
 	margin-left: 27px;
 }
@@ -4600,7 +4616,7 @@ line-height: 1em;
 }
 
 .leaflet-left {
-	left: 400px !important;
+	left: 40% !important;
 }
 
 .leaflet-control-zoom-in {
