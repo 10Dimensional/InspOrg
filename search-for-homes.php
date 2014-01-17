@@ -270,34 +270,34 @@
                                                             <td>
                                                                 <?php switch($property->model) {
                                                                     case 'Monet 1576':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">Images</a>';
                                                                         break;
                                                                     case 'Monet 1736':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">Images</a>';
                                                                         break;
                                                                     case 'Monet 1843':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">Images</a>';
                                                                         break;
                                                                     case 'Cordoba':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">Images</a>';
                                                                         break;
                                                                     case 'Madeira':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">Images</a>';
                                                                         break;
                                                                     case 'Santiago':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">Images</a>';
                                                                         break;
                                                                     case 'Catania':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">Images</a>';
                                                                         break;
                                                                     case 'Messina':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">Images</a>';
                                                                         break;
                                                                     case 'Trapani':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">Images</a>';
                                                                         break;
                                                                     default:
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">Images</a>';
                                                                         break;
                                                                 } ?>
                                                             </td>
