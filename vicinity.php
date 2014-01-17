@@ -158,6 +158,10 @@ addLayer(L.mapbox.tileLayer('lucidagency.6jchm2t9'), 'Trails', 6);
 addLayer(L.mapbox.tileLayer('lucidagency.x65n4s4i'), 'Pools', 7);
 addLayer(L.mapbox.tileLayer('lucidagency.e3mu0udi'), 'Nearby Necessities', 8);
 
+//var markerLayer = L.mapbox.markerLayer()
+//    .loadURL('<?php bloginfo('template_url') ?>/markers.geojson')
+//    .addTo(map);
+
 function addLayer(layer, name, zIndex) {
     layer
         .setZIndex(zIndex)
@@ -167,6 +171,12 @@ function addLayer(layer, name, zIndex) {
     // and off.
     //var item = document.createElement('li');
     var link = document.getElementById(name);
+
+    var markerLayer = L.mapbox.markerLayer().loadURL('<?php bloginfo('template_url') ?>/markers.geojson');
+
+    /*
+    var trailMarkers = new Array(Trails, Open Space);
+    var parkMarkers = new Array(Aventura Park, Future Park, Capriola Park (Under construction), Potenza Park (Under construction), Solista Park (Completed));*/
 
     //link.href = '#';
     //link.className = 'active';
@@ -180,12 +190,29 @@ function addLayer(layer, name, zIndex) {
             map.removeLayer(layer);
             this.className = 'opener';
 
+            markerLayer.setFilter(function(f) { 
+               return false; 
+            })
+            .removeLayer(map);
+
             if(name === "Parks") {
                 document.getElementById('parks_holder').style.display="none";
             }
         } else {
             map.addLayer(layer);
             this.className = 'active opener';
+
+            markerLayer.setFilter(function(f) { 
+               return f.properties['category'] === name; 
+            })
+            .addTo(map);
+
+            markerLayer.on('mouseover', function(e) {
+                e.layer.openPopup();
+            })
+            markerLayer.on('mouseout', function(e) {
+                e.layer.closePopup();
+            })
 
             if(name === "Parks") {
                 document.getElementById('parks_holder').style.display="block";
