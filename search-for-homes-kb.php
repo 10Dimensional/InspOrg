@@ -201,7 +201,7 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="builders[]" value="kb home"> KB Home
+                                <input type="checkbox" name="builders[]" value="kb home" checked> KB Home
                             </label>
                         </div>
                         <div class="checkbox">

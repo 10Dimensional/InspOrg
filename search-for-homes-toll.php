@@ -225,7 +225,7 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="builders[]" value="toll brothers"> Toll Brothers
+                                <input type="checkbox" name="builders[]" value="toll brothers" checked> Toll Brothers
                             </label>
                         </div>
                         <div class="floatLeft">
