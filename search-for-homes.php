@@ -6,7 +6,7 @@
                 $price_min = ($_GET['price_min']) ? $_GET['price_min'] : 0;
                 $price_max = ($_GET['price_max']) ? $_GET['price_max'] : 999999999;
                 $beds = ($_GET['beds']) ? $_GET['beds'] : 0;
-                $builder = (!$_GET['builder'] || $_GET['builder'] === 'all') ? false : $_GET['builder'];
+                $builder = (!$_GET['builder']) ? false : $_GET['builder'];
                 $stories = ($_GET['stories'] === 0) ? false : $_GET['stories'];
                 $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
                 $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
@@ -14,7 +14,7 @@
                 $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
                 
                 if ($builder) {
-                    $where_clause .= ' AND builder = "'.$builder.'"';
+                    $where_clause .= " AND builder IN ('".implode("','",$builder).'\')';
                 }
                 
                 if ($stories) {
@@ -42,7 +42,7 @@
 	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
 <?php wp_head() ?></head>
 <body>
-<div id="wrapper">
+<div id="wrapper" style="background: #24adc3;">
     <?php get_header() ?>
     <div class="w1">
 		<div id="bg" class="bg-with-mask">
@@ -64,7 +64,7 @@
 					</div>
 	</section>
 	<div class="search-section">
-		<div class="holder">
+		<div class="holder" style="max-width: 1003px">
             <?php while ( have_posts() ) : the_post(); ?>
 
                 <?php the_content(); ?>
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
-                                    <label for="radio-03">Pardee Homes—Coming June 2014</label>
+                                    <label for="radio-03">Pardee—Coming June 2014</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
@@ -270,34 +270,34 @@
                                                             <td>
                                                                 <?php switch($property->model) {
                                                                     case 'Monet 1576':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">View</a>';
                                                                         break;
                                                                     case 'Monet 1736':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">View</a>';
                                                                         break;
                                                                     case 'Monet 1843':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">View</a>';
                                                                         break;
                                                                     case 'Cordoba':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">View</a>';
                                                                         break;
                                                                     case 'Madeira':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">View</a>';
                                                                         break;
                                                                     case 'Santiago':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">View</a>';
                                                                         break;
                                                                     case 'Catania':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">View</a>';
                                                                         break;
                                                                     case 'Messina':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">View</a>';
                                                                         break;
                                                                     case 'Trapani':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">View</a>';
                                                                         break;
                                                                     default:
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">Images</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">View</a>';
                                                                         break;
                                                                 } ?>
                                                             </td>
@@ -316,7 +316,6 @@
                     <ul class="companies-list">
                     	<li>
                             <div class="img-holder"><a href="beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
-                            <strong class="title">Beazer Homes</strong>
                     
                             <dl>
                                 <dt><strong>Coming Spring 2015</strong></dt>
@@ -329,7 +328,6 @@
                         </li>
                     	<li>
                             <div class="img-holder"><a href="kb-home"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
-                            <strong class="title">KB Home</strong>
                     
                             <dl>
                                 <dt><strong></strong></dt>
@@ -342,7 +340,6 @@
                         </li>
                     	<li>
                             <div class="img-holder"><a href="pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
-                            <strong class="title">Pardee Homes</strong>
                     
                             <dl>
                                 <dt><strong>Coming June 2014</strong></dt>
@@ -355,7 +352,6 @@
                         </li>
                     	<li>
                             <div class="img-holder"><a href="toll-brothers"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
-                            <strong class="title">Toll Brothers</strong>
                     
                             <dl>
                                 <dt><strong></strong></dt>
