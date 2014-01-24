@@ -178,7 +178,7 @@
                     </form>
                 </div>
                     
-                    <div id="map" class="map-block"><ul id='map-ui'></ul></div>
+                    <div id="searchMap" class="map-block"><ul id='map-ui'></ul></div>
      
             </section>
             
