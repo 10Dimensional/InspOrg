@@ -1,3 +1,8 @@
+Number.prototype.format = function(n, x) {
+    var re = '(\\d)(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+    return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$1,');
+};
+
 jQuery.noConflict();
 
 // page init
@@ -24,6 +29,7 @@ jQuery(window).load(function(){
 	initTabs();
 	jQuery('.range-block').slider();
 });
+
 
 // handle slider blocks
 function initSliderBlocks() {
@@ -66,7 +72,12 @@ function initSliderBlocks() {
 			min: parseFloat(inputMin.val()),
 			max: parseFloat(inputMax.val()),
 			change: refreshNumbers,
-			slide: refreshNumbers,
+			slide: function( event, ui ) {
+			    inputV1.val(ui.values[0]);
+			    inputV2.val(ui.values[1]);
+                displayV1.text(ui.values[0].format());
+                displayV2.text(ui.values[1].format());
+            },
 		}
 		
 		if (range) {
@@ -75,7 +86,7 @@ function initSliderBlocks() {
 			opt['value'] = parseFloat(inputV1.val());
 		}
         
-        console.log(opt);
+
 		sliderBlock.slider(opt);
 		if (inputRange.val() == 'max') {
 			var btn = holder.find('.ui-slider-handle');
