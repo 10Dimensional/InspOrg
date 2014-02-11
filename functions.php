@@ -135,7 +135,7 @@ function post_to_third_party($entry, $form)
 	$phone = ($phone_id) ? $entry[$phone_id] : null;
 	$comment = ($comment_id) ? $entry[$comment_id] : null;
 	$firm = ($firm_id) ? $entry[$firm_id] : null;
-	$address = (isset($entry[strval($address_id)])) ? $entry[strval($address_id)] : 'FAIL';
+	$address = (isset($entry[strval($address_id)])) ? $entry[strval($address_id)] : null;
 	$city = (isset($entry[strval($city_id)])) ? $entry[strval($city_id)] : null;
 	$state = (isset($entry[strval($state_id)])) ? $entry[strval($state_id)] : null;
 	$zip = (isset($entry[strval($zip_id)])) ? $entry[strval($zip_id)] : null;
