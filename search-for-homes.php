@@ -25,7 +25,7 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause" );
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
                 
                 
                 ?>
@@ -45,7 +45,7 @@
 <div id="wrapper" style="background: #24adc3;">
     <?php get_header() ?>
     <div class="w1">
-		<div id="bg" class="bg-with-mask">
+		<div id="bg" class="bg-without-mask">
 				<img src="<?php the_field('hero_image'); ?>" alt="">
 						</div>
 		<nav>
@@ -151,7 +151,7 @@
                                 
                                 <div class="rad-holder">
                                     <input id="radio-01" type="checkbox" name="builder[]" value="Beazer" />
-                                    <label for="radio-01">Beazer—Coming Spring 2015</label>
+                                    <label for="radio-01">Beazer—Spring 2015</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-02" type="checkbox" name="builder[]" value="KB Home" />
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
-                                    <label for="radio-03">Pardee—Coming June 2014</label>
+                                    <label for="radio-03">Pardee Homes—June 2014</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
@@ -189,7 +189,7 @@
                             <div class="scrollable-area">
                                 <h1>Not Ready To Choose?</h1>
                                 <p>No problem. Let us send you more information on your builder(s) of interest. </p>                                                                
-<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
+<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">SEND ME INFORMATION</a>                            
                             </div>
                         </div>
                         <div class="table-block">
@@ -211,7 +211,7 @@
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Model</span>
+                                                    <th><span>Floorplans</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
@@ -235,20 +235,20 @@
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Stories</span>
+                                                    <th class="hide-mobile"><span>Stories</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Garages</span>
+                                                    <th class="hide-mobile"><span>Garages</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Images</span></th>
-                                                    <th><span>Interested</span></th>
+                                                    <th><span>Interested?</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="result_body">
@@ -265,8 +265,8 @@
                                                             <td><?php echo number_format($property->sq_ft); ?></td>
                                                             <td><?php echo $beds; ?></td>
                                                             <td><?php echo $baths; ?></td>
-                                                            <td><?php echo $property->stories; ?></td>
-                                                            <td><?php echo $garage_bays; ?></td>
+                                                            <td class="hide-mobile"><?php echo $property->stories; ?></td>
+                                                            <td class="hide-mobile"><?php echo $garage_bays; ?></td>
                                                             <td>
                                                                 <?php switch($property->model) {
                                                                     case 'Monet 1576':
@@ -315,7 +315,7 @@
                     <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
                     <ul class="companies-list">
                     	<li>
-                            <div class="img-holder"><a href="beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
+                            <div class="img-holder"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                     
                             <dl>
                                 <dt><strong>Coming Spring 2015</strong></dt>
@@ -327,10 +327,10 @@
                                 </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="kb-home"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
+                            <div class="img-holder"><a href="/browse-the-builders/kb-home"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
                     
                             <dl>
-                                <dt><strong></strong></dt>
+                                <dt><strong>Available Now</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
                                     <dd>(702) 266-9900</dd>
@@ -339,22 +339,22 @@
                             </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
+                            <div class="img-holder"><a href="/browse-the-builders/pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
                     
                             <dl>
                                 <dt><strong>Coming June 2014</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
-                                    <dd>(702) 614-1400</dd>
+                                    <dd>(702) 604-3332</dd>
                                 <dt><strong>Email:</strong></dt>
                                     <dd><a href="mailto:info@pardeehomes.com">info@pardeehomes.com</a></dd>
                             </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="toll-brothers"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
+                            <div class="img-holder"><a href="/browse-the-builders/toll-brothers"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
                     
                             <dl>
-                                <dt><strong></strong></dt>
+                                <dt><strong>Available Now</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
                                     <dd>(702) 243-9800</dd>
@@ -375,7 +375,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
- <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information<br />are on their way!</div></h4>             </div>
+ <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information are on their way!</div></h4>             </div>
             <div class="modal-body">
                 <div class="step1">
                     <form id="frmRequestInfo" role="form">
@@ -402,30 +402,30 @@
                         <div class="floatLeft">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" />
+                                <input type="text" class="form-control" id="firstName" name="firstName" />
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" />
+                                <input type="text" class="form-control" id="lastName" name="lastName" />
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                                <input type="email" class="form-control" id="email" name="email" />
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+                                <input type="text" class="form-control" id="phone" name="phone" />
                             </div>
                         </div>
                         <div class="floatRight">
                             <div class="form-group">
                                 <label for="comment">Comment</label>
-                                <textarea class="form-control" id="comment" name="comment" placeholder="Comment"></textarea>
+                                <textarea class="form-control" id="comment" name="comment"></textarea>
                             </div>
                         </div>
                     </form>
                     <div class="frmSub">
-                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be sent to your email address.</p>
+                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be available immediately,and additional information will be sent to your email address.</p>
                         <button id="submitRequestInfo" type="button" class="btn btn-primary">Continue</button>
                     </div>
                 </div>

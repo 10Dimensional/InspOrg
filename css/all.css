@@ -110,7 +110,7 @@ button::-moz-focus-inner,
 	border:0;
 }
 input[type="image"]{padding:0;border:none;}
-input [type="email"], input [type="tel"], input[type="search"], input[type="text"], input[type="password"], input[type="file"], input[type="submit"], textarea{-webkit-appearance:none; border-radius:0;}
+input [type="email"], input [type="tel"], input[type="search"], input[type="text"], input[type="password"], input[type="file"], input[type="submit"], textarea, input[type="email"] {-webkit-appearance:none; border-radius:0 !important;}
 header, footer, article, section, hgroup, nav, figure, aside { display: block; }
 figure { margin:0; padding:0; }
 img.placeholder{

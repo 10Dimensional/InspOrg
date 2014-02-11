@@ -25,7 +25,7 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause" );
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
                 
                 
                 ?>
@@ -44,10 +44,10 @@
 	</style>
 <?php wp_head() ?></head>
 <body>
-<div id="wrapper">
+<div id="wrapper" style="background: #69c1e4">
     <?php get_header() ?>
     <div class="w1">
-		<div id="bg" class="bg-with-mask">
+		<div id="bg" class="bg-without-mask">
 <?php 
     echo do_shortcode("[metaslider id=836]"); 
 ?>						</div>
@@ -57,26 +57,30 @@
 			</ul>
 		</nav>
 		<h1 class="page-title page-title-1" style="padding:0;">
-			<img src="<?php bloginfo('template_url') ?>/images/kb-for-builders-page.png" class="kb">
+			<a href="http://www.kbhome.com/new-homes-las-vegas/home" target="_blank"><img src="<?php bloginfo('template_url') ?>/images/kb-for-builders-page.png" class="kb" style=" margin-left: -76px; "></a>
 		</h1>
 	</div>
-	<section class="text-section">
-		<div class="holder">
-				<?php the_field('headliner'); ?>
-					</div>
-	</section>
 	<div class="search-section" style="background:#69c1e4;">
 		<div class="holder">
+        
             <?php while ( have_posts() ) : the_post(); ?>
 
                 <?php the_content(); ?>
 
             <?php endwhile; // end of the loop. ?>
-            
-            <?php if ($properties) { ?>
-            <div id="result_shell">
+
+      
+		</div>
+	<aside id="sidebar-builders" class="main-col">
+						<?php if ( ! dynamic_sidebar('right-sidebar') ) : ?>
+		<?php endif; ?>
+	</aside>
+	</div>
+	
+  <?php if ($properties) { ?>
+            <div id="result_shell" style="width: 1003px; margin: 0 auto; margin-top: -100px;">
     		    <section class="info-section">
-                    <div class="holder">
+                    <div class="holder" style="margin-top: 40px;">
                         <div class="table-block">
                             <div class="scrollable-area anyscrollable">
                                 <div class="table-holder">
@@ -96,7 +100,7 @@
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Model</span>
+                                                    <th><span>Floorplans</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
@@ -120,13 +124,13 @@
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Stories</span>
+                                                    <th class="hide-mobile"><span>Stories</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Garages</span>
+                                                    <th class="hide-mobile"><span>Garages</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
@@ -150,18 +154,18 @@
                                                             <td><?php echo number_format($property->sq_ft); ?></td>
                                                             <td><?php echo $beds; ?></td>
                                                             <td><?php echo $baths; ?></td>
-                                                            <td><?php echo $property->stories; ?></td>
-                                                            <td><?php echo $garage_bays; ?></td>
+                                                            <td class="hide-mobile"><?php echo $property->stories; ?></td>
+                                                            <td class="hide-mobile"><?php echo $garage_bays; ?></td>
                                                             <td>
                                                                 <?php switch($property->model) {
                                                                     case 'Monet 1576':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">View</a>';
                                                                         break;
                                                                     case 'Monet 1736':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">View</a>';
                                                                         break;
                                                                     case 'Monet 1843':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">View</a>';
                                                                         break;
                                                                 } ?>
                                                             </td>
@@ -172,18 +176,17 @@
                                             </tbody>
                                         </table>
                                     </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: -26px 25px 15px;">Request Information</a>
-                </section>
+                                </section>
     		</div>
-    		<?php } ?>             
-		</div>
-	</div>
+    
+    		<?php } ?>    
+</section>         
 </div>
-
+</div>
+</div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="requestInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -201,7 +204,7 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="builders[]" value="kb home" checked> KB Home
+                                <input type="checkbox" name="builders[]" value="kb home"> KB Home
                             </label>
                         </div>
                         <div class="checkbox">
@@ -295,7 +298,8 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
+   
 	<?php get_footer() ?>
+
 <?php wp_footer() ?></body>
 </html>

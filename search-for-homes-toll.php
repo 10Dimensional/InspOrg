@@ -25,7 +25,7 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause" );
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
                 
                 
                 ?>
@@ -44,10 +44,10 @@
 	</style>
 <?php wp_head() ?></head>
 <body>
-<div id="wrapper">
+<div id="wrapper" style="background: #69c1e4">
     <?php get_header() ?>
     <div class="w1">
-		<div id="bg" class="bg-with-mask">
+		<div id="bg" class="bg-without-mask">
 		<?php 
     echo do_shortcode("[metaslider id=827]"); 
 ?>
@@ -59,14 +59,9 @@
 			</ul>
 		</nav>
 		<h1 class="page-title page-title-1" style="padding:0;">
-			<img src="<?php bloginfo('template_url') ?>/images/toll-for-builders.png">
+			<a href="http://www.tollbrothers.com/" target="_blank"><img src="<?php bloginfo('template_url') ?>/images/toll-for-builders.png"></a>
 		</h1>
 	</div>
-	<section class="text-section">
-		<div class="holder">
-				<?php the_field('headliner'); ?>
-					</div>
-	</section>
 	<div class="search-section" style="background:#69c1e4;">
 		<div class="holder">
             <?php while ( have_posts() ) : the_post(); ?>
@@ -74,11 +69,17 @@
                 <?php the_content(); ?>
 
             <?php endwhile; // end of the loop. ?>
-            
+           
+		</div>
+		<aside id="sidebar-builders" class="main-col hide-mobile">
+						<?php if ( ! dynamic_sidebar('right-sidebar') ) : ?>
+		<?php endif; ?>
+		</aside>
+	</div>
             <?php if ($properties) { ?>
-            <div id="result_shell">
+            <div id="result_shell" style="width: 1003px; margin: 0 auto; margin-top: -100px;">
     		    <section class="info-section">
-                    <div class="holder">
+                    <div class="holder" style="margin-top: 40px;">
                         <div class="table-block">
                             <div class="scrollable-area anyscrollable">
                                 <div class="table-holder">
@@ -98,7 +99,7 @@
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Model</span>
+                                                    <th><span>Floorplans</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
@@ -122,13 +123,13 @@
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Stories</span>
+                                                    <th class="hide-mobile"><span>Stories</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Garages</span>
+                                                    <th class="hide-mobile"><span>Garages</span>
                                                         <ul class="sort-btns">
                                                         	<li><a href="#">increase</a></li>
                                                         	<li><a href="#">decrease</a></li>
@@ -152,30 +153,30 @@
                                                             <td><?php echo number_format($property->sq_ft); ?></td>
                                                             <td><?php echo $beds; ?></td>
                                                             <td><?php echo $baths; ?></td>
-                                                            <td><?php echo $property->stories; ?></td>
-                                                            <td><?php echo $garage_bays; ?></td>
+                                                            <td class="hide-mobile"><?php echo $property->stories; ?></td>
+                                                            <td class="hide-mobile"><?php echo $garage_bays; ?></td>
                                                             <td>
                                                                 <?php switch($property->model) {
                                                                     case 'Cordoba':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">View</a>';
                                                                         break;
                                                                     case 'Madeira':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">View</a>';
                                                                         break;
                                                                     case 'Santiago':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">View</a>';
                                                                         break;
                                                                     case 'Catania':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">View</a>';
                                                                         break;
                                                                     case 'Messina':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">View</a>';
                                                                         break;
                                                                     case 'Trapani':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">View</a>';
                                                                         break;
                                                                     default:
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">View</a>';
                                                                         break;
                                                                 } ?>
                                                             </td>
@@ -186,16 +187,15 @@
                                             </tbody>
                                         </table>
                                     </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 25px 15px;">Request Information</a>
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: -26px 25px 15px;">Request Information</a>
                 </section>
     		</div>
-    		<?php } ?>             
-		</div>
-	</div>
+    
+    		<?php } ?>    
+</section>         
+</div>
+</div>
 </div>
 
 <!-- Modal -->
