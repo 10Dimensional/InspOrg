@@ -44,7 +44,11 @@
 	</style>
 <?php wp_head() ?></head>
 <body>
+<<<<<<< HEAD:wp-content/themes/inspirada/search-for-homes-kb.php
 <div id="wrapper" style="background: white">
+=======
+<div id="wrapper" style="background: #69c1e4">
+>>>>>>> 44ae78cd35d32c5524902929b10237bbc37590fe:search-for-homes-kb.php
     <?php get_header() ?>
     <div class="w1">
 		<div id="bg" class="bg-without-mask">
@@ -60,7 +64,11 @@
 			<a href="http://www.kbhome.com/new-homes-las-vegas/home" target="_blank"><img src="<?php bloginfo('template_url') ?>/images/kb-for-builders-page.png" class="kb" style=" margin-left: -76px; "></a>
 		</h1>
 	</div>
+<<<<<<< HEAD:wp-content/themes/inspirada/search-for-homes-kb.php
 	<div class="search-section" style="background:white;">
+=======
+	<div class="search-section" style="background:#69c1e4;">
+>>>>>>> 44ae78cd35d32c5524902929b10237bbc37590fe:search-for-homes-kb.php
 		<div class="holder">
         
             <?php while ( have_posts() ) : the_post(); ?>
