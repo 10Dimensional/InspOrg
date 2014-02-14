@@ -65,9 +65,6 @@
 	</div>
 <<<<<<< HEAD:wp-content/themes/inspirada/search-for-homes-toll.php
 	<div class="search-section" style="background:white;">
-=======
-	<div class="search-section" style="background:#69c1e4;">
->>>>>>> 44ae78cd35d32c5524902929b10237bbc37590fe:search-for-homes-toll.php
 		<div class="holder">
             <?php while ( have_posts() ) : the_post(); ?>
 
