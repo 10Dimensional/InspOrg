@@ -63,7 +63,6 @@
 			<a href="http://www.tollbrothers.com/" target="_blank"><img src="<?php bloginfo('template_url') ?>/images/toll-for-builders.png"></a>
 		</h1>
 	</div>
-<<<<<<< HEAD:wp-content/themes/inspirada/search-for-homes-toll.php
 	<div class="search-section" style="background:white;">
 		<div class="holder">
             <?php while ( have_posts() ) : the_post(); ?>
@@ -190,7 +189,7 @@
                                         </table>
                                     </form>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: -26px 25px 15px;">Request Information</a>
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin-top: 20px;">Request Information</a>
                 </section>
     		</div>
     

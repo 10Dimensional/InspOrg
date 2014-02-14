@@ -59,7 +59,7 @@
 			</ul>
 		</nav>
 		<h1 class="page-title page-title-1" style="padding:0;">
-			<a href="http://www.kbhome.com/new-homes-las-vegas/home" target="_blank"><img src="<?php bloginfo('template_url') ?>/images/kb-for-builders-page.png" class="kb" style=" margin-left: -76px; "></a>
+			<a href="http://www.kbhome.com/new-homes-las-vegas/inspirada" target="_blank"><img src="<?php bloginfo('template_url') ?>/images/kb-for-builders-page.png" class="kb" style=" margin-left: -76px; "></a>
 		</h1>
 	</div>
 	<div class="search-section" style="background:white;">
@@ -179,7 +179,7 @@
                                         </table>
                                     </form>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: -26px 25px 15px;">Request Information</a>
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin-top: 20px">Request Information</a>
                                 </section>
     		</div>
     

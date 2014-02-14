@@ -437,7 +437,7 @@
                           </div>	 	
 	                    <div class="builder_logos">	 	
                         <a href="http://www.beazer.com" target="_blank" class="beazer_homes"></a>	 	
-						<a href="http://www.kbhome.com/new-homes-las-vegas/home" target="_blank" class="kb_home"></a>	 	
+						<a href="http://www.kbhome.com/new-homes-las-vegas/inspirada" target="_blank" class="kb_home"></a>	 	
                        <a href="http://www.pardeehomes.com/" target="_blank" class="pardee_homes"></a>	 	
                         <a href="http://www.tollbrothers.com/NV/Toll_Brothers_at_Inspirada" target="_blank" class="toll_bros"></a>	
                     </div>
