@@ -59,7 +59,11 @@ function theme_name_scripts() {
 	wp_enqueue_script( 'bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array(), '1.0.0', true );
 	wp_enqueue_script( 'jquery-main', get_template_directory_uri() . '/js/jquery.main.js', array('jquery', 'jquery-ui'), '1.0.0', true );
 	wp_enqueue_script( 'mapbox', '//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js', '', '', true );
-
+	wp_enqueue_style('bootstrap', get_bloginfo('template_directory').'/css/bootstrap.css', '', '', 1);
+	wp_enqueue_style('fancybox', get_bloginfo('template_directory').'/css/fancybox.css', '', '', 2);
+	wp_enqueue_style('jcf', get_bloginfo('template_directory').'/css/jcf.css', '', '', 3);
+	wp_enqueue_style('mapbox', '//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css', '', '', 3);
+	wp_enqueue_style('inspirada', get_bloginfo('template_directory').'/css/style.css', '', '', 99);
 
 	//wp_dequeue_script('jquery.cycle1');
 }
