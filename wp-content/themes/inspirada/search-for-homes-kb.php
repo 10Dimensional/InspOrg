@@ -46,9 +46,7 @@
 <body>
 <<<<<<< HEAD:wp-content/themes/inspirada/search-for-homes-kb.php
 <div id="wrapper" style="background: white">
-=======
-<div id="wrapper" style="background: #69c1e4">
->>>>>>> 44ae78cd35d32c5524902929b10237bbc37590fe:search-for-homes-kb.php
+
     <?php get_header() ?>
     <div class="w1">
 		<div id="bg" class="bg-without-mask">
