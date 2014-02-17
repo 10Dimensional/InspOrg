@@ -2863,7 +2863,7 @@ margin-top: -9px;
 	font:18px/22px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-transform:uppercase;
 	text-align:center;
-	color:#26a1b1;
+	color:white;
 	margin:0 -13px;
 	padding:7px 5px;
 	background:rgba(255,255,255, 0.7);
@@ -2872,7 +2872,6 @@ margin-top: -9px;
 	overflow:hidden;
 	margin:0 -13px;
 	padding:0 13px 8px;
-	background:rgba(255,255,255, 0.5);
 }
 .filter-box .radio-area{
 	padding:28px 0 6px;
@@ -2884,6 +2883,7 @@ margin-top: -9px;
 }
 .filter-box .title{
 	margin:16px 0 9px;
+	color: white;
 }
 .filter-box .filter-form{
 	padding:0;
