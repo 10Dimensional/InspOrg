@@ -1677,6 +1677,13 @@ border: 1px #295585 solid;
 	text-align:center;
 	margin:0 0 33px;
 }
+
+h1.mango {
+	color: #ea6950;
+}
+h2.mango {
+	color: #ea6950;
+}
 .content-section.style-1 h1{
 	color:#51aa47;
 }
@@ -1711,7 +1718,7 @@ border: 1px #295585 solid;
 	padding:0 0 5px;
 	font:18px/24px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-transform:uppercase;
-	color:#49c3b1;
+	color:white;
 }
 .btn-next-section:hover{
 	text-decoration:underline;
@@ -1916,7 +1923,7 @@ border: 1px #295585 solid;
 }
 .statistics-block{
 	overflow:hidden;
-	background:#d9f0f8;
+	background:#fff;
 	font-size:14px;
 	line-height:17px;
 	margin:0 0 17px;
@@ -2260,6 +2267,7 @@ border: 1px #295585 solid;
 }
 .companies-info-block p{
 	margin:0 0 17px;
+	color: white;
 }
 .companies-info-block .phone{
 	display:block;
@@ -2849,7 +2857,7 @@ margin-top: -9px;
 	position:relative;
 	padding:0 13px;
 	margin:10px 0 0;
-	background:rgba(255,255,255, 0.3);
+	background:#005785;
 }
 .filter-box h2{
 	font:18px/22px 'roboto_slabbold', 'Times New Roman', Times, serif;

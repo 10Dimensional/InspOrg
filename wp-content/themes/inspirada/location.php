@@ -74,7 +74,7 @@
 				</div>
 			</section>
 			<a class="anchor" id="henderson-menu"></a>			
-			<section id="henderson" class="content-section style-2" style="background: #81cbe8">
+			<section id="henderson" class="content-section style-2">
 				<div class="holder">
 					<?php the_field('henderson'); ?>
 				<div class="holder">
