@@ -1681,7 +1681,7 @@ border: 1px #295585 solid;
 h1.mango {
 	color: #ea6950;
 }
-h2.mango {
+h2.mango2 {
 	color: #ea6950;
 }
 .content-section.style-1 h1{
@@ -2866,7 +2866,7 @@ margin-top: -9px;
 	color:white;
 	margin:0 -13px;
 	padding:7px 5px;
-	background:rgba(255,255,255, 0.7);
+	background: #79bacb;
 }
 .filter-box .sliders-holder{
 	overflow:hidden;
