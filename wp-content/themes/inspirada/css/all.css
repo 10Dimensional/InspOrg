@@ -1591,7 +1591,7 @@ border: 1px #295585 solid;
 }
 .content-section{
 	width:100%;
-	background-color: #003056;
+	background-color: #005785;
 	padding-top: 40px;
 	color: black;
 }
@@ -1615,10 +1615,10 @@ border: 1px #295585 solid;
 	background:#fff;
 }
 .content-section.style-2{
-	background:#29a4b6;
+	background:#51aa47;
 }
 .content-section.style-3{
-	background:#f6eec0;
+	background:white;
 }
 .content-section .list{
 	margin: 0;
@@ -1678,10 +1678,10 @@ border: 1px #295585 solid;
 	margin:0 0 33px;
 }
 .content-section.style-1 h1{
-	color:#69c1e4;
+	color:#51aa47;
 }
 .content-section.style-3 h1{
-	color:#27a2b2;
+	color:#51aa47;
 }
 .section-box .list {
 	
@@ -2131,11 +2131,10 @@ border: 1px #295585 solid;
 	overflow:hidden;
 	position:relative;
 	border:1px solid #f1f0ef;
-	background:#8fd1eb;
+	background:#51aa47;
 	padding:19px 70px 19px 17px;
 	min-height:354px;
 	margin:0 0 50px;
-	background:rgba(255,255,255, 0.25);
 }
 .contact-form{
 	float:left;
@@ -2798,7 +2797,7 @@ border: 1px #295585 solid;
 	box-sizing: border-box;
 }
 .education-box{
-	background:#dfcd58;
+	background:#f36b42;
 	padding:22px 23px 25px;
 	font-size:14px;
 	line-height:16px;
@@ -2825,7 +2824,7 @@ border: 1px #295585 solid;
 	font:24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-transform:uppercase;
 	margin:0 0 8px;
-	color:#ea6950;
+	color:white;
 }
 .education-box h2{
 	font:15px/20px 'arimobold', Arial, Helvetica, sans-serif;
