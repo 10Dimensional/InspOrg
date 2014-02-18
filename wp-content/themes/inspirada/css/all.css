@@ -1679,10 +1679,10 @@ border: 1px #295585 solid;
 }
 
 h1.mango {
-	color: #ea6950;
+	color: #FF6C36;
 }
 h2.mango2 {
-	color: #ea6950;
+	color: #FF6C36;
 }
 .content-section.style-1 h1{
 	color:#81A856;
@@ -1928,8 +1928,8 @@ h2.mango2 {
 	line-height:17px;
 	margin:0 0 17px;
 	padding: 15px;
-	border:1px solid #ee9373;
-	box-shadow: 0 0 1px #ee9373 inset;
+	border:1px solid #FF6C36;
+	box-shadow: 0 0 1px #FF6C36 inset;
 }
 .statistics-block .description{
 	overflow:hidden;
@@ -2805,7 +2805,7 @@ h2.mango2 {
 	box-sizing: border-box;
 }
 .education-box{
-	background:#f36b42;
+	background:#FF6C36;
 	padding:22px 23px 25px;
 	font-size:14px;
 	line-height:16px;
