@@ -41,7 +41,7 @@ class Property_Finder_Widget extends WP_Widget {
     						<div class="radio-area" style="display:none;">
     							<div class="rad-holder">
     								<input id="radio-01" name="builder" value="Beazer" type="checkbox" checked>
-    								<label for="radio-01">Beazer<br>Coming Spring 2015</label>
+    								<label for="radio-01">Beazer - Coming Spring 2015</label>
     							</div>
     							<div class="rad-holder">
     								<input id="radio-02" name="builder" value="KB Home" type="checkbox" checked>
@@ -49,7 +49,7 @@ class Property_Finder_Widget extends WP_Widget {
     							</div>
     							<div class="rad-holder">
     								<input id="radio-03" name="builder" value="Pardee" type="checkbox" checked>
-    								<label for="radio-03">Pardee<br>Coming Soon</label>
+    								<label for="radio-03">Pardee - Coming Soon</label>
     							</div>
     							<div class="rad-holder">
     								<input id="radio-04" name="builder" value="Toll Brothers" type="checkbox" checked>
