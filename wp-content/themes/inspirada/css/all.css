@@ -371,7 +371,7 @@ li.menu-item-244 {
 	text-align:right;
 	margin:0;
 	padding-top: 29px;
-	color:#dfcd58;
+	color:#f7d93e;
 	text-shadow:0 0 10px rgba(0,0,0, 0.72);
 
 }
@@ -2952,7 +2952,7 @@ margin-top: -9px;
 	overflow:hidden;
 	border-width:14px 0 0;
 	border-top: 7px #295585 solid;
-	background:#dbc74f;
+	background:#f7d93e;
 }
 
 #footermenu {
@@ -3021,6 +3021,7 @@ margin-top: -9px;
 .carousel .slide-frame{
 	overflow:hidden;
 	background:#81A856;
+	height: 220px !important;
 }
 .carousel .style-1 .slide-frame{
 	background:#0493a6;
@@ -3034,7 +3035,7 @@ margin-top: -9px;
 .carousel .image{
 	display:block;
 	width:100%;
-	height:83px;
+	height:110px;
 	margin:0 0 6px;
 }
 .carousel .date{

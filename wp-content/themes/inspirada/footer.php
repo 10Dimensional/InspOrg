@@ -4,7 +4,7 @@
 				<h1>LIVE INSPIRED—THE INSPIRADA BLOG</h1>
 				<div class="carousel">
 					<div class="carousel-holder">
-						<div class="mask">
+						<div class="mask" style="height: 220px;">
 							<div class="slideset">
 								<?php 
 									$args = array(
