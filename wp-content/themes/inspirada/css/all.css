@@ -1615,7 +1615,7 @@ border: 1px #295585 solid;
 	background:#fff;
 }
 .content-section.style-2{
-	background:#51aa47;
+	background:#83a857;
 }
 .content-section.style-3{
 	background:white;
@@ -1685,10 +1685,10 @@ h2.mango2 {
 	color: #ea6950;
 }
 .content-section.style-1 h1{
-	color:#51aa47;
+	color:#83a857;
 }
 .content-section.style-3 h1{
-	color:#51aa47;
+	color:#83a857;
 }
 .section-box .list {
 	
@@ -2138,7 +2138,7 @@ h2.mango2 {
 	overflow:hidden;
 	position:relative;
 	border:1px solid #f1f0ef;
-	background:#51aa47;
+	background:#83a857;
 	padding:19px 70px 19px 17px;
 	min-height:354px;
 	margin:0 0 50px;
