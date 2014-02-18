@@ -24,5 +24,6 @@
 					</select>
 				</div>
 			</div>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 			</header>
 		
