@@ -2956,7 +2956,7 @@ margin-top: -9px;
 }
 
 #footermenu {
-	padding-top: 53px;
+	padding-top: 44px;
 }
 .footer-holder{
 	max-width:1003px;
@@ -3053,6 +3053,8 @@ margin-top: -9px;
 	text-align:left;
 	margin:0;
 	color:#fff;
+	height: 28px;
+overflow: hidden;
 }
 .carousel .slide h1 a{
 	color:#fff;
