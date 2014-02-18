@@ -121,7 +121,7 @@ a.opener{
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	background: #0093a7;
+	background: #83a857;
 	box-shadow: 0 1px 10px rgba(0,0,0,.55);
 	font:10px/15px 'arimobold',  Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
@@ -134,7 +134,7 @@ a.opener{
 	top: 34px;
 }
 #nav a{
-	color: #034054;
+	color: white;
 	background: #40aebe;
 	padding-left: 38px;
 }
@@ -169,13 +169,13 @@ a.opener{
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	background: #b4a13b;
-	background: -moz-linear-gradient(top,  #b4a13b 0%, #b9a63f 4%, #cdb748 12%, #d4bd49 15%, #ddc549 23%, #e2c84d 31%, #e2c84d 100%);
+	background: #f7d93e;
+/*	background: -moz-linear-gradient(top,  #b4a13b 0%, #b9a63f 4%, #cdb748 12%, #d4bd49 15%, #ddc549 23%, #e2c84d 31%, #e2c84d 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4a13b), color-stop(4%,#b9a63f), color-stop(12%,#cdb748), color-stop(15%,#d4bd49), color-stop(23%,#ddc549), color-stop(31%,#e2c84d), color-stop(100%,#e2c84d));
 	background: -webkit-linear-gradient(top,  #b4a13b 0%,#b9a63f 4%,#cdb748 12%,#d4bd49 15%,#ddc549 23%,#e2c84d 31%,#e2c84d 100%);
 	background: -o-linear-gradient(top,  #b4a13b 0%,#b9a63f 4%,#cdb748 12%,#d4bd49 15%,#ddc549 23%,#e2c84d 31%,#e2c84d 100%);
 	background: -ms-linear-gradient(top,  #b4a13b 0%,#b9a63f 4%,#cdb748 12%,#d4bd49 15%,#ddc549 23%,#e2c84d 31%,#e2c84d 100%);
-	background: linear-gradient(to bottom,  #b4a13b 0%,#b9a63f 4%,#cdb748 12%,#d4bd49 15%,#ddc549 23%,#e2c84d 31%,#e2c84d 100%);
+	background: linear-gradient(to bottom,  #b4a13b 0%,#b9a63f 4%,#cdb748 12%,#d4bd49 15%,#ddc549 23%,#e2c84d 31%,#e2c84d 100%); */
 }
 .contact-block:after{
 	display: block;
@@ -226,7 +226,7 @@ a.opener{
 .addnav li{
 	height: 54px;
 	overflow: hidden;
-	background: #8fd1eb;
+	background: #83a857;
 	border-bottom: 1px solid #fff;
 	position: relative;
 }
@@ -246,10 +246,10 @@ a.opener{
 	float: left;
 	text-transform: uppercase;
 	font:13px/16px 'arimobold' , Arial, Helvetica, sans-serif;
-	color: #034054;
+	color: white;
 	padding: 18px 10px 5px 47px;
 }
-.addnav li.even{ background: #adddf0;}
+.addnav li.even{ background: #698338;}
 .addnav .view-homes{background-position: 0 -323px;}
 .addnav .direction{background-position: 0 -382px}
 .addnav .signup{ background-position: 0 -441px;}
@@ -282,13 +282,13 @@ a.opener{
 }
 .visit-block{
 	min-height:19px;
-	background: #004155;
-	background: -moz-linear-gradient(top,  #004155 0%, #00313e 100%);
+	background: #295585;
+/*	background: -moz-linear-gradient(top,  #004155 0%, #00313e 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#004155), color-stop(100%,#00313e));
 	background: -webkit-linear-gradient(top,  #004155 0%,#00313e 100%);
 	background: -o-linear-gradient(top,  #004155 0%,#00313e 100%);
 	background: -ms-linear-gradient(top,  #004155 0%,#00313e 100%);
-	background: linear-gradient(to bottom,  #004155 0%,#00313e 100%);
+	background: linear-gradient(to bottom,  #004155 0%,#00313e 100%); */
 	font-size: 11px;
 	padding: 8px 29px 2px 10px;
 }
@@ -433,8 +433,8 @@ a.opener{
 	margin-left: 1px;
 }
 .btn-map-it{
-	border: 1px solid #4daad0;
-	background: #0093a7;
+	border: 1px solid #698338;
+	background: #83a857;
 	box-shadow: inset 0 0 5px rgba(0,0,0,.75);
 	color: #fff;
 	text-transform: uppercase;
@@ -473,11 +473,11 @@ a.opener{
 }
 .inner p{ margin: 0 0 10px;}
 .info{
-	background: #b4e0f2;
+	background: #295585;
 	border-bottom: 2px solid #fff;
 	padding: 6px 24px 2px;
 }
-.info p{ margin: 0 0 5px;}
+.info p{ margin: 0 0 5px; color: white;}
 .signup-form{padding:20px 33px 13px 22px;}
 .signup-form .row{margin-bottom: 8px;}
 .signup-form .row:after,
@@ -556,8 +556,8 @@ a.opener{
 }
 .signup-form .radio-holder input[type="radio"]{float: left;}
 .signup-form input[type="submit"]{
-	border: 1px solid #4daad0;
-	background: #0093a7 url(../images/arrow01.png) no-repeat 63% 5px;
+	border: 1px solid #698338;
+	background: #83a857 url(../images/arrow01.png) no-repeat 63% 5px;
 	box-shadow: inset 0 0 5px rgba(0,0,0,.75);
 	color: #fff;
 	text-transform: uppercase;
@@ -754,7 +754,7 @@ a.opener{
 		background-size: 55px 750px;
 	}
 	#nav a.view-home{
-		background:#73c4cf url(../images/sprite2x.png) no-repeat 0 -550px;
+		background:#698338 url(../images/sprite2x.png) no-repeat 0 -550px;
 		background-size: 55px 750px;
 	}
 	#nav a.direction{
@@ -762,7 +762,7 @@ a.opener{
 		background-size: 55px 750px;
 	}
 	#nav a.signup{
-		background:#73c4cf url(../images/sprite2x.png) no-repeat 0 -646px;
+		background:#698338 url(../images/sprite2x.png) no-repeat 0 -646px;
 		background-size: 55px 750px;
 	}
 	.btn-map-it span{
@@ -772,7 +772,7 @@ a.opener{
 		height: 15px;
 	}
 	.signup-form input[type="submit"]{
-		background: #0093a7 url(../images/arrow01-2x.png) no-repeat 63% 5px;
+		background: #83a857 url(../images/arrow01-2x.png) no-repeat 63% 5px;
 		background-size: 5px 15px; 
 	}
 }
