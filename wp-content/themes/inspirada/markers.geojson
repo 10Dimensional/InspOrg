@@ -697,9 +697,12 @@
          "properties":{
             "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/beazer-map.png\">",
             "id":"marker-hqib0xcd10",
-            "marker-color":"#1087bf",
-            "marker-size":"medium",
-            "marker-symbol":"",
+            "icon": {
+            "iconUrl": "/images/transparentmarker.png",
+            "iconSize": [30, 70], // size of the icon
+            "iconAnchor": [17, 47], // point of the icon which will correspond to marker's location
+            "popupAnchor": [0, -47], // point from which the popup should open relative to the iconAnchor
+        }
             "title":"Beazer Available 2015",
             "category" : "Beazer"
          },
