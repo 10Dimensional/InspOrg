@@ -4509,10 +4509,10 @@ height:9999px;
 background:#fff;
 }
 
-#requestInfo .btn-primary, .companies-info-block .btn-primary {background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px;}
+#requestInfo .btn-primary, .companies-info-block .btn-primary {background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px; border-color: #ff6c36;}
 #requestInfo .btn-right, .companies-info-block .btn-right{background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px; color: #fff;
 font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
-font-size: 16px;}
+font-size: 16px; border-color: #ff6c36;}
 p.driving-directions {float: right; padding-top: 20px; padding-right: 40px;}
 p.emgfittext {
 color: white !important;
