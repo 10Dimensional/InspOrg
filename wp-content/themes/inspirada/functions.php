@@ -110,7 +110,6 @@ function post_to_third_party($entry, $form)
 		    $firm_id = $form_items['id'];
 		} else if ($form_items['label'] === 'Address') {
 		    foreach ($form_items['inputs'] as $form_item) {
-		        print_r($form_item);
     		    if ($form_item['label'] === 'Street Address') {
         		    $address_id = $form_item['id'];
     		    } else if ($form_item['label'] === 'State / Province') {
@@ -125,6 +124,8 @@ function post_to_third_party($entry, $form)
 		    foreach ($form_items['inputs'] as $form_item) {
     		    $builders_id[] = $form_item['id'];
 		    }
+		} else if ($form_items['label'] === 'Builder') {
+            $builders_id = $form_items['id'];	
 		}
 	}
 	
@@ -138,14 +139,23 @@ function post_to_third_party($entry, $form)
 	$city = (isset($entry[strval($city_id)])) ? $entry[strval($city_id)] : null;
 	$state = (isset($entry[strval($state_id)])) ? $entry[strval($state_id)] : null;
 	$zip = (isset($entry[strval($zip_id)])) ? $entry[strval($zip_id)] : null;
-	$builders = array();
+	$builder = (isset($entry[strval($builders_id)])) ? $entry[strval($builders_id)] : null;
 	
-	print_r($state_id);
-	foreach ($builders_id as $builder) {
-	    $curBuilder = str_replace('  ', ' ', strtolower($entry[$builder]));
-	    if ($curBuilder !== '') {
-    	    $builders[] = $curBuilder;
-	    }
+	if ($builder === 'all') {
+    	$builders = array(
+    	    'beazer homes',
+            'kb home',
+            'pardee homes',
+            'toll brothers'
+        );
+	} else {
+	    $builders = array();
+    	foreach ($builders_id as $builder) {
+    	    $curBuilder = str_replace('  ', ' ', strtolower($entry[$builder]));
+    	    if ($curBuilder !== '') {
+        	    $builders[] = $curBuilder;
+    	    }
+    	}
 	}
 	
 	save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders));
