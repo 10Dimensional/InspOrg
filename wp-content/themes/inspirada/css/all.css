@@ -3103,7 +3103,7 @@ overflow: hidden;
 	position:relative;
 	height:4px;
 	margin:0 3px;
-	background:rgba(255,255,255, 1.0) !important;
+	background:white !important;
 }
 .carousel .slider{
 	position:absolute;
