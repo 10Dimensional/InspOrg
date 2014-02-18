@@ -48,7 +48,7 @@ body{
 	margin:0;
 	color:#000;
 	font:9px/12px Arial, Helvetica, sans-serif;
-	background:#69c1e4; 
+	background:#fff; 
 	-webkit-text-size-adjust:100%;
 	-ms-text-size-adjust: none;
 	min-width: 320px;
@@ -78,7 +78,7 @@ form,fieldset{
 input[type="image"]{padding:0;border:none;}
 input [type="email"], input[type=search], input[type=text], input[type=password], input[type=file], input[type=submit], textarea{-webkit-appearance:none;}
 #header{
-	background:#c8e9ef;
+	background:#fff;
 	border-bottom: 1px solid #fff;
 }
 .header-top{

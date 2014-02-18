@@ -1615,7 +1615,7 @@ border: 1px #295585 solid;
 	background:#fff;
 }
 .content-section.style-2{
-	background:#51aa47;
+	background:#81A856;
 }
 .content-section.style-3{
 	background:white;
@@ -1685,10 +1685,10 @@ h2.mango2 {
 	color: #ea6950;
 }
 .content-section.style-1 h1{
-	color:#51aa47;
+	color:#81A856;
 }
 .content-section.style-3 h1{
-	color:#51aa47;
+	color:#81A856;
 }
 .section-box .list {
 	
@@ -2138,7 +2138,7 @@ h2.mango2 {
 	overflow:hidden;
 	position:relative;
 	border:1px solid #f1f0ef;
-	background:#51aa47;
+	background:#83a857;
 	padding:19px 70px 19px 17px;
 	min-height:354px;
 	margin:0 0 50px;
@@ -3020,7 +3020,7 @@ margin-top: -9px;
 }
 .carousel .slide-frame{
 	overflow:hidden;
-	background:#9aa747;
+	background:#81A856;
 }
 .carousel .style-1 .slide-frame{
 	background:#0493a6;
@@ -4509,8 +4509,8 @@ height:9999px;
 background:#fff;
 }
 
-#requestInfo .btn-primary, .companies-info-block .btn-primary {background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px;}
-#requestInfo .btn-right, .companies-info-block .btn-right{background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px; color: #fff;
+#requestInfo .btn-primary, .companies-info-block .btn-primary {background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px;}
+#requestInfo .btn-right, .companies-info-block .btn-right{background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px; color: #fff;
 font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
 p.driving-directions {float: right; padding-top: 20px; padding-right: 40px;}
