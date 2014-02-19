@@ -149,10 +149,10 @@ and (orientation : portrait) {
     border-top-color: #FFF;
     color: #FFF;
 }
+img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !important;}
 </style>
 <div id='map'></div>
 <script>
-$('img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]').css('opacity', '0');
 var map = L.mapbox.map('map');
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
