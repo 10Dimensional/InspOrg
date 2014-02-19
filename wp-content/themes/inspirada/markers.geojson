@@ -11,7 +11,7 @@
          "properties":{
             "description":"<ul class=\"list\"><li>Resident Community Center</li><ul><li>Kitchen</li> <li>Restrooms</li>  <li>Gathering Area</li>  <li>TV/Wi-Fi</li>  <li>Reading Room</li>  <li>Community Management Offices</li>  <li>Heated Lap Pool</li>  <li>Heated Play Pool</li></ul> <li>Two Ramadas</li> <li>Large Lawn Areas for Passive Play</li> <li>Lighted Bocce Ball Courts</li> <li>Game Tables</li> <li>Bike Racks</li> <li>Amphitheater</li> <li>Kids Play Area</li> <li>Covered and Uncovered Picnic Areas</li> <li>Outdoor Cooking Grills</li> <li>Shade Sails</li></ul><a data-target=\"#solistamodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
            	"id":"marker-hqi9yh7f0",
-            "marker-color":"#1087bf",
+            "marker-color":"#83a857",
             "marker-size":"medium",
             "marker-symbol":"",
             "title":"Solista Park (Completed)",
@@ -30,7 +30,7 @@
          "properties":{
             "description":"<ul class=\"list\"><li>Picnic Area</li> <li>2 Ramadas</li> <li>3 Tennis Courts</li> <li>Splash Pad / Water Play Area</li> <li>Kid's Play System with Tensile Shade</li> <li>2 Soccer/Multi-Use Sport Fields</li> <li>Dog Park</li> <li>Restrooms</li> <li>2 Basketball Courts</li> <li>Amphitheater</li></ul><a data-target=\"#capriolamodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
             "id":"marker-hqia18sa1",
-            "marker-color":"#1087bf",
+            "marker-color":"#83a857",
             "marker-size":"medium",
             "marker-symbol":"",
             "title":"Capriola Park (Under construction)",
@@ -50,7 +50,7 @@
          "properties":{
             "description":"<ul class=\"list\"><li>Teen Play Area</li> <li>Kid's Play Area with Tensile Shade</li> <li>Resident Adult & Family Pool Area</li> <li>2 Family Ramadas with Picnic Areas</li> <li>Generous Open Grass Areas</li> <li>2 Basketball courts</li></ul><a data-target=\"#potenzamodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
             "id":"marker-hqia4k4a2",
-            "marker-color":"#1087bf",
+            "marker-color":"#83a857",
             "marker-size":"medium",
             "marker-symbol":"",
             "title":"Potenza Park (Under construction)",
@@ -70,7 +70,7 @@
          "properties":{
             "description":"<ul class=\"list\"><li>2 Ramadas</li> <li>Water Play Area</li> <li>4 Sand Volleyball Courts</li> <li>Heated Resident Pool</li> <li>Dog Park</li> <li>2 Tennis Courts</li> <li>2 Little League Fields</li> <li>Child Play Structure Area</li> <li>3 Soccer/Multi-use Fields</li> <li>2 Basketball Courts</li></ul><a data-target=\"#aventuramodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
             "id":"marker-hqia65h83",
-            "marker-color":"#1087bf",
+            "marker-color":"#83a857",
             "marker-size":"medium",
             "marker-symbol":"",
             "title":"Aventura Park",
@@ -89,7 +89,7 @@
          "properties":{
             "description":"",
             "id":"marker-hqia7nwi4",
-            "marker-color":"#1087bf",
+            "marker-color":"#83a857",
             "marker-size":"medium",
             "marker-symbol":"",
             "title":"Future Park",
@@ -108,7 +108,7 @@
          "properties":{
             "description":"",
             "id":"marker-hqia7ujp5",
-            "marker-color":"#1087bf",
+            "marker-color":"#83a857",
             "marker-size":"medium",
             "marker-symbol":"",
             "title":"Future Park",
@@ -127,7 +127,7 @@
          "properties":{
             "description":"",
             "id":"marker-hqia81cj6",
-            "marker-color":"#1087bf",
+            "marker-color":"#83a857",
             "marker-size":"medium",
             "marker-symbol":"",
             "title":"Future Park",
