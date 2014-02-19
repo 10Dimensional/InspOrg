@@ -1684,6 +1684,12 @@ h1.mango {
 h2.mango2 {
 	color: #FF6C36;
 }
+h2.mango3 {
+	color: #cf6952;
+	font:24px/30px 'roboto_slabbold', 'Times New Roman', Times, serif;
+	text-align: center;
+
+}
 .content-section.style-1 h1{
 	color:#81A856;
 }
@@ -1929,6 +1935,7 @@ h2.mango2 {
 	margin:7px 50px 0 0;
 	border:1px solid #898674;
 	border-width:0 2px 0 0;
+	color: black;
 }
 .statistics-block{
 	overflow:hidden;
@@ -1984,7 +1991,7 @@ h2.mango2 {
 	line-height:14px;
 	color:#fff;
 	text-transform:uppercase;
-	background:#ea6950;
+	background:#cf6952;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
