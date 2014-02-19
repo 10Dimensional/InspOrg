@@ -156,6 +156,7 @@ var map = L.mapbox.map('map');
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
+map.setZoomRange(2, 6);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png'), 'Beazer', 1);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png'), 'Pardee Homes', 3);
@@ -166,6 +167,11 @@ addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png'), 'Pool
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
 var steetlayer = L.tileLayer('http://166.78.0.133:8888/v2/streets/{z}/{x}/{y}.png',10).addTo(map);
 
+map.featureLayer.on('layeradd', function(e) {
+    var marker = e.layer,
+        feature = marker.feature;
+    marker.setIcon(L.icon(feature.properties.icon));
+});
 //var markerLayer = L.mapbox.markerLayer()
 //    .loadURL('<?php bloginfo('template_url') ?>/markers.geojson')
 //    .addTo(map);
