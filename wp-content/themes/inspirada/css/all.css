@@ -4510,7 +4510,7 @@ font-size: 16px;}
 
 #requestInfo .step2 .btn-primary {float:left; margin-left: 10px;}
 .frmSub { padding:25px 0; clear:both; overflow:hidden;}
-.step2_head {text-align:center; color: #034054;}
+.step2_head {text-align:center; color: #fff;}
 .step2_head strong {font: 18px 'roboto_slabbold', Helvetica, sans-serif;}
 .threeHundred {width:300px;}
 
@@ -4714,7 +4714,7 @@ input[type="checkbox"] {
 
 .step1_head {
 	font: 17px "roboto_slabbold","Times New Roman",Times,serif;
-	color: #013f54;
+	color: #fff;
 }
 
 .gform_wrapper .ginput_complex .ginput_full input[type=text], .gform_wrapper .ginput_complex .ginput_full input[type=url], .gform_wrapper .ginput_complex .ginput_full input[type=email], .gform_wrapper .ginput_complex .ginput_full input[type=tel], .gform_wrapper .ginput_complex .ginput_full input[type=number], .gform_wrapper .ginput_complex .ginput_full input[type=password] {
