@@ -1914,6 +1914,7 @@ h2.mango2 {
 .media-block p,
 .content-section .media-block p{
 	margin:12px 0 21px 5px;
+	color: white;
 }
 .media-block .list{
 	float:none;
