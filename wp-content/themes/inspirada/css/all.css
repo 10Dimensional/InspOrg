@@ -1920,6 +1920,7 @@ h2.mango2 {
 	float:none;
 	width:auto;
 	border:none;
+	color: white;
 }
 .media-block .video-box{
 	float:left;
@@ -4292,9 +4293,6 @@ li {list-style-type: none;}
 	overflow:hidden;
 }
 
-.events-section > .holder a{
-	color: White;
-}
 .events-section .frame{
 	overflow:hidden;
 	padding:74px 0 29px;
