@@ -1690,6 +1690,13 @@ h2.mango2 {
 .content-section.style-3 h1{
 	color:#81A856;
 }
+
+.content-section.style-1 h1.orange{
+	color:#ff6c36;
+}
+.content-section.style-3 h1{
+	color:#81A856;
+}
 .section-box .list {
 	
 }
@@ -4283,6 +4290,10 @@ li {list-style-type: none;}
 	margin:0 auto;
 	overflow:hidden;
 }
+
+.events-section > .holder a{
+	color: White;
+}
 .events-section .frame{
 	overflow:hidden;
 	padding:74px 0 29px;
@@ -4465,15 +4476,15 @@ line-height: 1 !important;
 .roster_slider_set .roster_prev{background: transparent url(http://166.78.0.133/wp-content/plugins/roster-slider/css/skins/default/buttons/default/prev.png) no-repeat 0 0;top:45%;}
 .builder_logos {border-top:#69c1e4 solid 1px; margin-top:25px;}
 .builder_logos a {height:70px;}
-.builder_logos a:hover {background-color:#7cc9e7;}
+.builder_logos a:hover {background-color:#295585;}
 .builder_logos .beazer_homes {background:url('../images/beazer_logo.png') no-repeat center; width:25%; float:left; display:block;}
 .builder_logos .pardee_homes {background:url('../images/pardee_logo.png') no-repeat center; width:25%; float:left; display:block;}
 .builder_logos .kb_home {background:url('../images/kb_logo.jpg') no-repeat center; width:25%; float:left; display:block;}
 .builder_logos .toll_bros {background:url('../images/toll_logo.png') no-repeat center; width:25%; float:left; display:block;}
-.modal-header {background:#7cc9e7; padding: 25px;}
+.modal-header {background:#295585; padding: 25px;}
 .modal-content {border-radius:0; overflow:hidden;}
-.modal-body {float:left; width:100%; padding-bottom:0; padding: 25px;}
-.modal-body .step2 .frmSub p {display:block; margin-left: 20%; margin-top: 10px; clear:both; float:left; text-align:center; width:auto; color: #034054;}
+.modal-body {float:left; width:100%; padding-bottom:0; padding-top: 25px; padding-right: 25px; padding-left: 25px;}
+.modal-body .step2 .frmSub p {display:block; margin-left: 20%; margin-top: 10px; clear:both; float:left; text-align:center; width:auto; color: #ff6c36;}
 .modal-body .step2 .frmSub .btn {margin:auto; display:block; float:none;}
 .modal-body {float:left; width:100%;}
 .modal-body .btn-primary, .companies-info-block .btn-primary {border-radius:0; background:#0093a8; text-transform:uppercase; color:#fff; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
@@ -4922,7 +4933,7 @@ border: none !important;
 
 .modal-title {
 font: 17px "roboto_slabbold","Times New Roman",Times,serif;
-color: #013f54;
+color: #fff;
 }
 
 .gform_wrapper input[type=text], .gform_wrapper input[type=url], .gform_wrapper input[type=email], .gform_wrapper input[type=tel], .gform_wrapper input[type=number], .gform_wrapper input[type=password] {
