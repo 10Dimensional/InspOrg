@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name = "format-detection" content = "telephone=no">
+	<title>InspiradaMobile</title>
+	<link media="all" rel="stylesheet" href="css/all.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
+</head>
+<body>
+	<header id="header">
+		<div class="header-top">
+			<strong class="logo"><a href="index.html">inspirada live inspired.</a></strong>
+			<div class="open-close">
+				<a class="opener" href="#">ReadMore</a>
+				<ul id="nav">
+					<li><a href="live-inspired.html" class="inspired">live inspired</a></li>
+					<li><a href="our-builders.html" class="view-home">our builders</a></li>
+					<li><a href="get-directions.html" class="direction">directions</a></li>
+					<li><a href="signup.html" class="signup">sign up</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="contact-block">
+			<ul>
+				<li><a href="get-directions.html" class="direction">directions</a></li>
+				<li><a href="contact.html" class="contact">contact</a></li>
+			</ul>
+		</div>
+	</header>
+	<div id="main">
+		<div class="builder-block-1">
+			<div class="detail">
+				3 models <br>1576 to 1843 sf <br> Priced from the $190s
+			</div>
+			<div class="map-holder">
+				<p><img src="images/gold-mini-hex.png" style="width:12px; padding-right:5px;">Indicates KB Home Model Center</p>
+					<span data-picture data-alt="image description" class="alignleft">
+					<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes' />
+					  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js'></script>
+
+<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:relative; top:0; bottom:0;}
+  </style>
+<div id='map' style=" height: 414px; width: inherit;"></div>
+<script>
+var map = L.mapbox.map('map', 'lucidagency.srbjra4i',{center: [-75, 22.763671875 ], zoom: 3} );
+addLayer(L.mapbox.tileLayer('lucidagency.aeomvx6r'), 'KB Home', 1);
+
+
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
+
+    // Create a simple layer switcher that toggles layers on
+    // and off.
+    var item = document.createElement('li');
+    var link = document.createElement('a');
+
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/markers.geojson');
+    markerLayer.setFilter(function(f) { 
+        return f.properties['category'] === name; 
+    })
+    .addTo(map);
+
+/*    markerLayer.on('mouseover', function(e) {
+        e.layer.openPopup();
+    })
+    markerLayer.on('mouseout', function(e) {
+        e.layer.closePopup();
+    }) */
+
+    link.href = '#';
+    link.className = 'active';
+    link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    //item.appendChild(link);
+    //ui.appendChild(item);
+}
+map.markerLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    });
+</script>		
+						<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+						<noscript><img src="images/img06.jpg" alt="image description" ></noscript>
+					</span>
+				<a href="get-directions.html" class="btn-map-it"><span>get directions</span></a>
+			</div>
+			<div class="connet-block">
+				<address>
+					KB Home <br>910 Epte Poplars <br>Henderson, NV 89044
+				</address>
+				<span class="tel"><a href="tel:7022669900">(702) 266-9900</a></span>
+			</div>
+			<div class="inner">
+				<p>KB Home is one of the largest and most recognized homebuilding companies in the country. It has built more than a half million, quality homes since 1957 and has been constructing homes in Inspirada since the community’s inception in 2007. Today, KB Home is celebrated for its Built to Order concept that allows buyers to create the home they desire from a range of options offered in the KB Home Design Studio. Committed to building the most advanced homes in energy-efficiency, KB Home was recently awarded a 2013 ENERGY STAR® Partner of the Year – Sustained Excellence Award from the U.S. Environmental Protection Agency. It is the only builder to receive this award for three years in a row for its continued leadership in protecting the environment through superior energy-efficiency measures. It has built more than 75,000 ENERGY STAR® certified homes since 2000 and builds all of its new homes to the ENERGY STAR® program’s Version 3 guidelines at no added cost to its homebuyers.</p>
+			</div>
+		</div>
+	</div>
+	<footer id="footer">
+		<div class="visit-block"><a target="_blank" href="http://www.inspirada.com">Visit Full Website</a></div>
+		<ul class="social-netwoks">
+			<li><a target="_blank" href="https://twitter.com/InspiradaNV">twitter</a></li>
+			<li><a target="_blank" href="https://www.facebook.com/inspirada.henderson" class="facebook">facebook</a></li>
+			<li><a target="_blank" href="http://www.linkedin.com/company/inspirada" class="linkedin">linkedin</a></li>
+			<li><a target="_blank" href="http://www.youtube.com/channel/UCPv6Rxty8FLiAQg9X-jI13A" class="youtube">youtube</a></li>
+			<li><a target="_blank" href="http://www.pinterest.com/InspiradaNV/" class="pinterest">pinterest</a></li>
+			<li><a target="_blank" href="http://instagram.com/inspiradanv" class="instagram">instagram</a></li>
+		</ul>
+		<span class="copyright">&copy; <a href="http://www.inspirada.com">Inspirada</a> 2014 All Rights Reserved</span>
+	</footer>
+</body>
+</html>
