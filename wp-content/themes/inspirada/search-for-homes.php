@@ -69,10 +69,7 @@
 
                 <?php the_content(); ?>
 
-            <?php endwhile; // end of the loop. ?>
-<script>
-$(".info-table tr:nth-child(even) td").css('background-color','#295585');
-</script>            
+            <?php endwhile; // end of the loop. ?>         
             
             <section class="filter-section">
                 <div class="panel">

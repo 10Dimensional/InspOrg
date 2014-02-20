@@ -4954,7 +4954,7 @@ letter-spacing: normal;
 background: #ff6c36 !important;
 
 }
-.select-area {
+#header .select-area {
 
 display: none !important;
 }
