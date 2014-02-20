@@ -4497,7 +4497,7 @@ line-height: 1 !important;
 font-size: 16px;}
 .modal-body .btn-primary, .companies-info-block .btn-primary:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#0093a8; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
-.modal-body .btn-right, .companies-info-block .btn-right:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#0093a8; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
+.modal-body .btn-right, .companies-info-block .btn-right:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#ff6c36; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
 .modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
 .modal-body .checkbox label {float:none;}
@@ -4533,7 +4533,7 @@ background:#fff;
 #requestInfo .btn-right, .companies-info-block .btn-right{background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px; color: #fff;
 font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px; border-color: #ff6c36;}
-p.driving-directions {float: right; padding-top: 20px; padding-right: 40px;}
+p.driving-directions {float: right; padding-top: 20px; padding-right: 58px;}
 p.emgfittext {
 color: white !important;
 font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
