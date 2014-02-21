@@ -4495,7 +4495,7 @@ line-height: 1 !important;
 .modal-body {float:left; width:100%;}
 .modal-body .btn-primary, .companies-info-block .btn-primary {border-radius:0; background:#0093a8; text-transform:uppercase; color:#fff; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
-.modal-body .btn-primary, .companies-info-block .btn-primary:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#0093a8; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
+.modal-body .btn-primary, .companies-info-block .btn-primary:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#ff6c36; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
 .modal-body .btn-right, .companies-info-block .btn-right:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#ff6c36; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
@@ -4954,7 +4954,9 @@ letter-spacing: normal;
 background: #ff6c36 !important;
 
 }
-.select-area {
+#header .select-area {
 
 display: none !important;
 }
+
+img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !important;}
