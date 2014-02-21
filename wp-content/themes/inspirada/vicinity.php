@@ -150,6 +150,10 @@ and (orientation : portrait) {
     color: #FFF;
 }
 img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !important;}
+
+.list li {
+list-style-type: disc;
+}
 </style>
 <div id='map'></div>
 <script>
