@@ -1686,7 +1686,7 @@ h2.mango2 {
 	color: #FF6C36;
 }
 h2.mango3 {
-	color: #cf6952;
+	color: #ff6c36;
 	font:24px/30px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-align: center;
 
@@ -1992,7 +1992,7 @@ h2.mango3 {
 	line-height:14px;
 	color:#fff;
 	text-transform:uppercase;
-	background:#cf6952;
+	background:#ff6c36;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;

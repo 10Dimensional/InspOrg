@@ -166,6 +166,10 @@ addLayer(L.tileLayer('http://166.78.0.133:8888/v2/trails/{z}/{x}/{y}.png'), 'Tra
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png'), 'Pools', 7);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
 var steetlayer = L.tileLayer('http://166.78.0.133:8888/v2/streets/{z}/{x}/{y}.png',10).addTo(map);
+map.auto('map', 'http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png', function(map) {
+        map.eventHandlers[3].remove();
+    });
+
 
 //var markerLayer = L.mapbox.markerLayer()
 //    .loadURL('<?php bloginfo('template_url') ?>/markers.geojson')
