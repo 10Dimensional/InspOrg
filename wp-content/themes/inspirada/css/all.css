@@ -648,7 +648,7 @@ margin-left: 7%;
 }
 .vicinity-section{
 	max-width:1001px;
-	margin:155px auto 96px;
+	margin:157px auto 96px;
 	overflow:hidden;
 	border:1px solid #fff;
 }
@@ -2896,6 +2896,7 @@ margin-top: -9px;
 }
 .filter-box .rad-holder{
 	width:100%;
+	color: white;
 }
 .filter-box .title{
 	margin:16px 0 9px;
