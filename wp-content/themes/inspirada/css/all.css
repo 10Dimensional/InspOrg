@@ -4958,3 +4958,5 @@ background: #ff6c36 !important;
 
 display: none !important;
 }
+
+img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !important;}
