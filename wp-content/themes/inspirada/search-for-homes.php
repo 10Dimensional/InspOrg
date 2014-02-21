@@ -320,7 +320,7 @@
                                 <dt><strong>Coming Spring 2015</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
-                                    <dd>(702) 987-0055</dd>
+                                    <dd>(702) 837-2100</dd>
                                 <dt><strong>Email:</strong></dt>
                                     <dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd>
                                 </dl>
