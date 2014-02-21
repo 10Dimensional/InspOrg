@@ -55,8 +55,10 @@
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>
-var map = L.mapbox.map('map', 'lucidagency.h1f1j2an');
-var markerLayer = L.mapbox.markerLayer()
+var map = L.mapbox.map('map');
+var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/models/{z}/{x}/{y}.png').addTo(map);
+map.setView([-77, 22.763671875], 4);
+var markerLayer = L.markerLayer()
     .loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson')
     .addTo(map);
 markerLayer.options.sanitizer = function(x) { return x; };
