@@ -40,26 +40,16 @@ class Property_Finder_Widget extends WP_Widget {
     						<h2>Builders</h2>
     						<div class="radio-area">
     							<div class="rad-holder">
-<<<<<<< HEAD
-    								<input id="radio-01" name="builder[]" value="Beazer" type="checkbox">
-    								<label for="radio-01">Beazer<br>Coming Spring 2015</label>
-=======
     								<input id="radio-01" name="builder" value="Beazer" type="checkbox" checked>
     								<label for="radio-01">Beazer - Coming Spring 2015</label>
->>>>>>> ecf3b809bafa47caec05a68c9a895f5e508f5953
     							</div>
     							<div class="rad-holder">
     								<input id="radio-02" name="builder[]" value="KB Home" type="checkbox">
     								<label for="radio-02">KB Home</label>
     							</div>
     							<div class="rad-holder">
-<<<<<<< HEAD
-    								<input id="radio-03" name="builder[]" value="Pardee" type="checkbox">
-    								<label for="radio-03">Pardee<br>Coming Soon</label>
-=======
-    								<input id="radio-03" name="builder" value="Pardee" type="checkbox" checked>
+       								<input id="radio-03" name="builder" value="Pardee" type="checkbox" checked>
     								<label for="radio-03">Pardee - Coming Soon</label>
->>>>>>> ecf3b809bafa47caec05a68c9a895f5e508f5953
     							</div>
     							<div class="rad-holder">
     								<input id="radio-04" name="builder[]" value="Toll Brothers" type="checkbox">

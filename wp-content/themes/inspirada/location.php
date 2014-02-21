@@ -56,7 +56,7 @@
 				</div>
 			</section>
 			<a class="anchor" id="shopping-menu"></a>
-			<section id="shopping" class="content-section style-2">
+			<section id="shopping" class="content-section add">
 				<div class="holder">
 					<?php the_field('shopping'); ?>
 					<div class="btn-next-holder">

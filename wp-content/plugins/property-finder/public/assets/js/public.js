@@ -48,8 +48,11 @@ var ui = '';
             	success: function(response) {
             	    mapgroup.clearLayers();
             	    for (var b in response.builders) {
-/*             	        addLayer(L.tileLayer('http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png'), 'Beazer', 1); */
-                	    mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
+                        
+                        if (builder_layers[response.builders[b]]) {
+                            mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
+                        }
+                	    
             	    }
             	    
             	    
