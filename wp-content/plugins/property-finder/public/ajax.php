@@ -130,7 +130,7 @@
                 <td>'.$baths.'</td>
                 <td>'.$property->stories.'</td>
                 <td>'.$garage_bays.'</td>
-                <td><a href="#">Slideshow</a></td>
+                <td><a href="#" data-toggle="modal" data-target="#'.str_replace(' ', '', $property->model).'">View</a></td>
                 <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /></td>
             </tr>';
             $result_count++;
