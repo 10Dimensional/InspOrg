@@ -162,7 +162,7 @@ var map = L.mapbox.map('map', function(map) {
     });
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
-map.setView([-67, 22.763671875], 4);
+map.setView([-77, 22.763671875], 4);
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
