@@ -163,6 +163,7 @@ var map = L.mapbox.map('map', function(map) {
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
+map.touchZoom.disable();
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png'), 'Beazer', 1);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png'), 'Pardee Homes', 3);
