@@ -50,7 +50,7 @@ while ( have_posts() ) : the_post(); ?>
 						<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="description">
 							<div class="text-wrap">
-							<em class="date" style="color: white;"><?php the_time('F jS, Y') ?></em>
+							<em class="date" style="color: #ff6c36;"><?php the_time('F jS, Y') ?></em>
 								<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 								<p> <?php the_excerpt(); ?><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">MORE&gt;&gt;</a></p>
 							</div>
