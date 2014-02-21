@@ -153,7 +153,9 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !impor
 </style>
 <div id='map'></div>
 <script>
-var map = L.mapbox.map('map');
+var map = L.mapbox.map('map', function(map) {
+        map.eventHandlers[3].remove();
+    });
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
@@ -166,10 +168,6 @@ addLayer(L.tileLayer('http://166.78.0.133:8888/v2/trails/{z}/{x}/{y}.png'), 'Tra
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png'), 'Pools', 7);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
 var steetlayer = L.tileLayer('http://166.78.0.133:8888/v2/streets/{z}/{x}/{y}.png',10).addTo(map);
-map.auto('map', 'http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png', function(map) {
-        map.eventHandlers[3].remove();
-    });
-
 
 //var markerLayer = L.mapbox.markerLayer()
 //    .loadURL('<?php bloginfo('template_url') ?>/markers.geojson')
