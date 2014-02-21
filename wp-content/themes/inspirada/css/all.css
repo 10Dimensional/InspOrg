@@ -4975,11 +4975,15 @@ filter: alpha(opacity=100) !important;
 }
 
 .gform_wrapper .right_label div.ginput_complex, .gform_wrapper .left_label div.ginput_complex {
-width: auto;
+width: auto !important;
 }
 
 .gform_wrapper .ginput_complex .ginput_left {
 width: 48%;
 float: left;
 overflow: visbile !important;
+}
+
+.gform_wrapper .ginput_complex .ginput_right input[type=text], .gform_wrapper .ginput_complex .ginput_right input[type=url], .gform_wrapper .ginput_complex .ginput_right input[type=email], .gform_wrapper .ginput_complex .ginput_right input[type=tel], .gform_wrapper .ginput_complex .ginput_right input[type=number], .gform_wrapper .ginput_complex .ginput_right input[type=password], .gform_wrapper .ginput_complex .ginput_right select {
+width: 94% !important;
 }
