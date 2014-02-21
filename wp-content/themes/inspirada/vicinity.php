@@ -340,6 +340,7 @@ function addLayer(layer, name, zIndex) {
 	<!-- Solista Park Modal -->
 <div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
@@ -350,6 +351,7 @@ function addLayer(layer, name, zIndex) {
 	<!-- Capriola Park Modal -->
 <div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
@@ -360,6 +362,7 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
@@ -370,7 +373,8 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content-parls">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>
