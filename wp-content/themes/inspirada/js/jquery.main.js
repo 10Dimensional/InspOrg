@@ -74,10 +74,16 @@ function initSliderBlocks() {
 			change: refreshNumbers,
 			slide: function( event, ui ) {
 			    console.log(ui);
-			    inputV1.val(ui.values[0]);
-			    inputV2.val(ui.values[1]);
-                displayV1.text(ui.values[0].format());
-                displayV2.text(ui.values[1].format());
+			    if (inputV2.length) {
+			        console.log('test');
+			        inputV1.val(ui.values[0]);
+                    inputV2.val(ui.values[1]);
+                    displayV1.text(ui.values[0].format());
+                    displayV2.text(ui.values[1].format());
+			    } else {
+    			    inputV1.val(ui.value);
+                    displayV1.text(ui.value.format());
+			    }
             },
 		}
 		
