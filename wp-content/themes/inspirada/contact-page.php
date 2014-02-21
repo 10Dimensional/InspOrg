@@ -60,7 +60,7 @@ var map = L.mapbox.map('map', function(map) {
     });
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
-map.setView([-77, 22.763671875], 4);
+map.setView([-67, 22.763671875], 4);
 map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
@@ -68,11 +68,10 @@ map.scrollWheelZoom.disable();
 // disable tap handler, if present.
 if (map.tap) map.tap.disable();
 var modellayer = L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png').addTo(map);
-var markerLayer = L.markerLayer()
-    .loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson')
-    .addTo(map);
-markerLayer.options.sanitizer = function(x) { return x; };
-
+var markerLayer = L.mapbox.markerLayer()
+                        .loadURL('<?php bloginfo('template_url') ?>/models.geojson')
+                    .addTo(map);
+                    markerLayer.options.sanitizer = function(x) { return x; };
 map.markerLayer.on('ready', function (e) {
     map.markerLayer.eachLayer(function (marker) {
         marker.openPopup();
