@@ -1,14 +1,15 @@
 var map = '',
+    ui = '',
     builder_layers = {
         'Beazer': 'http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png',
         'KB HOME': 'http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png',
-        'necessities': 'http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png',
-        'pardee': 'http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png',
-        'parks': 'http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png',
-        'pools': 'http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png',
+        'Mecessities': 'http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png',
+        'Pardee': 'http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png',
+        'Parks': 'http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png',
+        'Pools': 'http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png',
         'schools': 'http://166.78.0.133:8888/v2/schools/{z}/{x}/{y}.png',
         'Toll Brothers': 'http://166.78.0.133:8888/v2/toll/{z}/{x}/{y}.png',
-        'trails': 'http://166.78.0.133:8888/v2/trails/{z}/{x}/{y}.png',
+        'Trails': 'http://166.78.0.133:8888/v2/trails/{z}/{x}/{y}.png'
     };
 var ui = '';
 
@@ -18,11 +19,31 @@ var ui = '';
 	$(function () {
 	    if ($('#searchMap').length) {
     	    map = L.mapbox.map('searchMap');
+    	    ui = document.getElementById('map-ui');
     	    var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+    	    
     	    map.setView([-77, 22.763671875], 4);
+    	    map.dragging.disable();
+            map.touchZoom.disable();
+            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
+            // disable tap handler, if present.
+            if (map.tap) map.tap.disable();
+    	    
             ui = document.getElementById('map-ui');
 /*             map.setZoomRange(2, 4); */
             var mapgroup = L.layerGroup().addTo(map);
+            
+            console.log(builder_layers);
+            for (var b in builder_layers) {
+                console.log(b);
+                if (builder_layers[b]) {
+                    //addLayer(L.tileLayer(builder_layers[b]), b, 1);
+                    mapgroup.addLayer(L.tileLayer(builder_layers[b]), b, 1);
+                }
+   
+        	    
+    	    }
 	    }
 	     
 	    $('#requestInfo').on('hidden.bs.modal', function (e) {
@@ -47,10 +68,12 @@ var ui = '';
             	dataType: 'json',
             	success: function(response) {
             	    mapgroup.clearLayers();
-            	    for (var b in response.builders) {
+            	    for (var b in builder_layers) {
                         
                         if (builder_layers[response.builders[b]]) {
-                            mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
+                            console.log('t');
+                            addLayer(L.tileLayer(builder_layers[b]), b, 1);
+                            //mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
                         }
                 	    
             	    }
@@ -135,4 +158,153 @@ var ui = '';
 function validateEmail(email) { 
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+}
+
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+ 
+    // Create a simple layer switcher that toggles layers on
+    // and off.
+    //var item = document.createElement('li');
+    var link = document.getElementById(name);
+    console.log(link);
+//Prevents the layers from loading until they're clicked on the selector
+ 
+    link.onclick = function(e) {
+        event.preventDefault ? e.preventDefault() : event.returnValue = false;
+        if (event.preventDefault) e.stopPropagation();
+ 
+//Turn the layers on and off
+ 
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = 'opener';
+ 
+            if(name === "Parks") {
+                document.getElementById('parks_holder').style.display="none";
+            }
+        } else {
+            mapgroup.addLayer(layer);
+            this.className = 'active opener';
+ 
+//Load the layers, and the markers based on title attribute (set in geoJSON)
+            switch(name) {
+            	case('KB Home'):
+                    var markerLayer = L.mapbox.markerLayer()
+                        .loadURL('/wp-content/themes/inspirada/markers.geojson')
+                        .setFilter(function(f) {
+                            return f.properties['title'] === 'KB Future Development' || f.properties['title'] === 'KB Currently Selling' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Fall 2014' || f.properties['title'] === 'KB Home Model Center'; 
+                        })
+                    .addTo(map);
+                    //This is the code to make leaflet popups happen on hover 
+                    markerLayer.options.sanitizer = function(x) { return x; };
+                    markerLayer.on('mouseover', function(e) {
+                        e.layer.openPopup();
+                    });
+                    markerLayer.on('mouseout', function(e) {
+                        e.layer.closePopup();
+                    });
+            		break;
+            	case('Beazer'):
+                    var markerLayer = L.mapbox.markerLayer()
+                        .loadURL('/wp-content/themes/inspirada//markers.geojson')
+                        .setFilter(function(f) {
+                            return f.properties['title'] === 'Beazer Available 2015'; 
+                        })
+                    .addTo(map);
+                    markerLayer.options.sanitizer = function(x) { return x; };
+                    markerLayer.on('mouseover', function(e) {
+                        e.layer.openPopup();
+                    });
+                    markerLayer.on('mouseout', function(e) {
+                        e.layer.closePopup();
+                    });
+            		break;
+                case('Pardee Homes'):
+                    var markerLayer = L.mapbox.markerLayer()
+                        .loadURL('/wp-content/themes/inspirada//markers.geojson')
+                        .setFilter(function(f) {
+                            return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available June 2014'; 
+                        })
+                    .addTo(map);
+                    markerLayer.options.sanitizer = function(x) { return x; };
+                    markerLayer.on('mouseover', function(e) {
+                        e.layer.openPopup();
+                    })
+                    markerLayer.on('mouseout', function(e) {
+                        e.layer.closePopup();
+                    })
+                    break;
+                case('Toll Brothers'):
+                    var markerLayer = L.mapbox.markerLayer()
+                        .loadURL('/wp-content/themes/inspirada//markers.geojson')
+                        .setFilter(function(f) {
+                            return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
+                        })
+                    .addTo(map);
+                    markerLayer.options.sanitizer = function(x) { return x; };
+                    markerLayer.on('mouseover', function(e) {
+                        e.layer.openPopup();
+                    });
+                    markerLayer.on('mouseout', function(e) {
+                        e.layer.closePopup();
+                    });
+                    break;
+                case('Nearby Necessities'):
+                    var markerLayer = L.mapbox.markerLayer()
+                        .loadURL('/wp-content/themes/inspirada//markers.geojson')
+                        .setFilter(function(f) {
+                            return f.properties['title'] === 'Necessities'; 
+                        })
+                    .addTo(map);
+                    markerLayer.on('mouseover', function(e) {
+                        e.layer.openPopup();
+                    });
+                    markerLayer.on('mouseout', function(e) {
+                        e.layer.closePopup();
+                    });
+                    break;
+                case('Trails'):
+                    var markerLayer = L.mapbox.markerLayer()
+                        .loadURL('/wp-content/themes/inspirada//markers.geojson')
+                        .setFilter(function(f) {
+                            return f.properties['title'] === 'Trails' || f.properties['title'] === 'Open Space'; 
+                        })
+                    .addTo(map);
+                    markerLayer.options.sanitizer = function(x) { return x; };
+                    markerLayer.on('mouseover', function(e) {
+                        e.layer.openPopup();
+                    });
+                    markerLayer.on('mouseout', function(e) {
+                        e.layer.closePopup();
+                    });
+                    break;
+            	case('Parks'):
+            		var markerLayer = L.mapbox.markerLayer()
+				        .loadURL('/wp-content/themes/inspirada//markers.geojson')
+				        .setFilter(function (f) { 
+				   		   return f.properties['title'] === 'Aventura Park' || f.properties['title'] === 'Future Park' || f.properties['title'] === 'Capriola Park (Under construction)' || f.properties['title'] === 'Potenza Park (Under construction)'|| f.properties['title'] === 'Solista Park (Completed)'; 
+				        })
+			            .addTo(map);
+			            //This allows modal pop ups in the leaflet API
+                        markerLayer.options.sanitizer = function(x) { return x; };
+                        /*markerLayer.on('mouseover', function(e) {
+                     //This makes sure that you can click on the map layer instead of hover over it
+                            e.layer.openPopup();
+                        })
+                        markerLayer.on('mouseout', function(e) {
+                            e.layer.closePopup();
+                        })*/
+            		break;
+            }
+ 
+            if(name === "Parks") {
+                document.getElementById('parks_holder').style.display="block";
+            }
+        }
+    };
+ 
+    //item.appendChild(link);
+    //ui.appendChild(item);
 }
