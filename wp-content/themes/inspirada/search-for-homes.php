@@ -178,58 +178,8 @@
                         </fieldset>
                     </form>
                 </div>
-                    <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
-                    <section>
-                        <h1>Builders</h1>
-                        <ul class="accordion builders-list">
-                            <li class="style-1">
-                                <a href="#" class="opener" id="Beazer">Beazer</a>
-                                <p>Coming Spring 2015</p>
-                            </li>
-                            <li class="style-2">
-                                <a href="#" class="opener" id="KB Home">KB Home</a>
-                                </li>
-                            <li class="style-3">
-                                <a href="#" class="opener" id="Pardee Homes">Pardee Homes</a>
-                                <p>Coming this June</p>
-
-                            </li>
-                            <li class="style-4">
-                                <a href="#" class="opener" id="Toll Brothers">Toll Brothers</a>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h1 class="title-1">Community</h1>
-                        <ul class="accordion community-list">
-                            <!--<li class="style-3">
-                                <a href="#" class="opener" id="Schools">Schools</a>
-                            </li>-->
-                            <li class="style-1">
-                                <a href="#" class="opener" id="Parks">Parks</a>
-                                  <div class="slide" id="parks_holder" style="width: 202px; display: none;">
-                                    <ul class="vicinity">
-                                    <li>Aventura Park (Fall 2014)</li>
-                                    <li>Capriola Park (Under Construction)</li>
-                                    <li>Potenza Park (Under construction)</li>
-                                    <li>Solista Park (Completed)</li>
-                                    </ul>
-                                    </div>
-                            </li>
-                            <li class="style-2">
-                                <a href="#" class="opener" id="Pools">Pools</a>
-                            </li>
-                            <li class="style-3">
-                                <a href="#" class="opener" id="Trails">Trails</a>
-                            </li>
-                            <li class="style-4">
-                                <a href="#" class="opener" id="Nearby Necessities">Nearby Necessities</a>
-                            </li>
-                        </ul>
-                        
-                    </section>
-                    <ul id='map-ui'></ul>
-                    <div id="searchMap" class="map-block"></div>
+                    
+                    <div id="searchMap" class="map-block"><ul id='map-ui'></ul></div>
      
             </section>
             
