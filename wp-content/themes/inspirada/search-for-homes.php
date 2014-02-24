@@ -178,8 +178,7 @@
                         </fieldset>
                     </form>
                 </div>
-                    
-                    <div id="searchMap" class="map-block"><div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
+                    <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
                     <section>
                         <h1>Builders</h1>
                         <ul class="accordion builders-list">
@@ -229,7 +228,8 @@
                         </ul>
                         
                     </section>
-                    <ul id='map-ui'></ul></div>
+                    <ul id='map-ui'></ul>
+                    <div id="searchMap" class="map-block"></div>
      
             </section>
             
