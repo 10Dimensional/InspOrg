@@ -600,10 +600,6 @@ margin-left: 7%;
 .page-title .text{
 	display:inline-block;
 	height:5px;
-	filter:
-        progid:DXImageTransform.Microsoft.Blur(makeShadow=false,pixelRadius=2); /* blue */
-    left: 0px; /* left - blur */
-    top: 0px; /* top - blur */
 	vertical-align:middle;
 	text-shadow: 2px 2px 2px #333;
 		}
