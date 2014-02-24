@@ -78,7 +78,7 @@
                                     </div>
                             </li>
                             <li class="style-2">
-                                <a href="#" class="opener" id="Pools">Pools</a>
+                                <a href="#" class="opener" id="Pools">Resident Pools</a>
                             </li>
                             <li class="style-3">
                                 <a href="#" class="opener" id="Trails">Trails</a>
