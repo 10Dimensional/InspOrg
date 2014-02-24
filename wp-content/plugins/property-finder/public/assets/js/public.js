@@ -34,9 +34,13 @@ var ui = '';
 /*             map.setZoomRange(2, 4); */
             var mapgroup = L.layerGroup().addTo(map);
             
+<<<<<<< HEAD
             console.log(builder_layers);
             for (var b in builder_layers) {
                 console.log(b);
+=======
+            for (var b in builder_layers) {
+>>>>>>> 64f6d161ef8aa974c8c63f4cdd3bf89b8bc703e4
                 if (builder_layers[b]) {
                     //addLayer(L.tileLayer(builder_layers[b]), b, 1);
                     mapgroup.addLayer(L.tileLayer(builder_layers[b]), b, 1);
@@ -71,7 +75,10 @@ var ui = '';
             	    for (var b in builder_layers) {
                         
                         if (builder_layers[response.builders[b]]) {
+<<<<<<< HEAD
                             console.log('t');
+=======
+>>>>>>> 64f6d161ef8aa974c8c63f4cdd3bf89b8bc703e4
                             addLayer(L.tileLayer(builder_layers[b]), b, 1);
                             //mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
                         }
@@ -126,7 +133,6 @@ var ui = '';
                     	    $('#requestInfo .step1').hide();
                     	    var model_list = '';
                     	    for (var x = 0; x <= response.interested_models.length - 1; x++) {
-                    	        console.log(response.interested_models[x]);
                         	    model_list += '<li><a href="'+response.interested_models[x].url+'" target="_blank">'+response.interested_models[x].builder+': '+response.interested_models[x].model+'</a></li>';
                     	    }
                     	    
@@ -168,7 +174,10 @@ function addLayer(layer, name, zIndex) {
     // and off.
     //var item = document.createElement('li');
     var link = document.getElementById(name);
+<<<<<<< HEAD
     console.log(link);
+=======
+>>>>>>> 64f6d161ef8aa974c8c63f4cdd3bf89b8bc703e4
 //Prevents the layers from loading until they're clicked on the selector
  
     link.onclick = function(e) {
