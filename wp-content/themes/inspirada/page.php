@@ -15,9 +15,9 @@
       <link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
       <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
       <!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
-      <!--[if lt IE 9]>
-      <link rel="stylesheet" href="css/ie.css" media="screen"/>
-      <![endif]-->
+      <!--[if lt IE 9]> 
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
       <?php wp_head() ?>
    </head>
    <body>
