@@ -49,6 +49,7 @@
 			<aside id="sidebar" class="main-col">
 						<?php if ( ! dynamic_sidebar('right-sidebar') ) : ?>
 		<?php endif; ?>
+			</aside>
 			</div>
 	<!-- Solista Park Modal -->
 <div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
