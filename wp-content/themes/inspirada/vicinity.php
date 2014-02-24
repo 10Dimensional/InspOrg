@@ -17,6 +17,8 @@
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
+    		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <body>
@@ -150,6 +152,10 @@ and (orientation : portrait) {
     color: #FFF;
 }
 img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !important;}
+
+.list li {
+list-style-type: disc;
+}
 </style>
 <div id='map'></div>
 <script>
@@ -159,6 +165,11 @@ var map = L.mapbox.map('map', function(map) {
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+// disable tap handler, if present.
+if (map.tap) map.tap.disable();
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png'), 'Beazer', 1);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png'), 'Pardee Homes', 3);
@@ -336,6 +347,7 @@ function addLayer(layer, name, zIndex) {
 	<!-- Solista Park Modal -->
 <div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
@@ -346,6 +358,7 @@ function addLayer(layer, name, zIndex) {
 	<!-- Capriola Park Modal -->
 <div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
@@ -356,6 +369,7 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
@@ -366,7 +380,8 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content-parls">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>

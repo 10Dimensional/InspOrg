@@ -16,6 +16,8 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
+	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper" style="background: white;">
@@ -55,8 +57,20 @@
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>
-var map = L.mapbox.map('map', 'lucidagency.h1f1j2an');
-var markerLayer = L.mapbox.markerLayer()
+var map = L.mapbox.map('map', function(map) {
+        map.eventHandlers[3].remove();
+    });
+var ui = document.getElementById('map-ui');
+var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+map.setView([-77, 22.763671875], 4);
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+// disable tap handler, if present.
+if (map.tap) map.tap.disable();
+var modellayer = L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png').addTo(map);
+var markerLayer = L.markerLayer()
     .loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson')
     .addTo(map);
 markerLayer.options.sanitizer = function(x) { return x; };

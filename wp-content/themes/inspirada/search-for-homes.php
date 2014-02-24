@@ -40,6 +40,8 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
+	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper" style="background: white;">
@@ -320,7 +322,7 @@
                                 <dt><strong>Coming Spring 2015</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
-                                    <dd>(702) 987-0055</dd>
+                                    <dd>(702) 837-2100</dd>
                                 <dt><strong>Email:</strong></dt>
                                     <dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd>
                                 </dl>

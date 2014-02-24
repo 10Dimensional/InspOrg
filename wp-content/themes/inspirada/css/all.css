@@ -1921,7 +1921,7 @@ h2.mango3 {
 .media-block p,
 .content-section .media-block p{
 	margin:12px 0 21px 5px;
-	color: white;
+	color: black;
 }
 .media-block .list{
 	float:none;
@@ -2038,7 +2038,7 @@ h2.mango3 {
 	margin:0 auto 5px;
 	background: url('../images/sprite.png') no-repeat -149px -224px;
 	width: 87px;
-	height: 128px;
+	height: 111px;
 }
 .btn-back-to-top:hover{
 	text-decoration:underline;
@@ -2808,6 +2808,7 @@ h2.mango3 {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	border-left: 1px solid #295585;
 }
 
 #sidebar-builders{
@@ -3172,7 +3173,7 @@ overflow: hidden;
 }
 .contact-bar p{
 	margin:0;
-	word-spacing:2px;
+	word-spacing:1px;
 	text-shadow:0 0 1px rgba(0,0,0, 0.6);
 }
 .btn-contact{
@@ -4532,7 +4533,7 @@ background:#fff;
 }
 
 #requestInfo .btn-primary, .companies-info-block .btn-primary {background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px; border-color: #ff6c36;}
-#requestInfo .btn-right, .companies-info-block .btn-right{background:#ff6c36; border-radius:0; text-transform:uppercase; margin-top:5px; color: #fff;
+#requestInfo .btn-right, .companies-info-block .btn-right{background:#ff6c36; margin-left: 3px; border-radius:0; text-transform:uppercase; margin-top:5px; color: #fff;
 font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px; border-color: #ff6c36;}
 p.driving-directions {float: right; padding-top: 20px; padding-right: 58px;}
@@ -4971,3 +4972,23 @@ color: #ffffff !important;
 text-shadow: 0 0px 0 #ffffff;
 opacity: 1 !important;
 filter: alpha(opacity=100) !important;
+
+}
+
+.gform_wrapper .right_label div.ginput_complex, .gform_wrapper .left_label div.ginput_complex {
+width: auto !important;
+}
+
+.gform_wrapper .ginput_complex .ginput_left {
+width: 48%;
+float: left;
+overflow: visbile !important;
+}
+
+.gform_wrapper .ginput_complex .ginput_right input[type=text], .gform_wrapper .ginput_complex .ginput_right input[type=url], .gform_wrapper .ginput_complex .ginput_right input[type=email], .gform_wrapper .ginput_complex .ginput_right input[type=tel], .gform_wrapper .ginput_complex .ginput_right input[type=number], .gform_wrapper .ginput_complex .ginput_right input[type=password], .gform_wrapper .ginput_complex .ginput_right select {
+width: 94% !important;
+}
+
+.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit] {
+font-size: 1em;
+margin-right: 4px !important;
