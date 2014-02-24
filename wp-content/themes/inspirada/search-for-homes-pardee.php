@@ -42,6 +42,8 @@
 	<style>
 	    div.scrollable-area-wrapper.noscroll-horizontal.noscroll-vertical, div.scrollable-area.anyscrollable {height:auto !important;}
 	</style>
+	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper" style="background: white">
