@@ -131,7 +131,7 @@ map.markerLayer.on('click', function(e) {
 		</blogcontent>
 		</section>
 <!-- Modal -->
-<div class="modal fade" id="kbModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="kbModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:109px;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
