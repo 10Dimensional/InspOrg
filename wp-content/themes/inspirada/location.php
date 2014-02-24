@@ -77,6 +77,7 @@
 			<section id="henderson" class="content-section style-2">
 				<div class="holder">
 					<?php the_field('henderson'); ?>
+								<a class="anchor" id="attractions-menu"></a>			
 				<div class="holder">
 					<?php the_field('areaattractions'); ?>
 				</div>
