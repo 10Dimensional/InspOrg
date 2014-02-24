@@ -600,6 +600,11 @@ margin-left: 7%;
 .page-title .text{
 	display:inline-block;
 	height:5px;
+<<<<<<< HEAD
+=======
+		filter: glow(color=black,strength=3);
+
+>>>>>>> parent of dd6af30... title blur maybe
 	vertical-align:middle;
 	text-shadow: 2px 2px 2px #333;
 		}
