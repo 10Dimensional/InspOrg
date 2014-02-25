@@ -1736,6 +1736,17 @@ h2.mango3 {
 	text-transform:uppercase;
 	color:white;
 }
+
+.btn-next-section-black{
+	display:inline-block;
+	vertical-align:top;
+	position:relative;
+	text-decoration:none;
+	padding:0 0 5px;
+	font:18px/24px 'roboto_slabbold', 'Times New Roman', Times, serif;
+	text-transform:uppercase;
+	color:black;
+}
 .btn-next-section:hover{
 	text-decoration:underline;
 }
