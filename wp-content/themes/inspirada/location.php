@@ -53,7 +53,7 @@
 				<div class="holder">
 					<?php the_field('schools'); ?>
 					<div class="btn-next-holder">
-						<a href="#shopping" class="btn-next-section go">Shopping</a>
+						<a href="#shopping" class="btn-next-section-black go">Shopping</a>
 					</div>
 				</div>
 			</section>
@@ -71,7 +71,7 @@
 				<div class="holder">
 					<?php the_field('dining'); ?>
 					<div class="btn-next-holder">
-						<a href="#henderson" class="btn-next-section go">Henderson</a>
+						<a href="#henderson" class="btn-next-section-black go">Henderson</a>
 					</div>
 				</div>
 			</section>

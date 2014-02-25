@@ -78,7 +78,7 @@
                                     </div>
                             </li>
                             <li class="style-2">
-                                <a href="#" class="opener" id="Pools">Pools</a>
+                                <a href="#" class="opener" id="Pools">Resident Pools</a>
                             </li>
                             <li class="style-3">
                                 <a href="#" class="opener" id="Trails">Trails</a>
@@ -159,9 +159,7 @@ list-style-type: disc;
 </style>
 <div id='map'></div>
 <script>
-var map = L.mapbox.map('map', function(map) {
-        map.eventHandlers[3].remove();
-    });
+var map = L.mapbox.map('map');
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);

@@ -9,7 +9,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"3177 Mantua Village Ave<br>\n(702)399-2100<br><button class="btn btn-primary" id="toll-modal" type="button" data-toggle="modal" data-target="#tollModal">Driving Directions</button><br>\n<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"3177 Mantua Village Ave<br>\n(702)399-2100<br>",
             "id":"marker-hqjww8560",
             "marker-color":"#f86767",
             "marker-size":"medium",
@@ -27,7 +27,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"1910 Epte Poplars<br>\n(702) 266-9900<br><button class="btn btn-primary" id="kb-modal" type="button" data-toggle="modal" data-target="#tollModal">Driving Directions</button><br>\n<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"1910 Epte Poplars<br>\n(702) 266-9900<br>",
             "id":"marker-hqjwwla31",
             "marker-color":"#f1f075",
             "marker-size":"medium",

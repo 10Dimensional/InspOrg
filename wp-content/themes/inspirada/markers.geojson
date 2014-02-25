@@ -182,7 +182,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<ul><li>Albertsons Grocery Store</li> <li>Dry Cleaners</li> <li> Bank of America & Wells Fargo Bank</li> <li>CVS Pharmacy</li> <li>Restaurants</li> <li>Starbucks</li> <li>PostNet</li></ul>",
+            "description":"<ul class=\"list\"><li>Albertsons Grocery Store</li> <li>Dry Cleaners</li> <li> Bank of America & Wells Fargo Bank</li> <li>CVS Pharmacy</li> <li>Restaurants</li> <li>Starbucks</li> <li>PostNet</li></ul>",
             "id":"marker-hqiaa7gn9",
             "marker-color":"#1087bf",
             "marker-size":"medium",

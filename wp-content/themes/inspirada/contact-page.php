@@ -7,18 +7,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
+   <link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
+    		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
-	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
-	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
-<?php wp_head() ?></head>
+	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]--><?php wp_head() ?>
+	</head>
 <body>
 	<div id="wrapper" style="background: white;">
 		<?php get_header() ?>
@@ -57,36 +56,15 @@
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>
-var map = L.mapbox.map('map', function(map) {
-        map.eventHandlers[3].remove();
-    });
-var ui = document.getElementById('map-ui');
+var map = L.mapbox.map('map');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
-map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 // disable tap handler, if present.
 if (map.tap) map.tap.disable();
-var modellayer = L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png').addTo(map);
-var markerLayer = L.markerLayer()
-    .loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson')
-    .addTo(map);
-markerLayer.options.sanitizer = function(x) { return x; };
-
-map.markerLayer.on('ready', function (e) {
-    map.markerLayer.eachLayer(function (marker) {
-        marker.openPopup();
-    });
-});
-
-/*map.markerLayer.on('mouseover', function(e) {
-    e.layer.openPopup();
-})
-map.markerLayer.on('mouseout', function(e) {
-    e.layer.closePopup();
-})*/
+addLayer(L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png'), 'Models', 1);
 
 function addLayer(layer, name, zIndex) {
     layer
@@ -97,6 +75,19 @@ function addLayer(layer, name, zIndex) {
     // and off.
     var item = document.createElement('li');
     var link = document.createElement('a');
+
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson');
+    markerLayer.setFilter(function(f) { 
+        return f.properties['category'] === name; 
+    })
+    .addTo(map);
+
+    markerLayer.on('mouseover', function(e) {
+        e.layer.openPopup();
+    })
+    markerLayer.on('mouseout', function(e) {
+        e.layer.closePopup();
+    })
 
     link.href = '#';
     link.className = 'active';
@@ -118,20 +109,14 @@ function addLayer(layer, name, zIndex) {
     //item.appendChild(link);
     //ui.appendChild(item);
 }
-
-function triggerPopUp() {
-  map.markerLayer.eachLayer(function (marker) {
-      marker.openPopup();
-  });
-}
 map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
-</script>			
+</script>
 		</blogcontent>
 		</section>
 <!-- Modal -->
-<div class="modal fade" id="kbModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="kbModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:109px;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -139,7 +124,20 @@ map.markerLayer.on('click', function(e) {
         <h4 class="modal-title" id="myModalLabel">To KB Home Model Center</h4>
       </div>
       <div class="modal-body">
-<p>Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
+      <p><strong>From 1-15 South</strong>
+Take Exit 27 (St. Rose Parkway/South Highlands Parkway)<br>
+Turn Left onto St. Rose Parkway East<br>
+Turn Right onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+
+<strong>From I-215 East</strong>
+Take Exit 6 (St. Rose Parkway/Pecos Road)<br>
+Head South on St. Rose Parkway West<br>
+Turn Left onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
 
 Turn Left onto Via Festiva<br>
 
@@ -158,7 +156,20 @@ KB Home Model Center is on the Right</p>
         <h4 class="modal-title" id="myModalLabel">To Toll Brothers Model Center</h4>
       </div>
       <div class="modal-body">
-        <p>Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
+            <p><strong>From 1-15 South</strong>
+Take Exit 27 (St. Rose Parkway/South Highlands Parkway)<br>
+Turn Left onto St. Rose Parkway East<br>
+Turn Right onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+
+<strong>From I-215 East</strong>
+Take Exit 6 (St. Rose Parkway/Pecos Road)<br>
+Head South on St. Rose Parkway West<br>
+Turn Left onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
 
 Turn Right onto Via Festiva to Via Delle Arti<br>
 
