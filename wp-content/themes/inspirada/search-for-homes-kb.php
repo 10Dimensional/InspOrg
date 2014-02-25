@@ -46,7 +46,6 @@
 
 <?php wp_head() ?></head>
 <body>
-<<<<<<< HEAD:wp-content/themes/inspirada/search-for-homes-kb.php
 <div id="wrapper" style="background: white">
 
     <?php get_header() ?>
