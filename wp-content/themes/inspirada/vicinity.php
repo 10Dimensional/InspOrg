@@ -17,8 +17,6 @@
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
-    		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <body>
@@ -38,7 +36,7 @@
 				<span class="text"><?php the_field('headline'); ?></span><br>
 				<span class="text" style="font:20px 'arimoregular', Helvetica, sans-serif; padding-top: 56px;"><?php the_field('paragraph'); ?></span>
 			</h1>
-			<section class="vicinity-section" style="min-height:1060px;">
+			<section class="vicinity-section" style="min-height:760px;">
                 <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
                     <section>
                         <h1>Builders</h1>
@@ -78,7 +76,7 @@
                                     </div>
                             </li>
                             <li class="style-2">
-                                <a href="#" class="opener" id="Pools">Resident Pools</a>
+                                <a href="#" class="opener" id="Pools">Pools</a>
                             </li>
                             <li class="style-3">
                                 <a href="#" class="opener" id="Trails">Trails</a>
@@ -96,13 +94,7 @@
   
   <style>
     body { margin:0; padding:0; }
-    #map { position: absolute; z-index: 1; margin-top: 342px; top:0; bottom:0; width: 760px; height: 1060px; }
-    @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-    #map { position: absolute; z-index: 1; margin-top: 342px; top:0; bottom:0; width: 515px; height: 1060px; }
-}
+    #map { position: absolute; z-index: 1; margin-top: 342px; top:0; bottom:0; width:100%; }
   </style>
 </head>
 <body>
@@ -151,40 +143,25 @@ and (orientation : portrait) {
     border-top-color: #FFF;
     color: #FFF;
 }
-img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !important;}
-
-.list li {
-list-style-type: disc;
-}
 </style>
-<div id='map'></div>
+<div id='map' style="width: 760px; height: 760px;"></div>
 <script>
-var map = L.map('map', {
-	minZoom: 2,
-	maxZoom: 6
-	});
+var map = L.mapbox.map('map', 'lucidagency.srbjra4i');
 var ui = document.getElementById('map-ui');
-var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
-map.setView([-77, 22.763671875], 4);
-map.touchZoom.disable();
-map.doubleClickZoom.disable();
-map.scrollWheelZoom.disable();
-// disable tap handler, if present.
-if (map.tap) map.tap.disable();
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png'), 'Beazer', 1);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png'), 'Pardee Homes', 3);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/toll/{z}/{x}/{y}.png'), 'Toll Brothers', 4);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png'), 'Parks', 5);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/trails/{z}/{x}/{y}.png'), 'Trails', 6);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png'), 'Pools', 7);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
-var steetlayer = L.tileLayer('http://166.78.0.133:8888/v2/streets/{z}/{x}/{y}.png',10).addTo(map);
+
+addLayer(L.mapbox.tileLayer('lucidagency.f4h4obt9'), 'Beazer', 1);
+addLayer(L.mapbox.tileLayer('lucidagency.5tn019k9'), 'KB Home', 2);
+addLayer(L.mapbox.tileLayer('lucidagency.8yr5dn29'), 'Pardee Homes', 3);
+addLayer(L.mapbox.tileLayer('lucidagency.luxwp14i'), 'Toll Brothers', 4);
+addLayer(L.mapbox.tileLayer('lucidagency.n0e2vs4i'), 'Parks', 5);
+addLayer(L.mapbox.tileLayer('lucidagency.6jchm2t9'), 'Trails', 6);
+addLayer(L.mapbox.tileLayer('lucidagency.x65n4s4i'), 'Pools', 7);
+addLayer(L.mapbox.tileLayer('lucidagency.e3mu0udi'), 'Nearby Necessities', 8);
 
 //var markerLayer = L.mapbox.markerLayer()
 //    .loadURL('<?php bloginfo('template_url') ?>/markers.geojson')
 //    .addTo(map);
-    
+
 function addLayer(layer, name, zIndex) {
     layer
         .setZIndex(zIndex)
@@ -213,15 +190,6 @@ function addLayer(layer, name, zIndex) {
 
             if(name === "Parks") {
                 document.getElementById('parks_holder').style.display="none";
-
-                var allElements = document.getElementsByClassName('leaflet-marker-icon');
-                for (var i = 0; i < allElements.length; i++)
-                {
-                    if (allElements[i].getAttribute('src') == 'http://a.tiles.mapbox.com/v3/marker/pin-l+1087bf.png')
-                    {
-                        allElements[i].setAttribute('class', 'hide-marker');
-                    }
-                }
             }
         } else {
             map.addLayer(layer);
@@ -357,7 +325,6 @@ function addLayer(layer, name, zIndex) {
 	<!-- Solista Park Modal -->
 <div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
@@ -368,7 +335,6 @@ function addLayer(layer, name, zIndex) {
 	<!-- Capriola Park Modal -->
 <div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
@@ -379,7 +345,6 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
@@ -390,8 +355,7 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <div class="modal-content-parks">
+    <div class="modal-content-parls">
       <div class="modal-body">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>
