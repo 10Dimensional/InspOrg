@@ -5021,3 +5021,8 @@ width: 94% !important;
 .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit] {
 font-size: 1em;
 margin-right: 4px !important;
+}
+
+.leaflet-container .leaflet-control-attribution {
+display: none !important;
+}

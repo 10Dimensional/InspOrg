@@ -10,7 +10,7 @@
 									$args = array(
 										'post_type' 	=> 'post',
 										'post_status' 	=> 'publish',
-										'category'		=> 11
+										'category'		=> 1
 									);
 									$feautured_posts = get_posts($args);
 									$count = 0;
