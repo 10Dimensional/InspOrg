@@ -112,7 +112,7 @@ function addLayer(layer, name, zIndex) {
 map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
-</script>	
+</script>
 		</blogcontent>
 		</section>
 <!-- Modal -->
