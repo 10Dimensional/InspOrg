@@ -159,7 +159,9 @@ list-style-type: disc;
 </style>
 <div id='map'></div>
 <script>
-var map = L.mapbox.map('map');
+var map = L.map('map', {
+	minZoom: 2
+	});
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
