@@ -1,6 +1,5 @@
 <?php   
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
+
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
@@ -44,7 +43,7 @@
                 $title = 'KB Home';
                 $use_email = $kb_email;
                 $use_array = $kb_array;
-                generate_xml_email_kb()
+                generate_xml_email_kb();
             }
             
             if ($builder === 'beazer homes') {
@@ -282,7 +281,8 @@
         ini_set('display_errors', '1');
         ini_set("soap.wsdl_cache_enabled", "0");
         try {
-            $client = new SoapClient(
+            /*
+$client = new SoapClient(
                 "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(
                 "encoding" => "ISO-8859-1",
                 "trace" => 1,
@@ -304,6 +304,7 @@
         
             $response = $client->SubmitLeads(array('Auth' => $auth, 'Lead' => array($lead)));
             return $response;
+*/
         } catch (SoapFault $e) {
             return 'Caught SOAP exception: ', $e->getMessage();
         } catch(Exception $e) {

@@ -58,44 +58,18 @@
 <script>
 var map = L.mapbox.map('map');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
-<<<<<<< HEAD
-map.setView([-67, 22.763671875], 4);
-map.dragging.disable();
-=======
 map.setView([-77, 22.763671875], 4);
->>>>>>> 9549f66bcc27d1c15b2020498bd41cd88b653a9a
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 // disable tap handler, if present.
 if (map.tap) map.tap.disable();
-<<<<<<< HEAD
-var modellayer = L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png').addTo(map);
-var markerLayer = L.mapbox.markerLayer()
-                        .loadURL('<?php bloginfo('template_url') ?>/models.geojson')
-                    .addTo(map);
-                    markerLayer.options.sanitizer = function(x) { return x; };
-map.markerLayer.on('ready', function (e) {
-    map.markerLayer.eachLayer(function (marker) {
-        marker.openPopup();
-    });
-});
-
-/*map.markerLayer.on('mouseover', function(e) {
-    e.layer.openPopup();
-})
-map.markerLayer.on('mouseout', function(e) {
-    e.layer.closePopup();
-})*/
-=======
 addLayer(L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png'), 'Models', 1);
->>>>>>> 9549f66bcc27d1c15b2020498bd41cd88b653a9a
 
 function addLayer(layer, name, zIndex) {
     layer
         .setZIndex(zIndex)
         .addTo(map);
-
     // Create a simple layer switcher that toggles layers on
     // and off.
     var item = document.createElement('li');
@@ -137,7 +111,7 @@ function addLayer(layer, name, zIndex) {
 map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
-</script>
+</script>	
 		</blogcontent>
 		</section>
 <!-- Modal -->
