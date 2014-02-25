@@ -75,11 +75,7 @@ function addLayer(layer, name, zIndex) {
     var item = document.createElement('li');
     var link = document.createElement('a');
 
-    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson');
-    markerLayer.setFilter(function(f) { 
-        return f.properties['category'] === name; 
-    })
-    .addTo(map);
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson').addTo(map);
 
     markerLayer.on('mouseover', function(e) {
         e.layer.openPopup();
