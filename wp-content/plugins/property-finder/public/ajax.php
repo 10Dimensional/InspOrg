@@ -1,11 +1,10 @@
 <?php   
-
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
     if ($_POST['type'] === 'info') {
         // Request Info
-        $requested_properties = $_POST['request_info'];
+        $requested_properties = (isset($_POST['request_info'])) ? $_POST['request_info'] : array();
         $properties = $wpdb->get_results('SELECT * FROM ap_properties WHERE id IN ('.implode(',', array_map('intval', $requested_properties)).')');
         $beazer_array = array();
         $kb_array = array();
@@ -18,7 +17,7 @@
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
-        print_r(generate_xml_soap_toll());
+
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
                 $beazer_array[] = $property;
@@ -62,13 +61,17 @@
                 $title = 'Toll Brothers';
                 $use_email = $toll_email;
                 $use_array = $toll_array;
-                
-                
+                generate_xml_soap_toll();
             }
             
             if (!requestInfo($title, $use_email, $use_array)) {
                 $status = 'fail';
             }
+        }
+        
+        if (!$builders) {
+            generate_xml_soap_toll();
+            generate_xml_email_kb();
         }
         
         // Store in DB
@@ -277,12 +280,9 @@
     
     function generate_xml_soap_toll()
     {
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
         ini_set("soap.wsdl_cache_enabled", "0");
         try {
-            /*
-$client = new SoapClient(
+            $client = new SoapClient(
                 "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(
                 "encoding" => "ISO-8859-1",
                 "trace" => 1,
@@ -304,11 +304,10 @@ $client = new SoapClient(
         
             $response = $client->SubmitLeads(array('Auth' => $auth, 'Lead' => array($lead)));
             return $response;
-*/
         } catch (SoapFault $e) {
-            return 'Caught SOAP exception: ', $e->getMessage();
+            return 'Caught SOAP exception: '.$e->getMessage();
         } catch(Exception $e) {
-            return 'Caught exception: ', $e->getMessage();
+            return 'Caught exception: '. $e->getMessage();
         }
     }
 ?>

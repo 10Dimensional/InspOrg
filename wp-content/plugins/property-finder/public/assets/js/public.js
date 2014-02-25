@@ -118,9 +118,8 @@ var ui = '';
                 	type: 'POST',
                 	url: property_finder.plugin_url+'/public/ajax.php',
                 	data: str+'&type=info',
-                	dataType: '',
+                	dataType: 'json',
                 	success: function(response) {
-                	    console.log(response);
                 	    if (response.status === 'success') {
                     	    $('#requestInfo .step1').hide();
                     	    var model_list = '';
