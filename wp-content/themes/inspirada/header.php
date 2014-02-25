@@ -12,17 +12,6 @@
 						<?php	} ?>					
 					</ul>
 				</nav>
-				<div class="show-mobile mobile-nav">
-					<select onchange="if (this.value) window.location.href=this.value">
-						<option value="">---Menu---</option>
-						<?php 
-							$menu_items = wp_get_nav_menu_items(3);
-							foreach ($menu_items as $item) {
-								echo '<option value="'.$item->url.'">'.$item->title.'</option>';
-							}
-						?>
-					</select>
-				</div>
 			</div>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 			</header>
