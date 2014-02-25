@@ -1747,6 +1747,20 @@ h2.mango3 {
 	text-transform:uppercase;
 	color:black;
 }
+.btn-next-section-black:hover{
+	text-decoration:underline;
+}
+.btn-next-section-black:after{
+	content:'';
+	position:absolute;
+	top:100%;
+	left:50%;
+	margin:0 0 0 -42px;
+	background: url('../images/sprite.png') no-repeat -223px -184px;
+	width: 84px;
+	height: 40px;
+}
+
 .btn-next-section:hover{
 	text-decoration:underline;
 }
