@@ -16,7 +16,12 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
+<style>
+.modal-dialog {
+margin: 15%; }
+.modal-body {
+width: 160%; }
+</style>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
@@ -65,9 +70,9 @@
 	<!-- Capriola Park Modal -->
 <div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <div class="modal-content-parks">
       <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -76,9 +81,9 @@
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <div class="modal-content-parks">
       <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -87,9 +92,9 @@
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <div class="modal-content-parls">
+    <div class="modal-content-parks">
       <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>
     </div><!-- /.modal-content -->
