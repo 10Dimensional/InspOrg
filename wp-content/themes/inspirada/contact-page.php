@@ -58,7 +58,7 @@
 <script>
 var map = L.map('map', {
 	minZoom: 2,
-	maxZoom: 6
+	maxZoom: 4
 	});
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-70, 22.763671875], 4);
