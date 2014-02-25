@@ -183,7 +183,7 @@ list-style-type: disc;
                     </form>
                 </div>
                     
-                    <div id="searchMap" class="map-block"><ul id='map-ui'></ul></div>
+                    <div id="searchMap" class="map-block"></div>
      
             </section>
             
