@@ -47,7 +47,7 @@ add_filter( 'wp_nav_menu', 'remove_ul' );
 add_theme_support( 'post-thumbnails' ); 
 
 function custom_excerpt_length( $length ) {
-	return 15;
+	return 12;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 

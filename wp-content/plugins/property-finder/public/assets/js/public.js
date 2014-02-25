@@ -3,7 +3,7 @@ var map = '',
     builder_layers = {
         'Beazer': 'http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png',
         'KB HOME': 'http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png',
-        'Mecessities': 'http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png',
+        'Necessities': 'http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png',
         'Pardee': 'http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png',
         'Parks': 'http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png',
         'Pools': 'http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png',
@@ -18,30 +18,32 @@ var ui = '';
    
 	$(function () {
 	    if ($('#searchMap').length) {
-    	    map = L.mapbox.map('searchMap');
+    	    map = L.map('searchMap', {minZoom: 2, maxZoom: 6});
+            
+            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+            markerLayer.options.sanitizer = function(x) { return x; };
+            
     	    ui = document.getElementById('map-ui');
     	    var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
     	    
     	    map.setView([-77, 22.763671875], 4);
-    	    map.dragging.disable();
-            map.touchZoom.disable();
+    	    map.touchZoom.disable();
             map.doubleClickZoom.disable();
             map.scrollWheelZoom.disable();
-            // disable tap handler, if present.
             if (map.tap) map.tap.disable();
     	    
             ui = document.getElementById('map-ui');
-/*             map.setZoomRange(2, 4); */
             var mapgroup = L.layerGroup().addTo(map);
             
-            for (var b in builder_layers) {
-                if (builder_layers[b]) {
-                    //addLayer(L.tileLayer(builder_layers[b]), b, 1);
-                    mapgroup.addLayer(L.tileLayer(builder_layers[b]), b, 1);
-                }
-   
-        	    
-    	    }
+            
+            mapgroup.addLayer(L.tileLayer(builder_layers['Parks']), 'Parks', 1);
+            mapgroup.addLayer(L.tileLayer(builder_layers['Necessities']), 'Necessities', 1);
+            
+            
+            markerLayer.setFilter(function(f) {
+                return f.properties['category'] === 'Parks'; 
+            }).addTo(map);
+
 	    }
 	     
 	    $('#requestInfo').on('hidden.bs.modal', function (e) {
@@ -66,12 +68,17 @@ var ui = '';
             	dataType: 'json',
             	success: function(response) {
             	    mapgroup.clearLayers();
-            	    for (var b in builder_layers) {
+            	    mapgroup.addLayer(L.tileLayer(builder_layers['Parks']), 'Parks', 1);
+                    mapgroup.addLayer(L.tileLayer(builder_layers['Necessities']), 'Necessities', 1);
+            	    
+            	    markerLayer.setFilter(function(f) {
+                        return f.properties['category'] === 'Parks'; 
+                    }).addTo(map);
+            	    
+            	    for (var b in response.builders) {
                         
                         if (builder_layers[response.builders[b]]) {
-
-                            addLayer(L.tileLayer(builder_layers[b]), b, 1);
-                            //mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
+                            mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
                         }
                 	    
             	    }
