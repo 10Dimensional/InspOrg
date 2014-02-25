@@ -41,7 +41,11 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
+<style>
+.list li {
+list-style-type: disc;
+}
+</style>
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper" style="background: white;">
