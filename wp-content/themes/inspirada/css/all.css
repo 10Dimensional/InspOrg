@@ -210,9 +210,6 @@ img.aligncenter{
 	display:block;
 	height:100%;
 }
-.nav-opener{
-	display:none;
-}
 #nav{
 	position:static !important;
 	margin:0 -19px -9px 0;
@@ -233,7 +230,7 @@ img.aligncenter{
 	display:block;
 	position:relative;
 	overflow:hidden;
-	color:#383a35;
+	color:#fff;
 	text-decoration:none;
 	padding:0 0 28px;
 }
@@ -1686,6 +1683,8 @@ h1.mango {
 }
 h2.mango2 {
 	color: #FF6C36;
+font-size: 15px;
+margin-left: 20px;
 }
 h2.mango3 {
 	color: #ff6c36;
@@ -3728,7 +3727,6 @@ overflow: hidden;
 		right:0;
 		text-align:left;
 		position:absolute !important;
-		background:#2d2d2d;
 		background:rgba(45,45,45, 0.9);
 	}
 	#nav > li{
