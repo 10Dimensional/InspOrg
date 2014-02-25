@@ -2,7 +2,6 @@
 			<div class="header-holder">
 				<strong class="logo"><a href="/">Inspirada - Live inspired</a></strong>
 				<nav class="open-close hide-mobile">
-					<a href="#" class="nav-opener opener">Open nav</a>
 					<ul id="nav" class="slide">
 						<?php if ( has_nav_menu( 'primary-menu', 'inspirada' ) ) { ?>
 							<?php wp_nav_menu( array( 'container' => false, 'theme_location' => 'primary-menu', 'link_before' => '<span>', 'link_after' => '</span>', 'fallback_cb' => 'display_home' ) ); ?>
