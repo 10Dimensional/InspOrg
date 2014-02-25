@@ -1,4 +1,6 @@
 <?php   
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
@@ -17,7 +19,7 @@
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
-        
+        print_r(generate_xml_soap_toll());
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
                 $beazer_array[] = $property;
@@ -32,6 +34,7 @@
             $property_ids[] = $property->id;
         }
         
+        $send_kb_xml = false;
         foreach ($builders as $builder) {
             $use_email = '';
             $use_array = array();
@@ -40,7 +43,8 @@
             if ($builder === 'kb home') {
                 $title = 'KB Home';
                 $use_email = $kb_email;
-                $use_array = $kb_array;   
+                $use_array = $kb_array;
+                generate_xml_email_kb()
             }
             
             if ($builder === 'beazer homes') {
@@ -58,7 +62,9 @@
             if ($builder === 'toll brothers') {
                 $title = 'Toll Brothers';
                 $use_email = $toll_email;
-                $use_array = $toll_array;   
+                $use_array = $toll_array;
+                
+                
             }
             
             if (!requestInfo($title, $use_email, $use_array)) {
@@ -75,7 +81,7 @@
         		'email' => trim($_POST['email']),
         		'phone' => trim($_POST['phone']),
         		'comment' => trim($_POST['comment']),
-        		'builders' => json_encode($_POST['builders']),
+        		'builders' => (isset($_POST['builders'])) ? json_encode($_POST['builders']) : '',
         		'properties' => json_encode($property_ids)
         	)
         );
@@ -197,5 +203,111 @@
          
         $mail = $smtp->send($to, $headers, $body);
         return (PEAR::isError($mail)) ? false : true;
+    }
+    
+    function generate_xml_email_kb()
+    {
+        
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+        require_once "Mail.php";
+        require_once "Mail/mime.php";
+        $to = 'liz@lucidagency.com';
+
+
+        $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
+        $xml .= '<hsleads>'.PHP_EOL;
+        $xml .= '<lead>'.PHP_EOL;
+        $xml .= '<submit_date_time>'.date('c', strtotime('now')).'</submit_date_time>'.PHP_EOL;
+        $xml .= '<firstname>'.substr($_POST['firstName'], 0, 15).'</firstname>'.PHP_EOL;
+        $xml .= '<lastname>'.substr($_POST['lastName'], 0, 40).'</lastname>'.PHP_EOL;
+        $xml .= '<email>'.substr($_POST['email'], 0, 40).'</email>'.PHP_EOL;
+        $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$_POST['phone']), 0, 10).'</phone>'.PHP_EOL;
+        $xml .= '<message>'.substr($_POST['comment'], 0, 2048).'</message>'.PHP_EOL;
+        $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
+        $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
+        $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
+        $xml .= '</lead>'.PHP_EOL;
+        $xml .= '</hsleads>';        
+        
+        header ("Content-Type: application/octet-stream");
+        header ("Content-disposition: attachment; filename=info.xml");
+    
+        $from = "Inspirada <info@inspirada.com>";
+        $subject = "Info Requested";
+         
+        $host = "smtp.gmail.com";
+        $port = '465';
+        $username = "InspiradaHenderson@gmail.com";
+        $password = "0bbLsE9fRXGU";
+         
+        $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
+    
+    	// Get form fields
+
+    
+    	// Format Message
+    	$body = '';
+
+        
+        $mime = new Mail_mime();
+        $mime->setHTMLBody($body);
+        
+        $xmlobj = new SimpleXMLElement($xml);
+        $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml');
+        
+        $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml', 'text/xml'); 
+ 
+        $body = $mime->get();
+        $headers = $mime->headers($headers);
+        
+        $smtp = Mail::factory('smtp',
+            array (
+                'host' => $host,
+                //'port' => $port,
+                'auth' => true,
+                'username' => $username,
+                'password' => $password
+            )
+        );
+         
+        $mail = $smtp->send($to, $headers, $body);
+        return (PEAR::isError($mail)) ? false : true;
+    }
+    
+    
+    function generate_xml_soap_toll()
+    {
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+        ini_set("soap.wsdl_cache_enabled", "0");
+        try {
+            $client = new SoapClient(
+                "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(
+                "encoding" => "ISO-8859-1",
+                "trace" => 1,
+                "exceptions" => 1,
+                "connection_timeout" => 1000)
+            );
+
+            $auth = array('username' => "lucid_t", 'password' => "U0hVZLAup2sXVjP");
+            $lead = array(
+                'email' => $_POST['email'],
+                'comments' => $_POST['comment'],
+                'community_id' => "8566",
+                'first_name' => $_POST['firstName'],
+                'homephone' => $_POST['phone'],
+                'last_name' => $_POST['lastName'],
+                'mobilephone' => $_POST['phone'],
+                'requestdate' => date('Y/m/d', strtotime('now'))
+            );
+        
+            $response = $client->SubmitLeads(array('Auth' => $auth, 'Lead' => array($lead)));
+            return $response;
+        } catch (SoapFault $e) {
+            return 'Caught SOAP exception: ', $e->getMessage();
+        } catch(Exception $e) {
+            return 'Caught exception: ', $e->getMessage();
+        }
     }
 ?>

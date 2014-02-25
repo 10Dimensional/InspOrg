@@ -7,18 +7,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
+   <link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
+    		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
-	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
-	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
-<?php wp_head() ?></head>
+	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]--><?php wp_head() ?>
+	</head>
 <body>
 	<div id="wrapper" style="background: white;">
 		<?php get_header() ?>
@@ -57,18 +56,20 @@
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>
-var map = L.mapbox.map('map', function(map) {
-        map.eventHandlers[3].remove();
-    });
-var ui = document.getElementById('map-ui');
+var map = L.mapbox.map('map');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+<<<<<<< HEAD
 map.setView([-67, 22.763671875], 4);
 map.dragging.disable();
+=======
+map.setView([-77, 22.763671875], 4);
+>>>>>>> 9549f66bcc27d1c15b2020498bd41cd88b653a9a
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 // disable tap handler, if present.
 if (map.tap) map.tap.disable();
+<<<<<<< HEAD
 var modellayer = L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png').addTo(map);
 var markerLayer = L.mapbox.markerLayer()
                         .loadURL('<?php bloginfo('template_url') ?>/models.geojson')
@@ -86,6 +87,9 @@ map.markerLayer.on('ready', function (e) {
 map.markerLayer.on('mouseout', function(e) {
     e.layer.closePopup();
 })*/
+=======
+addLayer(L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png'), 'Models', 1);
+>>>>>>> 9549f66bcc27d1c15b2020498bd41cd88b653a9a
 
 function addLayer(layer, name, zIndex) {
     layer
@@ -96,6 +100,19 @@ function addLayer(layer, name, zIndex) {
     // and off.
     var item = document.createElement('li');
     var link = document.createElement('a');
+
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson');
+    markerLayer.setFilter(function(f) { 
+        return f.properties['category'] === name; 
+    })
+    .addTo(map);
+
+    markerLayer.on('mouseover', function(e) {
+        e.layer.openPopup();
+    })
+    markerLayer.on('mouseout', function(e) {
+        e.layer.closePopup();
+    })
 
     link.href = '#';
     link.className = 'active';
@@ -117,16 +134,10 @@ function addLayer(layer, name, zIndex) {
     //item.appendChild(link);
     //ui.appendChild(item);
 }
-
-function triggerPopUp() {
-  map.markerLayer.eachLayer(function (marker) {
-      marker.openPopup();
-  });
-}
 map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
-</script>			
+</script>	
 		</blogcontent>
 		</section>
 <!-- Modal -->
