@@ -56,7 +56,10 @@
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>
-var map = L.mapbox.map('map');
+var map = L.map('map', {
+	minZoom: 2,
+	maxZoom: 5
+	});
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
 map.touchZoom.disable();
