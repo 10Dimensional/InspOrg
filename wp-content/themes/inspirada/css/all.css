@@ -230,7 +230,7 @@ img.aligncenter{
 	display:block;
 	position:relative;
 	overflow:hidden;
-	color:#fff;
+	color:#383a35;
 	text-decoration:none;
 	padding:0 0 28px;
 }
@@ -3738,6 +3738,7 @@ overflow: hidden;
 	}
 	#nav > li > a{
 		padding:6px 10px !important;
+		color: white;
 	}
 	#nav > li > a br{
 		display:none;
