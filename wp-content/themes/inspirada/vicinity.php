@@ -160,7 +160,6 @@ list-style-type: disc;
 <div id='map'></div>
 <script>
 var map = L.mapbox.map('map', { 
-	maxZoom: 6,
 	minZoom: 2 });
 var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
