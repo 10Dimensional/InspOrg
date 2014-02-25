@@ -138,7 +138,20 @@ map.markerLayer.on('click', function(e) {
         <h4 class="modal-title" id="myModalLabel">To KB Home Model Center</h4>
       </div>
       <div class="modal-body">
-<p>Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
+      <p><strong>From 1-15 South</strong>
+Take Exit 27 (St. Rose Parkway/South Highlands Parkway)<br>
+Turn Left onto St. Rose Parkway East<br>
+Turn Right onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+
+<strong>From I-215 East</strong>
+Take Exit 6 (St. Rose Parkway/Pecos Road)<br>
+Head South on St. Rose Parkway West<br>
+Turn Left onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
 
 Turn Left onto Via Festiva<br>
 
@@ -157,7 +170,20 @@ KB Home Model Center is on the Right</p>
         <h4 class="modal-title" id="myModalLabel">To Toll Brothers Model Center</h4>
       </div>
       <div class="modal-body">
-        <p>Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
+            <p><strong>From 1-15 South</strong>
+Take Exit 27 (St. Rose Parkway/South Highlands Parkway)<br>
+Turn Left onto St. Rose Parkway East<br>
+Turn Right onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+
+<strong>From I-215 East</strong>
+Take Exit 6 (St. Rose Parkway/Pecos Road)<br>
+Head South on St. Rose Parkway West<br>
+Turn Left onto Executive Airport Drive<br>
+Turn Left onto Volunteer Boulevard<br>
+Turn Right on Via Firenze into Inspirada<br><br>
+Follow Via Firenze from Volunteer Boulevard to Via Festiva<br>
 
 Turn Right onto Via Festiva to Via Delle Arti<br>
 

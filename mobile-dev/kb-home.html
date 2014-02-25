@@ -50,9 +50,17 @@
   </style>
 <div id='map' style=" height: 414px; width: inherit;"></div>
 <script>
-var map = L.mapbox.map('map', 'lucidagency.srbjra4i',{center: [-75, 22.763671875 ], zoom: 3} );
-addLayer(L.mapbox.tileLayer('lucidagency.aeomvx6r'), 'KB Home', 1);
-
+var map = L.mapbox.map('map');
+var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+map.setView([-77, 22.763671875], 4);
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+// disable tap handler, if present.
+if (map.tap) map.tap.disable();
+addLayer(L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
+addLayer(L.tileLayer('http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png'), 'Parks', 5);
+addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
 
 function addLayer(layer, name, zIndex) {
     layer
@@ -70,12 +78,12 @@ function addLayer(layer, name, zIndex) {
     })
     .addTo(map);
 
-/*    markerLayer.on('mouseover', function(e) {
+    markerLayer.on('mouseover', function(e) {
         e.layer.openPopup();
     })
     markerLayer.on('mouseout', function(e) {
         e.layer.closePopup();
-    }) */
+    })
 
     link.href = '#';
     link.className = 'active';
@@ -100,7 +108,7 @@ function addLayer(layer, name, zIndex) {
 map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
-</script>		
+</script>			
 						<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
 						<noscript><img src="images/img06.jpg" alt="image description" ></noscript>
 					</span>

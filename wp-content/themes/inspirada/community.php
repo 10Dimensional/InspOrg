@@ -43,7 +43,7 @@
 <?php the_content(); ?>
 			<?php endwhile; // end of the loop. ?>
 			<div class="btn-next-holder">
-						<a href="#amenities" class="btn-next-section go">Amenities</a>
+						<a href="#amenities" class="btn-next-section go">Parks</a>
 					</div>			
 			</div>
 			</section>
@@ -51,7 +51,7 @@
 				<div class="holder">
 					<?php the_field('amenities'); ?>
 					<div class="btn-next-holder">
-						<a href="#homes" class="btn-next-section go">Homes</a>
+						<a href="#homes" class="btn-next-section-black go">Homes</a>
 					</div>
 				</div>
 			</section>
