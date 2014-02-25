@@ -76,7 +76,7 @@ function addLayer(layer, name, zIndex) {
     var item = document.createElement('li');
     var link = document.createElement('a');
 
-    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson');
+    var markerLayer = L.mapbox.markerLayer().loadURL('<?php bloginfo('template_url') ?>/models.geojson');
     markerLayer.setFilter(function(f) { 
         return f.properties['category'] === name; 
     })
