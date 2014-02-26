@@ -57,7 +57,18 @@
 }
 .mobile-nav {display: none}
 
+<<<<<<< HEAD
 .img-list:after {display: inline !important;}
 
 .img-list li {display: inline !important; float: left !important; width: 20% !important;}
 
+=======
+.img-list li {
+	display: inline !important;
+	width: 20%;
+}
+
+.img-list img {
+	width: 20%;
+}
+>>>>>>> 762f75678fd1ef23525585ac2773f2875ed5c710
