@@ -1357,17 +1357,20 @@ Fmedia{
 .companies-list dl{
 	margin:0;
 	overflow:hidden;
-	text-align: center
+	text-align: center;
+	font-size: 12px;
 }
 .companies-list dl dt {
 	display: inline-block;
 	vertical-align: top;
+	line-height: inherit;
 }
 .companies-list dl dd {
 	display: inline;
 	margin:0;
 	vertical-align: top;
 	white-space: pre-wrap;
+	line-height: inherit;
 }
 .companies-list dl dd:after {
 	content: '\a';
