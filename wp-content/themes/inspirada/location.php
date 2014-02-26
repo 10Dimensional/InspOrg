@@ -16,7 +16,7 @@
 		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
-	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
+	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
