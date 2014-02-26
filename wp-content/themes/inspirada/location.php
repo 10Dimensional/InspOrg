@@ -17,6 +17,36 @@
 
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
+	  <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
+<script>
+	jQuery(document).ready(function(){
+
+	// hide #back-top first
+	jQuery("a.btn-back-to-top.go").hide();
+	
+	// fade in #back-top
+		jQuery(function () {
+			jQuery(window).scroll(function () {
+			if (jQuery(this).scrollTop() > 100) {
+					jQuery('a.btn-back-to-top.go').fadeIn();
+			} else {
+					jQuery('a.btn-back-to-top.go').fadeOut();
+			}
+		});
+
+		// scroll body to 0px on click
+		jQuery('a.btn-back-to-top.go').click(function () {
+				jQuery('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
+
+});
+</script>
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
