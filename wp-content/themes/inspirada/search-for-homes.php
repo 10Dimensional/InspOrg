@@ -188,7 +188,7 @@ list-style-type: disc;
                     </form>
                 </div>
                     
-                    <div id="searchMap" class="map-block"></div>
+                    <div id="searchMap" class="map-block" style="float:right;"></div>
      
             </section>
             
