@@ -5034,3 +5034,7 @@ display: none !important;
 .leaflet-control-attribution {
 display: none;
 }
+
+.wp-pagenavi a, .wp-pagenavi span {
+margin: 40px !important;
+}
