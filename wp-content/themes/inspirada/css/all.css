@@ -2008,7 +2008,7 @@ h2.mango3 {
 }
 .img-list img{
 	display:inline;
-	width:24%;
+	width:23%;
 	height:auto;
 }
 .statistics-list{
@@ -5025,4 +5025,8 @@ margin-right: 4px !important;
 
 .hide-marker {
 	display: none !important;
+}
+
+.modal-backdrop.in {
+display: none !important;
 }
