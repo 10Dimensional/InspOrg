@@ -215,18 +215,17 @@ function addLayer(layer, name, zIndex) {
             map.removeLayer(layer);
             this.className = 'opener';
 
-            if(name === "Parks") {
-                document.getElementById('parks_holder').style.display="none";
-
-                var allElements = document.getElementsByClassName('leaflet-marker-icon');
-                for (var i = 0; i < allElements.length; i++)
-                {
-                    if (allElements[i].getAttribute('src') == 'http://a.tiles.mapbox.com/v3/marker/pin-l+1087bf.png')
-                    {
-                        allElements[i].setAttribute('class', 'hide-marker');
-                    }
-                }
-            }
+if(name === "Parks") {
+    document.getElementById('parks_holder').style.display="none";
+    var allElements = document.getElementsByClassName('leaflet-marker-icon');
+    for (var i = 0; i < allElements.length; i++)
+    {
+        if (allElements[i].getAttribute('src') === 'http://a.tiles.mapbox.com/v3/marker/pin-m+83a857.png')
+        {
+            allElements[i].className += ' hide-marker';
+        }
+    }
+}
         } else {
             map.addLayer(layer);
             this.className = 'active opener';
@@ -322,6 +321,14 @@ function addLayer(layer, name, zIndex) {
 				   		   return f.properties['title'] === 'Aventura Park' || f.properties['title'] === 'Future Park' || f.properties['title'] === 'Capriola Park (Under construction)' || f.properties['title'] === 'Potenza Park (Under construction)'|| f.properties['title'] === 'Solista Park (Completed)'; 
 				        })
 			            .addTo(map);
+			            var allElements = document.getElementsByClassName('leaflet-marker-icon');
+for (var i = 0; i < allElements.length; i++)
+{
+    if (allElements[i].getAttribute('src') === 'http://a.tiles.mapbox.com/v3/marker/pin-m+83a857.png')
+    {
+        allElements[i].className = 'leaflet-marker-icon leaflet-zoom-animated leaflet-clickable';
+    }
+}
                         /*markerLayer.on('mouseover', function(e) {
                             e.layer.openPopup();
                         })
