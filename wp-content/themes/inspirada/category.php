@@ -58,8 +58,10 @@ while ( have_posts() ) : the_post(); ?>
 							</div>
 						</div>
 					</section>
+					
 			<?php endwhile; // End Loop ?>
-			<?php wp_pagenavi(); ?>
+						<?php wp_pagenavi(); ?>
+
 				</div>
 			</div>
 				<?php get_footer() ?>
