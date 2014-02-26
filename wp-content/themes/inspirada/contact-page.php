@@ -12,7 +12,9 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-    		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+        <script type="text/javascript" src="//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js"></script>
+
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	</head>

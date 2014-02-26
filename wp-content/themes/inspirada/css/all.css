@@ -2846,7 +2846,7 @@ h2.mango3 {
 	float:right;
 	width:279px;
 	margin-top: 40px;
-	border:1px solid #fff;
+	border: 1px solid #295586;
 	padding:0 0 0 21px;
 	border-width:0 0 0 1px;
 	-moz-box-sizing: border-box;
@@ -4550,7 +4550,7 @@ font-size: 16px;}
 .modal-body input[type="text"], .modal-body input[type="email"], .modal-body textarea {width:205px; display:inline;}
 .modal-dialog {width:650px;}
 .modal-body textarea {height:180px;}
-#requestInfo .btn-primary {color: white; background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px; float:right; font: 16px 'roboto_slabbold', 'Times New Roman', Times, serif !important;}
+#requestInfo .btn-primary {color: #ff6c36; background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px; float:right; font: 16px 'roboto_slabbold', 'Times New Roman', Times, serif !important;}
 #requestInfo .btn-primary:hover {color: #0093a8 ; background:white; }
 
 #requestInfo .step2 .btn-primary {float:left; margin-left: 10px;}
