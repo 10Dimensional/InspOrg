@@ -1,7 +1,7 @@
 <?php
             /*
                 	Template Name: category
-                	                */ 
+                	                */
                 ?>
 <!DOCTYPE html>
 <html>
@@ -46,6 +46,13 @@
 				<?php
 
 // The Loop
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+$args = array( "paged" => $paged);
+$args = array_merge( $args, $wp_query->query ); // Merge with the existing query vars
+query_posts( $args );
+
+
 while ( have_posts() ) : the_post(); ?>
 					<section class="box">
 						<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
@@ -57,9 +64,13 @@ while ( have_posts() ) : the_post(); ?>
 							</div>
 						</div>
 					</section>
-					
+
 			<?php endwhile; // End Loop ?>
-						<?php wp_pagenavi(); ?>
+
+            <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
+    			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page' ); ?></div>
+                <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;' ); ?></div>
+            </div>
 
 				</div>
 			</div>
