@@ -18,7 +18,9 @@
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
     		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
+    <!--[if lte IE 8]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.ie.css' rel='stylesheet' />
+  <![endif]-->
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 <body>
@@ -93,9 +95,7 @@
                 </div>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
-    <!--[if lte IE 8]>
-    <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.ie.css' rel='stylesheet' />
-  <![endif]-->
+  
   <style>
     body { margin:0; padding:0; }
     #map { position: absolute; z-index: 1; margin-top: 342px; top:0; bottom:0; width: 760px; height: 1060px; }
@@ -158,10 +158,6 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !impor
 .list li {
 list-style-type: disc;
 }
-.modal-dialog {
-margin: 15%; }
-.modal-body {
-width: 160%; }
 </style>
 <div id='map'></div>
 <script>
@@ -219,6 +215,15 @@ function addLayer(layer, name, zIndex) {
 
             if(name === "Parks") {
                 document.getElementById('parks_holder').style.display="none";
+
+                var allElements = document.getElementsByClassName('leaflet-marker-icon');
+                for (var i = 0; i < allElements.length; i++)
+                {
+                    if (allElements[i].getAttribute('src') == 'http://a.tiles.mapbox.com/v3/marker/pin-l+1087bf.png')
+                    {
+                        allElements[i].setAttribute('class', 'hide-marker');
+                    }
+                }
             }
         } else {
             map.addLayer(layer);
@@ -345,7 +350,6 @@ function addLayer(layer, name, zIndex) {
 <h2>Nearby</h2>
 						<?php if ( ! dynamic_sidebar('vicinity-sidebar') ) : ?>
 		<?php endif; ?></div>
-			</div>				</div>
 
 
 
@@ -354,9 +358,9 @@ function addLayer(layer, name, zIndex) {
 	<!-- Solista Park Modal -->
 <div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -365,9 +369,9 @@ function addLayer(layer, name, zIndex) {
 	<!-- Capriola Park Modal -->
 <div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -376,9 +380,9 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -387,15 +391,16 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 	</div>
+</div></div>
 	<?php get_footer() ?>
 <?php wp_footer() ?></body>
 </html>
