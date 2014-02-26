@@ -59,8 +59,9 @@ while ( have_posts() ) : the_post(); ?>
 						</div>
 					</section>
 			<?php endwhile; // End Loop ?>
+			<?php wpbeginner_numeric_posts_nav(); ?>
+
 				</div>
-			<?php echo do_shortcode('[wpsp]'); ?>
 			</div>
 				<?php get_footer() ?>
 <?php wp_footer() ?></body>
