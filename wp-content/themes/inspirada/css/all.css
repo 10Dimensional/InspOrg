@@ -5024,5 +5024,5 @@ margin-right: 4px !important;
 }
 
 .hide-marker {
-	display: none;
+	display: none !important;
 }
