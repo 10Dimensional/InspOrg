@@ -5022,3 +5022,7 @@ width: 94% !important;
 font-size: 1em;
 margin-right: 4px !important;
 }
+
+.hide-marker {
+	display: none;
+}
