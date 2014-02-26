@@ -56,3 +56,8 @@
 	max-width:865px;
 }
 .mobile-nav {display: none}
+
+.img-list:after {display: inline;}
+
+.img-list li {display: inline; float: left; width: 20%;}
+

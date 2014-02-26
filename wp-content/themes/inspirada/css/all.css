@@ -4735,7 +4735,6 @@ text-transform: uppercase;
  }
  .map-block img{
  	display:block;
- 	display:table;
  	width:100%;
  	table-layout:fixed;
    border-width: 2px 0 0;
