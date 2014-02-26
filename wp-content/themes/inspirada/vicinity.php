@@ -156,10 +156,6 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !impor
 .list li {
 list-style-type: disc;
 }
-.modal-dialog {
-margin: 15%; }
-.modal-body {
-width: 160%; }
 </style>
 <div id='map'></div>
 <script>
@@ -217,6 +213,15 @@ function addLayer(layer, name, zIndex) {
 
             if(name === "Parks") {
                 document.getElementById('parks_holder').style.display="none";
+
+                var allElements = document.getElementsByClassName('leaflet-marker-icon');
+                for (var i = 0; i < allElements.length; i++)
+                {
+                    if (allElements[i].getAttribute('src') == 'http://a.tiles.mapbox.com/v3/marker/pin-l+1087bf.png')
+                    {
+                        allElements[i].setAttribute('class', 'hide-marker');
+                    }
+                }
             }
         } else {
             map.addLayer(layer);
@@ -352,9 +357,9 @@ function addLayer(layer, name, zIndex) {
 	<!-- Solista Park Modal -->
 <div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -363,9 +368,9 @@ function addLayer(layer, name, zIndex) {
 	<!-- Capriola Park Modal -->
 <div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -374,9 +379,9 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -385,9 +390,9 @@ function addLayer(layer, name, zIndex) {
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <div class="modal-content-parks">
       <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>
     </div><!-- /.modal-content -->

@@ -16,13 +16,17 @@ var map = '',
 
     $(function () {
         if ($('#searchMap').length) {
-            map = L.map('searchMap', {minZoom: 2, maxZoom: 6});
-
+            var map = L.map('searchMap', {
+                minZoom: 2,
+                maxZoom: 6
+            });
+            var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+            map.setView([-77, 22.763671875], 4);
+            
             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
             markerLayer.options.sanitizer = function(x) { return x; };
-            L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+            
 
-            map.setView([-77, 22.763671875], 4);
             map.touchZoom.disable();
             map.doubleClickZoom.disable();
             map.scrollWheelZoom.disable();
@@ -34,6 +38,29 @@ var map = '',
             markerLayer.setFilter(function(f) {
                 return f.properties.category === 'Parks';
             }).addTo(map);
+            
+            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+            markerLayer.options.sanitizer = function(x) { return x; };
+             markerLayer.setFilter(function(f) {
+                return f.properties['title'] === 'Necessities'; 
+                    })
+                .addTo(map);
+                markerLayer.on('mouseover', function(e) {
+                    e.layer.openPopup();
+                });
+                markerLayer.on('mouseout', function(e) {
+                    e.layer.closePopup();
+                });
+            
+
+                var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+            markerLayer.options.sanitizer = function(x) { return x; };                       
+               markerLayer.setFilter(function (f) { 
+		   		   return f.properties['title'] === 'Aventura Park' || f.properties['title'] === 'Future Park' || f.properties['title'] === 'Capriola Park (Under construction)' || f.properties['title'] === 'Potenza Park (Under construction)'|| f.properties['title'] === 'Solista Park (Completed)'; 
+		        })
+	            .addTo(map);
+                markerLayer.options.sanitizer = function(x) { return x; };
+            
         }
 
         $('#requestInfo').on('hidden.bs.modal', function (e) {
@@ -60,16 +87,124 @@ var map = '',
                     mapgroup.clearLayers();
                     mapgroup.addLayer(L.tileLayer(builder_layers.Parks), 'Parks', 1);
                     mapgroup.addLayer(L.tileLayer(builder_layers.Necessities), 'Necessities', 1);
-
+                    var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                    markerLayer.options.sanitizer = function(x) { return x; };
                     markerLayer.setFilter(function(f) {
                         return f.properties.category === 'Parks';
                     }).addTo(map);
 
                     for (var b in response.builders) {
-
+                        
                         if (builder_layers[response.builders[b]]) {
                             mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
                         }
+                        
+                        if (response.builders[b] === 'Beazer') {
+                            markerLayer.setFilter(function(f) {
+                                return f.properties['title'] === 'Beazer Available 2015'; 
+                            })
+                            .addTo(map);
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                            markerLayer.on('mouseover', function(e) {
+                                e.layer.openPopup();
+                            });
+                            markerLayer.on('mouseout', function(e) {
+                                e.layer.closePopup();
+                            });
+                        }
+                        
+                        if (response.builders[b] === 'KB HOME') {
+                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                                markerLayer.setFilter(function(f) {
+                                    return f.properties['title'] === 'KB Future Development' || f.properties['title'] === 'KB Currently Selling' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Fall 2014' || f.properties['title'] === 'KB Home Model Center'; 
+                                }).addTo(map);
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                            markerLayer.on('mouseover', function(e) {
+                                e.layer.openPopup();
+                            });
+                            markerLayer.on('mouseout', function(e) {
+                                e.layer.closePopup();
+                            });
+                        }
+                        
+                        if (response.builders[b] === 'Pardee') {
+                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                            markerLayer.setFilter(function(f) {
+                                    return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available June 2014'; 
+                                })
+                            .addTo(map);
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                            markerLayer.on('mouseover', function(e) {
+                                e.layer.openPopup();
+                            })
+                            markerLayer.on('mouseout', function(e) {
+                                e.layer.closePopup();
+                            });
+                        }
+                        
+                        if (response.builders[b] === 'Toll Brothers') {
+                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                           markerLayer.setFilter(function(f) {
+                                    return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
+                                })
+                            .addTo(map);
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                            markerLayer.on('mouseover', function(e) {
+                                e.layer.openPopup();
+                            });
+                            markerLayer.on('mouseout', function(e) {
+                                e.layer.closePopup();
+                            });
+                        }
+                        
+                        if (response.builders[b] === 'Necessities') {
+                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+            markerLayer.options.sanitizer = function(x) { return x; };
+                           markerLayer.setFilter(function(f) {
+                            return f.properties['title'] === 'Necessities'; 
+                                })
+                            .addTo(map);
+                            markerLayer.on('mouseover', function(e) {
+                                e.layer.openPopup();
+                            });
+                            markerLayer.on('mouseout', function(e) {
+                                e.layer.closePopup();
+                            });
+                        }
+                        
+                        if (response.builders[b] === 'Trails') {
+                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+            markerLayer.options.sanitizer = function(x) { return x; };
+                           markerLayer.setFilter(function(f) {
+                            return f.properties['title'] === 'Trails' || f.properties['title'] === 'Open Space'; 
+                                })
+                            .addTo(map);
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                            markerLayer.on('mouseover', function(e) {
+                                e.layer.openPopup();
+                            });
+                            markerLayer.on('mouseout', function(e) {
+                                e.layer.closePopup();
+                            });
+                        }
+                        
+                        if (response.builders[b] === 'Parks') {
+                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+            markerLayer.options.sanitizer = function(x) { return x; };
+                           markerLayer.setFilter(function (f) { 
+    				   		   return f.properties['title'] === 'Aventura Park' || f.properties['title'] === 'Future Park' || f.properties['title'] === 'Capriola Park (Under construction)' || f.properties['title'] === 'Potenza Park (Under construction)'|| f.properties['title'] === 'Solista Park (Completed)'; 
+    				        })
+    			            .addTo(map);
+                            markerLayer.options.sanitizer = function(x) { return x; };
+                        }
+                        
+                        
+                        
+                     
+                        
 
                     }
 
