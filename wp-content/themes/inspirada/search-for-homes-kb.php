@@ -39,6 +39,8 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+		   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+
 	<style>
 	    div.scrollable-area-wrapper.noscroll-horizontal.noscroll-vertical, div.scrollable-area.anyscrollable {height:auto !important;}
 	</style>
