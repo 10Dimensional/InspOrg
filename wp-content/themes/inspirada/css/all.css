@@ -600,10 +600,16 @@ margin-left: 7%;
 .page-title .text{
 	display:inline-block;
 	height:5px;
-	filter:
-        progid:DXImageTransform.Microsoft.Blur(makeShadow=false,pixelRadius=2); /* blue */
-    left: 0px; /* left - blur */
-    top: 0px; /* top - blur */
+	position:absolute;zoom:1;z-index:1;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#000000,offX=1,offY=1)
+    progid:DXImageTransform.Microsoft.Alpha(opacity=25)
+    progid:DXImageTransform.Microsoft.Blur(pixelradius=2.15, enabled='true');
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropShadow(color=#000000,offX=1,offY=1)"
+    "progid:DXImageTransform.Microsoft.Alpha(opacity=25)"
+    "progid:DXImageTransform.Microsoft.Blur(pixelradius=2.15, enabled='true')";
+    color: #111111;
+    top:-2px;
+    left:-2px;
 	vertical-align:middle;
 	text-shadow: 2px 2px 2px #333;
 		}
@@ -5037,4 +5043,8 @@ display: none;
 
 .wp-pagenavi a, .wp-pagenavi span {
 margin: 40px !important;
+}
+
+a.moretag {
+	font-weight: 600;
 }
