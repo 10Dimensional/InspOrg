@@ -59,7 +59,7 @@
 							<div class="text-wrap">
 							<em class="date" style="color: #ff6c36;"><?php the_time('F jS, Y') ?></em>
 								<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-								<p> <?php the_excerpt(); ?><a style="text-decoration: none; font-weight: bold;" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">MORE&gt;&gt;</a></p>
+								<p> <?php the_excerpt(); ?></p>
 							</div>
 						</div>
 					</section>
@@ -67,9 +67,12 @@
       endwhile;
     }
 wp_reset_query(); ?>
+								<?php wp_pagenavi(); ?>
+
 				</div>
 			</div>
 		</div>
+
 				<?php get_footer() ?>
 <?php wp_footer() ?></body>
 </html>

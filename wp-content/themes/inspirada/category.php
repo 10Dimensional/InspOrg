@@ -13,7 +13,6 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
@@ -54,11 +53,14 @@ while ( have_posts() ) : the_post(); ?>
 							<div class="text-wrap">
 							<em class="date" style="color: #ff6c36;"><?php the_time('F jS, Y') ?></em>
 								<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-								<p> <?php the_excerpt(); ?><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">MORE&gt;&gt;</a></p>
+								<?php the_excerpt(); ?>
 							</div>
 						</div>
 					</section>
+					
 			<?php endwhile; // End Loop ?>
+						<?php wp_pagenavi(); ?>
+
 				</div>
 			</div>
 				<?php get_footer() ?>

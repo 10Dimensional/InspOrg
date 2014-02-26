@@ -12,8 +12,6 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
     		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]--><?php wp_head() ?>
@@ -53,6 +51,9 @@
   <style>
     body { margin:0; padding:0; }
     #map { position:relative; top:0; bottom:0; background: none; border: none;}
+    img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f86767.png"]{opacity:0 !important;}
+    img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f1f075.png"]{opacity:0 !important;}
+
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>

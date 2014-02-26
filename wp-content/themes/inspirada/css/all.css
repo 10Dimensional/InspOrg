@@ -600,10 +600,8 @@ margin-left: 7%;
 .page-title .text{
 	display:inline-block;
 	height:5px;
-	filter:
-        progid:DXImageTransform.Microsoft.Blur(makeShadow=false,pixelRadius=2); /* blue */
-    left: 0px; /* left - blur */
-    top: 0px; /* top - blur */
+    top:-2px;
+    left:-2px;
 	vertical-align:middle;
 	text-shadow: 2px 2px 2px #333;
 		}
@@ -1313,7 +1311,7 @@ border: 1px #295585 solid;
 .sort-btns li:first-child a{
 	background-position:-549px -103px;
 }
-.companies-list{
+Fmedia{
 	margin:0;
 	font-size:12px;
 	line-height:14px;
@@ -1633,7 +1631,7 @@ border: 1px #295585 solid;
 	padding: 17px 15px 3px 30px;
 	border: 1px solid #666;
 	border-width: 0 0 0 1px;
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 14px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -1999,9 +1997,7 @@ h2.mango3 {
 	height:0;
 }
 .img-list li{
-	display:inline-block;
-	 zoom:1; /* IE 7 Hack starts here*/
- *display:inline;
+	display:inline;
 	vertical-align:top;
 	padding:0 5px 8px;
 	-moz-box-sizing: border-box;
@@ -2009,8 +2005,8 @@ h2.mango3 {
 	box-sizing: border-box;
 }
 .img-list img{
-	display:block;
-	width:100%;
+	display:inline;
+	width:23%;
 	height:auto;
 }
 .statistics-list{
@@ -2056,7 +2052,7 @@ h2.mango3 {
 .btn-back-to-top{
 	position:fixed;
 	right:150px;
-	top:50%;
+	top:90%;
 	height:153px;
 	margin:-76px 0 0;
 	font:15px/20px 'roboto_slabbold', 'Times New Roman', Times, serif;
@@ -3698,6 +3694,7 @@ overflow: hidden;
 	}
 }
 @media only screen and (max-width:767px){
+	.companies-list {width: 90%;}
 	.header-holder{
 		padding:10px 10px;
 		position:relative;
@@ -4390,11 +4387,13 @@ li {list-style-type: none;}
 }
 .events-section .text-wrap{
 	overflow:hidden;
-	height: 130px;
+	height: 141px;
 }
 .events-section h1{
 	font:14px/20px 'arimobold', Arial, Helvetica, sans-serif;
 	margin:0 0 1px;
+	height: 39px;
+	overflow: hidden;
 }
 .events-section h1 a{
 	text-decoration:none;
@@ -4525,7 +4524,7 @@ line-height: 1 !important;
 .builder_logos .toll_bros {background:url('../images/toll_logo.png') no-repeat center; width:25%; float:left; display:block;}
 .modal-header {background:#295585; padding: 25px;}
 .modal-content {border-radius:0; overflow:hidden;}
-.modal-body {float:left; width:100%; padding-bottom:0; padding-top: 25px; padding-right: 25px; padding-left: 25px;}
+.modal-body {float:left; width:100%; padding-bottom:0; padding-top: 25px; padding-right: 0px; padding-left: 0px;}
 .modal-body .step2 .frmSub p {display:block; margin-left: 20%; margin-top: 10px; clear:both; float:left; text-align:center; width:auto; color: #ff6c36;}
 .modal-body .step2 .frmSub .btn {margin:auto; display:block; float:none;}
 .modal-body {float:left; width:100%;}
@@ -4733,7 +4732,6 @@ text-transform: uppercase;
  }
  .map-block img{
  	display:block;
- 	display:table;
  	width:100%;
  	table-layout:fixed;
    border-width: 2px 0 0;
@@ -4997,8 +4995,8 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !impor
 font-size: 24px;
 font-weight: bold;
 line-height: 1;
-color: #ffffff !important;
-text-shadow: 0 0px 0 #ffffff;
+color: #333 !important;
+text-shadow: 0 0px 0 #333;
 opacity: 1 !important;
 filter: alpha(opacity=100) !important;
 
@@ -5021,4 +5019,24 @@ width: 94% !important;
 .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit] {
 font-size: 1em;
 margin-right: 4px !important;
+}
+
+.hide-marker {
+	display: none !important;
+}
+
+.modal-backdrop.in {
+display: none !important;
+}
+
+.leaflet-control-attribution {
+display: none;
+}
+
+.wp-pagenavi a, .wp-pagenavi span {
+margin: 40px !important;
+}
+
+a.moretag {
+	font-weight: 600;
 }
