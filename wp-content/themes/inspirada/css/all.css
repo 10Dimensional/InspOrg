@@ -4395,6 +4395,8 @@ li {list-style-type: none;}
 .events-section h1{
 	font:14px/20px 'arimobold', Arial, Helvetica, sans-serif;
 	margin:0 0 1px;
+	height: 39px;
+	overflow: hidden;
 }
 .events-section h1 a{
 	text-decoration:none;
