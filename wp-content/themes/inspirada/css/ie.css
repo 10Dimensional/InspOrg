@@ -56,3 +56,12 @@
 	max-width:865px;
 }
 .mobile-nav {display: none}
+
+.img-list li {
+	display: inline !important;
+	width: 20%;
+}
+
+.img-list img {
+	width: 20%;
+}

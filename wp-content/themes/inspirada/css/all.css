@@ -1999,9 +1999,7 @@ h2.mango3 {
 	height:0;
 }
 .img-list li{
-	display:inline-block;
-	 zoom:1; /* IE 7 Hack starts here*/
- *display:inline;
+	display:inline;
 	vertical-align:top;
 	padding:0 5px 8px;
 	-moz-box-sizing: border-box;
@@ -2009,8 +2007,8 @@ h2.mango3 {
 	box-sizing: border-box;
 }
 .img-list img{
-	display:block;
-	width:100%;
+	display:inline;
+	width:20%;
 	height:auto;
 }
 .statistics-list{
