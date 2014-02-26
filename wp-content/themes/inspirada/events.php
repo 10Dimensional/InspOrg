@@ -67,10 +67,11 @@
       endwhile;
     }
 wp_reset_query(); ?>
+								<?php wp_pagenavi(); ?>
+
 				</div>
 			</div>
 		</div>
-								<?php wp_pagenavi(); ?>
 
 				<?php get_footer() ?>
 <?php wp_footer() ?></body>
