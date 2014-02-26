@@ -252,10 +252,10 @@
 </div><!-- /.modal -->
 	<!-- Solista Park Modal -->
 <div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="margin: 15%;">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <div class="modal-content-parks">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <div class="modal-body" style="width: 160%; ">
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
       </div>
     </div><!-- /.modal-content -->
@@ -263,9 +263,9 @@
 </div><!-- /.modal -->
 	<!-- Capriola Park Modal -->
 <div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="margin: 15%;">
     <div class="modal-content-parks">
-      <div class="modal-body">
+      <div class="modal-body" style="width: 160%; ">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
       </div>
@@ -274,9 +274,9 @@
 </div><!-- /.modal -->
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="margin: 15%;">
     <div class="modal-content-parks">
-      <div class="modal-body">
+      <div class="modal-body" style="width: 160%; ">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
       </div>
@@ -285,9 +285,9 @@
 </div><!-- /.modal -->
 	<!-- Potenza Park Modal -->
 <div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="margin: 15%;">
     <div class="modal-content-parks">
-      <div class="modal-body">
+      <div class="modal-body" style="width: 160%; ">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>
