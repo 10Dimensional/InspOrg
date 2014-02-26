@@ -41,7 +41,7 @@
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
-		<?php get_header(); print_r($_GET['builders']); print_r($_GET['price_range']); print_r($_GET['sqft']); ?>
+		<?php get_header(); ?>
 		<div class="w1">
 			<div id="bg" class="bg-with-mask">
 				<img src="<?php the_field('hero_image'); ?>" alt="">

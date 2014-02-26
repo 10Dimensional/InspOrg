@@ -70,7 +70,7 @@ add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 // Replaces the excerpt "more" text by a link
 function new_excerpt_more($more) {
        global $post;
-	return '<a style=" text-decoration: none; " class="moretag" href="'. get_permalink($post->ID) . '"> MORE >></a>';
+	return '<a style=" text-decoration: none; " class="moretag" href="'. get_permalink($post->ID) . '"> MORE</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 add_filter('widget_text', 'do_shortcode');
@@ -166,6 +166,14 @@ function post_to_third_party($entry, $form)
     	}
 	}
 	
+	if (in_array('kb home', $builders)) {
+    	generate_xml_email_kb($first, $last, $email, $phone, $comment);
+	}
+	
+	if (in_array('toll brothers', $builders)) {
+    	generate_xml_soap_toll($email, $comment, $first, $phone, $last);
+	}
+	
 	save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders), $price_range, $sqft);
 
 	return;
@@ -186,6 +194,106 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 	} else {
         // FAIL
 	}
+}
+
+
+
+
+function generate_xml_email_kb($firstName, $lastName, $email, $phone, $comment)
+{
+    require_once "Mail.php";
+    require_once "Mail/mime.php";
+    $to = 'liz@lucidagency.com';
+
+
+    $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
+    $xml .= '<hsleads>'.PHP_EOL;
+    $xml .= '<lead>'.PHP_EOL;
+    $xml .= '<submit_date_time>'.str_replace('+00:00', '', date('c', strtotime('now'))).'</submit_date_time>'.PHP_EOL;
+    $xml .= '<firstname>'.substr($firstName, 0, 15).'</firstname>'.PHP_EOL;
+    $xml .= '<lastname>'.substr($lastName, 0, 40).'</lastname>'.PHP_EOL;
+    $xml .= '<email>'.substr($email, 0, 40).'</email>'.PHP_EOL;
+    $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$phone), 0, 10).'</phone>'.PHP_EOL;
+    $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
+    $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
+    $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
+    $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
+    $xml .= '</lead>'.PHP_EOL;
+    $xml .= '</hsleads>';        
+    
+    header ("Content-Type: application/octet-stream");
+    header ("Content-disposition: attachment; filename=info.xml");
+
+    $from = "Inspirada <info@inspirada.com>";
+    $subject = "Info Requested";
+     
+    $host = "smtp.gmail.com";
+    $port = '465';
+    $username = "InspiradaHenderson@gmail.com";
+    $password = "0bbLsE9fRXGU";
+     
+    $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
+
+	// Format Message
+	$body = '';
+
+    $mime = new Mail_mime();
+    $mime->setHTMLBody($body);
+    
+    $xmlobj = new SimpleXMLElement($xml);
+    $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml');
+    
+    $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml', 'text/xml'); 
+
+    $body = $mime->get();
+    $headers = $mime->headers($headers);
+    
+    $smtp = Mail::factory('smtp',
+        array (
+            'host' => $host,
+            //'port' => $port,
+            'auth' => true,
+            'username' => $username,
+            'password' => $password
+        )
+    );
+     
+    $mail = $smtp->send($to, $headers, $body);
+    return (PEAR::isError($mail)) ? false : true;
+}
+
+
+function generate_xml_soap_toll($email, $comment, $firstName, $phone, $lastName)
+{
+    ini_set("soap.wsdl_cache_enabled", "0");
+    try {
+        $client = new SoapClient(
+            "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(
+            "encoding" => "ISO-8859-1",
+            "trace" => 1,
+            "exceptions" => 1,
+            "connection_timeout" => 1000)
+        );
+
+        $auth = array('username' => "lucid_t", 'password' => "U0hVZLAup2sXVjP");
+        $lead = array(
+            'email' => $email,
+            'comments' => $comment,
+            'community_id' => "8566",
+            'first_name' => $firstName,
+            'homephone' => $phone,
+            'last_name' => $lastName,
+            'mobilephone' => $phone,
+            'requestdate' => date('Y/m/d', strtotime('now'))
+        );
+    
+        $response = $client->SubmitLeads(array('Auth' => $auth, 'Lead' => array($lead)));
+        return $response;
+    } catch (SoapFault $e) {
+        return 'Caught SOAP exception: '.$e->getMessage();
+    } catch(Exception $e) {
+        return 'Caught exception: '. $e->getMessage();
+    }
 }
 
 
