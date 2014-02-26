@@ -5026,3 +5026,7 @@ margin-right: 4px !important;
 .hide-marker {
 	display: none !important;
 }
+
+.modal-backdrop.in {
+display: none !important;
+}
