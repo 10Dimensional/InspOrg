@@ -93,6 +93,8 @@ function post_to_third_party($entry, $form)
     $state_id = null;
     $zip_id = null;
     $builders_id = array();
+    $price_range_id = null;
+    $sqft_id = null;
     
 	// Get Field IDs
 	foreach ($form['fields'] as $form_items) {
@@ -126,6 +128,10 @@ function post_to_third_party($entry, $form)
 		    }
 		} else if ($form_items['label'] === 'Builder') {
             $builders_id = $form_items['id'];	
+		} else if ($form_items['label'] === 'Desired Price Range') {
+            $price_range_id = $form_items['id'];	
+		} else if ($form_items['label'] === 'Desired Square Footage') {
+            $sqft_id = $form_items['id'];	
 		}
 	}
 	
@@ -140,6 +146,8 @@ function post_to_third_party($entry, $form)
 	$state = (isset($entry[strval($state_id)])) ? $entry[strval($state_id)] : null;
 	$zip = (isset($entry[strval($zip_id)])) ? $entry[strval($zip_id)] : null;
 	$builder = (isset($entry[strval($builders_id)])) ? $entry[strval($builders_id)] : null;
+	$price_range = (isset($entry[strval($price_range_id)])) ? $entry[strval($price_range_id)] : null;
+	$sqft = (isset($entry[strval($sqft_id)])) ? $entry[strval($sqft_id)] : null;
 	
 	if ($builder === 'all') {
     	$builders = array(
@@ -158,12 +166,12 @@ function post_to_third_party($entry, $form)
     	}
 	}
 	
-	save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders));
+	save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders), $price_range, $sqft);
 
 	return;
 }
 
-function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comment=null, $firm=null, $address=null, $city=null, $state=null, $zip=null, $builders=null)
+function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comment=null, $firm=null, $address=null, $city=null, $state=null, $zip=null, $builders=null, $price_range=null, $sqft=null)
 {		
 	$mysqli = new mysqli("localhost", "inspirada", "Ge50Ku7HQlIF", "inspirada");
 
@@ -171,7 +179,7 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 	    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 	}
 	
-	$query = "INSERT INTO ap_leads (first, last, email, phone, comment, firm, address, city, state, zip, builders) VALUES ('$first', '$last', '$email', '$phone', '$comment', '$firm', '$address', '$city', '$state', '$zip', '$builders')";
+	$query = "INSERT INTO ap_leads (first, last, email, phone, comment, firm, address, city, state, zip, builders, sqft, price_range) VALUES ('$first', '$last', '$email', '$phone', '$comment', '$firm', '$address', '$city', '$state', '$zip', '$builders', '$sqft', '$price_range')";
 
 	if ($mysqli->query($query)) {
 		//echo 'success';
