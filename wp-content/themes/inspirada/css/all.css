@@ -3348,6 +3348,13 @@ overflow: hidden;
 		width:110px;
 		margin:20px auto;
 	}
+	.section-box {
+		margin-left: 0px !important;
+	}
+	.companies-info-block .box {
+		width: 100%;
+	}
+
 }
 @media only screen and (max-width:1023px){
 	body{
@@ -3432,7 +3439,8 @@ overflow: hidden;
 	.section-box {
 		width: 80%;
 		padding-left: 15px;
-		}
+		margin-left: 0px !important;
+	}
 	.page-title {
 	margin-left: 10%
 	}
