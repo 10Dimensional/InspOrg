@@ -76,3 +76,22 @@ zoom:1;z-index:1;
     height:100px;
     padding-top:25px;
    }
+.intro-section h1 {
+zoom:1;z-index:1;
+	     filter: dropshadow(color=#000000, offx=1, offy=2); /* now both will work */  
+    height:100px;
+padding: 0 150px 0 0;
+font: 35px/47px 'roboto_slabbold', 'Times New Roman', Times, serif;
+text-align: right;
+margin: 0;
+padding-top: 29px;
+color: #f7d93e;
+}
+
+.intro-section p {
+zoom:1;z-index:1;
+	     filter: dropshadow(color=#000000, offx=1, offy=2); /* now both will work */  
+    color: #fff;
+    height:100px;
+    padding-top:25px;
+    }
