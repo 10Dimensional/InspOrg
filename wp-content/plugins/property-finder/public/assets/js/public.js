@@ -1,7 +1,7 @@
 var map = '',
     builder_layers = {
         'Beazer': 'http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png',
-        'KB HOME': 'http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png',
+        'KB Home': 'http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png',
         'Necessities': 'http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png',
         'Pardee': 'http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png',
         'Parks': 'http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png',
@@ -113,13 +113,13 @@ var map = '',
                             });
                         }
                         
-                        if (response.builders[b] === 'KB HOME') {
+ 
+                        if (response.builders[b] === 'KB Home') {
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
                             markerLayer.options.sanitizer = function(x) { return x; };
                                 markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'KB Future Development' || f.properties['title'] === 'KB Currently Selling' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Fall 2014' || f.properties['title'] === 'KB Home Model Center'; 
                                 }).addTo(map);
-                            markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             });
@@ -135,7 +135,6 @@ var map = '',
                                     return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available June 2014'; 
                                 })
                             .addTo(map);
-                            markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             })
@@ -151,7 +150,6 @@ var map = '',
                                     return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
                                 })
                             .addTo(map);
-                            markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             });
@@ -162,7 +160,7 @@ var map = '',
                         
                         if (response.builders[b] === 'Necessities') {
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
-            markerLayer.options.sanitizer = function(x) { return x; };
+                            markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function(f) {
                             return f.properties['title'] === 'Necessities'; 
                                 })

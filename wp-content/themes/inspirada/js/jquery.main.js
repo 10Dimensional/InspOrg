@@ -1197,7 +1197,6 @@ function initTabs() {
 			this.eventHandler = function(e) {
 				e.preventDefault();
 				if (self.slider.hasClass(slideHiddenClass)) {
-					console.log('show');
 					self.showSlide();
 				} else {
 					self.hideSlide();
