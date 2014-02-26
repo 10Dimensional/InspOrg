@@ -1313,7 +1313,7 @@ border: 1px #295585 solid;
 .sort-btns li:first-child a{
 	background-position:-549px -103px;
 }
-.companies-list{
+Fmedia{
 	margin:0;
 	font-size:12px;
 	line-height:14px;
@@ -1633,7 +1633,7 @@ border: 1px #295585 solid;
 	padding: 17px 15px 3px 30px;
 	border: 1px solid #666;
 	border-width: 0 0 0 1px;
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 14px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -2056,7 +2056,7 @@ h2.mango3 {
 .btn-back-to-top{
 	position:fixed;
 	right:150px;
-	top:50%;
+	top:90%;
 	height:153px;
 	margin:-76px 0 0;
 	font:15px/20px 'roboto_slabbold', 'Times New Roman', Times, serif;
@@ -3698,6 +3698,7 @@ overflow: hidden;
 	}
 }
 @media only screen and (max-width:767px){
+	.companies-list {width: 90%;}
 	.header-holder{
 		padding:10px 10px;
 		position:relative;
@@ -4735,7 +4736,6 @@ text-transform: uppercase;
  }
  .map-block img{
  	display:block;
- 	display:table;
  	width:100%;
  	table-layout:fixed;
    border-width: 2px 0 0;

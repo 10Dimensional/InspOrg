@@ -45,6 +45,9 @@
 .list li {
 list-style-type: disc;
 }
+.map-block IMG {
+	display: block !important; 
+	}
 </style>
 <?php wp_head() ?></head>
 <body>
