@@ -1253,6 +1253,7 @@ border: 1px #295585 solid;
 	font-size:13px;
 	line-height:18px;
 	color:#000;
+	background: #295585;
 }
 .info-table th{
 	vertical-align:top;

@@ -41,7 +41,9 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/>
+	   <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	   <![endif]-->
 <style>
 .list li {
 list-style-type: disc;
@@ -49,8 +51,13 @@ list-style-type: disc;
 .map-block IMG {
 	width: auto !important; 
 	}
-
+.info-table {
+	background: #295585;
+}
 </style>
+<script>
+jquery(".info-table tr:even").css('background-color','#295585');
+</script>
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper" style="background: white;">
@@ -387,7 +394,7 @@ list-style-type: disc;
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
  <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information are on their way!</div></h4>             </div>
             <div class="modal-body" style="width: 100%">
-                <div class="step1" style="padding: 25px;">
+                <div class="step1" style="padding-left: 25px; padding-right: 25px; padding-bottom: 25px;">
                     <form id="frmRequestInfo" role="form">
                         <div class="checkbox">
                             <label>
