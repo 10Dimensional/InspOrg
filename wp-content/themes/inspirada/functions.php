@@ -70,7 +70,7 @@ add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 // Replaces the excerpt "more" text by a link
 function new_excerpt_more($more) {
        global $post;
-	return '<a style=" text-decoration: none; " class="moretag" href="'. get_permalink($post->ID) . '"> MORE >></a>';
+	return '<a style=" text-decoration: none; " class="moretag" href="'. get_permalink($post->ID) . '"> MORE</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 add_filter('widget_text', 'do_shortcode');
