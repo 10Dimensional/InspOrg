@@ -18,6 +18,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
 global $wpdb;
 
 $user_role = get_user_role(get_current_user_id());
+$all_leads = array();
+$builders_leads = array();
+$offset = 0;
 if ($user_role === 'kb_admin') {
     $lead_key = 'kb home';
 } else if ($user_role === 'tollbrothersadmin') {
@@ -34,7 +37,7 @@ if (isset($lead_key)) {
     $offset = ( $pagenum - 1 ) * $limit;
     $all_leads = $wpdb->get_results( "SELECT * FROM ap_leads ORDER BY timestamp DESC" );
 
-    $builders_leads = array();
+    
 }
 
 
@@ -132,6 +135,10 @@ if (!isset($_GET['single'])) {
     	<p><strong>City:</strong> <?php echo ($builders_leads[0]->city) ? $builders_leads[0]->city : 'Not Provided'; ?></p>
     	<p><strong>State:</strong> <?php echo ($builders_leads[0]->state) ? $builders_leads[0]->state : 'Not Provided'; ?></p>
     	<p><strong>Zip:</strong> <?php echo ($builders_leads[0]->zip) ? $builders_leads[0]->zip : 'Not Provided'; ?></p>
+    	
+    	<p><strong>Desired Price Range:</strong> <?php echo ($builders_leads[0]->price_range) ? $builders_leads[0]->price_range : 'Not Provided'; ?></p>
+    	<p><strong>Desired Square Footage:</strong> <?php echo ($builders_leads[0]->sqft) ? $builders_leads[0]->sqft : 'Not Provided'; ?></p>
+    	
     	<p><strong>Comment:</strong> <?php echo ($builders_leads[0]->comment) ? $builders_leads[0]->comment : 'Not Provided'; ?></p>
     	<p><strong>Time:</strong> <?php echo ($builders_leads[0]->timestamp) ? $builders_leads[0]->timestamp : 'Not Provided'; ?></p>
         <?php if (!empty($properties)) { ?>
