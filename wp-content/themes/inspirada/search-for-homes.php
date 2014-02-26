@@ -46,7 +46,7 @@
 list-style-type: disc;
 }
 .map-block IMG {
-	display: block !important; 
+	width: auto !important; 
 	}
 .modal-dialog {
 margin: 15%; }
