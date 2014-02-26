@@ -60,6 +60,7 @@ while ( have_posts() ) : the_post(); ?>
 					</section>
 			<?php endwhile; // End Loop ?>
 				</div>
+			<?php echo do_shortcode('[wpsp]'); ?>
 			</div>
 				<?php get_footer() ?>
 <?php wp_footer() ?></body>
