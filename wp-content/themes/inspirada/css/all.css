@@ -1329,6 +1329,7 @@ Fmedia{
 	display:table-cell;
 	vertical-align:top;
 	padding:0 15px;
+	width: 24%;
 }
 .companies-list .img-holder{
 	min-height:52px;
