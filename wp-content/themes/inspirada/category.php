@@ -46,6 +46,8 @@
 				<?php
 
 // The Loop
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+query_posts($query_string .'&paged='.$paged.'&posts_per_page=1');
 while ( have_posts() ) : the_post(); ?>
 					<section class="box">
 						<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
@@ -59,8 +61,10 @@ while ( have_posts() ) : the_post(); ?>
 					</section>
 					
 			<?php endwhile; // End Loop ?>
-						<?php wp_pagenavi(); ?>
-
+            
+            <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
+            <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div>
+            
 				</div>
 			</div>
 				<?php get_footer() ?>

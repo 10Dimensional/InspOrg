@@ -210,7 +210,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
  <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information<br />are on their way!</div></h4>             </div>
             <div class="modal-body">
-                <div class="step1">
+                <div class="step1" style="padding-left: 25px; padding-right: 25px; padding-bottom: 25px;">
                     <form id="frmRequestInfo" role="form">
                         <div class="checkbox">
                             <label>

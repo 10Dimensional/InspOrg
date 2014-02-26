@@ -1356,6 +1356,7 @@ Fmedia{
 .companies-list dl{
 	margin:0;
 	overflow:hidden;
+	text-align: center
 }
 .companies-list dl dt {
 	display: inline-block;
@@ -3560,12 +3561,20 @@ overflow: hidden;
 	.img-list li{
 		width:24%;
 	}
-	.content-section .list{
-		float:none;
-		width:auto;
-		margin:0 0 20px;
-		padding:0;
-		border:none;
+	.content-section .list, .content-section .list-first {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		float: none;
+		width: 240px;
+		margin: 0 10px 0 0;
+		padding: 17px 15px 3px 30px;
+		font-size: 12px;
+		line-height: 14px;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		border: none;
 	}
 	.start-section > .holder{
 		padding:40px 10px;
