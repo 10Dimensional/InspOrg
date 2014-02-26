@@ -5030,3 +5030,7 @@ margin-right: 4px !important;
 .modal-backdrop.in {
 display: none !important;
 }
+
+.leaflet-control-attribution {
+display: none;
+}
