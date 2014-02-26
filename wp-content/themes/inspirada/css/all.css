@@ -1313,7 +1313,7 @@ border: 1px #295585 solid;
 .sort-btns li:first-child a{
 	background-position:-549px -103px;
 }
-.companies-list{
+Fmedia{
 	margin:0;
 	font-size:12px;
 	line-height:14px;
@@ -3698,6 +3698,7 @@ overflow: hidden;
 	}
 }
 @media only screen and (max-width:767px){
+	.companies-list {width: 90%;}
 	.header-holder{
 		padding:10px 10px;
 		position:relative;

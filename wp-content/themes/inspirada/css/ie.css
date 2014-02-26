@@ -57,7 +57,7 @@
 }
 .mobile-nav {display: none}
 
-.img-list:after {display: inline;}
+.img-list:after {display: inline !important;}
 
-.img-list li {display: inline; float: left; width: 20%;}
+.img-list li {display: inline !important; float: left !important; width: 20% !important;}
 
