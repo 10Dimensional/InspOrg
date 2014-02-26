@@ -93,7 +93,9 @@
                 </div>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
-  
+    <!--[if lte IE 8]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.ie.css' rel='stylesheet' />
+  <![endif]-->
   <style>
     body { margin:0; padding:0; }
     #map { position: absolute; z-index: 1; margin-top: 342px; top:0; bottom:0; width: 760px; height: 1060px; }
