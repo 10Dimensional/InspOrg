@@ -600,7 +600,6 @@ margin-left: 7%;
 .page-title .text{
 	display:inline-block;
 	height:5px;
-	position:absolute;
     top:-2px;
     left:-2px;
 	vertical-align:middle;
