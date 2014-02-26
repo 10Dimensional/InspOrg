@@ -16,6 +16,7 @@
 		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
+<<<<<<< HEAD
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
 	  <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
@@ -47,6 +48,9 @@
 
 });
 </script>
+=======
+	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+>>>>>>> 25c5c964657279c20874a9fc0ed839cc3db9d861
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
