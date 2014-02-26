@@ -19,7 +19,7 @@
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
     		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
     <!--[if lte IE 8]>
-    <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.ie.css' rel='stylesheet' />
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet' />
   <![endif]-->
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
@@ -351,7 +351,7 @@ function addLayer(layer, name, zIndex) {
 						<?php if ( ! dynamic_sidebar('vicinity-sidebar') ) : ?>
 		<?php endif; ?></div>
 
-
+</aside>
 
 			</section>
 	</blogcontent>
@@ -400,7 +400,7 @@ function addLayer(layer, name, zIndex) {
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 	</div>
-</div></div>
+</div>
 	<?php get_footer() ?>
 <?php wp_footer() ?></body>
 </html>
