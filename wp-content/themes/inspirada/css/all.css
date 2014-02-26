@@ -1335,6 +1335,7 @@ Fmedia{
 .companies-list .img-holder{
 	min-height:52px;
 	white-space:nowrap;
+	padding-left: 15%
 }
 .companies-list .img-holder img{
 	display:inline-block;
@@ -3356,6 +3357,9 @@ overflow: hidden;
 	.companies-info-block .box {
 		width: 100%;
 	}
+	.events-section .text-wrap {
+		 height: 215px !important;
+	}
 
 }
 @media only screen and (max-width:1023px){
@@ -4559,8 +4563,8 @@ font-size: 16px;}
 .modal-body input[type="text"], .modal-body input[type="email"], .modal-body textarea {width:205px; display:inline;}
 .modal-dialog {width:650px;}
 .modal-body textarea {height:180px;}
-#requestInfo .btn-primary {color: #ff6c36; background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px; float:right; font: 16px 'roboto_slabbold', 'Times New Roman', Times, serif !important;}
-#requestInfo .btn-primary:hover {color: #0093a8 ; background:white; }
+#requestInfo .btn-primary {color: white; background:#0093a8; border-radius:0; text-transform:uppercase; margin-top:5px; float:right; font: 16px 'roboto_slabbold', 'Times New Roman', Times, serif !important;}
+#requestInfo .btn-primary:hover {color: #ff6c36; background:white; }
 
 #requestInfo .step2 .btn-primary {float:left; margin-left: 10px;}
 .frmSub { padding:25px 0; clear:both; overflow:hidden;}

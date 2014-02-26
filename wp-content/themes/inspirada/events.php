@@ -42,16 +42,23 @@
 			<div class="holder">
 				<div class="frame">
 <?php
+$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+
+
     $args=array(
       'post_type' => 'post',
       'post_status' => 'publish',
-      'posts_per_page' => 8,
-      'caller_get_posts'=> 1
+      'caller_get_posts'=> 1,
+      "paged" => $paged
       );
-    $my_query = null;
+
+    
     $my_query = new WP_Query($args);
+        
+    
+    
     if( $my_query->have_posts() ) {
-      echo '';
       while ($my_query->have_posts()) : $my_query->the_post(); ?>      
 					<section class="box">
 						<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
@@ -67,8 +74,11 @@
       endwhile;
     }
 wp_reset_query(); ?>
-								<?php wp_pagenavi(); ?>
 
+        <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
+			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page', $my_query->max_num_pages ); ?></div>
+            <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;', $my_query->max_num_pages ); ?></div>
+        </div>
 				</div>
 			</div>
 		</div>
