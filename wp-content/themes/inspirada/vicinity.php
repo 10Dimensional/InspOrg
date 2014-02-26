@@ -15,8 +15,6 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
     		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
     <!--[if lte IE 8]>
     <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet' />
