@@ -212,8 +212,17 @@ function addLayer(layer, name, zIndex) {
     //link.innerHTML = name;
 
     link.onclick = function(e) {
-        event.preventDefault ? e.preventDefault() : event.returnValue = false;
-        if (event.preventDefault) e.stopPropagation();
+        if(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        } else {
+            if (event.preventDefault) {
+                e.stopPropagation();
+                e.preventDefault()
+            } else {
+                event.returnValue = false
+            }
+        }
 
         if (map.hasLayer(layer)) {
             map.removeLayer(layer);
