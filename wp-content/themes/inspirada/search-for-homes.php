@@ -48,6 +48,10 @@ list-style-type: disc;
 .map-block IMG {
 	display: block !important; 
 	}
+.modal-dialog {
+margin: 15%; }
+.modal-body {
+width: 160%; }
 </style>
 <?php wp_head() ?></head>
 <body>

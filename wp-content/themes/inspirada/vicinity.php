@@ -158,6 +158,11 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !impor
 .list li {
 list-style-type: disc;
 }
+
+.modal-dialog {
+margin: 15%; }
+.modal-body {
+width: 160%; }
 </style>
 <div id='map'></div>
 <script>
