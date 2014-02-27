@@ -55,7 +55,8 @@
     #map { position:relative; top:0; bottom:0; background: none; border: none;}
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f86767.png"]{opacity:0 !important;}
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f1f075.png"]{opacity:0 !important;}
-
+    img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f86767@2x.png"]{opacity:0 !important;}
+    img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f1f075@2x.png"]{opacity:0 !important;}
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>

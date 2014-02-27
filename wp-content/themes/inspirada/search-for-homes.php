@@ -54,6 +54,7 @@ list-style-type: disc;
 .info-table {
 	background: #295585;
 }
+img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
 </style>
 <script>
 jquery(".info-table tr:even").css('background-color','#295585');
@@ -442,7 +443,7 @@ jquery(".info-table tr:even").css('background-color','#295585');
                         </div>
                     </form>
                     <div class="frmSub">
-                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be available immediately,and additional information will be sent to your email address.</p>
+                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be available immediately, and additional information will be sent to your email address.</p>
                         <button id="submitRequestInfo" type="button" class="btn btn-primary">Continue</button>
                     </div>
                 </div>

@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name = "format-detection" content = "telephone=no">
 	<title>InspiradaMobile</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<link media="all" rel="stylesheet" href="css/all.css" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
 	<script type="text/javascript" src="js/jquery.main.js"></script>
+
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 </head>
 <body>
@@ -40,9 +41,7 @@
 			<div class="map-holder">
 				<p><img src="images/gold-mini-hex.png" style="width:12px; padding-right:5px;">Indicates KB Home Model Center</p>
 					<span data-picture data-alt="image description" class="alignleft">
-					<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes' />
 					  <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js'></script>
-
 <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
   <style>
     body { margin:0; padding:0; }
@@ -50,7 +49,11 @@
   </style>
 <div id='map' style=" height: 414px; width: inherit;"></div>
 <script>
-var map = L.mapbox.map('map');
+var map = L.map('map', {
+	minZoom: 2,
+	maxZoom: 6
+	});
+var ui = document.getElementById('map-ui');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
 map.touchZoom.disable();
