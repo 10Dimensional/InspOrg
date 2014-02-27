@@ -15,6 +15,8 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery.main.js"></script>
     		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
     <!--[if lte IE 8]>
     <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet' />
@@ -152,11 +154,11 @@ and (orientation : portrait) {
     color: #FFF;
 }
 img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf.png"]{opacity:0 !important;}
+img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
 
 .list li {
 list-style-type: disc;
 }
-
 .modal-dialog {
 margin: 15%; }
 .modal-body {
@@ -211,24 +213,34 @@ function addLayer(layer, name, zIndex) {
     //link.innerHTML = name;
 
     link.onclick = function(e) {
-        event.preventDefault ? e.preventDefault() : event.returnValue = false;
-        if (event.preventDefault) e.stopPropagation();
+        if(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        } else {
+            if (event.preventDefault) {
+                e.stopPropagation();
+                e.preventDefault()
+            } else {
+                event.returnValue = false
+            }
+        }
 
         if (map.hasLayer(layer)) {
             map.removeLayer(layer);
             this.className = 'opener';
 
-if(name === "Parks") {
-    document.getElementById('parks_holder').style.display="none";
-    var allElements = document.getElementsByClassName('leaflet-marker-icon');
-    for (var i = 0; i < allElements.length; i++)
-    {
-        if (allElements[i].getAttribute('src') === 'http://a.tiles.mapbox.com/v3/marker/pin-m+83a857.png')
-        {
-            allElements[i].className += ' hide-marker';
-        }
-    }
-}
+            if(name === "Parks") {
+                document.getElementById('parks_holder').style.display="none";
+
+                var allElements = document.getElementsByClassName('leaflet-marker-icon');
+                for (var i = 0; i < allElements.length; i++)
+                {
+                    if (allElements[i].getAttribute('src') == 'http://a.tiles.mapbox.com/v3/marker/pin-l+1087bf.png')
+                    {
+                        allElements[i].setAttribute('class', 'hide-marker');
+                    }
+                }
+            }
         } else {
             map.addLayer(layer);
             this.className = 'active opener';
@@ -324,14 +336,6 @@ if(name === "Parks") {
 				   		   return f.properties['title'] === 'Aventura Park' || f.properties['title'] === 'Future Park' || f.properties['title'] === 'Capriola Park (Under construction)' || f.properties['title'] === 'Potenza Park (Under construction)'|| f.properties['title'] === 'Solista Park (Completed)'; 
 				        })
 			            .addTo(map);
-			            var allElements = document.getElementsByClassName('leaflet-marker-icon');
-for (var i = 0; i < allElements.length; i++)
-{
-    if (allElements[i].getAttribute('src') === 'http://a.tiles.mapbox.com/v3/marker/pin-m+83a857.png')
-    {
-        allElements[i].className = 'leaflet-marker-icon leaflet-zoom-animated leaflet-clickable';
-    }
-}
                         /*markerLayer.on('mouseover', function(e) {
                             e.layer.openPopup();
                         })

@@ -11,8 +11,10 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
-    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
-    		      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+       <script type="text/javascript" src="//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js"></script> 
+       	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	</head>
@@ -53,16 +55,17 @@
     #map { position:relative; top:0; bottom:0; background: none; border: none;}
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f86767.png"]{opacity:0 !important;}
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f1f075.png"]{opacity:0 !important;}
-
+    img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f86767@2x.png"]{opacity:0 !important;}
+    img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f1f075@2x.png"]{opacity:0 !important;}
   </style>
 <div id='map' style="height: 614px; width: 1003px; margin: 0 auto;"></div>
 <script>
 var map = L.map('map', {
 	minZoom: 2,
-	maxZoom: 5
+	maxZoom: 4
 	});
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
-map.setView([-77, 22.763671875], 4);
+map.setView([-70, 22.763671875], 4);
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
@@ -74,17 +77,12 @@ function addLayer(layer, name, zIndex) {
     layer
         .setZIndex(zIndex)
         .addTo(map);
-
     // Create a simple layer switcher that toggles layers on
     // and off.
     var item = document.createElement('li');
     var link = document.createElement('a');
 
-    var markerLayer = L.markerLayer().loadURL('<?php bloginfo('template_url') ?>/models.geojson');
-    markerLayer.setFilter(function(f) { 
-        return f.properties['category'] === name; 
-    })
-    .addTo(map);
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson').addTo(map);
 
     markerLayer.on('mouseover', function(e) {
         e.layer.openPopup();
@@ -113,10 +111,10 @@ function addLayer(layer, name, zIndex) {
     //item.appendChild(link);
     //ui.appendChild(item);
 }
-map.markerLayer.on('click', function(e) {
+/*map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
-    });
-</script>
+    });*/
+</script>	
 		</blogcontent>
 		</section>
 <!-- Modal -->
