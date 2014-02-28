@@ -49,21 +49,19 @@
   </style>
 <div id='map' style=" height: 414px; width: inherit;"></div>
 <script>
-var map = L.map('map', {
-	minZoom: 2,
-	maxZoom: 6
-	});
-var ui = document.getElementById('map-ui');
-var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
-map.setView([-77, 22.763671875], 4);
+window.onload = function(){ 
+var map = L.mapbox.map('map');
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 // disable tap handler, if present.
 if (map.tap) map.tap.disable();
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png'), 'Parks', 5);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
+var ui = document.getElementById('map-ui');
+var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+map.setView([-77, 22.763671875], 4);
+var tolllayer = L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png','KB', 1).addTo(map);
+var parkslayer = L.tileLayer('http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png', 'Parks', 2).addTo(map);
+addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Necessities', 3);
 
 function addLayer(layer, name, zIndex) {
     layer
@@ -75,13 +73,14 @@ function addLayer(layer, name, zIndex) {
     var item = document.createElement('li');
     var link = document.createElement('a');
 
-    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/markers.geojson');
-    markerLayer.setFilter(function(f) { 
+  var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+          		  markerLayer.options.sanitizer = function(x) { return x; };
+  markerLayer.setFilter(function(f) { 
         return f.properties['category'] === name; 
     })
     .addTo(map);
 
-    if (name !== 'Parks') {
+  if (name !== 'Parks') {
 	    markerLayer.on('mouseover', function(e) {
 	        e.layer.openPopup();
 	    })
@@ -89,7 +88,7 @@ function addLayer(layer, name, zIndex) {
 	        e.layer.closePopup();
 	    })
 	}
-	
+
     link.href = '#';
     link.className = 'active';
     link.innerHTML = name;
@@ -107,13 +106,10 @@ function addLayer(layer, name, zIndex) {
         }
     };
 
-    //item.appendChild(link);
-    //ui.appendChild(item);
-}
-map.markerLayer.on('click', function(e) {
-        map.panTo(e.layer.getLatLng());
-    });
-</script>			
+    item.appendChild(link);
+    ui.appendChild(item);
+}};
+</script>
 						<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
 						<noscript><img src="images/img06.jpg" alt="image description" ></noscript>
 					</span>

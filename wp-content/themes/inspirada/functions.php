@@ -6,6 +6,7 @@ register_sidebar(array('name' => __( 'Inspire Sidebar' ),'id' => 'inspire-sideba
 register_sidebar(array('name' => __( 'Right Sidebar' ),'id' => 'right-sidebar','description' => __( 'Right Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Vicinity Sidebar' ),'id' => 'vicinity-sidebar','description' => __( 'Vicinity Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Blog Sidebar' ),'id' => 'blog-sidebar','description' => __( 'Blog Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Landing Sidebar' ),'id' => 'Landing-sidebar','description' => __( 'Landing Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 
 function the_breadcrumb() {
 	if (!is_home()) {

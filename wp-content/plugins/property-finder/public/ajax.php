@@ -10,13 +10,14 @@
         $kb_array = array();
         $pardee_array = array();
         $toll_array = array();
-        $beazer_email = 'liz@lucidagency.com';
+        $beazer_email = 'lasvegashomes@beazer.com';
         $kb_email = 'liz@lucidagency.com';
-        $pardee_email = 'liz@lucidagency.com';
-        $toll_email = 'liz@lucidagency.com';
+        $pardee_email = 'leadsource@ljgnetwork.com';
+        $toll_email = 'inspirada@tollbrothers.com';
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
+
 
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
