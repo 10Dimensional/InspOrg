@@ -10,7 +10,7 @@
                 
                 $price_max = ($_GET['price_range'] === 'over $500,000') ? 999999999 : (($_GET['price_range'] === 'below $200,000') ? 199999 : $price[1]);
     
-                $builder = (!$_GET['builder']) ? false : $_GET['builder'];
+                $builder = (!isset($_GET['builder'])) ? false : $_GET['builder'];
                 $sq_ft_min = ($_GET['sqft'] === 'over 5,000 sq ft') ? 5000 : $sqft[0];
                 $sq_ft_max = ($_GET['sqft'] === 'over 5,000 sq ft') ? 99999999999 : $sqft[1];
                 
