@@ -10,13 +10,14 @@
         $kb_array = array();
         $pardee_array = array();
         $toll_array = array();
-        $beazer_email = 'liz@lucidagency.com';
+        $beazer_email = 'lasvegashomes@beazer.com';
         $kb_email = 'liz@lucidagency.com';
-        $pardee_email = 'liz@lucidagency.com';
-        $toll_email = 'liz@lucidagency.com';
+        $pardee_email = 'leadsource@ljgnetwork.com';
+        $toll_email = 'inspirada@tollbrothers.com';
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
+
 
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
@@ -124,9 +125,9 @@
             $baths = ($property->baths_min === $property->baths_max) ? $property->baths_min : $property->baths_min.' - '.$property->baths_max;
             $garage_bays = ($property->garage_bays_min === $property->garage_bays_max) ? $property->garage_bays_min : $property->garage_bays_min.' - '.$property->garage_bays_max;
             
-            if (!in_array($property->builder, $arrBuilder)) {
+            /* if (!in_array($property->builder, $arrBuilder)) { */
                 $arrBuilder[] = $property->builder;
-            }
+/*             } */
            
             $result_data .= '
             <tr>
@@ -144,7 +145,7 @@
             $result_count++;
         }
         
-        print_r(json_encode(array('count' => $result_count, 'builders' => $arrBuilder, 'results' => $result_data)));   
+        print_r(json_encode(array('count' => $result_count, 'builders' => $builder, 'results' => $result_data)));   
     }
     
     
@@ -220,7 +221,7 @@
         $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
         $xml .= '<hsleads>'.PHP_EOL;
         $xml .= '<lead>'.PHP_EOL;
-        $xml .= '<submit_date_time>'.date('c', strtotime('now')).'</submit_date_time>'.PHP_EOL;
+        $xml .= '<submit_date_time>'.str_replace('+00:00', '', date('c', strtotime('now'))).'</submit_date_time>'.PHP_EOL;
         $xml .= '<firstname>'.substr($_POST['firstName'], 0, 15).'</firstname>'.PHP_EOL;
         $xml .= '<lastname>'.substr($_POST['lastName'], 0, 40).'</lastname>'.PHP_EOL;
         $xml .= '<email>'.substr($_POST['email'], 0, 40).'</email>'.PHP_EOL;
