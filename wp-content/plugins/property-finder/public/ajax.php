@@ -17,13 +17,27 @@
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
-
+        $community_number = '';
 
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
                 $beazer_array[] = $property;
             } else if ($property->builder === 'KB HOME') {
                 $kb_array[] = $property;
+                
+                if ($property->series === 'Monet') {
+                    $community_number = '00851018';
+                } else if ($property->series === 'Matisse') {
+                    $community_number = '00851203';
+                } else if ($property->series === 'Michelangelo') {
+                    $community_number = '00851100';
+                } else if ($property->series === 'Renoir') {
+                    $community_number = '00851017';
+                } else if ($property->series === 'Van Gogh') {
+                    $community_number = '00851215';
+                }
+                
+                
             } else if ($property->builder === 'Pardee Homes') {
                 $pardee_array[] = $property;
             } else if ($property->builder === 'Toll Brothers') {
@@ -43,7 +57,8 @@
                 $title = 'KB Home';
                 $use_email = $kb_email;
                 $use_array = $kb_array;
-                generate_xml_email_kb();
+                
+                generate_xml_email_kb($community_number);
             }
             
             if ($builder === 'beazer homes') {
@@ -208,7 +223,7 @@
         return (PEAR::isError($mail)) ? false : true;
     }
     
-    function generate_xml_email_kb()
+    function generate_xml_email_kb($community_number='')
     {
         
         error_reporting(E_ALL);
@@ -229,7 +244,7 @@
         $xml .= '<message>'.substr($_POST['comment'], 0, 2048).'</message>'.PHP_EOL;
         $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
         $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-        $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
+        $xml .= '<communitynumber>'.$community_number.'</communitynumber>'.PHP_EOL;
         $xml .= '</lead>'.PHP_EOL;
         $xml .= '</hsleads>';        
         
