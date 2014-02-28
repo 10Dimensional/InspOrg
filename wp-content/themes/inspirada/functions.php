@@ -200,7 +200,7 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 
 
-function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
+function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment, $community_number)
 {
     require_once "Mail.php";
     require_once "Mail/mime.php";
@@ -218,7 +218,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-    $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
+    $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
     $xml .= '</lead>'.PHP_EOL;
     $xml .= '</hsleads>';        
     
