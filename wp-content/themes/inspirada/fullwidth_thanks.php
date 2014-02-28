@@ -63,7 +63,8 @@
 		</section>
 		<div id="main" style="background: white">
 			<div class="main-holder">
-			    <h1>Properties that match your request</h1>
+			    <h1>Thank You! Your Results are Below:</h1>
+                <p>Below are the homes that match the search criteria you entered. Feel free to review them, and then we hope you'll come in to visit the community at Inspirada. The contact information for the model centers and maps are below.</p>
 
 			    <?php if ($properties) { ?>
 			    <table class="info-table">
@@ -180,7 +181,7 @@
                     <p>No results match your selection.</p>
                 <?php } ?>
                 
-                <h1>Other properties you might consider</h1>
+                <p>Didn't find the perfect match? Below are additional models that you might be interested in.</p>
                 <?php $other_properties = $wpdb->get_results("SELECT * FROM ap_properties WHERE id NOT IN ('".implode("','",$property_id)."') ORDER BY price_min ASC"); ?>
                 
                 <?php if (isset($other_properties) && $other_properties) { ?>
