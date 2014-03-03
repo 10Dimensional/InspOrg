@@ -129,7 +129,7 @@
             $where_clause .= ' AND garage_bays_max >= '.$garage_bays;
         }
         
-        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC");
+        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC");
         
         
         $result_data = '';
