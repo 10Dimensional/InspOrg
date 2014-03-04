@@ -11,7 +11,7 @@
         $pardee_array = array();
         $toll_array = array();
         $beazer_email = 'lasvegashomes@beazer.com';
-        $kb_email = 'liz@lucidagency.com';
+        $kb_email = 'inspirada@kbhome.com';
         $pardee_email = 'leadsource@ljgnetwork.com';
         $toll_email = 'inspirada@tollbrothers.com';
         $builders = $_POST['builders'];
@@ -52,12 +52,13 @@
             $use_email = '';
             $use_array = array();
             $title = '';
+            $mail_now = 1;
             
             if ($builder === 'kb home') {
                 $title = 'KB Home';
                 $use_email = $kb_email;
                 $use_array = $kb_array;
-                
+                $mail_now = 0;
                 generate_xml_email_kb($community_number);
             }
             
@@ -80,9 +81,12 @@
                 generate_xml_soap_toll();
             }
             
-            if (!requestInfo($title, $use_email, $use_array)) {
-                $status = 'fail';
+            if (!$mail_now) {
+                if (!requestInfo($title, $use_email, $use_array)) {
+                    $status = 'fail';
+                }
             }
+            
         }
         
         if (!$builders) {
@@ -225,12 +229,9 @@
     
     function generate_xml_email_kb($community_number='')
     {
-        
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
         require_once "Mail.php";
         require_once "Mail/mime.php";
-        $to = 'liz@lucidagency.com';
+        $to = 'inspirada@kbhome.com';
 
 
         $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
