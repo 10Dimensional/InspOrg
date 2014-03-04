@@ -10,7 +10,7 @@
                 
                 $price_max = ($_GET['price_range'] === 'over $500,000') ? 999999999 : (($_GET['price_range'] === 'below $200,000') ? 199999 : $price[1]);
     
-                $builder = (!$_GET['builder']) ? false : $_GET['builder'];
+                $builder = (!isset($_GET['builder'])) ? false : $_GET['builder'];
                 $sq_ft_min = ($_GET['sqft'] === 'over 5,000 sq ft') ? 5000 : $sqft[0];
                 $sq_ft_max = ($_GET['sqft'] === 'over 5,000 sq ft') ? 99999999999 : $sqft[1];
                 
@@ -37,33 +37,28 @@
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KHRJ3V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KHRJ3V');</script>
+<!-- End Google Tag Manager -->
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
 		<?php get_header(); ?>
-		<div class="w1">
-			<div id="bg" class="bg-with-mask">
-				<img src="<?php the_field('hero_image'); ?>" alt="">
-			</div>
-			<nav>
-				<ul class="breadcrumbs">
-<?php the_breadcrumb(); ?>
-				</ul>
-			</nav>
-			<h1 class="page-title page-title-4">
-				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-				<span class="text"><?php the_field('headline'); ?></span>
-			</h1>
-		</div>
-		<section class="text-section">
-			<div class="holder">
-									<?php the_field('headliner'); ?>
-			</div>
-		</section>
+<style>
+h1 {
+	font: 24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
+}
+</style>
 		<div id="main" style="background: white">
 			<div class="main-holder">
-			    <h1>Properties that match your request</h1>
+			    <h1>Thank You! Your Results are Below:</h1>
+                <p>Below are the homes that match the search criteria you entered. Feel free to review them, and then we hope you'll come in to visit the community at Inspirada. The contact information for the model centers and maps are below.</p>
 
 			    <?php if ($properties) { ?>
 			    <table class="info-table">
@@ -180,7 +175,7 @@
                     <p>No results match your selection.</p>
                 <?php } ?>
                 
-                <h1>Other properties you might consider</h1>
+                <p>Didn't find the perfect match? Below are additional models that you might be interested in.</p>
                 <?php $other_properties = $wpdb->get_results("SELECT * FROM ap_properties WHERE id NOT IN ('".implode("','",$property_id)."') ORDER BY price_min ASC"); ?>
                 
                 <?php if (isset($other_properties) && $other_properties) { ?>

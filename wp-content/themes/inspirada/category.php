@@ -1,7 +1,7 @@
 <?php
             /*
                 	Template Name: category
-                	                */
+                	                */ 
                 ?>
 <!DOCTYPE html>
 <html>
@@ -64,14 +64,14 @@ while ( have_posts() ) : the_post(); ?>
 							</div>
 						</div>
 					</section>
-
+					
 			<?php endwhile; // End Loop ?>
-
+            
             <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
     			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page' ); ?></div>
                 <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;' ); ?></div>
             </div>
-
+            
 				</div>
 			</div>
 				<?php get_footer() ?>

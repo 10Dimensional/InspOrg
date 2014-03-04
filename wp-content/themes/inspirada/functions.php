@@ -1,4 +1,8 @@
 <?php 
+
+update_option('siteurl','http://www.inspirada.com');
+update_option('home','http://www.inspirada.com');
+
 register_nav_menus( array('' => ''));
 register_sidebar(array('name' => __( 'Footer Left' ),'id' => 'footer-left','description' => __( 'Footer Left' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Footer right' ),'id' => 'footer-right','description' => __( 'Footer Right' ),'before_title' => '<h2>','after_title' => '</h2>'));
@@ -6,6 +10,7 @@ register_sidebar(array('name' => __( 'Inspire Sidebar' ),'id' => 'inspire-sideba
 register_sidebar(array('name' => __( 'Right Sidebar' ),'id' => 'right-sidebar','description' => __( 'Right Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Vicinity Sidebar' ),'id' => 'vicinity-sidebar','description' => __( 'Vicinity Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Blog Sidebar' ),'id' => 'blog-sidebar','description' => __( 'Blog Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Landing Sidebar' ),'id' => 'Landing-sidebar','description' => __( 'Landing Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 
 function the_breadcrumb() {
 	if (!is_home()) {
@@ -167,11 +172,11 @@ function post_to_third_party($entry, $form)
 	}
 	
 	if (in_array('kb home', $builders)) {
-    	generate_xml_email_kb($first, $last, $email, $phone, $comment);
+    	generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
 	}
 	
 	if (in_array('toll brothers', $builders)) {
-    	generate_xml_soap_toll($email, $comment, $first, $phone, $last);
+    	generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
 	}
 	
 	save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders), $price_range, $sqft);
@@ -199,7 +204,7 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 
 
-function generate_xml_email_kb($firstName, $lastName, $email, $phone, $comment)
+function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
 {
     require_once "Mail.php";
     require_once "Mail/mime.php";
@@ -263,7 +268,7 @@ function generate_xml_email_kb($firstName, $lastName, $email, $phone, $comment)
 }
 
 
-function generate_xml_soap_toll($email, $comment, $firstName, $phone, $lastName)
+function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $lastName)
 {
     ini_set("soap.wsdl_cache_enabled", "0");
     try {

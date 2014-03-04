@@ -25,8 +25,7 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
-                
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );                
                 
                 ?>
 <!DOCTYPE html>
@@ -41,7 +40,9 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/>
+	   <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	   <![endif]-->
 <style>
 .list li {
 list-style-type: disc;
@@ -49,8 +50,14 @@ list-style-type: disc;
 .map-block IMG {
 	width: auto !important; 
 	}
-
+.info-table {
+	background: #295585;
+}
+img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
 </style>
+<script>
+jquery(".info-table tr:even").css('background-color','#295585');
+</script>
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper" style="background: white;">
@@ -323,6 +330,7 @@ list-style-type: disc;
                         </div>
                     </div>
                     <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
+                    <br><br><br>
                     <ul class="companies-list">
                     	<li>
                             <div class="img-holder"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
@@ -387,7 +395,7 @@ list-style-type: disc;
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
  <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information are on their way!</div></h4>             </div>
             <div class="modal-body" style="width: 100%">
-                <div class="step1">
+                <div class="step1" style="padding-left: 25px; padding-right: 25px; padding-bottom: 25px;">
                     <form id="frmRequestInfo" role="form">
                         <div class="checkbox">
                             <label>
@@ -435,7 +443,7 @@ list-style-type: disc;
                         </div>
                     </form>
                     <div class="frmSub">
-                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be available immediately,and additional information will be sent to your email address.</p>
+                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be available immediately, and additional information will be sent to your email address.</p>
                         <button id="submitRequestInfo" type="button" class="btn btn-primary">Continue</button>
                     </div>
                 </div>

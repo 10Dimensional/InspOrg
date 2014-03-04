@@ -49,6 +49,7 @@
 			<aside id="sidebar" class="main-col">
 						<?php if ( ! dynamic_sidebar('blog-sidebar') ) : ?>
 		<?php endif; ?>
+			</aside>
 			</div>
 	</div>
 	<?php get_footer() ?>

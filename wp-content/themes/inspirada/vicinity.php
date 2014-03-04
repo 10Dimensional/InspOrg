@@ -171,22 +171,22 @@ var map = L.map('map', {
 	maxZoom: 6
 	});
 var ui = document.getElementById('map-ui');
-var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+var baselayer = L.tileLayer('http://23.253.101.150:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 // disable tap handler, if present.
 if (map.tap) map.tap.disable();
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png'), 'Beazer', 1);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png'), 'Pardee Homes', 3);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/toll/{z}/{x}/{y}.png'), 'Toll Brothers', 4);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png'), 'Parks', 5);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/trails/{z}/{x}/{y}.png'), 'Trails', 6);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png'), 'Pools', 7);
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
-var steetlayer = L.tileLayer('http://166.78.0.133:8888/v2/streets/{z}/{x}/{y}.png',10).addTo(map);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/beazer/{z}/{x}/{y}.png'), 'Beazer', 1);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/kb/{z}/{x}/{y}.png'), 'KB Home', 2);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/pardee/{z}/{x}/{y}.png'), 'Pardee Homes', 3);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/toll/{z}/{x}/{y}.png'), 'Toll Brothers', 4);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/parks/{z}/{x}/{y}.png'), 'Parks', 5);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/trails/{z}/{x}/{y}.png'), 'Trails', 6);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/pools/{z}/{x}/{y}.png'), 'Pools', 7);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
+var steetlayer = L.tileLayer('http://23.253.101.150:8888/v2/streets/{z}/{x}/{y}.png',10).addTo(map);
  var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
             markerLayer.options.sanitizer = function(x) { return x; };
 
