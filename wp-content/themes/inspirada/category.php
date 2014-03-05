@@ -66,7 +66,11 @@ while ( have_posts() ) : the_post(); ?>
 					</section>
 					
 			<?php endwhile; // End Loop ?>
-            
+            			<aside id="sidebar" class="main-col" style="width: 224px;">
+						<?php if ( ! dynamic_sidebar('blog-sidebar') ) : ?>
+		<?php endif; ?>
+			</aside>
+
             <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
     			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page' ); ?></div>
                 <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;' ); ?></div>

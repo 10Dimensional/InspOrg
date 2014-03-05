@@ -204,7 +204,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
 {
     require_once "Mail.php";
     require_once "Mail/mime.php";
-    $to = 'liz@lucidagency.com';
+    $to = 'inspirada@kbhome.com';
 
 
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
@@ -223,7 +223,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     $xml .= '</hsleads>';        
     
     header ("Content-Type: application/octet-stream");
-    header ("Content-disposition: attachment; filename=info.xml");
+    header ("Content-disposition: attachment; filename=".time().".xml");
 
     $from = "Inspirada <info@inspirada.com>";
     $subject = "Info Requested";

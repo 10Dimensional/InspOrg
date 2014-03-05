@@ -11,7 +11,7 @@
         $pardee_array = array();
         $toll_array = array();
         $beazer_email = 'lasvegashomes@beazer.com';
-        $kb_email = 'liz@lucidagency.com';
+        $kb_email = 'inspirada@kbhome.com';
         $pardee_email = 'leadsource@ljgnetwork.com';
         $toll_email = 'inspirada@tollbrothers.com';
         $builders = $_POST['builders'];
@@ -52,12 +52,13 @@
             $use_email = '';
             $use_array = array();
             $title = '';
+            $mail_now = 1;
             
             if ($builder === 'kb home') {
                 $title = 'KB Home';
                 $use_email = $kb_email;
                 $use_array = $kb_array;
-                
+                $mail_now = 0;
                 generate_xml_email_kb($community_number);
             }
             
@@ -80,10 +81,14 @@
                 generate_xml_soap_toll();
             }
             
-            if (!requestInfo($title, $use_email, $use_array)) {
-                $status = 'fail';
+            if (!$mail_now) {
+                if (!requestInfo($title, $use_email, $use_array)) {
+                    $status = 'fail';
+                }
             }
         }
+        
+        print_r(json_encode(array('status' => $status, 'interested_models' => $properties)));
         
         if (!$builders) {
             generate_xml_soap_toll();
@@ -103,8 +108,6 @@
         		'properties' => json_encode($property_ids)
         	)
         );
-
-        print_r(json_encode(array('status' => $status, 'interested_models' => $properties)));
     } else {
         // Filter Results
         $price_min = ($_POST['price_min']) ? $_POST['price_min'] : 0;
@@ -129,7 +132,7 @@
             $where_clause .= ' AND garage_bays_max >= '.$garage_bays;
         }
         
-        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC");
+        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC");
         
         
         $result_data = '';
@@ -225,12 +228,9 @@
     
     function generate_xml_email_kb($community_number='')
     {
-        
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
         require_once "Mail.php";
         require_once "Mail/mime.php";
-        $to = 'liz@lucidagency.com';
+        $to = 'inspirada@kbhome.com';
 
 
         $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
@@ -249,7 +249,7 @@
         $xml .= '</hsleads>';        
         
         header ("Content-Type: application/octet-stream");
-        header ("Content-disposition: attachment; filename=info.xml");
+        header ("Content-disposition: attachment; filename=".time().".xml");
     
         $from = "Inspirada <info@inspirada.com>";
         $subject = "Info Requested";
