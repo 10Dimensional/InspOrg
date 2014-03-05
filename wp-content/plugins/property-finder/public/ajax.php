@@ -86,8 +86,9 @@
                     $status = 'fail';
                 }
             }
-            
         }
+        
+        print_r(json_encode(array('status' => $status, 'interested_models' => $properties)));
         
         if (!$builders) {
             generate_xml_soap_toll();
@@ -107,8 +108,6 @@
         		'properties' => json_encode($property_ids)
         	)
         );
-
-        print_r(json_encode(array('status' => $status, 'interested_models' => $properties)));
     } else {
         // Filter Results
         $price_min = ($_POST['price_min']) ? $_POST['price_min'] : 0;
@@ -133,7 +132,7 @@
             $where_clause .= ' AND garage_bays_max >= '.$garage_bays;
         }
         
-        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC");
+        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC");
         
         
         $result_data = '';
