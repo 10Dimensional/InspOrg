@@ -37,30 +37,24 @@
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KHRJ3V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KHRJ3V');</script>
+<!-- End Google Tag Manager -->
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
 		<?php get_header(); ?>
-		<div class="w1">
-			<div id="bg" class="bg-with-mask">
-				<img src="<?php the_field('hero_image'); ?>" alt="">
-			</div>
-			<nav>
-				<ul class="breadcrumbs">
-<?php the_breadcrumb(); ?>
-				</ul>
-			</nav>
-			<h1 class="page-title page-title-4">
-				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-				<span class="text"><?php the_field('headline'); ?></span>
-			</h1>
-		</div>
-		<section class="text-section">
-			<div class="holder">
-									<?php the_field('headliner'); ?>
-			</div>
-		</section>
+<style>
+h1 {
+	font: 24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
+}
+</style>
 		<div id="main" style="background: white">
 			<div class="main-holder">
 			    <h1>Thank You! Your Results are Below:</h1>

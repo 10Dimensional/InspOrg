@@ -1,4 +1,8 @@
 <?php 
+
+update_option('siteurl','http://www.inspirada.com');
+update_option('home','http://www.inspirada.com');
+
 register_nav_menus( array('' => ''));
 register_sidebar(array('name' => __( 'Footer Left' ),'id' => 'footer-left','description' => __( 'Footer Left' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Footer right' ),'id' => 'footer-right','description' => __( 'Footer Right' ),'before_title' => '<h2>','after_title' => '</h2>'));
@@ -218,7 +222,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-    $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
+    $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
     $xml .= '</lead>'.PHP_EOL;
     $xml .= '</hsleads>';        
     

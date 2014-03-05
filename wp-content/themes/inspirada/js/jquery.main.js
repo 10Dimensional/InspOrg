@@ -73,7 +73,9 @@ function initSliderBlocks() {
 			max: parseFloat(inputMax.val()),
 			change: refreshNumbers,
 			slide: function( event, ui ) {
+			    console.log(ui);
 			    if (inputV2.length) {
+			        console.log('test');
 			        inputV1.val(ui.values[0]);
                     inputV2.val(ui.values[1]);
                     displayV1.text(ui.values[0].format());

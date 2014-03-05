@@ -50,6 +50,7 @@
   </style>
 <div id='map' style=" height: 414px; width: inherit;"></div>
 <script>
+window.onload = function(){ 
 var map = L.mapbox.map('map');
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
@@ -108,6 +109,7 @@ function addLayer(layer, name, zIndex) {
 map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
+    };
 </script>			
 						<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
 						<noscript><img src="images/img06.jpg" alt="image description" ></noscript>
