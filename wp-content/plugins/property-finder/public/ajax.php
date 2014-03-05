@@ -250,7 +250,7 @@
         $xml .= '</hsleads>';        
         
         header ("Content-Type: application/octet-stream");
-        header ("Content-disposition: attachment; filename=info.xml");
+        header ("Content-disposition: attachment; filename=".time().".xml");
     
         $from = "Inspirada <info@inspirada.com>";
         $subject = "Info Requested";
