@@ -37,24 +37,30 @@
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-<!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KHRJ3V"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KHRJ3V');</script>
-<!-- End Google Tag Manager -->
+
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
 		<?php get_header(); ?>
-<style>
-h1 {
-	font: 24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
-}
-</style>
+		<div class="w1">
+			<div id="bg" class="bg-with-mask">
+				<img src="<?php the_field('hero_image'); ?>" alt="">
+			</div>
+			<nav>
+				<ul class="breadcrumbs">
+<?php the_breadcrumb(); ?>
+				</ul>
+			</nav>
+			<h1 class="page-title page-title-4">
+				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
+				<span class="text"><?php the_field('headline'); ?></span>
+			</h1>
+		</div>
+		<section class="text-section">
+			<div class="holder">
+									<?php the_field('headliner'); ?>
+			</div>
+		</section>
 		<div id="main" style="background: white">
 			<div class="main-holder">
 			    <h1>Thank You! Your Results are Below:</h1>
@@ -305,7 +311,161 @@ h1 {
 	</div>
 	
 	
-	
+
+<!--Slideshow modals -->
+<div class="modal fade slideshow-modal" id="Monet1576" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=908]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Monet1736" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=906]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Monet1843" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=903]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Cordoba" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=912]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Madeira" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=914]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Santiago" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=918]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Catania" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=910]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Messina" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=916]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Trapani" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=920]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade slideshow-modal" id="Andora" tabindex="-1" role="dialog" aria-labelledby="testModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <?php echo do_shortcode("[metaslider id=899]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Solista Park Modal -->
+<div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Capriola Park Modal -->
+<div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Potenza Park Modal -->
+<div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Potenza Park Modal -->
+<div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 	
 	
 	
