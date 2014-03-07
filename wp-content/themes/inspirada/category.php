@@ -16,7 +16,15 @@
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
+<style>
+.events-section .box {
+	width: 33.3%;
+	
+}
+.posts{ float:left; overflow:hidden; }
+	#recent-posts-3 ul li { margin-bottom: 7px; }
+	#categories-3 ul li { margin-bottom: 7px; }
+</style>
 <?php wp_head() ?></head>
 <body>
 	<div id="wrapper">
@@ -43,6 +51,7 @@
 	<div class="events-section">
 			<div class="holder">
 				<div class="frame">
+				<div class="posts" style="width: 75%">
 				<?php
 
 // The Loop
@@ -64,8 +73,8 @@ while ( have_posts() ) : the_post(); ?>
 							</div>
 						</div>
 					</section>
-					
 			<?php endwhile; // End Loop ?>
+				</div>
             			<aside id="sidebar" class="main-col" style="width: 224px;">
 						<?php if ( ! dynamic_sidebar('blog-sidebar') ) : ?>
 		<?php endif; ?>

@@ -17,10 +17,22 @@
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 <?php wp_head() ?></head>
 <body>
+	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+<style>
+.events-section .box {
+	width: 33.3%;
+	
+}
+.posts{ float:left; overflow:hidden; }
+	#recent-posts-3 ul li { margin-bottom: 7px; }
+	#categories-3 ul li { margin-bottom: 7px; }
+</style>
+<?php wp_head() ?></head>
+<body>
 	<div id="wrapper">
 		<?php get_header() ?>
 		<div class="w1">
-			<div id="bg" class="bg-with-mask">
+			<div id="bg" class="bg-without-mask">
 				<img src="<?php bloginfo('template_url') ?>/images/bg-wrapper-07.jpg" alt="">
 			</div>
 			<nav>
@@ -30,18 +42,19 @@
 			</nav>
 			<h1 class="page-title page-title-4">
 				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-				<span class="text"><?php the_field('headline'); ?></span>
+				<span class="text"><?php single_cat_title( $prefix = '', $display = true ); ?></span>
 			</h1>
 		</div>
 			<section class="text-section style-red">
 			<div class="holder">
-				<?php the_field('headliner'); ?>
+				<?php echo category_description(); ?>
 			</div>
 			</section>
 	<div class="events-section">
 			<div class="holder">
 				<div class="frame">
-<?php
+				<div class="posts" style="width: 75%">
+				<?php
 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 
 
@@ -74,15 +87,19 @@ $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
       endwhile;
     }
 wp_reset_query(); ?>
+				</div>
+            			<aside id="sidebar" class="main-col" style="width: 224px;">
+						<?php if ( ! dynamic_sidebar('blog-sidebar') ) : ?>
+		<?php endif; ?>
+			</aside>
 
-        <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
-			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page', $my_query->max_num_pages ); ?></div>
-            <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;', $my_query->max_num_pages ); ?></div>
-        </div>
+            <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
+    			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page' ); ?></div>
+                <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;' ); ?></div>
+            </div>
+            
 				</div>
 			</div>
-		</div>
-
 				<?php get_footer() ?>
 <?php wp_footer() ?></body>
 </html>

@@ -48,6 +48,7 @@
         }
         
         $send_kb_xml = false;
+        $has_toll = 0;
         foreach ($builders as $builder) {
             $use_email = '';
             $use_array = array();
@@ -55,9 +56,6 @@
             $mail_now = 1;
             
             if ($builder === 'kb home') {
-                $title = 'KB Home';
-                $use_email = $kb_email;
-                $use_array = $kb_array;
                 $mail_now = 0;
                 generate_xml_email_kb($community_number);
             }
@@ -78,22 +76,24 @@
                 $title = 'Toll Brothers';
                 $use_email = $toll_email;
                 $use_array = $toll_array;
-                generate_xml_soap_toll();
+                $has_toll = 1;
             }
             
-            if (!$mail_now) {
+            if ($mail_now !== 0) {
                 if (!requestInfo($title, $use_email, $use_array)) {
                     $status = 'fail';
                 }
             }
         }
         
-        print_r(json_encode(array('status' => $status, 'interested_models' => $properties)));
-        
         if (!$builders) {
-            generate_xml_soap_toll();
+            $has_toll = 1;
             generate_xml_email_kb();
         }
+        
+        setcookie("interested_models", $properties, time()+3600);
+        
+        print_r(json_encode(array('status' => $status, 'interested_models' => $properties, 'has_toll' => $has_toll)));
         
         // Store in DB
         $wpdb->insert( 
@@ -108,6 +108,8 @@
         		'properties' => json_encode($property_ids)
         	)
         );
+    } else if ($_POST['type'] === 'toll') {
+        print_r(generate_xml_soap_toll());
     } else {
         // Filter Results
         $price_min = ($_POST['price_min']) ? $_POST['price_min'] : 0;

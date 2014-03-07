@@ -1365,6 +1365,7 @@ Fmedia{
 	display: inline-block;
 	vertical-align: top;
 	line-height: inherit;
+	font-weight: normal;
 }
 .companies-list dl dd {
 	display: inline;
@@ -4557,10 +4558,13 @@ line-height: 1 !important;
 .modal-body {float:left; width:100%;}
 .modal-body .btn-primary, .companies-info-block .btn-primary {border-radius:0; background:#0093a8; text-transform:uppercase; color:#fff; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
-.modal-body .btn-primary, .companies-info-block .btn-primary:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#ff6c36; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
+.btn-primary, .companies-info-block .btn-primary:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#ff6c36; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
-.modal-body .btn-right, .companies-info-block .btn-right:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#ff6c36; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
+.btn-primary, .companies-info-block .btn-primary {border-radius:0; background:#0093a8; text-transform:uppercase; color:#fff; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
 font-size: 16px;}
+.btn-primary, .companies-info-block .btn-primary:hover {border-radius:0; background:#fff; text-transform:uppercase; color:#ff6c36; font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;
+font-size: 16px;}
+
 .modal-body .checkbox {float:left; width:25%; padding-bottom:25px;}
 .modal-body .checkbox label {float:none;}
 .modal-body .step2 ul li {list-style-type:disc; width:50%; float:left;}

@@ -11,16 +11,16 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
-    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-       <script type="text/javascript" src="//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js"></script> 
-       	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+
 
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	</head>
 <body>
 	<div id="wrapper" style="background: white;">
-		<?php get_header() ?>
+		      <?php wp_head() ?>
+<?php get_header() ?>
+		    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 		<div class="w1">
 			<div id="bg" class="bg-without-mask">
 				<img src="<?php the_field('hero_image'); ?>" alt="">
@@ -125,7 +125,7 @@ function addLayer(layer, name, zIndex) {
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">To KB Home Model Center</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="padding: 25px;">
       <p><strong>From 1-15 South</strong>
 Take Exit 27 (St. Rose Parkway/South Highlands Parkway)<br>
 Turn Left onto St. Rose Parkway East<br>
@@ -157,7 +157,7 @@ KB Home Model Center is on the Right</p>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">To Toll Brothers Model Center</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="padding: 25px;">
             <p><strong>From 1-15 South</strong>
 Take Exit 27 (St. Rose Parkway/South Highlands Parkway)<br>
 Turn Left onto St. Rose Parkway East<br>

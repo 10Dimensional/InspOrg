@@ -245,12 +245,28 @@ var map = '',
                 var str = $(this).serialize()+'&'+$('#frmPropertyList').serialize();
                 $('#submitRequestInfo').attr('disabled', 'disabled').text('Loading...');
                 $.ajax({
+                    async: true,
                     type: 'POST',
                     url: property_finder.plugin_url+'/public/ajax.php',
                     data: str+'&type=info',
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'success') {
+                            window.location = '/thank-you-homes';
+                            /*
+if (response.has_toll) {
+                                
+                                $.ajax({
+                                    async: true,
+                                    type: 'POST',
+                                    url: property_finder.plugin_url+'/public/ajax.php',
+                                    data: str+'&type=toll',
+                                    dataType: '',
+                                    success: function(response) {
+                                    }
+                                });
+                            }
+                        
                             $('#requestInfo .step1').hide();
                             var model_list = '';
                             for (var x = 0; x <= response.interested_models.length - 1; x++) {
@@ -262,6 +278,7 @@ var map = '',
                             $('#requestInfo .modal-title .step2_head').show();
 
                             $('#requestInfo .step2').show();
+*/
                         }
                     }
                 });
