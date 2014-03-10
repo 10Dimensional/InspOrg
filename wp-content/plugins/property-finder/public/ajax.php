@@ -91,7 +91,8 @@
             generate_xml_email_kb();
         }
         
-        print_r(json_encode(array('status' => $status, 'interested_models' => $properties, 'has_toll' => $has_toll)));
+        print_r(json_encode(array('status' => $status, 'interested_models' => $requested_properties, 'firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'email' => $_POST['email'], 'comment' => $_POST['comment'], 'phone' => $_POST['phone'])));
+        
         
         // Store in DB
         $wpdb->insert( 
@@ -297,6 +298,7 @@
     function generate_xml_soap_toll()
     {
         ini_set("soap.wsdl_cache_enabled", "0");
+        
         try {
             $client = new SoapClient(
                 "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(

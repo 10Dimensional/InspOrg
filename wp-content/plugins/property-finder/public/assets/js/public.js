@@ -252,7 +252,9 @@ var map = '',
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'success') {
-                            if (response.has_toll) {
+                            window.location = '/thank-you-homes?interested_models='+response.interested_models+'&firstName='+response.firstName+'&lastName='+response.lastName+'&email='+response.email+'&phone='+response.phone+'&comment='+response.comment;
+                            /*
+if (response.has_toll) {
                                 
                                 $.ajax({
                                     async: true,
@@ -276,11 +278,34 @@ var map = '',
                             $('#requestInfo .modal-title .step2_head').show();
 
                             $('#requestInfo .step2').show();
+*/
                         }
                     }
                 });
             }
         });
+        
+        if ($('#homes_thanks').length) {
+            var query = getUrlVars(),
+                data = {};
+                
+            data.firstName = query['firstName'];
+            data.lastName = query['lastName'];
+            data.email = query['email'];
+            data.phone = query['phone'];
+            data.comment = query['comment'];
+            data.type = 'toll';
+            
+             $.ajax({
+                async: true,
+                type: 'POST',
+                url: property_finder.plugin_url+'/public/ajax.php',
+                data: data,
+                dataType: '',
+                success: function(response) {
+                }
+            });
+        }
 
         $('.reqInfo').click(function(e) {
             $('#frmRequestInfo input[type="checkbox"]').removeAttr('checked');
@@ -297,4 +322,17 @@ var map = '',
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+}
+
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }
