@@ -288,10 +288,12 @@ if (response.has_toll) {
         if ($('#homes_thanks').length) {
             var query = getUrlVars(),
                 data = {},
-                builders = query['builders'];
-            
-            console.log(builders);
-            if (!builders) {
+                builders = query['builders'],
+                builders = builders.replace(/%20/g, ''),
+                builders = builders.replace(/\+/g, ' '),
+                builders = builders.split(',');
+
+            if (!builders || $.inArray('Toll Brothers', builders)) {
                 data.firstName = query['firstName'];
                 data.lastName = query['lastName'];
                 data.email = query['email'];
@@ -306,8 +308,7 @@ if (response.has_toll) {
                     url: property_finder.plugin_url+'/public/ajax.php',
                     data: data,
                     dataType: '',
-                    success: function(response) {
-                    }
+                    success: function(response) {}
                 });
             }
         }
