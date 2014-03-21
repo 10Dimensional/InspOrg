@@ -1,8 +1,4 @@
 <?php 
-
-update_option('siteurl','http://www.inspirada.com');
-update_option('home','http://www.inspirada.com');
-
 register_nav_menus( array('' => ''));
 register_sidebar(array('name' => __( 'Footer Left' ),'id' => 'footer-left','description' => __( 'Footer Left' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Footer right' ),'id' => 'footer-right','description' => __( 'Footer Right' ),'before_title' => '<h2>','after_title' => '</h2>'));
@@ -103,27 +99,27 @@ function post_to_third_party($entry, $form)
     
 	// Get Field IDs
 	foreach ($form['fields'] as $form_items) {
-		if ($form_items['label'] === 'First Name') {
+		if (($form_items['label'] === 'First Name') || (strpos($form_items['defaultValue'], 'First Name') !== FALSE)) {
 			$first_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Last Name') {
+		} else if (($form_items['label'] === 'Last Name') || (strpos($form_items['defaultValue'], 'Last Name') !== FALSE)) {
 			$last_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Email') {
+		} else if (($form_items['label'] === 'Email') || (strpos($form_items['defaultValue'], 'Email') !== FALSE)) {
     		$email_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Phone') {
+		} else if (($form_items['label'] === 'Phone') || (strpos($form_items['defaultValue'], 'Phone') !== FALSE)) {
     		$phone_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Comment') {
+		} else if (($form_items['label'] === 'Comment') || (strpos($form_items['defaultValue'], 'Comment') !== FALSE)) {
     		$comment_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Brokerage Firm') {
+		} else if (($form_items['label'] === 'Brokerage Firm') || (strpos($form_items['defaultValue'], 'Brokerage Firm') !== FALSE)) {
 		    $firm_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Address') {
+		} else if (($form_items['label'] === 'Address') || (strpos($form_items['defaultValue'], 'Address') !== FALSE)) {
 		    foreach ($form_items['inputs'] as $form_item) {
-    		    if ($form_item['label'] === 'Street Address') {
+    		    if (($form_item['label'] === 'Street Address') || (strpos($form_items['defaultValue'], 'Street Address') !== FALSE)) {
         		    $address_id = $form_item['id'];
-    		    } else if ($form_item['label'] === 'State / Province') {
+    		    } else if (($form_item['label'] === 'State / Province') || (strpos($form_items['defaultValue'], 'State / Province') !== FALSE)) {
         		    $state_id = $form_item['id'];
-    		    } else if ($form_item['label'] === 'City') {
+    		    } else if (($form_item['label'] === 'City') || (strpos($form_items['defaultValue'], 'City') !== FALSE)) {
         		    $city_id = $form_item['id'];
-    		    } else if ($form_item['label'] === 'ZIP / Postal Code') {
+    		    } else if (($form_item['label'] === 'ZIP / Postal Code') || (strpos($form_items['defaultValue'], 'ZIP / Postal Code') !== FALSE)) {
         		    $zip_id = $form_item['id'];
     		    }
 		    }
@@ -131,11 +127,11 @@ function post_to_third_party($entry, $form)
 		    foreach ($form_items['inputs'] as $form_item) {
     		    $builders_id[] = $form_item['id'];
 		    }
-		} else if ($form_items['label'] === 'Builder') {
+		} else if (($form_items['label'] === 'Builder') || (strpos($form_items['defaultValue'], 'Builder') !== FALSE)) {
             $builders_id = $form_items['id'];	
-		} else if ($form_items['label'] === 'Desired Price Range') {
+		} else if (($form_items['label'] === 'Desired Price Range') || (strpos($form_items['defaultValue'], 'Desired Price Range') !== FALSE)) {
             $price_range_id = $form_items['id'];	
-		} else if ($form_items['label'] === 'Desired Square Footage') {
+		} else if (($form_items['label'] === 'Desired Square Footage') || (strpos($form_items['defaultValue'], 'Desired Square Footage') !== FALSE)) {
             $sqft_id = $form_items['id'];	
 		}
 	}
@@ -204,7 +200,7 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 
 
-function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
+function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment, $community_number)
 {
     require_once "Mail.php";
     require_once "Mail/mime.php";
@@ -222,12 +218,9 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-    $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
+    $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
     $xml .= '</lead>'.PHP_EOL;
-    $xml .= '</hsleads>';        
-    
-    header ("Content-Type: application/octet-stream");
-    header ("Content-disposition: attachment; filename=".time().".xml");
+    $xml .= '</hsleads>';
 
     $from = "Inspirada <info@inspirada.com>";
     $subject = "Info Requested";
@@ -246,9 +239,9 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     $mime->setHTMLBody($body);
     
     $xmlobj = new SimpleXMLElement($xml);
-    $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml');
+    $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
     
-    $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml', 'text/xml'); 
+    $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml', 'text/xml'); 
 
     $body = $mime->get();
     $headers = $mime->headers($headers);
