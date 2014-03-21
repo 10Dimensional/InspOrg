@@ -287,24 +287,29 @@ if (response.has_toll) {
         
         if ($('#homes_thanks').length) {
             var query = getUrlVars(),
-                data = {};
-                
-            data.firstName = query['firstName'];
-            data.lastName = query['lastName'];
-            data.email = query['email'];
-            data.phone = query['phone'];
-            data.comment = query['comment'];
-            data.type = 'toll';
+                data = {},
+                builders = query['builders'];
             
-             $.ajax({
-                async: true,
-                type: 'POST',
-                url: property_finder.plugin_url+'/public/ajax.php',
-                data: data,
-                dataType: '',
-                success: function(response) {
-                }
-            });
+            console.log(builders);
+            if (!builders) {
+                data.firstName = query['firstName'];
+                data.lastName = query['lastName'];
+                data.email = query['email'];
+                data.phone = query['phone'];
+                data.comment = query['comment'];
+                
+                data.type = 'toll';
+                
+                 $.ajax({
+                    async: true,
+                    type: 'POST',
+                    url: property_finder.plugin_url+'/public/ajax.php',
+                    data: data,
+                    dataType: '',
+                    success: function(response) {
+                    }
+                });
+            }
         }
 
         $('.reqInfo').click(function(e) {
