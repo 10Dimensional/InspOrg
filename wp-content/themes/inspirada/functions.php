@@ -295,4 +295,46 @@ function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $last
 }
 
 
+
+function myawesometheme_validate_gravity_default_values( $validation_result ) {
+	
+	// Get the form object from the validation result
+	$form = $validation_result["form"];
+	
+	// Get the current page being validated
+	$current_page = rgpost( 'gform_source_page_number_' . $form['id'] ) ? rgpost( 'gform_source_page_number_' . $form['id'] ) : 1;
+	
+	// Loop through the form fields
+	foreach( $form['fields'] as &$field ){
+ 
+		$value_number = rgpost( "input_{$field['id']}" );
+ 
+		// If there's a default value for the field, make sure the submitted value isn't the default value
+		if ( !empty( $field['defaultValue'] ) && $field['defaultValue'] === $value_number ) {
+		  $is_valid = false;
+		}
+		else {
+		  $is_valid = true;
+		}
+		
+		// If the field is valid we don't need to do anything, skip it
+		if( !$is_valid ) {
+			// The field failed validation, so first we'll need to fail the validation for the entire form
+			$validation_result['is_valid'] = false;
+			
+			// Next we'll mark the specific field that failed and add a custom validation message
+			$field['failed_validation'] = true;
+			$field['validation_message'] = "You can't submit the default value.";
+		}
+	}
+ 
+	// Assign our modified $form object back to the validation result
+	$validation_result['form'] = $form;
+	
+	// Return the validation result
+	return $validation_result;
+}
+add_filter( 'gform_validation_7', 'myawesometheme_validate_gravity_default_values' ); 
+
+
 ?>
