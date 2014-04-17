@@ -1,14 +1,14 @@
 var map = '',
     builder_layers = {
-        'Beazer': 'http://166.78.0.133:8888/v2/beazer/{z}/{x}/{y}.png',
-        'KB Home': 'http://166.78.0.133:8888/v2/kb/{z}/{x}/{y}.png',
-        'Necessities': 'http://166.78.0.133:8888/v2/neccessities/{z}/{x}/{y}.png',
-        'Pardee': 'http://166.78.0.133:8888/v2/pardee/{z}/{x}/{y}.png',
-        'Parks': 'http://166.78.0.133:8888/v2/parks/{z}/{x}/{y}.png',
-        'Pools': 'http://166.78.0.133:8888/v2/pools/{z}/{x}/{y}.png',
-        'schools': 'http://166.78.0.133:8888/v2/schools/{z}/{x}/{y}.png',
-        'Toll Brothers': 'http://166.78.0.133:8888/v2/toll/{z}/{x}/{y}.png',
-        'Trails': 'http://166.78.0.133:8888/v2/trails/{z}/{x}/{y}.png'
+        'Beazer': 'http://23.253.101.150:8888/v2/beazer/{z}/{x}/{y}.png',
+        'KB Home': 'http://23.253.101.150:8888/v2/kb/{z}/{x}/{y}.png',
+        'Necessities': 'http://23.253.101.150:8888/v2/neccessities/{z}/{x}/{y}.png',
+        'Pardee': 'http://23.253.101.150:8888/v2/pardee/{z}/{x}/{y}.png',
+        'Parks': 'http://23.253.101.150:8888/v2/parks/{z}/{x}/{y}.png',
+        'Pools': 'http://23.253.101.150:8888/v2/pools/{z}/{x}/{y}.png',
+        'schools': 'http://23.253.101.150:8888/v2/schools/{z}/{x}/{y}.png',
+        'Toll Brothers': 'http://23.253.101.150:8888/v2/toll/{z}/{x}/{y}.png',
+        'Trails': 'http://23.253.101.150:8888/v2/trails/{z}/{x}/{y}.png'
     };
     
 (function ( $ ) {
@@ -20,7 +20,7 @@ var map = '',
                 minZoom: 2,
                 maxZoom: 6
             });
-            var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+            var baselayer = L.tileLayer('http://23.253.101.150:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
             map.setView([-77, 22.763671875], 4);
             
             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
@@ -245,12 +245,28 @@ var map = '',
                 var str = $(this).serialize()+'&'+$('#frmPropertyList').serialize();
                 $('#submitRequestInfo').attr('disabled', 'disabled').text('Loading...');
                 $.ajax({
+                    async: true,
                     type: 'POST',
                     url: property_finder.plugin_url+'/public/ajax.php',
                     data: str+'&type=info',
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'success') {
+                            window.location = '/thank-you-homes?interested_models='+response.interested_models+'&firstName='+response.firstName+'&lastName='+response.lastName+'&email='+response.email+'&phone='+response.phone+'&comment='+response.comment;
+                            /*
+if (response.has_toll) {
+                                
+                                $.ajax({
+                                    async: true,
+                                    type: 'POST',
+                                    url: property_finder.plugin_url+'/public/ajax.php',
+                                    data: str+'&type=toll',
+                                    dataType: '',
+                                    success: function(response) {
+                                    }
+                                });
+                            }
+                        
                             $('#requestInfo .step1').hide();
                             var model_list = '';
                             for (var x = 0; x <= response.interested_models.length - 1; x++) {
@@ -262,11 +278,40 @@ var map = '',
                             $('#requestInfo .modal-title .step2_head').show();
 
                             $('#requestInfo .step2').show();
+*/
                         }
                     }
                 });
             }
         });
+        
+        if ($('#homes_thanks').length) {
+            var query = getUrlVars(),
+                data = {},
+                builders = query['builders'],
+                builders = builders.replace(/%20/g, ''),
+                builders = builders.replace(/\+/g, ' '),
+                builders = builders.split(',');
+
+            if (!builders || $.inArray('Toll Brothers', builders)) {
+                data.firstName = query['firstName'];
+                data.lastName = query['lastName'];
+                data.email = query['email'];
+                data.phone = query['phone'];
+                data.comment = query['comment'];
+                
+                data.type = 'toll';
+                
+                 $.ajax({
+                    async: true,
+                    type: 'POST',
+                    url: property_finder.plugin_url+'/public/ajax.php',
+                    data: data,
+                    dataType: '',
+                    success: function(response) {}
+                });
+            }
+        }
 
         $('.reqInfo').click(function(e) {
             $('#frmRequestInfo input[type="checkbox"]').removeAttr('checked');
@@ -283,4 +328,17 @@ var map = '',
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+}
+
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }

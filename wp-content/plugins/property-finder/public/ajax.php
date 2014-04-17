@@ -10,19 +10,34 @@
         $kb_array = array();
         $pardee_array = array();
         $toll_array = array();
-        $beazer_email = 'liz@lucidagency.com';
-        $kb_email = 'liz@lucidagency.com';
-        $pardee_email = 'liz@lucidagency.com';
-        $toll_email = 'liz@lucidagency.com';
+        $beazer_email = 'lasvegashomes@beazer.com';
+        $kb_email = 'inspirada@kbhome.com';
+        $pardee_email = 'leadsource@ljgnetwork.com';
+        $toll_email = 'inspirada@tollbrothers.com';
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
+        $community_number = '';
 
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
                 $beazer_array[] = $property;
             } else if ($property->builder === 'KB HOME') {
                 $kb_array[] = $property;
+                
+                if ($property->series === 'Monet') {
+                    $community_number = '00851018';
+                } else if ($property->series === 'Matisse') {
+                    $community_number = '00851203';
+                } else if ($property->series === 'Michelangelo') {
+                    $community_number = '00851100';
+                } else if ($property->series === 'Renoir') {
+                    $community_number = '00851017';
+                } else if ($property->series === 'Van Gogh') {
+                    $community_number = '00851215';
+                }
+                
+                
             } else if ($property->builder === 'Pardee Homes') {
                 $pardee_array[] = $property;
             } else if ($property->builder === 'Toll Brothers') {
@@ -33,16 +48,16 @@
         }
         
         $send_kb_xml = false;
+        $has_toll = 0;
         foreach ($builders as $builder) {
             $use_email = '';
             $use_array = array();
             $title = '';
+            $mail_now = 1;
             
             if ($builder === 'kb home') {
-                $title = 'KB Home';
-                $use_email = $kb_email;
-                $use_array = $kb_array;
-                generate_xml_email_kb();
+                $mail_now = 0;
+                generate_xml_email_kb($community_number);
             }
             
             if ($builder === 'beazer homes') {
@@ -61,18 +76,23 @@
                 $title = 'Toll Brothers';
                 $use_email = $toll_email;
                 $use_array = $toll_array;
-                generate_xml_soap_toll();
+                $has_toll = 1;
             }
             
-            if (!requestInfo($title, $use_email, $use_array)) {
-                $status = 'fail';
+            if ($mail_now !== 0) {
+                if (!requestInfo($title, $use_email, $use_array)) {
+                    $status = 'fail';
+                }
             }
         }
         
         if (!$builders) {
-            generate_xml_soap_toll();
+            $has_toll = 1;
             generate_xml_email_kb();
         }
+        
+        print_r(json_encode(array('status' => $status, 'interested_models' => $requested_properties, 'firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'email' => $_POST['email'], 'comment' => $_POST['comment'], 'phone' => $_POST['phone'])));
+        
         
         // Store in DB
         $wpdb->insert( 
@@ -87,8 +107,8 @@
         		'properties' => json_encode($property_ids)
         	)
         );
-
-        print_r(json_encode(array('status' => $status, 'interested_models' => $properties)));
+    } else if ($_POST['type'] === 'toll') {
+        print_r(generate_xml_soap_toll());
     } else {
         // Filter Results
         $price_min = ($_POST['price_min']) ? $_POST['price_min'] : 0;
@@ -113,7 +133,7 @@
             $where_clause .= ' AND garage_bays_max >= '.$garage_bays;
         }
         
-        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC");
+        $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC");
         
         
         $result_data = '';
@@ -207,14 +227,11 @@
         return (PEAR::isError($mail)) ? false : true;
     }
     
-    function generate_xml_email_kb()
+    function generate_xml_email_kb($community_number='')
     {
-        
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
         require_once "Mail.php";
         require_once "Mail/mime.php";
-        $to = 'liz@lucidagency.com';
+        $to = 'inspirada@kbhome.com';
 
 
         $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
@@ -228,12 +245,12 @@
         $xml .= '<message>'.substr($_POST['comment'], 0, 2048).'</message>'.PHP_EOL;
         $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
         $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-        $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
+        $xml .= '<communitynumber>'.$community_number.'</communitynumber>'.PHP_EOL;
         $xml .= '</lead>'.PHP_EOL;
         $xml .= '</hsleads>';        
         
         header ("Content-Type: application/octet-stream");
-        header ("Content-disposition: attachment; filename=info.xml");
+        header ("Content-disposition: attachment; filename=".time().".xml");
     
         $from = "Inspirada <info@inspirada.com>";
         $subject = "Info Requested";
@@ -281,6 +298,7 @@
     function generate_xml_soap_toll()
     {
         ini_set("soap.wsdl_cache_enabled", "0");
+        
         try {
             $client = new SoapClient(
                 "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(

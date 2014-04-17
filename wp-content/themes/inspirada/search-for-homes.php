@@ -25,7 +25,7 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );
                 
                 
                 ?>
@@ -53,6 +53,9 @@ list-style-type: disc;
 	}
 .info-table {
 	background: #295585;
+}
+.filter-form .title {
+	color: white;
 }
 img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
 </style>
@@ -207,7 +210,7 @@ jquery(".info-table tr:even").css('background-color','#295585');
                             <div class="scrollable-area">
                                 <h1>Not Ready To Choose?</h1>
                                 <p>No problem. Let us send you more information on your builder(s) of interest. </p>                                                                
-<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">SEND ME INFORMATION</a>                            
+<a class="button reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Send Me Information']);" data-toggle="modal" data-target="#requestInfo">SEND ME INFORMATION</a>                           
                             </div>
                         </div>
                         <div class="table-block">
@@ -330,8 +333,12 @@ jquery(".info-table tr:even").css('background-color','#295585');
                             </div>
                         </div>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
-                    <ul class="companies-list">
+<p>Homes at Inspirada are designed to accommodate the desires—and necessities—of today’s residents. When searching for Henderson houses for sale, important priorities often include exceptional home design, energy-efficiency, neighborhoods with parks, pools and activities, excellent nearby schools, and quick, easy access to the metro area. 
+We know that in Las Vegas, houses for sale may not always include the commitment to detail, efficiency, beauty and warrantied quality found at Inspirada. Our four nationally recognized builders have designed intelligent floor plans that work with you, for today and years to come.
+&nbsp;
+&nbsp;</p>
+<a class="button-request reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Request Information']);" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: 0px 0px 15px;">Request Information</a>
+                    <ul class="companies-list" style="margin-top: 70px;">
                     	<li>
                             <div class="img-holder"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                     

@@ -182,7 +182,9 @@
                                         </table>
                                     </form>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin-top: 20px">Request Information</a>
+                    <a class="button-request reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'KB Home Request Information']);" data-toggle="modal" data-target="#requestInfo" style="float:right; margin-top: 20px">Request Information</a>
+
+
                                 </section>
     		</div>
     

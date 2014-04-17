@@ -38,11 +38,13 @@
 		</div>
 		<section class="gallery-section">
 			<div class="holder">
+			<div class="gallery-holder" style="width:918px; margin:0 auto;">
 <?php while ( have_posts() ) : the_post(); ?>
 
 <?php the_content(); ?>
 
 			<?php endwhile; // end of the loop. ?>
+			</div>
 			</div>
 		</section>
 <!--			<section class="start-section">

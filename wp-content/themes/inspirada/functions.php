@@ -6,6 +6,7 @@ register_sidebar(array('name' => __( 'Inspire Sidebar' ),'id' => 'inspire-sideba
 register_sidebar(array('name' => __( 'Right Sidebar' ),'id' => 'right-sidebar','description' => __( 'Right Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Vicinity Sidebar' ),'id' => 'vicinity-sidebar','description' => __( 'Vicinity Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 register_sidebar(array('name' => __( 'Blog Sidebar' ),'id' => 'blog-sidebar','description' => __( 'Blog Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
+register_sidebar(array('name' => __( 'Landing Sidebar' ),'id' => 'Landing-sidebar','description' => __( 'Landing Sidebar' ),'before_title' => '<h2>','after_title' => '</h2>'));
 
 function the_breadcrumb() {
 	if (!is_home()) {
@@ -98,27 +99,27 @@ function post_to_third_party($entry, $form)
     
 	// Get Field IDs
 	foreach ($form['fields'] as $form_items) {
-		if ($form_items['label'] === 'First Name') {
+		if (($form_items['label'] === 'First Name') || (strpos($form_items['defaultValue'], 'First Name') !== FALSE)) {
 			$first_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Last Name') {
+		} else if (($form_items['label'] === 'Last Name') || (strpos($form_items['defaultValue'], 'Last Name') !== FALSE)) {
 			$last_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Email') {
+		} else if (($form_items['label'] === 'Email') || (strpos($form_items['defaultValue'], 'Email') !== FALSE)) {
     		$email_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Phone') {
+		} else if (($form_items['label'] === 'Phone') || (strpos($form_items['defaultValue'], 'Phone') !== FALSE)) {
     		$phone_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Comment') {
+		} else if (($form_items['label'] === 'Comment') || (strpos($form_items['defaultValue'], 'Comment') !== FALSE)) {
     		$comment_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Brokerage Firm') {
+		} else if (($form_items['label'] === 'Brokerage Firm') || (strpos($form_items['defaultValue'], 'Brokerage Firm') !== FALSE)) {
 		    $firm_id = $form_items['id'];
-		} else if ($form_items['label'] === 'Address') {
+		} else if (($form_items['label'] === 'Address') || (strpos($form_items['defaultValue'], 'Address') !== FALSE)) {
 		    foreach ($form_items['inputs'] as $form_item) {
-    		    if ($form_item['label'] === 'Street Address') {
+    		    if (($form_item['label'] === 'Street Address') || (strpos($form_items['defaultValue'], 'Street Address') !== FALSE)) {
         		    $address_id = $form_item['id'];
-    		    } else if ($form_item['label'] === 'State / Province') {
+    		    } else if (($form_item['label'] === 'State / Province') || (strpos($form_items['defaultValue'], 'State / Province') !== FALSE)) {
         		    $state_id = $form_item['id'];
-    		    } else if ($form_item['label'] === 'City') {
+    		    } else if (($form_item['label'] === 'City') || (strpos($form_items['defaultValue'], 'City') !== FALSE)) {
         		    $city_id = $form_item['id'];
-    		    } else if ($form_item['label'] === 'ZIP / Postal Code') {
+    		    } else if (($form_item['label'] === 'ZIP / Postal Code') || (strpos($form_items['defaultValue'], 'ZIP / Postal Code') !== FALSE)) {
         		    $zip_id = $form_item['id'];
     		    }
 		    }
@@ -126,11 +127,11 @@ function post_to_third_party($entry, $form)
 		    foreach ($form_items['inputs'] as $form_item) {
     		    $builders_id[] = $form_item['id'];
 		    }
-		} else if ($form_items['label'] === 'Builder') {
+		} else if (($form_items['label'] === 'Builder') || (strpos($form_items['defaultValue'], 'Builder') !== FALSE)) {
             $builders_id = $form_items['id'];	
-		} else if ($form_items['label'] === 'Desired Price Range') {
+		} else if (($form_items['label'] === 'Desired Price Range') || (strpos($form_items['defaultValue'], 'Desired Price Range') !== FALSE)) {
             $price_range_id = $form_items['id'];	
-		} else if ($form_items['label'] === 'Desired Square Footage') {
+		} else if (($form_items['label'] === 'Desired Square Footage') || (strpos($form_items['defaultValue'], 'Desired Square Footage') !== FALSE)) {
             $sqft_id = $form_items['id'];	
 		}
 	}
@@ -166,15 +167,13 @@ function post_to_third_party($entry, $form)
     	}
 	}
 	
-	/*
-if (in_array('kb home', $builders)) {
-    	generate_xml_email_kb($first, $last, $email, $phone, $comment);
+	if (in_array('kb home', $builders)) {
+    	generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
 	}
 	
 	if (in_array('toll brothers', $builders)) {
-    	generate_xml_soap_toll($email, $comment, $first, $phone, $last);
+    	generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
 	}
-*/
 	
 	save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders), $price_range, $sqft);
 
@@ -201,12 +200,11 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 
 
-/*
-function generate_xml_email_kb($firstName, $lastName, $email, $phone, $comment)
+function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment, $community_number)
 {
     require_once "Mail.php";
     require_once "Mail/mime.php";
-    $to = 'liz@lucidagency.com';
+    $to = 'inspirada@kbhome.com';
 
 
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
@@ -220,12 +218,9 @@ function generate_xml_email_kb($firstName, $lastName, $email, $phone, $comment)
     $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-    $xml .= '<communitynumber>00850890</communitynumber>'.PHP_EOL;
+    $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
     $xml .= '</lead>'.PHP_EOL;
-    $xml .= '</hsleads>';        
-    
-    header ("Content-Type: application/octet-stream");
-    header ("Content-disposition: attachment; filename=info.xml");
+    $xml .= '</hsleads>';
 
     $from = "Inspirada <info@inspirada.com>";
     $subject = "Info Requested";
@@ -244,9 +239,9 @@ function generate_xml_email_kb($firstName, $lastName, $email, $phone, $comment)
     $mime->setHTMLBody($body);
     
     $xmlobj = new SimpleXMLElement($xml);
-    $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml');
+    $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
     
-    $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml', 'text/xml'); 
+    $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml', 'text/xml'); 
 
     $body = $mime->get();
     $headers = $mime->headers($headers);
@@ -266,7 +261,7 @@ function generate_xml_email_kb($firstName, $lastName, $email, $phone, $comment)
 }
 
 
-function generate_xml_soap_toll($email, $comment, $firstName, $phone, $lastName)
+function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $lastName)
 {
     ini_set("soap.wsdl_cache_enabled", "0");
     try {
@@ -298,7 +293,64 @@ function generate_xml_soap_toll($email, $comment, $firstName, $phone, $lastName)
         return 'Caught exception: '. $e->getMessage();
     }
 }
-*/
+
+
+
+function myawesometheme_validate_gravity_default_values( $validation_result ) {
+	
+	// Get the form object from the validation result
+	$form = $validation_result["form"];
+	
+	// Get the current page being validated
+	$current_page = rgpost( 'gform_source_page_number_' . $form['id'] ) ? rgpost( 'gform_source_page_number_' . $form['id'] ) : 1;
+	
+	// Loop through the form fields
+	foreach( $form['fields'] as &$field ){
+ 
+		$value_number = rgpost( "input_{$field['id']}" );
+ 
+		// If there's a default value for the field, make sure the submitted value isn't the default value
+		if ( !empty( $field['defaultValue'] ) && $field['defaultValue'] === $value_number ) {
+		  $is_valid = false;
+		}
+		else {
+		  $is_valid = true;
+		}
+		
+		// If the field is valid we don't need to do anything, skip it
+		if( !$is_valid ) {
+			// The field failed validation, so first we'll need to fail the validation for the entire form
+			$validation_result['is_valid'] = false;
+			
+			// Next we'll mark the specific field that failed and add a custom validation message
+			$field['failed_validation'] = true;
+			$field['validation_message'] = "You can't submit the default value.";
+		}
+	}
+ 
+	// Assign our modified $form object back to the validation result
+	$validation_result['form'] = $form;
+	
+	// Return the validation result
+	return $validation_result;
+}
+add_filter( 'gform_validation_7', 'myawesometheme_validate_gravity_default_values' ); 
+
+
+add_action('wp_head','google_analytics',1000,1);
+function google_analytics() {
+	echo "
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45598753-1', 'inspirada.com');
+  ga('send', 'pageview');
+
+</script>";
+}
 
 
 ?>

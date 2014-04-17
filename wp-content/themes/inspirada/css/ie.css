@@ -95,3 +95,8 @@ zoom:1;z-index:1;
     height:100px;
     padding-top:25px;
     }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+   /* IE10-specific styles go here */  
+   #nav { display: none; }
+}  
