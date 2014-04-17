@@ -186,6 +186,8 @@ addLayer(L.tileLayer('http://23.253.101.150:8888/v2/parks/{z}/{x}/{y}.png'), 'Pa
 addLayer(L.tileLayer('http://23.253.101.150:8888/v2/trails/{z}/{x}/{y}.png'), 'Trails', 6);
 addLayer(L.tileLayer('http://23.253.101.150:8888/v2/pools/{z}/{x}/{y}.png'), 'Pools', 7);
 addLayer(L.tileLayer('http://23.253.101.150:8888/v2/neccessities/{z}/{x}/{y}.png'), 'Nearby Necessities', 8);
+
+var steetlayer = L.tileLayer('http://23.253.101.150:8888/v2/streets/{z}/{x}/{y}.png',10).addTo(map);
  var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
             markerLayer.options.sanitizer = function(x) { return x; };
 

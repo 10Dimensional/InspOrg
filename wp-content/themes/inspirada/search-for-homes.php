@@ -25,8 +25,15 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );                
+=======
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
                 $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );
                 
+>>>>>>> 8c6b6ce2ad06e9b554400b0e778faaf97e2cebab
                 
                 ?>
 <!DOCTYPE html>
@@ -54,9 +61,12 @@ list-style-type: disc;
 .info-table {
 	background: #295585;
 }
+<<<<<<< HEAD
 .filter-form .title {
 	color: white;
 }
+=======
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
 </style>
 <script>
@@ -333,12 +343,18 @@ jquery(".info-table tr:even").css('background-color','#295585');
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
 <p>Homes at Inspirada are designed to accommodate the desires—and necessities—of today’s residents. When searching for Henderson houses for sale, important priorities often include exceptional home design, energy-efficiency, neighborhoods with parks, pools and activities, excellent nearby schools, and quick, easy access to the metro area. 
 We know that in Las Vegas, houses for sale may not always include the commitment to detail, efficiency, beauty and warrantied quality found at Inspirada. Our four nationally recognized builders have designed intelligent floor plans that work with you, for today and years to come.
 &nbsp;
 &nbsp;</p>
 <a class="button-request reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Request Information']);" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: 0px 0px 15px;">Request Information</a>
                     <ul class="companies-list" style="margin-top: 70px;">
+=======
+                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
+                    <br><br><br>
+                    <ul class="companies-list">
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
                     	<li>
                             <div class="img-holder"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                     

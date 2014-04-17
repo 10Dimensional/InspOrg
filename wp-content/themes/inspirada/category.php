@@ -73,6 +73,7 @@ while ( have_posts() ) : the_post(); ?>
 							</div>
 						</div>
 					</section>
+<<<<<<< HEAD
 			<?php endwhile; // End Loop ?>
 				</div>
             			<aside id="sidebar" class="main-col" style="width: 224px;">
@@ -80,6 +81,11 @@ while ( have_posts() ) : the_post(); ?>
 		<?php endif; ?>
 			</aside>
 
+=======
+					
+			<?php endwhile; // End Loop ?>
+            
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
             <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
     			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page' ); ?></div>
                 <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;' ); ?></div>

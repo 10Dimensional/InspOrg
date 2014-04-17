@@ -228,7 +228,7 @@ img.aligncenter{
 #nav > li{
 	float:left;
 	position:relative;
-	width: 16%;
+	width: 19%;
 }
 #nav > li > a{
 	display:block;
@@ -1328,7 +1328,7 @@ Fmedia{
     border-width: 2px 0 0;
 	}
 .companies-list li{
-	display:table-cell;
+	display:inline-block;
 	vertical-align:top;
 	padding:0 15px;
 	width: 24%;
@@ -4542,7 +4542,7 @@ line-height: 1 !important;
 .roster_slider_set .roster_slideri span{font-family: Verdana,Geneva,sans-serif;font-size:11px;font-weight:normal;font-style:normal;color:#222222;} 
 .roster_slider_set .roster_slideri p.more{color:#0067B7;font-family:Verdana,Geneva,sans-serif;font-size:11px;} 
 .roster_slider_set .roster_next{background: url('../images/sprite.png') no-repeat -4px -181px no-repeat 0 0 !important; top:45%;} 
-.roster_slider_set .roster_prev{background: transparent url(http://166.78.0.133/wp-content/plugins/roster-slider/css/skins/default/buttons/default/prev.png) no-repeat 0 0;top:45%;}
+.roster_slider_set .roster_prev{background: transparent url(http://23.253.101.150/wp-content/plugins/roster-slider/css/skins/default/buttons/default/prev.png) no-repeat 0 0;top:45%;}
 .builder_logos {border-top:#69c1e4 solid 1px; margin-top:25px;}
 .builder_logos a {height:70px;}
 .builder_logos a:hover {background-color:#295585;}

@@ -337,6 +337,7 @@ function myawesometheme_validate_gravity_default_values( $validation_result ) {
 add_filter( 'gform_validation_7', 'myawesometheme_validate_gravity_default_values' ); 
 
 
+<<<<<<< HEAD
 add_action('wp_head','google_analytics',1000,1);
 function google_analytics() {
 	echo "
@@ -353,4 +354,6 @@ function google_analytics() {
 }
 
 
+=======
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 ?>

@@ -49,10 +49,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<header id="header">
 		<div class="header-holder">
 			<strong class="logo"><a href="#">Inspirada Live Inspired.</a></strong>
+<<<<<<< HEAD
 		</div>
 	</header>
 	<div id="main">
 		<img src="<?php bloginfo('template_url') ?>/images/background-sharp.jpg" id="bg" alt="image description">
+=======
+			<a class="btn">Live Inspired.</a>
+		</div>
+	</header>
+	<div id="main">
+		<img src="<?php bloginfo('template_url') ?>/images/bg-landing2.jpg" id="bg" alt="image description">
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 		<div class="main-holder">
 			<div id="content">
 				 <?php while ( have_posts() ) : the_post(); ?>
@@ -70,4 +78,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		</div>
 	</footer>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8

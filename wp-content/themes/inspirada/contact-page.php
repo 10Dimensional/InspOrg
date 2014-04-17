@@ -11,9 +11,15 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+<<<<<<< HEAD
 
+=======
+    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+       <script type="text/javascript" src="//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js"></script> 
+<!--       	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 
-	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
+	[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	</head>
 <body>
@@ -64,14 +70,19 @@ var map = L.map('map', {
 	minZoom: 2,
 	maxZoom: 4
 	});
+<<<<<<< HEAD
 var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-77, 22.763671875], 4);
+=======
+var baselayer = L.tileLayer('http://23.253.101.150:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+map.setView([-70, 22.763671875], 4);
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 // disable tap handler, if present.
 if (map.tap) map.tap.disable();
-addLayer(L.tileLayer('http://166.78.0.133:8888/v2/model/{z}/{x}/{y}.png'), 'Models', 1);
+addLayer(L.tileLayer('http://23.253.101.150:8888/v2/model/{z}/{x}/{y}.png'), 'Models', 1);
 
 function addLayer(layer, name, zIndex) {
     layer
@@ -82,7 +93,7 @@ function addLayer(layer, name, zIndex) {
     var item = document.createElement('li');
     var link = document.createElement('a');
 
-    var markerLayer = L.mapbox.markerLayer().loadURL('http://166.78.0.133/wp-content/themes/inspirada/models.geojson').addTo(map);
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://www.inspirada.com/wp-content/themes/inspirada/models.geojson').addTo(map);
 
     markerLayer.on('mouseover', function(e) {
         e.layer.openPopup();

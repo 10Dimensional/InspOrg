@@ -3375,9 +3375,14 @@ img.aligncenter{
 	max-width: 945px;
 	overflow: hidden;
 	background: url(../images/bg-content.png);
+<<<<<<< HEAD
 	background: rgba(255,255,255,.82);
 	margin: 0 auto;
 	margin-top: -1px;
+=======
+	background: rgba(255,255,255,.75);
+	margin: 0 auto;
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 }
 .landing #main #content {
 	float: left;
@@ -4718,7 +4723,10 @@ img.aligncenter{
 }
 .landing ol li:before,
 .landing ol .num {
+<<<<<<< HEAD
 	display: none;
+=======
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 	float: left;
 	background: #5d8528;
 	font: 18px/21px 'roboto_slabbold', Arial, Helvetica, sans-serif;

@@ -184,13 +184,10 @@ class Property_Finder_Admin {
 	 */
 	public function export_csv()
 	{
-	    error_reporting(E_ALL);
-	    ini_set('display_errors', '1');
 	    global $wpdb;
 	    
         $from = ($_POST['fromDate']) ? date('Y-m-d 00:00:00', strtotime($_POST['fromDate'])) : false;
         $to = ($_POST['toDate']) ? date('Y-m-d 99:99:99', strtotime($_POST['toDate'])) : false;
-        print_r($from);
         $user = wp_get_current_user();
         $user_role = $user->roles[0];
         

@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
@@ -23,6 +24,9 @@
 <?php wp_head() ?></head>
 <body id="homes_thanks">
 <!-- Google Code for Search for Homes (Website) Conversion Page -->
+=======
+	<!-- Google Code for Search for Homes (Website) Conversion Page -->
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 974801844;
@@ -40,8 +44,12 @@ var google_remarketing_only = false;
 <div style="display:inline;">
 <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/974801844/?value=1.000000&amp;label=ivwtCOTo4QgQtJfp0AM&amp;guid=ON&amp;script=0"/>
 </div>
+<<<<<<< HEAD
 </noscript>
 <!-- Facebook Conversion Code for Website Lead -->
+=======
+</noscript><!-- Facebook Conversion Code for Website Lead -->
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 <script type="text/javascript">
 var fb_param = {};
 fb_param.pixel_id = '6013393414653';
@@ -55,9 +63,26 @@ fb_param.currency = 'USD';
   ref.parentNode.insertBefore(fpw, ref);
 })();
 </script>
+<<<<<<< HEAD
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?
 
 id=6013393414653&amp;value=0&amp;currency=USD" /></noscript>
+=======
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6013393414653&amp;value=0&amp;currency=USD" /></noscript>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
+		   <link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
+
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
+	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+<?php wp_head() ?></head>
+<body id="homes_thanks">
+>>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 	<div id="wrapper">
 		<?php get_header(); ?>
 <style>
