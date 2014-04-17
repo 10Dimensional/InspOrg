@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
@@ -24,9 +23,6 @@
 <?php wp_head() ?></head>
 <body id="homes_thanks">
 <!-- Google Code for Search for Homes (Website) Conversion Page -->
-=======
-	<!-- Google Code for Search for Homes (Website) Conversion Page -->
->>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 974801844;

@@ -25,15 +25,8 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
                 $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );                
-=======
->>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );
-                
->>>>>>> 8c6b6ce2ad06e9b554400b0e778faaf97e2cebab
                 
                 ?>
 <!DOCTYPE html>
