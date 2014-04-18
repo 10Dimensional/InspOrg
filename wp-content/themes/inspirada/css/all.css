@@ -1677,6 +1677,7 @@ Fmedia{
 }
 .content-section .alignleft{
 	margin:0 37px 0 0;
+	margin-bottom: 30px;
 }
 .content-section .alignright{
 	margin:0 0 0 37px;
@@ -1686,6 +1687,10 @@ Fmedia{
 	color:#fff;
 	text-align:center;
 	margin:0 0 33px;
+}
+
+.content-section .statistics-block h1 {
+	margin-bottom: 0px;
 }
 
 h1.mango {
@@ -1969,7 +1974,7 @@ h2.mango3 {
 	float:left;
 	width:509px;
 	padding:9px 24px 6px 0;
-	margin:7px 50px 0 0;
+	margin:-20px 50px 0 0;
 	border:1px solid #898674;
 	border-width:0 2px 0 0;
 	color: black;
