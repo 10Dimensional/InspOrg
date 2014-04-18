@@ -11,9 +11,6 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
-<<<<<<< HEAD
-
-=======
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
        <script type="text/javascript" src="//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js"></script> 
 <!--       	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
@@ -70,13 +67,8 @@ var map = L.map('map', {
 	minZoom: 2,
 	maxZoom: 4
 	});
-<<<<<<< HEAD
-var baselayer = L.tileLayer('http://166.78.0.133:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
-map.setView([-77, 22.763671875], 4);
-=======
 var baselayer = L.tileLayer('http://23.253.101.150:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
 map.setView([-70, 22.763671875], 4);
->>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
