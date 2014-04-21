@@ -171,9 +171,11 @@ function post_to_third_party($entry, $form)
     	generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
 	}
 	
+/*
 	if (in_array('beazer homes', $builders)) {
     	generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
 	}
+*/
 	
 	if (in_array('toll brothers', $builders)) {
     	generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);

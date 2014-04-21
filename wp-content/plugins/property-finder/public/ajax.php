@@ -250,7 +250,6 @@
         
         $xmlobj = new SimpleXMLElement($xml);
         $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
-        
             
         // open some file for reading
         $file = 'wp-content/plugins/property-finder/public/export/'.time().'.xml';
