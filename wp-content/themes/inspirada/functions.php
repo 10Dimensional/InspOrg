@@ -286,24 +286,25 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     
     // open some file for reading
     $file = 'wp-content/plugins/property-finder/public/export/'.time().'.xml';
-    $fp = fopen($file, 'r');
+    
+    
+    // open some file for reading
+    $file = $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/public/export/'.time().'.xml';
+  
     
     // set up basic connection
     $conn_id = ftp_connect('64.94.4.105');
-    
     if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
-        if (ftp_fput($conn_id, $file, $fp, FTP_ASCII)) {
-            $msg = "Successfully uploaded $file\n";
+        if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
+            $msg = true;
         } else {
-            $msg = "There was a problem while uploading $file\n";
+            $msg = error_get_last();
         }
     } else {
         echo "Couldn't connect as $ftp_user\n";
-    }
-    
+   } 
     // close the connection and the file handler
     ftp_close($conn_id);
-    fclose($fp);
 
     return $msg;
 }

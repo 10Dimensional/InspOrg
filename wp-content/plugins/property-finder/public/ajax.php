@@ -67,7 +67,7 @@
                 $use_email = $beazer_email;
                 $use_array = $beazer_array;
                 
-                print_r(generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number));
+                generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number);
             }
             
             if ($builder === 'pardee homes') {
@@ -259,7 +259,7 @@
         $conn_id = ftp_connect('64.94.4.105');
         if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
             if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
-                $msg = "Successfully uploaded $file\n";
+                $msg = true;
             } else {
                 $msg = error_get_last();
             }
