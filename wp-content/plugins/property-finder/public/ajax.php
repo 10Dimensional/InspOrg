@@ -252,7 +252,7 @@
         $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
             
         // open some file for reading
-        $file = '/wp-content/plugins/property-finder/public/export/'.time().'.xml';
+        $file = $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/public/export/'.time().'.xml';
       
         
         // set up basic connection
