@@ -247,19 +247,11 @@
         $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
         $xml .= '</lead>'.PHP_EOL;
         $xml .= '</hsleads>';
-    
-    
-    	// Format Message
-    	$body = '';
-    
-        $mime = new Mail_mime();
-        $mime->setHTMLBody($body);
         
         $xmlobj = new SimpleXMLElement($xml);
         $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
         
-        $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml', 'text/xml'); 
-    
+            
         // open some file for reading
         $file = 'wp-content/plugins/property-finder/public/export/'.time().'.xml';
         $fp = fopen($file, 'r');
