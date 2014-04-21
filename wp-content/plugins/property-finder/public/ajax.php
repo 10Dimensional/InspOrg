@@ -4,8 +4,8 @@
     
     if ($_POST['type'] === 'info') {
         // Request Info
-        $requested_properties = (isset($_POST['request_info'])) ? $_POST['request_info'] : array();
-        $properties = $wpdb->get_results('SELECT * FROM ap_properties WHERE id IN ('.implode(',', array_map('intval', $requested_properties)).')');
+        $requested_properties = (isset($_POST['request_info'])) ? $_POST['request_info'] : false;
+        $properties = ($requested_properties) ? $wpdb->get_results('SELECT * FROM ap_properties WHERE id IN ('.implode(',', array_map('intval', $requested_properties)).')') : array();
         $beazer_array = array();
         $kb_array = array();
         $pardee_array = array();
