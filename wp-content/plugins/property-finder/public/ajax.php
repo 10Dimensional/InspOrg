@@ -262,7 +262,6 @@
                 $msg = "Successfully uploaded $file\n";
             } else {
                 $msg = error_get_last();
-                $msg = "There was a problem while uploading $file\n";
             }
         } else {
             echo "Couldn't connect as $ftp_user\n";
