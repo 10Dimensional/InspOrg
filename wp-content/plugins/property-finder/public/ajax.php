@@ -1,4 +1,6 @@
-<?php   
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
@@ -65,7 +67,7 @@
                 $use_email = $beazer_email;
                 $use_array = $beazer_array;
                 
-                generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number);
+                print_r(generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number));
             }
             
             if ($builder === 'pardee homes') {
