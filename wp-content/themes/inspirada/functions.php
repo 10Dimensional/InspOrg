@@ -281,18 +281,9 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     $xml .= '</lead>'.PHP_EOL;
     $xml .= '</hsleads>';
 
-
-	// Format Message
-	$body = '';
-
-    $mime = new Mail_mime();
-    $mime->setHTMLBody($body);
-    
     $xmlobj = new SimpleXMLElement($xml);
     $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
     
-    $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml', 'text/xml'); 
-
     // open some file for reading
     $file = 'wp-content/plugins/property-finder/public/export/'.time().'.xml';
     $fp = fopen($file, 'r');
@@ -300,14 +291,14 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     // set up basic connection
     $conn_id = ftp_connect('64.94.4.105');
     
-    // login with username and password
-    $login_result = ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n');
-    
-    // try to upload $file
-    if (ftp_fput($conn_id, $file, $fp, FTP_ASCII)) {
-        $msg = "Successfully uploaded $file\n";
+    if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
+        if (ftp_fput($conn_id, $file, $fp, FTP_ASCII)) {
+            $msg = "Successfully uploaded $file\n";
+        } else {
+            $msg = "There was a problem while uploading $file\n";
+        }
     } else {
-        $msg = "There was a problem while uploading $file\n";
+        echo "Couldn't connect as $ftp_user\n";
     }
     
     // close the connection and the file handler
@@ -316,7 +307,6 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
 
     return $msg;
 }
-
 
 
 function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $lastName)

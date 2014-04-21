@@ -1,4 +1,6 @@
-<?php   
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
@@ -17,7 +19,7 @@
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
-        $community_number = '';
+        $community_number = 0;
 
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
@@ -65,7 +67,7 @@
                 $use_email = $beazer_email;
                 $use_array = $beazer_array;
                 
-                generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number);
+                print_r(generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number));
             }
             
             if ($builder === 'pardee homes') {
@@ -246,35 +248,24 @@
         $xml .= '</lead>'.PHP_EOL;
         $xml .= '</hsleads>';
     
-    
-    	// Format Message
-    	$body = '';
-    
-        $mime = new Mail_mime();
-        $mime->setHTMLBody($body);
-        
         $xmlobj = new SimpleXMLElement($xml);
         $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
-        
-        $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml', 'text/xml'); 
-    
+            
         // open some file for reading
         $file = 'wp-content/plugins/property-finder/public/export/'.time().'.xml';
         $fp = fopen($file, 'r');
         
         // set up basic connection
         $conn_id = ftp_connect('64.94.4.105');
-        
-        // login with username and password
-        $login_result = ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n');
-        
-        // try to upload $file
-        if (ftp_fput($conn_id, $file, $fp, FTP_ASCII)) {
-            $msg = "Successfully uploaded $file\n";
+        if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
+            if (ftp_fput($conn_id, $file, $fp, FTP_ASCII)) {
+                $msg = "Successfully uploaded $file\n";
+            } else {
+                $msg = "There was a problem while uploading $file\n";
+            }
         } else {
-            $msg = "There was a problem while uploading $file\n";
-        }
-        
+            echo "Couldn't connect as $ftp_user\n";
+       } 
         // close the connection and the file handler
         ftp_close($conn_id);
         fclose($fp);
