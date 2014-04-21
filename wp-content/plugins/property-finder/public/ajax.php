@@ -258,14 +258,12 @@
         // set up basic connection
         $conn_id = ftp_connect('64.94.4.105');
         if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
-            print_r(ftp_put($conn_id, time().'.xml', $file, FTP_ASCII));
-            /*
-if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
+            if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
                 $msg = "Successfully uploaded $file\n";
             } else {
+                $msg = error_get_last();
                 $msg = "There was a problem while uploading $file\n";
             }
-*/
         } else {
             echo "Couldn't connect as $ftp_user\n";
        } 
