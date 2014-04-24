@@ -208,9 +208,9 @@ jquery(".info-table tr:even").css('background-color','#295585');
                     <div class="holder">
                         <div class="info-block">
                             <div class="scrollable-area">
-                                <h1>Not Ready To Choose?</h1>
-                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>                                                                
-<a class="button reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Send Me Information']);" data-toggle="modal" data-target="#requestInfo">SEND ME INFORMATION</a>                           
+                                <h1>Download your info</h1>
+                                <p>When you are ready to download your info, click the download button below.</p>                                                                
+<a class="button reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Send Me Information']);" data-toggle="modal" data-target="#requestInfo">Download Now</a>                           
                             </div>
                         </div>
                         <div class="table-block">
@@ -244,32 +244,32 @@ jquery(".info-table tr:even").css('background-color','#295585');
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Bdrms</span>
+                                                    <th><span>BDs</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Baths</span>
+                                                    <th><span>BAs</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th class="hide-mobile"><span>Stories</span>
+                                                    <th class="hide-mobile"><span>ST</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th class="hide-mobile"><span>Garages</span>
+                                                    <th class="hide-mobile"><span>GAR</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Images</span></th>
-                                                    <th><span>Interested?</span></th>
+                                                    <th><span>Floorplans & Pricing (info pack)</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="result_body">
@@ -322,7 +322,7 @@ jquery(".info-table tr:even").css('background-color','#295585');
                                                                         break;
                                                                 } ?>
                                                             </td>
-                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
+                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /> Add to download cart</td>
                                                         </tr>
                                                     <?php } ?>                                 
                                                 

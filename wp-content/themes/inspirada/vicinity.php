@@ -43,6 +43,10 @@
 			<section class="vicinity-section" style="min-height:1060px;">
                 <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
                     <section>
+                        <h1>Where's Inspirada?</h1>
+                        <img src="<?php bloginfo('template_url') ?>/images/wheresinspirada.png">
+                    </section>
+                    <section>
                         <h1>Builders</h1>
                         <ul class="accordion builders-list">
                             <li class="style-1">
@@ -356,10 +360,11 @@ function addLayer(layer, name, zIndex) {
     //ui.appendChild(item);
 }
 </script>
-<aside id="sidebar-vicinity" class="main-col"><div class="vicinity-box">
+<aside id="sidebar-vicinity" class="main-col"><!--<div class="vicinity-box">
 <h2>Nearby</h2>
 						<?php if ( ! dynamic_sidebar('vicinity-sidebar') ) : ?>
-		<?php endif; ?></div>
+		<?php endif; ?> </div> -->
+		<img style="width:100%;" src="<?php bloginfo('template_url') ?>/images/whatsnearby.png">
 
 </aside>
 

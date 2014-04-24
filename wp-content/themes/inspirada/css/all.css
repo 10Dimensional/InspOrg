@@ -1259,7 +1259,7 @@ border: 1px #295585 solid;
 .info-table th{
 	vertical-align:top;
 	padding:8px 5px 8px 7px;
-	font:13px/18px 'roboto_slabbold', 'Times New Roman', Times, serif;
+	font:12px/18px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-align:left;
 	color:#fff;
 	background:#003056;
@@ -3447,7 +3447,8 @@ overflow: hidden;
 		width: 80% 
 		}
 	.events-section .box {
-		width: 20%
+		height: 360px !important;
+		margin-bottom: 20px !important;
 		}
 	#main {
 		width: 90%
@@ -3696,11 +3697,17 @@ overflow: hidden;
 		padding:30px 5px;
 	}
 	#content,
-	#sidebar{
+	#sidebar, #sidebar-builders{
 		float:none;
 		width:auto;
 		padding:10px 0;
 		height:auto !important;
+		clear: both;
+		margin: 0 auto;
+	}
+	#sidebar-builders {
+		width: 30%;
+		border-left: none;
 	}
 	#content:after,
 	#sidebar:after{
@@ -3948,6 +3955,8 @@ overflow: hidden;
 	.events-section .box{
 		width:33.33334%;
 		padding:0 0 20px 20px;
+		height: 360px !important;
+		margin-bottom: 20px !important;
 	}
 	.families-lightbox{
 		width:768px;
