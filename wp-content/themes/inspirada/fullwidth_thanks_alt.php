@@ -19,7 +19,7 @@
                 $sq_ft_max = ($_GET['sqft'] === 'over 5,000 sq ft') ? 99999999999 : $sqft[1];
                 
 
-                $where_clause = 'WHERE beds_min >= '.$bedrooms.' AND sq_ft >= '.$sq_ft_min.' AND sq_ft <= '.$sq_ft_max;    
+                $where_clause = 'WHERE beds_min >= "'.$bedrooms.'" AND sq_ft >= '.$sq_ft_min.' AND sq_ft <= '.$sq_ft_max;    
                 
                 if ($builder) {
                     $where_clause .= " AND builder IN ('".implode("','",$builder).'\')';
