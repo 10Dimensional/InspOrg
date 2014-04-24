@@ -1,34 +1,22 @@
 <?php
-                /*
-                	Template Name: Full Width Thank You Alternate
-                */ 
-                
-                $price = explode('to', str_replace(',', '', str_replace('$', '', $_GET['price_range'])));
-                $sqft = explode('to', str_replace(',', '', str_replace('sq ft', '', $_GET['sqft'])));
-                $bedrooms = intval(str_replace('+', '', $_GET['bedrooms']));
-                echo 'bedrooms... ';
-                print_r($bedrooms);
-                
-                $property_id = array();
-                $price_min = ($_GET['price_range'] === 'below $200,000') ? 0 : $price[0];
-                
-                $price_max = ($_GET['price_range'] === 'over $500,000') ? 999999999 : (($_GET['price_range'] === 'below $200,000') ? 199999 : $price[1]);
+/*
+	Template Name: Full Width Thank You Alternate
+*/ 
+
+    $price = explode('to', str_replace(',', '', str_replace('$', '', $_GET['price_range'])));
+    $sqft = str_replace(',', '', str_replace('+ sq ft', '', $_GET['sqft']));
+    $bedrooms = intval(str_replace('+', '', $_GET['bedrooms']));
     
-                $builder = (!isset($_GET['builder'])) ? false : $_GET['builder'];
-                $sq_ft_min = ($_GET['sqft'] === 'over 5,000 sq ft') ? 5000 : $sqft[0];
-                $sq_ft_max = ($_GET['sqft'] === 'over 5,000 sq ft') ? 99999999999 : $sqft[1];
-                
-
-                $where_clause = 'WHERE beds_min >= "'.$bedrooms.'" AND sq_ft >= '.$sq_ft_min.' AND sq_ft <= '.$sq_ft_max;    
-                
-                if ($builder) {
-                    $where_clause .= " AND builder IN ('".implode("','",$builder).'\')';
-                }
-                
-                                
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
-
-                ?>
+    $property_id = array();
+    $builder = (!isset($_GET['builder'])) ? false : $_GET['builder'];                
+    $where_clause = 'WHERE beds_min >= "'.$bedrooms.'" AND sq_ft >= '.$sqft;    
+    
+    if ($builder) {
+        $where_clause .= " AND builder IN ('".implode("','",$builder).'\')';
+    }
+    
+    $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
+?>
 <!DOCTYPE html>
 <html>
 <head>
