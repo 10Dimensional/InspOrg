@@ -5,8 +5,8 @@
                 
                 $price = explode('to', str_replace(',', '', str_replace('$', '', $_GET['price_range'])));
                 $sqft = explode('to', str_replace(',', '', str_replace('sq ft', '', $_GET['sqft'])));
-                $bedrooms = $_GET['bedrooms'];
-                echo 'bedrooms: ';
+                $bedrooms = intval(str_replace('+', '', $_GET['bedrooms']));
+                echo 'bedrooms... ';
                 print_r($bedrooms);
                 
                 $property_id = array();
