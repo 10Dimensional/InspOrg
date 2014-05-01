@@ -651,7 +651,6 @@ margin-left: 7%;
 	max-width:1001px;
 	margin:157px auto 96px;
 	overflow:hidden;
-	border:1px solid #fff;
 }
 .vicinity-section .panel{
 	float:left;
@@ -4877,7 +4876,6 @@ line-height: 1em;
 #sidebar-vicinity{
 	float:right;
 	width:250px;
-	border:1px solid #fff;
 	padding:0 0 0 21px;
 	border-width:0 0 0 1px;
 	-moz-box-sizing: border-box;

@@ -44,7 +44,7 @@
                 <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
                     <section>
                         <h1>Where's Inspirada?</h1>
-                        <img src="<?php bloginfo('template_url') ?>/images/wheresinspirada.png">
+                        <a href="#" data-toggle="modal" data-target="#wheresinspirada"><img src="<?php bloginfo('template_url') ?>/images/wheresinspirada.png"></a>
                     </section>
                     <section>
                         <h1>Builders</h1>
@@ -410,6 +410,16 @@ function addLayer(layer, name, zIndex) {
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="wheresinspirada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="float: none; width: 100%; margin-left: 40%;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <img src="<?php bloginfo('template_url') ?>/images/wheresinspiradabig.png">
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

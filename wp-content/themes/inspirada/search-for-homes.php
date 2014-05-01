@@ -59,9 +59,6 @@ list-style-type: disc;
 }
 img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
 </style>
-<script>
-jquery(".info-table tr:even").css('background-color','#295585');
-</script>
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper" style="background: white;">
@@ -209,7 +206,7 @@ jquery(".info-table tr:even").css('background-color','#295585');
                         <div class="info-block">
                             <div class="scrollable-area">
                                 <h1>Download your info</h1>
-                                <p>When you are ready to download your info, click the download button below.</p>                                                                
+                                <h3><div id="builder-count"></div></h3><p>When you are ready to download your info, click the download button below.</p>                                                                
 <a class="button reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Send Me Information']);" data-toggle="modal" data-target="#requestInfo">Download Now</a>                           
                             </div>
                         </div>

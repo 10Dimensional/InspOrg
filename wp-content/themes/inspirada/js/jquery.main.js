@@ -28,6 +28,7 @@ jQuery(window).load(function(){
 	initSliderBlocks();
 	initTabs();
 	jQuery('.range-block').slider();
+	countChecked();
 });
 
 
@@ -483,6 +484,13 @@ function initTabs() {
 	jQuery(".tabs a").click(function (e) {
 		e.preventDefault()
 		$(this).tab('show');
+	});
+}
+
+function countChecked() {
+	jQuery('#result_body input').on('click', function() {
+		var n = jQuery( "#result_body input:checked" ).length;
+		jQuery('#builder-count').html(n);
 	});
 }
 
