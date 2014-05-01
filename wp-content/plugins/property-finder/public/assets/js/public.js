@@ -96,7 +96,7 @@ var map = '',
                         return f.properties.category === 'Parks';
                     }).addTo(map);
                     
-                    console.log(response.results);
+                    console.log(response);
                     
                     for (var b in response.builders) {
                         
