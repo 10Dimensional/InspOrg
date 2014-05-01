@@ -92,7 +92,9 @@ var map = '',
                     markerLayer.setFilter(function(f) {
                         return f.properties.category === 'Parks';
                     }).addTo(map);
-
+                    
+                    console.log(response.results);
+                    
                     for (var b in response.builders) {
                         
                         if (builder_layers[response.builders[b]]) {
