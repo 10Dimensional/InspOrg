@@ -488,7 +488,7 @@ function initTabs() {
 }
 
 function countChecked() {
-	jQuery('#result_body input').on('click', function() {
+	jQuery(document).on('click', '#result_body input', function() {
 		var n = jQuery( "#result_body input:checked" ).length;
 		jQuery('#builder-count').html(n);
 	});

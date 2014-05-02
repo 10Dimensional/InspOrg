@@ -122,7 +122,9 @@
         $stories = ($_POST['stories'] === 0) ? false : $_POST['stories'];
         $sq_ft = ($_POST['sq_ft']) ? $_POST['sq_ft'] : 0;
         $garage_bays = ($_POST['garage_bays'] === 0) ? false : $_POST['garage_bays'];
-                
+        $builder_results = array();
+        
+        
         $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
         
         if ($builder) {
@@ -165,10 +167,15 @@
                 <td><a href="#" data-toggle="modal" data-target="#'.str_replace(' ', '', $property->model).'">View</a></td>
                 <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /></td>
             </tr>';
+            
+            if (!in_array($property->builder, $builder_results)) {
+                $builder_results[] = $property->builder;
+            }
+            
             $result_count++;
         }
         
-        print_r(json_encode(array('count' => $result_count, 'builders' => $builder, 'results' => $result_data)));   
+        print_r(json_encode(array('count' => $result_count, 'builders' => $builder, 'builder_results' => $builder_results, 'results' => $result_data)));   
     }
     
     

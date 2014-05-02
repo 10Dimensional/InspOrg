@@ -187,6 +187,10 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !im
                                
                                 </div>
                             </div>
+                            <div class="rad-holder">
+                                <input id="future" type="checkbox" name="show_future" value="true" />
+                                <label for="future">Show Future Properties</label>
+                            </div>
 
                             <input type="submit" value="FILTER" />
                             <div class="matches-counter">
@@ -206,7 +210,7 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !im
                         <div class="info-block">
                             <div class="scrollable-area">
                                 <h1>Download your info</h1>
-                                <h3><div id="builder-count"></div></h3><p>When you are ready to download your info, click the download button below.</p>                                                                
+                                <h3><div id="builder-count" style="width: 20px; float: left;">0</div><span style="font-size: 18px;">items in cart</span></h3><p>When you are ready to download your info, click the download button below.</p>                                                                
 <a class="button reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Send Me Information']);" data-toggle="modal" data-target="#requestInfo">Download Now</a>                           
                             </div>
                         </div>
