@@ -1,16 +1,24 @@
 var map = '',
     builder_layers = {
         'Beazer': 'http://23.253.101.150:8888/v2/beazer/{z}/{x}/{y}.png',
-        'KB Home': 'http://23.253.101.150:8888/v2/kb/{z}/{x}/{y}.png',
-        'KB2014': 'http://166.78.0.133:8888/v2/kb2014/{z}/{x}/{y}.png',
+        'KB HOME': 'http://23.253.101.150:8888/v2/kb/{z}/{x}/{y}.png',
         'Necessities': 'http://23.253.101.150:8888/v2/neccessities/{z}/{x}/{y}.png',
         'Pardee': 'http://23.253.101.150:8888/v2/pardee/{z}/{x}/{y}.png',
-        'Pardee2014': 'http://166.78.0.133:8888/v2/pardee2014/{z}/{x}/{y}.png',
         'Parks': 'http://23.253.101.150:8888/v2/parks/{z}/{x}/{y}.png',
         'Pools': 'http://23.253.101.150:8888/v2/pools/{z}/{x}/{y}.png',
         'schools': 'http://23.253.101.150:8888/v2/schools/{z}/{x}/{y}.png',
         'Toll Brothers': 'http://23.253.101.150:8888/v2/toll/{z}/{x}/{y}.png',
-        'Toll2014': 'http://166.78.0.133:8888/v2/toll2014/{z}/{x}/{y}.png',
+        'Trails': 'http://23.253.101.150:8888/v2/trails/{z}/{x}/{y}.png'
+    },
+    builder_active_layers = {
+        'Beazer': 'http://23.253.101.150:8888/v2/beazer/{z}/{x}/{y}.png',
+        'KB HOME': 'http://166.78.0.133:8888/v2/kb2014/{z}/{x}/{y}.png',
+        'Necessities': 'http://23.253.101.150:8888/v2/neccessities/{z}/{x}/{y}.png',
+        'Pardee': 'http://166.78.0.133:8888/v2/pardee2014/{z}/{x}/{y}.png',
+        'Parks': 'http://23.253.101.150:8888/v2/parks/{z}/{x}/{y}.png',
+        'Pools': 'http://23.253.101.150:8888/v2/pools/{z}/{x}/{y}.png',
+        'schools': 'http://23.253.101.150:8888/v2/schools/{z}/{x}/{y}.png',
+        'Toll Brothers': 'http://166.78.0.133:8888/v2/toll2014/{z}/{x}/{y}.png',
         'Trails': 'http://23.253.101.150:8888/v2/trails/{z}/{x}/{y}.png'
     };
     
@@ -87,6 +95,7 @@ var map = '',
                 data: str,
                 dataType: 'json',
                 success: function(response) {
+                    console.log(response);
                     mapgroup.clearLayers();
                     mapgroup.addLayer(L.tileLayer(builder_layers.Parks), 'Parks', 1);
                     mapgroup.addLayer(L.tileLayer(builder_layers.Necessities), 'Necessities', 1);
@@ -95,16 +104,31 @@ var map = '',
                     markerLayer.setFilter(function(f) {
                         return f.properties.category === 'Parks';
                     }).addTo(map);
+                                        
+                    var loop_key = response.builder_results;
                     
-                    console.log(response);
-                    
-                    for (var b in response.builders) {
-                        
-                        if (builder_layers[response.builders[b]]) {
-                            mapgroup.addLayer(L.tileLayer(builder_layers[response.builders[b]]), b, 1);
+                    if ($('#future').is(':checked')) {
+                        if ($('#radio-01').is(':checked') || !response.builders) {
+                            loop_key.push('Beazer');
                         }
                         
-                        if (response.builders[b] === 'Beazer') {
+                        if ($('#radio-03').is(':checked') || !response.builders) {
+                            loop_key.push('Pardee');
+                        }
+                    }
+                    
+                    for (var b = 0; b < loop_key.length; b++) {
+                        if ($('#future').is(':checked')) {
+                            if (builder_layers[loop_key[b]]) {
+                                mapgroup.addLayer(L.tileLayer(builder_layers[loop_key[b]]), b, 1);
+                            }
+                        } else {
+                            if (builder_active_layers[loop_key[b]]) {
+                                mapgroup.addLayer(L.tileLayer(builder_active_layers[loop_key[b]]), b, 1);
+                            }
+                        }
+                        
+                        if (loop_key[b] === 'Beazer') {
                             markerLayer.setFilter(function(f) {
                                 return f.properties['title'] === 'Beazer Available 2015'; 
                             })
@@ -118,8 +142,8 @@ var map = '',
                             });
                         }
                         
- 
-                        if (response.builders[b] === 'KB Home') {
+                        if (loop_key[b] === 'KB HOME') {
+                        
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
                             markerLayer.options.sanitizer = function(x) { return x; };
                                 markerLayer.setFilter(function(f) {
@@ -133,7 +157,7 @@ var map = '',
                             });
                         }
                         
-                        if (response.builders[b] === 'Pardee') {
+                        if (loop_key[b] === 'Pardee') {
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.setFilter(function(f) {
@@ -148,10 +172,10 @@ var map = '',
                             });
                         }
                         
-                        if (response.builders[b] === 'Toll Brothers') {
+                        if (loop_key[b] === 'Toll Brothers') {
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
                             markerLayer.options.sanitizer = function(x) { return x; };
-                           markerLayer.setFilter(function(f) {
+                            markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
                                 })
                             .addTo(map);
@@ -163,7 +187,7 @@ var map = '',
                             });
                         }
                         
-                        if (response.builders[b] === 'Necessities') {
+                        if (loop_key[b] === 'Necessities') {
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
                             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function(f) {
@@ -178,7 +202,7 @@ var map = '',
                             });
                         }
                         
-                        if (response.builders[b] === 'Trails') {
+                        if (loop_key[b] === 'Trails') {
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function(f) {
@@ -194,7 +218,7 @@ var map = '',
                             });
                         }
                         
-                        if (response.builders[b] === 'Parks') {
+                        if (loop_key[b] === 'Parks') {
                             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function (f) { 
@@ -203,14 +227,7 @@ var map = '',
     			            .addTo(map);
                             markerLayer.options.sanitizer = function(x) { return x; };
                         }
-                        
-                        
-                        
-                     
-                        
-
                     }
-
 
                     $('.matches-counter .number').text(response.count);
                     $('#result_body').html(response.results);
