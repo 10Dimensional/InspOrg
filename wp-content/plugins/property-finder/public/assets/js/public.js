@@ -74,6 +74,14 @@ var map = '',
             
         }
 
+        $('.radio-area input[type="checkbox"]').click(function() {
+            if ($('.radio-area input[type="checkbox"]:checked').length) {
+                $('#future_shell').html('<input id="future" type="checkbox" name="show_future" value="true" /> <label for="future">Show Future Properties</label>');
+            } else {
+                $('#future_shell').html('');
+            }
+        });
+
         $('#requestInfo').on('hidden.bs.modal', function (e) {
             $('#requestInfo .step1').show();
             $('#requestInfo .step2').hide();
@@ -95,15 +103,18 @@ var map = '',
                 data: str,
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response);
                     mapgroup.clearLayers();
+                    
                     mapgroup.addLayer(L.tileLayer(builder_layers.Parks), 'Parks', 1);
                     mapgroup.addLayer(L.tileLayer(builder_layers.Necessities), 'Necessities', 1);
                     var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                    
                     markerLayer.options.sanitizer = function(x) { return x; };
                     markerLayer.setFilter(function(f) {
                         return f.properties.category === 'Parks';
-                    }).addTo(map);
+                    });
+                    
+                    mapgroup.addLayer(markerLayer);
                                         
                     var loop_key = response.builder_results,
                         markerJson = '/wp-content/themes/inspirada/active-markers-2014.geojson';
@@ -133,8 +144,8 @@ var map = '',
                         if (loop_key[b] === 'Beazer') {
                             markerLayer.setFilter(function(f) {
                                 return f.properties['title'] === 'Beazer Available 2015'; 
-                            })
-                            .addTo(map);
+                            });
+                            mapgroup.addLayer(markerLayer);
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
@@ -150,7 +161,8 @@ var map = '',
                             markerLayer.options.sanitizer = function(x) { return x; };
                                 markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'KB Future Development' || f.properties['title'] === 'KB Currently Selling' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Fall 2014' || f.properties['title'] === 'KB Home Model Center'; 
-                                }).addTo(map);
+                                });
+                                mapgroup.addLayer(markerLayer);
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             });
@@ -164,8 +176,8 @@ var map = '',
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available June 2014'; 
-                                })
-                            .addTo(map);
+                                });
+                            mapgroup.addLayer(markerLayer);
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             })
@@ -179,8 +191,8 @@ var map = '',
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
-                                })
-                            .addTo(map);
+                                });
+                            mapgroup.addLayer(markerLayer);
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             });
@@ -194,8 +206,8 @@ var map = '',
                             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function(f) {
                             return f.properties['title'] === 'Necessities'; 
-                                })
-                            .addTo(map);
+                                });
+                            mapgroup.addLayer(markerLayer);
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             });
@@ -209,8 +221,8 @@ var map = '',
             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function(f) {
                             return f.properties['title'] === 'Trails' || f.properties['title'] === 'Open Space'; 
-                                })
-                            .addTo(map);
+                                });
+                            mapgroup.addLayer(markerLayer);
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
@@ -225,8 +237,8 @@ var map = '',
             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function (f) { 
     				   		   return f.properties['title'] === 'Aventura Park' || f.properties['title'] === 'Future Park' || f.properties['title'] === 'Capriola Park (Under construction)' || f.properties['title'] === 'Potenza Park (Under construction)'|| f.properties['title'] === 'Solista Park (Completed)'; 
-    				        })
-    			            .addTo(map);
+    				        });
+    			            mapgroup.addLayer(markerLayer);
                             markerLayer.options.sanitizer = function(x) { return x; };
                         }
                     }
