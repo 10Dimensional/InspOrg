@@ -105,9 +105,11 @@ var map = '',
                         return f.properties.category === 'Parks';
                     }).addTo(map);
                                         
-                    var loop_key = response.builder_results;
+                    var loop_key = response.builder_results,
+                        markerJson = '/wp-content/themes/inspirada/active-markers-2014.geojson';
                     
                     if ($('#future').is(':checked')) {
+                        markerJson = '/wp-content/themes/inspirada/markers.geojson';
                         if ($('#radio-01').is(':checked') || !response.builders) {
                             loop_key.push('Beazer');
                         }
@@ -144,7 +146,7 @@ var map = '',
                         
                         if (loop_key[b] === 'KB HOME') {
                         
-                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
                             markerLayer.options.sanitizer = function(x) { return x; };
                                 markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'KB Future Development' || f.properties['title'] === 'KB Currently Selling' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Summer 2014' || f.properties['title'] === 'KB Available Fall 2014' || f.properties['title'] === 'KB Home Model Center'; 
@@ -158,7 +160,7 @@ var map = '',
                         }
                         
                         if (loop_key[b] === 'Pardee') {
-                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available June 2014'; 
@@ -173,7 +175,7 @@ var map = '',
                         }
                         
                         if (loop_key[b] === 'Toll Brothers') {
-                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.setFilter(function(f) {
                                     return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
@@ -188,7 +190,7 @@ var map = '',
                         }
                         
                         if (loop_key[b] === 'Necessities') {
-                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
                             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function(f) {
                             return f.properties['title'] === 'Necessities'; 
@@ -203,7 +205,7 @@ var map = '',
                         }
                         
                         if (loop_key[b] === 'Trails') {
-                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function(f) {
                             return f.properties['title'] === 'Trails' || f.properties['title'] === 'Open Space'; 
@@ -219,7 +221,7 @@ var map = '',
                         }
                         
                         if (loop_key[b] === 'Parks') {
-                            var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
+                            var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
             markerLayer.options.sanitizer = function(x) { return x; };
                            markerLayer.setFilter(function (f) { 
     				   		   return f.properties['title'] === 'Aventura Park' || f.properties['title'] === 'Future Park' || f.properties['title'] === 'Capriola Park (Under construction)' || f.properties['title'] === 'Potenza Park (Under construction)'|| f.properties['title'] === 'Solista Park (Completed)'; 
