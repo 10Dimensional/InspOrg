@@ -187,10 +187,7 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !im
                                
                                 </div>
                             </div>
-                            <div class="rad-holder">
-                                <input id="future" type="checkbox" name="show_future" value="true" />
-                                <label for="future">Show Future Properties</label>
-                            </div>
+                            <div id="future_shell" class="rad-holder"></div>
 
                             <input type="submit" value="FILTER" />
                             <div class="matches-counter">

@@ -97,6 +97,7 @@ margin-top: 0px;">
           <img src="<?php bloginfo('template_url') ?>/images/signupheader.png" style="width: 100%">
       <br><br>
                <?php gravity_form(9, false, false, false, '', false); ?>
+               
           </div>
       </div>
   </div>
