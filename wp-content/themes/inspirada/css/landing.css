@@ -4718,10 +4718,7 @@ img.aligncenter{
 }
 .landing ol li:before,
 .landing ol .num {
-<<<<<<< HEAD
 	display: none;
-=======
->>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
 	float: left;
 	background: #5d8528;
 	font: 18px/21px 'roboto_slabbold', Arial, Helvetica, sans-serif;

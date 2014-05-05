@@ -1,7 +1,7 @@
 <script type="text/javascript">
 <!--
-if (screen.width <= 699) {
-document.location = "/mobile/index.html";
+if (screen.width <= 699 && document.cookie.indexOf('nomobile') == -1) {
+	document.location = "/mobile/index.html";
 }
 //-->
 </script>

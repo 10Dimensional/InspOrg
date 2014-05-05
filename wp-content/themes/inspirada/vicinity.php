@@ -43,6 +43,10 @@
 			<section class="vicinity-section" style="min-height:1060px;">
                 <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
                     <section>
+                        <h1>Where's Inspirada?</h1>
+                        <a href="#" data-toggle="modal" data-target="#wheresinspirada"><img src="<?php bloginfo('template_url') ?>/images/wheresinspirada.png"></a>
+                    </section>
+                    <section>
                         <h1>Builders</h1>
                         <ul class="accordion builders-list">
                             <li class="style-1">
@@ -356,10 +360,11 @@ function addLayer(layer, name, zIndex) {
     //ui.appendChild(item);
 }
 </script>
-<aside id="sidebar-vicinity" class="main-col"><div class="vicinity-box">
+<aside id="sidebar-vicinity" class="main-col"><!--<div class="vicinity-box">
 <h2>Nearby</h2>
 						<?php if ( ! dynamic_sidebar('vicinity-sidebar') ) : ?>
-		<?php endif; ?></div>
+		<?php endif; ?> </div> -->
+		<img style="width:100%;" src="<?php bloginfo('template_url') ?>/images/whatsnearby.png">
 
 </aside>
 
@@ -405,6 +410,16 @@ function addLayer(layer, name, zIndex) {
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="wheresinspirada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="float: none; width: 100%; margin-left: 40%;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <img src="<?php bloginfo('template_url') ?>/images/wheresinspiradabig.png">
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

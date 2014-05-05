@@ -2,12 +2,15 @@ var map = '',
     builder_layers = {
         'Beazer': 'http://23.253.101.150:8888/v2/beazer/{z}/{x}/{y}.png',
         'KB Home': 'http://23.253.101.150:8888/v2/kb/{z}/{x}/{y}.png',
+        'KB2014': 'http://166.78.0.133:8888/v2/kb2014/{z}/{x}/{y}.png',
         'Necessities': 'http://23.253.101.150:8888/v2/neccessities/{z}/{x}/{y}.png',
         'Pardee': 'http://23.253.101.150:8888/v2/pardee/{z}/{x}/{y}.png',
+        'Pardee2014': 'http://166.78.0.133:8888/v2/pardee2014/{z}/{x}/{y}.png',
         'Parks': 'http://23.253.101.150:8888/v2/parks/{z}/{x}/{y}.png',
         'Pools': 'http://23.253.101.150:8888/v2/pools/{z}/{x}/{y}.png',
         'schools': 'http://23.253.101.150:8888/v2/schools/{z}/{x}/{y}.png',
         'Toll Brothers': 'http://23.253.101.150:8888/v2/toll/{z}/{x}/{y}.png',
+        'Toll2014': 'http://166.78.0.133:8888/v2/toll2014/{z}/{x}/{y}.png',
         'Trails': 'http://23.253.101.150:8888/v2/trails/{z}/{x}/{y}.png'
     };
     

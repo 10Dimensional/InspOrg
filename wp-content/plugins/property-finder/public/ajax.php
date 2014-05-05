@@ -1,11 +1,13 @@
-<?php   
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
     if ($_POST['type'] === 'info') {
         // Request Info
-        $requested_properties = (isset($_POST['request_info'])) ? $_POST['request_info'] : array();
-        $properties = $wpdb->get_results('SELECT * FROM ap_properties WHERE id IN ('.implode(',', array_map('intval', $requested_properties)).')');
+        $requested_properties = (isset($_POST['request_info'])) ? $_POST['request_info'] : false;
+        $properties = ($requested_properties) ? $wpdb->get_results('SELECT * FROM ap_properties WHERE id IN ('.implode(',', array_map('intval', $requested_properties)).')') : array();
         $beazer_array = array();
         $kb_array = array();
         $pardee_array = array();
@@ -17,7 +19,7 @@
         $builders = $_POST['builders'];
         $status = 'success';
         $property_ids = array();
-        $community_number = '';
+        $community_number = 0;
 
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
@@ -246,38 +248,26 @@
         $xml .= '</lead>'.PHP_EOL;
         $xml .= '</hsleads>';
     
-    
-    	// Format Message
-    	$body = '';
-    
-        $mime = new Mail_mime();
-        $mime->setHTMLBody($body);
-        
         $xmlobj = new SimpleXMLElement($xml);
         $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
-        
-        $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml', 'text/xml'); 
-    
+            
         // open some file for reading
-        $file = 'wp-content/plugins/property-finder/public/export/'.time().'.xml';
-        $fp = fopen($file, 'r');
+        $file = $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/public/export/'.time().'.xml';
+      
         
         // set up basic connection
         $conn_id = ftp_connect('64.94.4.105');
-        
-        // login with username and password
-        $login_result = ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n');
-        
-        // try to upload $file
-        if (ftp_fput($conn_id, $file, $fp, FTP_ASCII)) {
-            $msg = "Successfully uploaded $file\n";
+        if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
+            if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
+                $msg = true;
+            } else {
+                $msg = error_get_last();
+            }
         } else {
-            $msg = "There was a problem while uploading $file\n";
-        }
-        
+            echo "Couldn't connect as $ftp_user\n";
+       } 
         // close the connection and the file handler
         ftp_close($conn_id);
-        fclose($fp);
     
         return $msg;
     }
