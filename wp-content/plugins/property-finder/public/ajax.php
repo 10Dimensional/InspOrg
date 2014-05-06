@@ -165,7 +165,7 @@
                 <td>'.$property->stories.'</td>
                 <td>'.$garage_bays.'</td>
                 <td><a href="#" data-toggle="modal" data-target="#'.str_replace(' ', '', $property->model).'">View</a></td>
-                <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /></td>
+                <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /> Add to download cart</td>
             </tr>';
             
             if (!in_array($property->builder, $builder_results)) {
