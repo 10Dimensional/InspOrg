@@ -205,7 +205,7 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 
 
-function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment, $community_number)
+function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
 {
     require_once "Mail.php";
     require_once "Mail/mime.php";
@@ -265,8 +265,10 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     return (PEAR::isError($mail)) ? false : true;
 }
 
-function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment, $community_number)
+function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment)
 {
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
     $xml .= '<lead>'.PHP_EOL;
