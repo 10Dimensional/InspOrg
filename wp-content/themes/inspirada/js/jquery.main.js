@@ -5765,3 +5765,11 @@ ResponsiveHelper = (function($){
         }
     }
 })(jQuery);
+
+jQuery(".modal input:checkbox,.modal label").on("click", function(e)
+{
+    e.stopImmediatePropagation();
+    var element = (e.currentTaget.htmlFor !== undefined) ? e.currentTaget.htmlFor : e.currentTaget;
+    var checked = (element.checked) ? false : true;
+    element.checked = (checked) ? false : checked.toString();
+});
