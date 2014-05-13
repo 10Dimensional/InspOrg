@@ -1,10 +1,4 @@
-<script type="text/javascript">
-<!--
-if (screen.width <= 699 && document.cookie.indexOf('nomobile') == -1) {
-	document.location = "/mobile/index.html";
-}
-//-->
-</script>
+
 <!-- Google Code for Remarketing Tag -->
 <!--
 Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
@@ -23,7 +17,105 @@ var google_remarketing_only = true;
 <img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/974801844/?value=0&amp;guid=ON&amp;script=0'/>
 </div>
 </noscript>
+	<!--<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">-->
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
+	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+<script type="text/javascript">
 
+jQuery(document).ready(function() {
+
+	jQuery.fn.cleardefault = function() {
+	return this.focus(function() {
+		if( this.value == this.defaultValue ) {
+			this.value = "";
+		}
+	}).blur(function() {
+		if( !this.value.length ) {
+			this.value = this.defaultValue;
+		}
+	});
+};
+jQuery(".clearit input[type='text'], .clearit textarea").cleardefault();
+
+});
+
+</script>
+<style>
+#gform_wrapper_11 {
+	margin: 0;
+	max-width: 95%;
+	margin-left: 3%;
+	margin-top: -15px;
+}
+#field_11_1 > label.gfield_label {
+	width: 0px;
+	display:none !important; 
+	
+}
+
+#field_11_2 > label.gfield_label {
+	width: 0px;
+	display:none !important; 
+
+}
+
+#field_11_3 > label.gfield_label {
+	width: 0px;
+	display:none !important; 
+
+}
+
+#input_11_3 > li > label {
+	width: 80%;
+	color: black;
+font-size: 11px;
+margin-left: 8px;
+}
+
+#input_11_2 > li > label {
+	width: 85%;
+}
+
+#field_11_2 > label > span.gfield_required {
+	display: none;
+}
+
+#field_11_1 > label > span.gfield_required {
+	display: none;
+}
+
+#input_11_1 > li > label {
+	width: 85%;
+}
+
+input#input_11_2.medium {
+	width: 69%;
+	margin-left: 27px;
+}
+
+input#input_11_1.medium {
+	width: 69%;
+	margin-left: 27px;
+}
+
+input#gform_submit_button_11.button.gform_button {
+	width: 69%;
+	margin-right: 23% !important;
+}
+
+li.last-child.hover > a.last-child-a:after {display: none;}
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+#sign-up-form.modal-content {
+	margin-left: 114% !important;
+}
+}
+</style>
 <header id="header">
 	<div class="header-holder">
 		<strong class="logo"><a href="/">Inspirada - Live inspired</a></strong>
@@ -35,9 +127,33 @@ var google_remarketing_only = true;
 				<?php } else { ?>
 			 		<li><span><a href="<?php echo get_option('home'); ?>">Home</a><span></li>
 					<?php wp_list_pages('title_li=&depth=4&sort_column=menu_order'); ?>
-				<?php	} ?>					
+				<?php	} ?>	
+				<li style="margin-top: -14%;
+float: right;">
+					<a data-toggle="modal" data-target="#emailsignup" data-backdrop="static" data-keyboard="false" href="#">
+  						<img src="<?php bloginfo('template_url') ?>/images/signupbutton.png">
+					</a>
+				</li>				
 			</ul>
-		</nav>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="emailsignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog" style="padding-top: 0px; margin-top: 0px;">
+    	<div class="modal-content" id="sign-up-form" style=" background: none; border-radius: 0px; box-shadow: none; border: none; width: 61%; margin-left: 85%;">
+    		<div class="modal-header" style="background: none; padding: 0; height: 0; min-height: 0; border: none;">
+        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="position: absolute; top: 5px; right: 66px; z-index: 9999;">&times;</button>
+     		</div>
+      		<div class="modal-body" style="background-color: #ffd61c; padding-top: 0px; padding-bottom: 10px; width: 85%;">
+	          	<img src="<?php bloginfo('template_url') ?>/images/signupheader.png" style="width: 100%">
+	     		<br><br>
+	           	<?php gravity_form(11, false, false, false, '', false); ?> 
+      		</div>
+      	</div>
+  	</div>
+</div>
+
+</nav>
 	</div>
 </header>
 <meta name="p:domain_verify" content="4da4f9ae5c143fe29aab861ee2cacadf"/>

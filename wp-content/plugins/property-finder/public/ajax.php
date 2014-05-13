@@ -1,6 +1,4 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
@@ -122,7 +120,9 @@
         $stories = ($_POST['stories'] === 0) ? false : $_POST['stories'];
         $sq_ft = ($_POST['sq_ft']) ? $_POST['sq_ft'] : 0;
         $garage_bays = ($_POST['garage_bays'] === 0) ? false : $_POST['garage_bays'];
-                
+        $builder_results = array();
+        
+        
         $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
         
         if ($builder) {
@@ -163,12 +163,17 @@
                 <td>'.$property->stories.'</td>
                 <td>'.$garage_bays.'</td>
                 <td><a href="#" data-toggle="modal" data-target="#'.str_replace(' ', '', $property->model).'">View</a></td>
-                <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /></td>
+                <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /> Add to download cart</td>
             </tr>';
+            
+            if (!in_array($property->builder, $builder_results)) {
+                $builder_results[] = $property->builder;
+            }
+            
             $result_count++;
         }
         
-        print_r(json_encode(array('count' => $result_count, 'builders' => $builder, 'results' => $result_data)));   
+        print_r(json_encode(array('count' => $result_count, 'builders' => $builder, 'builder_results' => $builder_results, 'results' => $result_data)));   
     }
     
     

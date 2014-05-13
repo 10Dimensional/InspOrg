@@ -28,6 +28,7 @@ jQuery(window).load(function(){
 	initSliderBlocks();
 	initTabs();
 	jQuery('.range-block').slider();
+	countChecked();
 });
 
 
@@ -483,6 +484,13 @@ function initTabs() {
 	jQuery(".tabs a").click(function (e) {
 		e.preventDefault()
 		$(this).tab('show');
+	});
+}
+
+function countChecked() {
+	jQuery(document).on('click', '#result_body input', function() {
+		var n = jQuery( "#result_body input:checked" ).length;
+		jQuery('#builder-count').html(n);
 	});
 }
 
@@ -5757,3 +5765,11 @@ ResponsiveHelper = (function($){
         }
     }
 })(jQuery);
+
+jQuery(".modal input:checkbox,.modal label").on("click", function(e)
+{
+    e.stopImmediatePropagation();
+    var element = (e.currentTaget.htmlFor !== undefined) ? e.currentTaget.htmlFor : e.currentTaget;
+    var checked = (element.checked) ? false : true;
+    element.checked = (checked) ? false : checked.toString();
+});

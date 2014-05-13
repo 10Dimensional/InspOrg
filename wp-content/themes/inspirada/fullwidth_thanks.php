@@ -3,6 +3,8 @@
                 	Template Name: Full Width Thank You
                 */ 
                 
+                
+                print_r($_GET['price_range']);
                 $price = explode('to', str_replace(',', '', str_replace('$', '', $_GET['price_range'])));
                 $sqft = explode('to', str_replace(',', '', str_replace('sq ft', '', $_GET['sqft'])));
                 $property_id = array();
@@ -83,6 +85,9 @@ var google_remarketing_only = false;
 <style>
 h1 {
 	font: 24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
+}
+#wrapper {
+background: white;
 }
 </style>
 		<div id="main" style="background: white">
