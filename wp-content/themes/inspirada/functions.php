@@ -168,18 +168,6 @@ function post_to_third_party($entry, $form)
         }
     }
 
-    if (in_array('kb home', $builders)) {
-        generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
-    }
-
-    if (in_array('beazer homes', $builders)) {
-        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
-    }
-
-    if (in_array('toll brothers', $builders)) {
-        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
-    }
-
     save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders), $price_range, $sqft);
 
     return;
@@ -207,7 +195,6 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     require_once "Mail.php";
     require_once "Mail/mime.php";
     $to = 'inspirada@kbhome.com';
-
 
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
