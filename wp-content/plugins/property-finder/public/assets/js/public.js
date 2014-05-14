@@ -122,14 +122,14 @@ var map = '',
                     if ($('#future').is(':checked')) {
                         markerJson = '/wp-content/themes/inspirada/markers.geojson';
                         if ($('#radio-01').is(':checked') || !response.builders) {
-                            loop_key.push('Beazer');
+                            loop_key.push('Beazerss');
                         }
                         
                         if ($('#radio-03').is(':checked') || !response.builders) {
                             loop_key.push('Pardee');
                         }
                     }
-                    
+
                     for (var b = 0; b < loop_key.length; b++) {
                         if ($('#future').is(':checked')) {
                             if (builder_layers[loop_key[b]]) {
@@ -141,22 +141,9 @@ var map = '',
                             }
                         }
                         
-                        if (loop_key[b] === 'Beazer') {
-                            markerLayer.setFilter(function(f) {
-                                return f.properties['title'] === 'Beazer Available 2015'; 
-                            });
-                            mapgroup.addLayer(markerLayer);
-                            markerLayer.options.sanitizer = function(x) { return x; };
-                            markerLayer.on('mouseover', function(e) {
-                                e.layer.openPopup();
-                            });
-                            markerLayer.on('mouseout', function(e) {
-                                e.layer.closePopup();
-                            });
-                        }
+                        
                         
                         if (loop_key[b] === 'KB HOME') {
-                        
                             var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
                             markerLayer.options.sanitizer = function(x) { return x; };
                                 markerLayer.setFilter(function(f) {
@@ -175,7 +162,7 @@ var map = '',
                             var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.setFilter(function(f) {
-                                    return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available June 2014'; 
+                                    return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available June 2014' || f.properties['title'] === 'Pardee Available January 2015'; 
                                 });
                             mapgroup.addLayer(markerLayer);
                             markerLayer.on('mouseover', function(e) {
@@ -190,9 +177,24 @@ var map = '',
                             var markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
                             markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.setFilter(function(f) {
-                                    return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
+                                return f.properties['title'] === 'Toll Brothers Future Development' || f.properties['title'] === 'Toll Brothers Available 2015' || f.properties['title'] === 'Toll Brothers Available Fall 2014' || f.properties['title'] === 'Toll Brothers Model Center' || f.properties['title'] === 'Toll Brothers Available Summer 2014' || f.properties['title'] === 'Toll Brothers Currently Selling'; 
                                 });
                             mapgroup.addLayer(markerLayer);
+                            
+                            markerLayer.on('mouseover', function(e) {
+                                e.layer.openPopup();
+                            });
+                            markerLayer.on('mouseout', function(e) {
+                                e.layer.closePopup();
+                            });
+                        }
+                        
+                        if (loop_key[b] === 'Beazer') {
+                            markerLayer.setFilter(function(f) {
+                                return f.properties['title'] === 'Beazer Available 2015'; 
+                            });
+                            mapgroup.addLayer(markerLayer);
+                            markerLayer.options.sanitizer = function(x) { return x; };
                             markerLayer.on('mouseover', function(e) {
                                 e.layer.openPopup();
                             });
