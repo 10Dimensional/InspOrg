@@ -45,23 +45,9 @@ var builder_layers = {
             var mapgroup = L.layerGroup().addTo(map);
             mapgroup.addLayer(L.tileLayer(builder_layers.Parks), 'Parks', 1);
             mapgroup.addLayer(L.tileLayer(builder_layers.Necessities), 'Necessities', 1);
-            markerLayer.setFilter(function(f) {
-                return f.properties.category === 'Parks';
-            }).addTo(map);
 
             markerLayer.setFilter(function(f) {
-                return f.properties.title === 'Necessities';
-            }).addTo(map);
-
-            markerLayer.on('mouseover', function(e) {
-                e.layer.openPopup();
-            });
-            markerLayer.on('mouseout', function(e) {
-                e.layer.closePopup();
-            });
-
-            markerLayer.setFilter(function (f) {
-                return f.properties.title === 'Aventura Park' || f.properties.title === 'Future Park' || f.properties.title === 'Capriola Park (Under construction)' || f.properties.title === 'Potenza Park (Under construction)'|| f.properties.title === 'Solista Park (Completed)';
+                return f.properties.title === 'Aventura Park' || f.properties.title === 'Future Park' || f.properties.title === 'Capriola Park (Under construction)' || f.properties.title === 'Potenza Park (Under construction)'|| f.properties.title === 'Solista Park (Completed)' || f.properties.title === 'Necessities' || f.properties.category === 'Parks';
             }).addTo(map);
             
             markerLayer.options.sanitizer = function(x) { return x; };
@@ -95,7 +81,6 @@ var builder_layers = {
                 data: str,
                 dataType: 'json',
                 success: function(response) {
-                    console.log('CLEAR');
                     mapgroup.clearLayers();
 
                     mapgroup.addLayer(L.tileLayer(builder_layers.Parks), 'Parks', 1);
@@ -115,7 +100,7 @@ var builder_layers = {
                         }
                     }
                     
-                    var array_title = ['Aventura Park', 'Future Park', 'Capriola Park (Under construction)', 'Potenza Park (Under construction)', 'Solista Park (Completed)', 'Necessities'],
+                    var array_title = [],
                         markerLayer = L.mapbox.markerLayer().loadURL(markerJson);
 
                     markerLayer.options.sanitizer = function(x) { return x; };
@@ -144,14 +129,19 @@ var builder_layers = {
                             case 'Beazer':
                                 array_title.push('Beazer Available 2015');
                                 break;
+                            case 'Necessities':
+                                array_title.push('Necessities');
+                                break;
                             case 'Trails':
                                 array_title.push('Trails', 'Open Space');
+                                break;
+                            case 'Parks':
+                                array_title.push('Aventura Park', 'Future Park', 'Capriola Park (Under construction)', 'Potenza Park (Under construction)', 'Solista Park (Completed)');
                                 break;
                         }
                     }
 
                     markerLayer.setFilter(function (f) {
-                        console.log(array_title);
                         return ($.inArray(f.properties.title, array_title) > -1) ? true : false;
                     });
 
