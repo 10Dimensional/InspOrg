@@ -179,6 +179,7 @@
     
     
     function requestInfo($title, $to, $properties) {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         global $wpdb;
         require_once "Mail.php";
         require_once "Mail/mime.php";
@@ -238,6 +239,7 @@
     
     function generate_xml_email_beazer($firstName, $lastName, $email, $phone, $comment, $community_number)
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
         $xml .= '<hsleads>'.PHP_EOL;
         $xml .= '<lead>'.PHP_EOL;
@@ -279,6 +281,7 @@
     
     function generate_xml_email_kb($community_number='')
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         require_once "Mail.php";
         require_once "Mail/mime.php";
         $to = 'inspirada@kbhome.com';
@@ -347,6 +350,7 @@
     
     function generate_xml_soap_toll()
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         ini_set("soap.wsdl_cache_enabled", "0");
         
         try {

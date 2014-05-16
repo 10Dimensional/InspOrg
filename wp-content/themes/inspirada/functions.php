@@ -192,10 +192,11 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
 {
+    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     require_once "Mail.php";
     require_once "Mail/mime.php";
-    $to = 'inspirada@kbhome.com';
-
+    //$to = 'inspirada@kbhome.com';
+    $to = 'mike@aliasproject.com';
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
     $xml .= '<lead>'.PHP_EOL;
@@ -251,6 +252,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
 
 function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment)
 {
+    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
     $xml .= '<lead>'.PHP_EOL;
@@ -297,6 +299,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
 
 function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $lastName)
 {
+    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     ini_set("soap.wsdl_cache_enabled", "0");
     try {
         $client = new SoapClient(

@@ -7,7 +7,7 @@
     $comment = $_GET['comment'];
     $builders = explode(',', $_GET['builders']);
 
-    if (in_array(' KB Home', $builders)) {
+    if (in_array('KB Home', $builders)) {
         generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
     }
 
@@ -15,7 +15,7 @@
         generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
     }
 
-    if (in_array(' Toll Brothers', $builders)) {
+    if (in_array('Toll Brothers', $builders)) {
         generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
     }               
 ?>
@@ -33,7 +33,7 @@
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 
 <?php wp_head() ?></head>
-<body>
+<body>sdsd
 	<div id="wrapper">
 		<?php get_header() ?>
 		<div class="w1">
