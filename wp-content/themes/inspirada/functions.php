@@ -163,6 +163,16 @@ function post_to_third_party($entry, $form)
         foreach ($builders_id as $builder) {
             $curBuilder = str_replace('  ', ' ', strtolower($entry[$builder]));
             if ($curBuilder !== '') {
+                if (strpos($curBuilder, 'beazer') !== false) {
+                    $curBuilder = 'beazer homes';
+                } else if (strpos($curBuilder, 'kb') !== false) {
+                    $curBuilder = 'kb home';
+                } else if (strpos($curBuilder, 'pardee') !== false) {
+                    $curBuilder = 'pardee homes';
+                } else if (strpos($curBuilder, 'toll') !== false) {
+                    $curBuilder = 'toll brothers';
+                }
+            
                 $builders[] = $curBuilder;
             }
         }
