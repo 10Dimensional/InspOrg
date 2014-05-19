@@ -3,15 +3,25 @@
     clear: both
 }
 
-.metaslider #poststuff #post-body.columns-2 {
-    margin-right: 320px
-}
-
 .metaslider #post-body.columns-2 #postbox-container-1 {
     margin-right: -320px;
     width: 300px;
-    clear: both;
 }
+
+.metaslider #poststuff #post-body.columns-2 {
+    margin-right: 320px;
+}
+
+.rtl .metaslider #post-body.columns-2 #postbox-container-1 {
+    margin-left: -320px;
+    margin-right: 0;
+}
+
+.rtl .metaslider #poststuff #post-body.columns-2 {
+    margin-left: 320px;
+    margin-right: 0;
+}
+
 
 .metaslider .left input,
 .metaslider .left textarea {
@@ -19,17 +29,6 @@
     border-radius: 0;
     resize: none;
     box-shadow: inherit;
-}
-
-.resize_overlay {
-    position: absolute;
-    width: inherit;
-    background: transparent url(resizing.gif) no-repeat;
-    width: 16px;
-    height: 11px;
-    top: 3px;
-    left: 3px;
-    z-index: 9999;
 }
 
 .media-frame-menu .media-menu > a.disabled {
@@ -88,14 +87,18 @@
     margin: 0 3px
 }
 
-.metaslider #poststuff .right h3.configuration,
-.metaslider #poststuff .left h3 {
+.metaslider #poststuff .right h3.configuration {
     padding: 7px 7px 7px 12px;
     line-height: 27px;
 }
 
+.metaslider #poststuff .left h3 {
+    padding: 7px 5px;
+    line-height: 27px;
+}
+
 .metaslider #poststuff .left th {
-    padding: 0 7px 0 0
+    padding: 0 7px;
 }
 
 .metaslider .left table tr.slide input.url {
@@ -157,8 +160,16 @@
     display: none
 }
 
-.metaslider .probutton,
-.metaslider .probutton:hover {
+.metaslider_pro {
+    margin-top: 50px;
+}
+.metaslider_pro p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.metaslider_pro .probutton,
+.metaslider_pro .probutton:hover {
     width: 36%;
     margin: 20px 32% 10px 32%;
     float: left;
@@ -187,21 +198,21 @@
     line-height: 2em;
 }
 
-.metaslider .super {
+.metaslider_pro .super {
     text-transform: uppercase;
     font-size: 0.7em;
     vertical-align: top;
     line-height: 2em;
 }
 
-.metaslider .subtext {
+.metaslider_pro .subtext {
     float: left;
     width: 100%;
     text-align: center;
     font-style: italic;
 }
 
-.metaslider .logo {
+.metaslider_pro .logo {
     text-transform: uppercase
 }
 
@@ -279,15 +290,14 @@
     bottom: 0;
     left: 0;
     position: absolute;
-    background: white;
-    color: #333;
+    background: #333;
+    color: white;
     padding: 5px;
     font-size: 12px;
-    opacity: 0.7;
+    opacity: 0.8;
     word-wrap: break-word;
     width: 140px;
     padding: 3px 5px;
-    font-weight: bold;
 }
 
 .metaslider .left table tr.slide td.col-1:hover .delete-slide {
@@ -320,12 +330,22 @@
     padding: 0px;
     color: #a9a9a9;
     line-height: 20px;
-    bottom: 23px;
+    bottom: 22px;
     right: 0;
 }
 
+.rtl .metaslider .left table tr.slide .tabs-content .new_window {
+    position: relative;
+    float: left;
+}
+
+
 .metaslider .left table tr.slide .tabs-content .new_window input {
     margin-left: 3px
+}
+
+.rtl .metaslider .left table tr.slide .tabs-content .new_window input {
+    margin-right: 3px
 }
 
 .metaslider .left table tr.slide .tabs-content .new_window label {
@@ -334,6 +354,9 @@
     font-size: 11px;
 }
 
+.metaslider tr.radio {
+    display: table-row;
+}
 .metaslider .left table td {
     border-top: 0;
     border-bottom: 1px solid #e1e1e1;
@@ -341,7 +364,11 @@
 }
 
 .metaslider .left table td.col-2 {
-    padding: 12px 12px 12px 0
+    padding: 12px 12px 12px 0;
+}
+
+.rtl .metaslider .left table td.col-2 {
+    padding: 12px 0 12px 12px;
 }
 
 .metaslider .right .highlight {
@@ -465,9 +492,9 @@ input[type=radio]:checked + label {
 .metaslider .right #save {
     margin-right: 0
 }
-
-.metaslider .right label {
-    margin-right: 10px
+.rtl .metaslider .right #save {
+    margin-right: 4px;
+    margin-left: 0;
 }
 
 .metaslider .right .number input:focus {
@@ -483,6 +510,33 @@ input[type=radio]:checked + label {
     float: left;
     height: 26px;
     margin: 0;
+}
+
+.rtl .metaslider .right .number .after,
+.rtl .metaslider .right .number input {
+    float: right;
+}
+.rtl .metaslider .right .number .after {
+    border-left: 1px solid #ddd;
+    border-right: 0;
+}
+.rtl .metaslider .right .number input {
+    border-right: 1px solid #ddd;
+    border-left: 0;
+}
+
+.metaslider .right .radio ul {
+    margin: 0;
+}
+.metaslider .right .radio li {
+    margin: 0 0 2px 0;
+    clear: both;
+}
+.metaslider .right .radio input[type="radio"] {
+    margin-top: 0;
+}
+.rtl .metaslider .right .radio input[type="radio"] {
+    float: right;
 }
 
 .metaslider .right .number input {
@@ -572,14 +626,23 @@ input[type=radio]:checked + label {
 }
 
 .metaslider .right .postbox table {
-    border: 0
+    border: 0;
+    width: 100%;
+}
+
+.metaslider .right .postbox table textarea {
+    width: 100%;
+    height: 100px;
+    font-family: monospace;
+    background: #272822;
+    color: #a6e22e;
 }
 
 .metaslider .right .postbox h3 {
     cursor: inherit
 }
 
-.metaslider .right .postbox.toggle h3 {
+.metaslider .right .postbox.ms-toggle h3 {
     cursor: pointer
 }
 
@@ -595,9 +658,11 @@ input[type=radio]:checked + label {
 }
 
 .metaslider table td,
-.metaslider table td input,
+.metaslider table td input[type=text],
+.metaslider table td input[type=number],
 .metaslider table td select,
-.metaslider table td textarea {
+.metaslider table td textarea,
+.metaslider table td label {
     font-size: 12px
 }
 
@@ -630,7 +695,7 @@ input[type=radio]:checked + label {
 
 .metaslider .nav-tab-active {
     background: transparent;
-	padding: 8px 13px 8px;
+	padding: 6px 6px 5px;
 	border-bottom: 1px solid #f1f1f1;
 	margin-top: auto;
 	position: relative;
@@ -638,14 +703,22 @@ input[type=radio]:checked + label {
 }
 
 .metaslider .nav-tab-active input {
-    padding: 0;
+    min-width: 100px;
+    padding: 3px 13px 3px 5px;
     margin: 0;
     border: 0;
     width: 100px;
     font-size: 13px;
     background: transparent;
     box-shadow: none;
-    font-weight: bold;
+}
+
+.metaslider .nav-tab-active input:hover,
+.metaslider .nav-tab-active input:focus {
+      -webkit-box-shadow: inset 2px 2px 2px 0px #dddddd;
+  -moz-box-shadow: inset 2px 2px 2px 0px #dddddd;
+  box-shadow: inset 2px 2px 2px 0px #dddddd;
+    background: white url(edit.png) no-repeat 98% center;
 }
 
 .metaslider .warning {
@@ -679,13 +752,7 @@ textarea:-ms-input-placeholder {
     font-size: 11px
 }
 
-.metaslider .slide.image .tabs-content {
-    overflow: hidden
-}
-
 .metaslider .left .tabs-content {
-    height: 118px;
-    overflow-x: scroll;
     clear: both;
 }
 
@@ -694,7 +761,11 @@ textarea:-ms-input-placeholder {
     clear: both;
     width: 100%;
     vertical-align: middle;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+}
+
+.metaslider .tabs-content .row.last {
+    margin-bottom: 0;
 }
 
 .metaslider .tabs-content .row label {
@@ -741,7 +812,7 @@ textarea:-ms-input-placeholder {
     margin: 0 0 0 5px;
     cursor: pointer;
     padding: 3px 5px;
-    float: left;
+    display: inline-block;
     line-height: 14px;
     color: #ccc;
     position: relative;

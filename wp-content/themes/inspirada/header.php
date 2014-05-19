@@ -17,6 +17,7 @@ var google_remarketing_only = true;
 <img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/974801844/?value=0&amp;guid=ON&amp;script=0'/>
 </div>
 </noscript>
+
 	<!--<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">-->
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
@@ -128,6 +129,7 @@ and (orientation : landscape) {
 			 		<li><span><a href="<?php echo get_option('home'); ?>">Home</a><span></li>
 					<?php wp_list_pages('title_li=&depth=4&sort_column=menu_order'); ?>
 				<?php	} ?>	
+
 				<li style="margin-top: -14%;
 float: right;">
 					<a data-toggle="modal" data-target="#emailsignup" data-backdrop="static" data-keyboard="false" href="#">
@@ -139,6 +141,7 @@ float: right;">
 
 <!-- Modal -->
 <div class="modal fade" id="emailsignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
   	<div class="modal-dialog" style="padding-top: 0px; margin-top: 0px;">
     	<div class="modal-content" id="sign-up-form" style=" background: none; border-radius: 0px; box-shadow: none; border: none; width: 61%; margin-left: 85%;">
     		<div class="modal-header" style="background: none; padding: 0; height: 0; min-height: 0; border: none;">
