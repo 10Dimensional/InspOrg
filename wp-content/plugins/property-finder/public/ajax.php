@@ -98,16 +98,16 @@
         
         // Store in DB
         $wpdb->insert( 
-        	'ap_leads', 
-        	array( 
-        		'first' => stripslashes($_POST['firstName']), 
-        		'last' => stripslashes($_POST['lastName']),
-        		'email' => trim($_POST['email']),
-        		'phone' => trim($_POST['phone']),
-        		'comment' => trim($_POST['comment']),
-        		'builders' => (isset($_POST['builders'])) ? json_encode($_POST['builders']) : '',
-        		'properties' => json_encode($property_ids)
-        	)
+            'ap_leads', 
+            array( 
+                'first' => stripslashes($_POST['firstName']), 
+                'last' => stripslashes($_POST['lastName']),
+                'email' => trim($_POST['email']),
+                'phone' => trim($_POST['phone']),
+                'comment' => trim($_POST['comment']),
+                'builders' => (isset($_POST['builders'])) ? json_encode($_POST['builders']) : '',
+                'properties' => json_encode($property_ids)
+            )
         );
     } else if ($_POST['type'] === 'toll') {
         print_r(generate_xml_soap_toll());
@@ -179,6 +179,7 @@
     
     
     function requestInfo($title, $to, $properties) {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         global $wpdb;
         require_once "Mail.php";
         require_once "Mail/mime.php";
@@ -193,14 +194,14 @@
          
         $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
     
-    	// Get form fields
-    	$name = stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']);
-    	$phone = trim($_POST['phone']);
-    	$email = trim($_POST['email']);
-    	$comment = trim($_POST['comment']);
+        // Get form fields
+        $name = stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']);
+        $phone = trim($_POST['phone']);
+        $email = trim($_POST['email']);
+        $comment = trim($_POST['comment']);
     
-    	// Format Message
-    	$body = '<h1>'.$title.'</h1><br /><br />
+        // Format Message
+        $body = '<h1>'.$title.'</h1><br /><br />
 <strong>Name:</strong><br />'.$name.'<br /><br />
 <strong>Phone Number:</strong><br />'.$phone.'<br /><br />
 <strong>Email:</strong><br />'.$email.'<br /><br />
@@ -238,6 +239,7 @@
     
     function generate_xml_email_beazer($firstName, $lastName, $email, $phone, $comment, $community_number)
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
         $xml .= '<hsleads>'.PHP_EOL;
         $xml .= '<lead>'.PHP_EOL;
@@ -279,6 +281,7 @@
     
     function generate_xml_email_kb($community_number='')
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         require_once "Mail.php";
         require_once "Mail/mime.php";
         $to = 'inspirada@kbhome.com';
@@ -312,11 +315,11 @@
          
         $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
     
-    	// Get form fields
+        // Get form fields
 
     
-    	// Format Message
-    	$body = '';
+        // Format Message
+        $body = '';
 
         
         $mime = new Mail_mime();
@@ -347,6 +350,7 @@
     
     function generate_xml_soap_toll()
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         ini_set("soap.wsdl_cache_enabled", "0");
         
         try {

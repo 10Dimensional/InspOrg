@@ -163,21 +163,19 @@ function post_to_third_party($entry, $form)
         foreach ($builders_id as $builder) {
             $curBuilder = str_replace('  ', ' ', strtolower($entry[$builder]));
             if ($curBuilder !== '') {
+                if (strpos($curBuilder, 'beazer') !== false) {
+                    $curBuilder = 'beazer homes';
+                } else if (strpos($curBuilder, 'kb') !== false) {
+                    $curBuilder = 'kb home';
+                } else if (strpos($curBuilder, 'pardee') !== false) {
+                    $curBuilder = 'pardee homes';
+                } else if (strpos($curBuilder, 'toll') !== false) {
+                    $curBuilder = 'toll brothers';
+                }
+            
                 $builders[] = $curBuilder;
             }
         }
-    }
-
-    if (in_array('kb home', $builders)) {
-        generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
-    }
-
-    if (in_array('beazer homes', $builders)) {
-        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
-    }
-
-    if (in_array('toll brothers', $builders)) {
-        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
     }
 
     save_to_admin($first, $last, $email, $phone, $comment, $firm, $address, $city, $state, $zip, json_encode($builders), $price_range, $sqft);
@@ -204,11 +202,11 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
 {
+    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     require_once "Mail.php";
     require_once "Mail/mime.php";
     $to = 'inspirada@kbhome.com';
-
-
+    
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
     $xml .= '<lead>'.PHP_EOL;
@@ -264,6 +262,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
 
 function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment)
 {
+    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
     $xml .= '<lead>'.PHP_EOL;
@@ -310,6 +309,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
 
 function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $lastName)
 {
+    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     ini_set("soap.wsdl_cache_enabled", "0");
     try {
         $client = new SoapClient(
