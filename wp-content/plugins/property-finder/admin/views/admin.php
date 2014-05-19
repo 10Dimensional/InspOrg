@@ -33,7 +33,7 @@ if ($user_role === 'kb_admin') {
 
 if (isset($lead_key)) {
     $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-    $limit = 5;
+    $limit = 50;
     $offset = ( $pagenum - 1 ) * $limit;
     $all_leads = $wpdb->get_results( "SELECT * FROM ap_leads ORDER BY timestamp DESC" );
 

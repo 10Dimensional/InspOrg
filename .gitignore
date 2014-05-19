@@ -30,8 +30,7 @@ wp-content/plugins/*
 
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
-wp-content/themes/*
-!wp-content/themes/inspirada/*
+
 images/beazer_logo.jpg
 
 images/kb_logo.jpg
