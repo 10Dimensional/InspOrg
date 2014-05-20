@@ -1,6 +1,4 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
     
@@ -100,16 +98,16 @@
         
         // Store in DB
         $wpdb->insert( 
-        	'ap_leads', 
-        	array( 
-        		'first' => stripslashes($_POST['firstName']), 
-        		'last' => stripslashes($_POST['lastName']),
-        		'email' => trim($_POST['email']),
-        		'phone' => trim($_POST['phone']),
-        		'comment' => trim($_POST['comment']),
-        		'builders' => (isset($_POST['builders'])) ? json_encode($_POST['builders']) : '',
-        		'properties' => json_encode($property_ids)
-        	)
+            'ap_leads', 
+            array( 
+                'first' => stripslashes($_POST['firstName']), 
+                'last' => stripslashes($_POST['lastName']),
+                'email' => trim($_POST['email']),
+                'phone' => trim($_POST['phone']),
+                'comment' => trim($_POST['comment']),
+                'builders' => (isset($_POST['builders'])) ? json_encode($_POST['builders']) : '',
+                'properties' => json_encode($property_ids)
+            )
         );
     } else if ($_POST['type'] === 'toll') {
         print_r(generate_xml_soap_toll());
@@ -122,7 +120,9 @@
         $stories = ($_POST['stories'] === 0) ? false : $_POST['stories'];
         $sq_ft = ($_POST['sq_ft']) ? $_POST['sq_ft'] : 0;
         $garage_bays = ($_POST['garage_bays'] === 0) ? false : $_POST['garage_bays'];
-                
+        $builder_results = array();
+        
+        
         $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND beds_max >= '.$beds.' AND sq_ft >= '.$sq_ft;    
         
         if ($builder) {
@@ -163,17 +163,23 @@
                 <td>'.$property->stories.'</td>
                 <td>'.$garage_bays.'</td>
                 <td><a href="#" data-toggle="modal" data-target="#'.str_replace(' ', '', $property->model).'">View</a></td>
-                <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /></td>
+                <td style="text-align:center;"><input type="checkbox" name="request_info[]" value="'.$property->id.'" /> Add to download cart</td>
             </tr>';
+            
+            if (!in_array($property->builder, $builder_results)) {
+                $builder_results[] = $property->builder;
+            }
+            
             $result_count++;
         }
         
-        print_r(json_encode(array('count' => $result_count, 'builders' => $builder, 'results' => $result_data)));   
+        print_r(json_encode(array('count' => $result_count, 'builders' => $builder, 'builder_results' => $builder_results, 'results' => $result_data)));   
     }
     
     
     
     function requestInfo($title, $to, $properties) {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         global $wpdb;
         require_once "Mail.php";
         require_once "Mail/mime.php";
@@ -188,14 +194,14 @@
          
         $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
     
-    	// Get form fields
-    	$name = stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']);
-    	$phone = trim($_POST['phone']);
-    	$email = trim($_POST['email']);
-    	$comment = trim($_POST['comment']);
+        // Get form fields
+        $name = stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']);
+        $phone = trim($_POST['phone']);
+        $email = trim($_POST['email']);
+        $comment = trim($_POST['comment']);
     
-    	// Format Message
-    	$body = '<h1>'.$title.'</h1><br /><br />
+        // Format Message
+        $body = '<h1>'.$title.'</h1><br /><br />
 <strong>Name:</strong><br />'.$name.'<br /><br />
 <strong>Phone Number:</strong><br />'.$phone.'<br /><br />
 <strong>Email:</strong><br />'.$email.'<br /><br />
@@ -233,6 +239,7 @@
     
     function generate_xml_email_beazer($firstName, $lastName, $email, $phone, $comment, $community_number)
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
         $xml .= '<hsleads>'.PHP_EOL;
         $xml .= '<lead>'.PHP_EOL;
@@ -274,6 +281,7 @@
     
     function generate_xml_email_kb($community_number='')
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         require_once "Mail.php";
         require_once "Mail/mime.php";
         $to = 'inspirada@kbhome.com';
@@ -307,11 +315,11 @@
          
         $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
     
-    	// Get form fields
+        // Get form fields
 
     
-    	// Format Message
-    	$body = '';
+        // Format Message
+        $body = '';
 
         
         $mime = new Mail_mime();
@@ -342,6 +350,7 @@
     
     function generate_xml_soap_toll()
     {
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
         ini_set("soap.wsdl_cache_enabled", "0");
         
         try {

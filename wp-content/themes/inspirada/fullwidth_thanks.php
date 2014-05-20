@@ -84,6 +84,9 @@ var google_remarketing_only = false;
 h1 {
 	font: 24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
 }
+#wrapper {
+background: white;
+}
 </style>
 		<div id="main" style="background: white">
 			<div class="main-holder">
