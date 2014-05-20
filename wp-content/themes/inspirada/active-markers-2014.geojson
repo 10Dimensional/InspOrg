@@ -1,0 +1,542 @@
+{
+   "features":[
+      {
+         "geometry":{
+            "coordinates":[
+               33.310546875,
+               -67.84241647327929
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<ul class=\"list\"><li>Resident Community Center</li><ul><li>Kitchen</li> <li>Restrooms</li>  <li>Gathering Area</li>  <li>TV/Wi-Fi</li>  <li>Reading Room</li>  <li>Community Management Offices</li>  <li>Heated Lap Pool</li>  <li>Heated Play Pool</li></ul> <li>Two Ramadas</li> <li>Large Lawn Areas for Passive Play</li> <li>Lighted Bocce Ball Courts</li> <li>Game Tables</li> <li>Bike Racks</li> <li>Amphitheater</li> <li>Kids Play Area</li> <li>Covered and Uncovered Picnic Areas</li> <li>Outdoor Cooking Grills</li> <li>Shade Sails</li></ul><a data-target=\"#solistamodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+           	"id":"marker-hqi9yh7f0",
+            "marker-color":"#83a857",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Solista Park (Completed)",
+            "category" : "Parks"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               41.923828125,
+               -73.50346063726599
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<ul class=\"list\"><li>Picnic Area</li> <li>2 Ramadas</li> <li>3 Tennis Courts</li> <li>Splash Pad / Water Play Area</li> <li>Kid's Play System with Tensile Shade</li> <li>2 Soccer/Multi-Use Sport Fields</li> <li>Dog Park</li> <li>Restrooms</li> <li>2 Basketball Courts</li> <li>Amphitheater</li></ul><a data-target=\"#capriolamodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+            "id":"marker-hqia18sa1",
+            "marker-color":"#83a857",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Capriola Park (Under construction)",
+            "category" : "Parks"
+
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               36.03515625,
+               -75.16330024622059
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<ul class=\"list\"><li>Teen Play Area</li> <li>Kid's Play Area with Tensile Shade</li> <li>Resident Adult & Family Pool Area</li> <li>2 Family Ramadas with Picnic Areas</li> <li>Generous Open Grass Areas</li> <li>2 Basketball courts</li></ul><a data-target=\"#potenzamodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+            "id":"marker-hqia4k4a2",
+            "marker-color":"#83a857",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Potenza Park (Under construction)",
+            "category" : "Parks"
+
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               44.384765625,
+               -80.19369416640629
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<ul class=\"list\"><li>2 Ramadas</li> <li>Water Play Area</li> <li>4 Sand Volleyball Courts</li> <li>Heated Resident Pool</li> <li>Dog Park</li> <li>2 Tennis Courts</li> <li>2 Little League Fields</li> <li>Child Play Structure Area</li> <li>3 Soccer/Multi-use Fields</li> <li>2 Basketball Courts</li></ul><a data-target=\"#aventuramodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+            "id":"marker-hqia65h83",
+            "marker-color":"#83a857",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Aventura Park",
+            "category" : "Parks"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               9.84375,
+               -82.62005201499016
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqia7nwi4",
+            "marker-color":"#83a857",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Future Park",
+            "category" : "Parks"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               -1.23046875,
+               -82.86430834427166
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqia7ujp5",
+            "marker-color":"#83a857",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Future Park",
+            "category" : "Parks"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               -12.12890625,
+               -82.08214461298606
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqia81cj6",
+            "marker-color":"#83a857",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Future Park",
+            "category" : "Parks"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               28.564453125,
+               -77.03941844273027
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqia8t557",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Open Space",
+            "category" : "Trails"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               43.9453125,
+               -74.1160468394894
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqia9jz18",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Trails",
+            "category" : "Trails"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               47.8125,
+               -76.9206135182968
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<ul class=\"list\"><li>Albertsons Grocery Store</li> <li>Dry Cleaners</li> <li> Bank of America & Wells Fargo Bank</li> <li>CVS Pharmacy</li> <li>Restaurants</li> <li>Starbucks</li> <li>PostNet</li></ul>",
+            "id":"marker-hqiaa7gn9",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Necessities",
+            "category" : "Nearby Necessities"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               31.640625,
+               -68.07330474079023
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"3177 Mantua Village Ave<br>\n(702)399-2100<br>\nDriving Directions<br>\n<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "id":"marker-hqiala54e",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Toll Brothers Model Center",
+            "category" : "Toll Brothers"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               25.6640625,
+               -67.57571741708055
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "id":"marker-hqiamhe8f",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Toll Brothers Available Summer 2014",
+            "category" : "Toll Brothers"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               26.103515625,
+               -65.5129625532949
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "id":"marker-hqiamrymg",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Toll Brothers Currently Selling",
+            "category" : "Toll Brothers"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               40.95703125,
+               -77.3703011778519
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "id":"marker-hqiatx3as",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"KB Currently Selling",
+            "category" : "KB Home"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               33.3984375,
+               -76.7605411117567
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"NEW MODEL CENTER<br>\nSummer 2014<br>\n<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "id":"marker-hqiau717t",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"KB Available Summer 2014",
+            "category" : "KB Home"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               31.289062500000004,
+               -75.09563272854379
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "id":"marker-hqiav2ocu",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"KB Available Summer 2014",
+            "category" : "KB Home"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               36.03515625,
+               -67.74275906666388
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"1910 Epte Poplars<br>\n(702) 266-9900<br>\nDriving Directions<br>\n<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "id":"marker-hqiavvixw",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"KB Home Model Center",
+            "category" : "KB Home"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               40.078125,
+               -74.77584300649234
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
+            "id":"marker-hqiaxki4x",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Pardee Available January 2015",
+            "category" : "Pardee Homes"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               48.8671875,
+               -79.73428059335231
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
+            "id":"marker-hqiazfkyy",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Pardee Available June 2014",
+            "category" : "Pardee Homes"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               38.935546875,
+               -81.4008017052346
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/beazer-map.png\">",
+            "id":"marker-hqib0xcd10",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "marker-opacity":"0",
+            "title":"Beazer Available 2015",
+            "category" : "Beazer"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               27.861328125,
+               -73.72659470212253
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib32t211",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Elementary School (Future)",
+            "category" : "Schools"
+            
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               57.12890625,
+               -81.88605575260924
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib3tci12",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Elementary School (Future)",
+            "category" : "Schools"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               55.72265625,
+               -83.15311098437887
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib4mno13",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Fire Station (Future)",
+            "category" : "Schools"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               27.59765625,
+               -81.59569894043715
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib50ja14",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Water Treatment (Future)",
+            "category" : "Schools"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               25.927734374999996,
+               -83.10052092301483
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib5ha215",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Middle School (Future)",
+            "category" : "Schools"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               20.126953125,
+               -82.86430834427166
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib63ex16",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Elementary School (Future)",
+            "category" : "Schools"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               3.779296875,
+               -81.97243132048264
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib6oz117",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Elementary School (Future)",
+            "category" : "Schools"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
+               -1.845703125,
+               -83.26740896926444
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"",
+            "id":"marker-hqib7b5b18",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Electrical Substation (Future)",
+            "category" : "Schools"
+         },
+         "type":"Feature"
+      }
+   ],
+   "id":"lucidagency.h10pc6ak",
+   "type":"FeatureCollection"
+}
