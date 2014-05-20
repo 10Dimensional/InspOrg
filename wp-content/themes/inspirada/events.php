@@ -21,7 +21,8 @@
 <style>
 .events-section .box {
 	width: 33.3%;
-	
+	height: 260px;
+	margin-bottom: 70px;	
 }
 .posts{ float:left; overflow:hidden; }
 	#recent-posts-3 ul li { margin-bottom: 7px; }
@@ -55,24 +56,26 @@
 				<div class="frame">
 				<div class="posts" style="width: 75%">
 				<?php
-$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+	if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }
+	elseif ( get_query_var('page') ) { $paged = get_query_var('page'); }
+	else { $paged = 1; }
 
 
 
     $args=array(
-      'post_type' => 'post',
-      'post_status' => 'publish',
-      'caller_get_posts'=> 1,
-      "paged" => $paged
+      'post_type' 		=> 'post',
+      'post_status' 	=> 'publish',
+      'posts_per_page'	=> 6,
+      'paged' 			=> $paged
       );
 
     
-    $my_query = new WP_Query($args);
+    $wp_query = new WP_Query($args);
         
     
     
-    if( $my_query->have_posts() ) {
-      while ($my_query->have_posts()) : $my_query->the_post(); ?>      
+    if( $wp_query->have_posts() ) {
+      while ($wp_query->have_posts()) : $wp_query->the_post(); ?>      
 					<section class="box">
 						<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a>
 						<div class="description">
@@ -86,17 +89,16 @@ $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 			<?php
       endwhile;
     }
-wp_reset_query(); ?>
+//wp_reset_query(); ?>
+					<div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
+		    			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page' ); ?></div>
+		                <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;' ); ?></div>
+		            </div>
 				</div>
             			<aside id="sidebar" class="main-col" style="width: 224px;">
 						<?php if ( ! dynamic_sidebar('blog-sidebar') ) : ?>
 		<?php endif; ?>
 			</aside>
-
-            <div class="pagination" style="display:block; clear:both; padding:25px 0 0 50px;; width:100%; box-sizing:border-box;">
-    			<div class="right" style="float:left;"><?php previous_posts_link('&laquo; Previous Page' ); ?></div>
-                <div class="left" style="float:right;"><?php next_posts_link ('Next Page &raquo;' ); ?></div>
-            </div>
             
 				</div>
 			</div>

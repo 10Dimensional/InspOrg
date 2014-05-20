@@ -9,7 +9,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<ul class=\"list\"><li>Resident Community Center</li><ul><li>Kitchen</li> <li>Restrooms</li>  <li>Gathering Area</li>  <li>TV/Wi-Fi</li>  <li>Reading Room</li>  <li>Community Management Offices</li>  <li>Heated Lap Pool</li>  <li>Heated Play Pool</li></ul> <li>Two Ramadas</li> <li>Large Lawn Areas for Passive Play</li> <li>Lighted Bocce Ball Courts</li> <li>Game Tables</li> <li>Bike Racks</li> <li>Amphitheater</li> <li>Kids Play Area</li> <li>Covered and Uncovered Picnic Areas</li> <li>Outdoor Cooking Grills</li> <li>Shade Sails</li></ul><a data-target=\"#solistamodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+            "description":"<ul class=\"list\"><li>Resident Community Center</li><ul><li>Kitchen</li> <li>Restrooms</li>  <li>Gathering Area</li>  <li>TV/Wi-Fi</li>  <li>Reading Room</li>  <li>Community Management Offices</li>  <li>Heated Lap Pool</li>  <li>Heated Play Pool</li></ul> <li>Two Ramadas</li> <li>Large Lawn Areas for Passive Play</li> <li>Lighted Bocce Ball Courts</li> <li>Game Tables</li> <li>Bike Racks</li> <li>Amphitheater</li> <li>Kids Play Area</li> <li>Covered and Uncovered Picnic Areas</li> <li>Outdoor Cooking Grills</li> <li>Shade Sails</li></ul><a data-target=\"#solistamodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
            	"id":"marker-hqi9yh7f0",
             "marker-color":"#83a857",
             "marker-size":"medium",
@@ -28,7 +28,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<ul class=\"list\"><li>Picnic Area</li> <li>2 Ramadas</li> <li>3 Tennis Courts</li> <li>Splash Pad / Water Play Area</li> <li>Kid's Play System with Tensile Shade</li> <li>2 Soccer/Multi-Use Sport Fields</li> <li>Dog Park</li> <li>Restrooms</li> <li>2 Basketball Courts</li> <li>Amphitheater</li></ul><a data-target=\"#capriolamodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+            "description":"<ul class=\"list\"><li>Picnic Area</li> <li>2 Ramadas</li> <li>3 Tennis Courts</li> <li>Splash Pad / Water Play Area</li> <li>Kid's Play System with Tensile Shade</li> <li>2 Soccer/Multi-Use Sport Fields</li> <li>Dog Park</li> <li>Restrooms</li> <li>2 Basketball Courts</li> <li>Amphitheater</li></ul><a data-target=\"#capriolamodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
             "id":"marker-hqia18sa1",
             "marker-color":"#83a857",
             "marker-size":"medium",
@@ -48,7 +48,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<ul class=\"list\"><li>Teen Play Area</li> <li>Kid's Play Area with Tensile Shade</li> <li>Resident Adult & Family Pool Area</li> <li>2 Family Ramadas with Picnic Areas</li> <li>Generous Open Grass Areas</li> <li>2 Basketball courts</li></ul><a data-target=\"#potenzamodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+            "description":"<ul class=\"list\"><li>Teen Play Area</li> <li>Kid's Play Area with Tensile Shade</li> <li>Resident Adult & Family Pool Area</li> <li>2 Family Ramadas with Picnic Areas</li> <li>Generous Open Grass Areas</li> <li>2 Basketball courts</li></ul><a data-target=\"#potenzamodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
             "id":"marker-hqia4k4a2",
             "marker-color":"#83a857",
             "marker-size":"medium",
@@ -68,7 +68,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<ul class=\"list\"><li>2 Ramadas</li> <li>Water Play Area</li> <li>4 Sand Volleyball Courts</li> <li>Heated Resident Pool</li> <li>Dog Park</li> <li>2 Tennis Courts</li> <li>2 Little League Fields</li> <li>Child Play Structure Area</li> <li>3 Soccer/Multi-use Fields</li> <li>2 Basketball Courts</li></ul><a data-target=\"#aventuramodal\" href=\"/remote/url\" role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
+            "description":"<ul class=\"list\"><li>2 Ramadas</li> <li>Water Play Area</li> <li>4 Sand Volleyball Courts</li> <li>Heated Resident Pool</li> <li>Dog Park</li> <li>2 Tennis Courts</li> <li>2 Little League Fields</li> <li>Child Play Structure Area</li> <li>3 Soccer/Multi-use Fields</li> <li>2 Basketball Courts</li></ul><a data-target=\"#aventuramodal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Click for Larger View</a>",
             "id":"marker-hqia65h83",
             "marker-color":"#83a857",
             "marker-size":"medium",
@@ -201,7 +201,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
             "id":"marker-hqiabajya",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -220,7 +220,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
             "id":"marker-hqiak0cib",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -239,7 +239,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
             "id":"marker-hqiak7p1c",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -258,7 +258,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
             "id":"marker-hqiakxf3d",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -277,7 +277,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"3177 Mantua Village Ave<br>\n(702)399-2100<br>\nDriving Directions<br>\n<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"3177 Mantua Village Ave<br>\n(702)399-2100<br>\nDriving Directions<br>\n<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
             "id":"marker-hqiala54e",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -296,7 +296,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
             "id":"marker-hqiamhe8f",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -315,7 +315,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
             "id":"marker-hqiamrymg",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -334,7 +334,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiantyoh",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -353,7 +353,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiaqy0fi",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -372,7 +372,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiar7faj",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -391,7 +391,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiarfcvk",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -410,7 +410,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiarnmkl",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -429,7 +429,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiarylym",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -448,7 +448,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiask26n",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -467,7 +467,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiasuuvo",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -486,7 +486,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiat6lip",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -505,7 +505,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiatf1aq",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -524,7 +524,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiatmo0r",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -543,7 +543,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiatx3as",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -562,7 +562,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"NEW MODEL CENTER<br>\nSummer 2014<br>\n<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"NEW MODEL CENTER<br>\nSummer 2014<br>\n<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiau717t",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -581,7 +581,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiav2ocu",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -600,7 +600,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiavfufv",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -619,7 +619,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"1910 Epte Poplars<br>\n(702) 266-9900<br>\nDriving Directions<br>\n<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "description":"1910 Epte Poplars<br>\n(702) 266-9900<br>\nDriving Directions<br>\n<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
             "id":"marker-hqiavvixw",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -638,12 +638,12 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
             "id":"marker-hqiaxki4x",
             "marker-color":"#1087bf",
             "marker-size":"medium",
             "marker-symbol":"",
-            "title":"Pardee Available June 2014",
+            "title":"Pardee Available January 2015",
             "category" : "Pardee Homes"
          },
          "type":"Feature"
@@ -657,7 +657,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
             "id":"marker-hqiazfkyy",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -676,7 +676,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
             "id":"marker-hqib001lz",
             "marker-color":"#1087bf",
             "marker-size":"medium",
@@ -695,7 +695,7 @@
             "type":"Point"
          },
          "properties":{
-            "description":"<img src=\"http://166.78.0.133/wp-content/uploads/2014/01/beazer-map.png\">",
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/beazer-map.png\">",
             "id":"marker-hqib0xcd10",
             "marker-color":"#1087bf",
             "marker-size":"medium",

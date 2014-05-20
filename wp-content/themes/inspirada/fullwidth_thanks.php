@@ -38,16 +38,54 @@
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
 <?php wp_head() ?></head>
 <body>
+<!-- Facebook Conversion Code for Landing Page Lead -->
+<script type="text/javascript">
+var fb_param = {};
+fb_param.pixel_id = '6013393403253';
+fb_param.value = '0.00';
+fb_param.currency = 'USD';
+(function(){
+  var fpw = document.createElement('script');
+  fpw.async = true;
+  fpw.src = '//connect.facebook.net/en_US/fp.js';
+  var ref = document.getElementsByTagName('script')[0];
+  ref.parentNode.insertBefore(fpw, ref);
+})();
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?
+
+id=6013393403253&amp;value=0&amp;currency=USD" /></noscript>
+
+<!-- Google Code for Landing Page Lead Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 974801844;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "6pY1CMTs4QgQtJfp0AM";
+var google_conversion_value = 1.000000;
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/974801844/?value=1.000000&amp;label=6pY1CMTs4QgQtJfp0AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
 	<div id="wrapper">
 		<?php get_header(); ?>
-		<div class="w1">
-	
 <style>
 h1 {
 	font: 24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
+}
+#wrapper {
+background: white;
 }
 </style>
 		<div id="main" style="background: white">

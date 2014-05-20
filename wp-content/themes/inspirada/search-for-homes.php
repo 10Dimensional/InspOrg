@@ -25,8 +25,8 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );
-                
+
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );                
                 
                 ?>
 <!DOCTYPE html>
@@ -54,11 +54,11 @@ list-style-type: disc;
 .info-table {
 	background: #295585;
 }
+.filter-form .title {
+	color: white;
+}
 img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
 </style>
-<script>
-jquery(".info-table tr:even").css('background-color','#295585');
-</script>
 <?php wp_head() ?></head>
 <body>
 <div id="wrapper" style="background: white;">
@@ -92,7 +92,7 @@ jquery(".info-table tr:even").css('background-color','#295585');
             
             <section class="filter-section">
                 <div class="panel">
-                    <h1>Search by Preferences</h1>
+                    <h1>1. Search by Preferences</h1>
                     <form id="frmPropertySearch" class="filter-form" action="#">
                         <fieldset>
                             <strong class="title">Price Range</strong>
@@ -187,6 +187,7 @@ jquery(".info-table tr:even").css('background-color','#295585');
                                
                                 </div>
                             </div>
+                            <div id="future_shell" class="rad-holder"></div>
 
                             <input type="submit" value="FILTER" />
                             <div class="matches-counter">
@@ -205,12 +206,14 @@ jquery(".info-table tr:even").css('background-color','#295585');
                     <div class="holder">
                         <div class="info-block">
                             <div class="scrollable-area">
-                                <h1>Not Ready To Choose?</h1>
-                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>                                                                
-<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">SEND ME INFORMATION</a>                            
+                                <h1>3. Download your info</h1>
+                                <h3><div id="builder-count" style="width: 20px; float: left;">0</div><span style="font-size: 18px;">items in cart</span></h3><p>When you are ready to download your info, click the download button below.</p>                                                                
+<a class="button reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Send Me Information']);" data-toggle="modal" data-target="#requestInfo">Download Now</a>                           
                             </div>
                         </div>
                         <div class="table-block">
+                        <h2 style="font-weight: bold;
+margin-top: 0px; text-transform: uppercase;">2. Select models that interest you from your matches list: <img style="margin-top: -14px;" src="<?php bloginfo('template_url') ?>/images/right-50.png"></h2>
                             <div class="scrollable-area anyscrollable">
                                 <div class="table-holder">
                                     <form id="frmPropertyList">
@@ -241,32 +244,32 @@ jquery(".info-table tr:even").css('background-color','#295585');
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Bdrms</span>
+                                                    <th><span>BDs</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Baths</span>
+                                                    <th><span>BAs</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th class="hide-mobile"><span>Stories</span>
+                                                    <th class="hide-mobile"><span>ST</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th class="hide-mobile"><span>Garages</span>
+                                                    <th class="hide-mobile"><span>GAR</span>
                                                         <ul class="sort-btns">
                                                                 <li><a href="#">increase</a></li>
                                                                 <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Images</span></th>
-                                                    <th><span>Interested?</span></th>
+                                                    <th><span>Floorplans & Pricing (info pack)</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="result_body">
@@ -319,7 +322,7 @@ jquery(".info-table tr:even").css('background-color','#295585');
                                                                         break;
                                                                 } ?>
                                                             </td>
-                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
+                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /> Add to download cart</td>
                                                         </tr>
                                                     <?php } ?>                                 
                                                 
@@ -330,8 +333,12 @@ jquery(".info-table tr:even").css('background-color','#295585');
                             </div>
                         </div>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
-                    <ul class="companies-list">
+<p>Homes at Inspirada are designed to accommodate the desires—and necessities—of today’s residents. When searching for Henderson houses for sale, important priorities often include exceptional home design, energy-efficiency, neighborhoods with parks, pools and activities, excellent nearby schools, and quick, easy access to the metro area. 
+We know that in Las Vegas, houses for sale may not always include the commitment to detail, efficiency, beauty and warrantied quality found at Inspirada. Our four nationally recognized builders have designed intelligent floor plans that work with you, for today and years to come.
+&nbsp;
+&nbsp;</p>
+<a class="button-request reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Request Information']);" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: 0px 0px 15px;">Request Information</a>
+                    <ul class="companies-list" style="margin-top: 70px;">
                     	<li>
                             <div class="img-holder"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                     
