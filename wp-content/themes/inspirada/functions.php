@@ -172,7 +172,7 @@ function post_to_third_party($entry, $form)
                 } else if (strpos($curBuilder, 'toll') !== false) {
                     $curBuilder = 'toll brothers';
                 }
-            
+
                 $builders[] = $curBuilder;
             }
         }
@@ -202,11 +202,11 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
 
 function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
 {
-    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
+//    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     require_once "Mail.php";
     require_once "Mail/mime.php";
-    $to = 'inspirada@kbhome.com';
-    
+    $to = 'liz@lucidagency.com'; //'inspirada@kbhome.com';
+
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
     $xml .= '<lead>'.PHP_EOL;
@@ -287,7 +287,6 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
 
     // open some file for reading
     $file = $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/public/export/'.time().'.xml';
-
 
     // set up basic connection
     $conn_id = ftp_connect('64.94.4.105');
