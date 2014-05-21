@@ -177,7 +177,7 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !im
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
-                                    <label for="radio-03">Pardee Homes—June 2014</label>
+                                    <label for="radio-03">Pardee Homes—August 2014</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
