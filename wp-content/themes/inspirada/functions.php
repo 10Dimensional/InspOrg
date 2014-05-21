@@ -223,7 +223,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     $xml .= '</hsleads>';
 
     $from = "Inspirada <info@inspirada.com>";
-    $subject = "Info Requested";
+    $subject = "Inspirada - Henderson - Info Requested";
 
     $host = "smtp.gmail.com";
     $port = '465';
