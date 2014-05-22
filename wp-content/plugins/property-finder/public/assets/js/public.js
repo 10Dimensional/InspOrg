@@ -121,7 +121,7 @@ var builder_layers = {
                                 array_title.push('KB Future Development', 'KB Currently Selling', 'KB Available Summer 2014', 'KB Available Summer 2014', 'KB Available Fall 2014', 'KB Home Model Center');
                                 break;
                             case 'Pardee':
-                                array_title.push('Pardee Future Development', 'Pardee Available June 2014', 'Pardee Available January 2015');
+                                array_title.push('Pardee Future Development', 'Pardee Available August 2014', 'Pardee Available January 2015');
                                 break;
                             case 'Toll Brothers':
                                 array_title.push('Toll Brothers Future Development', 'Toll Brothers Available 2015', 'Toll Brothers Available Fall 2014', 'Toll Brothers Model Center', 'Toll Brothers Available Summer 2014', 'Toll Brothers Currently Selling');
