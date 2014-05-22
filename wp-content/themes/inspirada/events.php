@@ -43,12 +43,12 @@
 			</nav>
 			<h1 class="page-title page-title-4">
 				<span class="icon"><img src="<?php the_field('hexagon_icon'); ?>" alt=""></span>
-				<span class="text"><?php the_field('headline'); ?></span>
+				<span class="text"><?php single_cat_title( $prefix = '', $display = true ); ?></span>
 			</h1>
 		</div>
 			<section class="text-section style-red">
 			<div class="holder">
-				<?php the_field('headliner'); ?>
+				<?php echo category_description(); ?>
 			</div>
 			</section>
 	<div class="events-section">

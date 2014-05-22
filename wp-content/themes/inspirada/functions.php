@@ -158,6 +158,7 @@ function post_to_third_party($entry, $form)
             'pardee homes',
             'toll brothers'
         );
+
     } else {
         $builders = array();
         foreach ($builders_id as $builder) {
@@ -200,9 +201,10 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
     }
 }
 
+
 function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
 {
-//    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
+    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     require_once "Mail.php";
     require_once "Mail/mime.php";
     $to = 'inspirada@kbhome.com';
