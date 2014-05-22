@@ -3442,6 +3442,8 @@ var acf = {
 		// activate first tab
 		acf.fields.tab.refresh( $(el) );
 		
+		// activate first tab
+		acf.fields.tab.refresh( $(el) );
 		
 		// NOTE: this code is defined BEFORE the acf.conditional_logic action. This is becuase the 'acf/setup_fields' listener is defined INSIDE the conditional_logic.init() function which is run on doc.ready
 		

@@ -43,6 +43,7 @@ class acf
 			'path'				=> apply_filters('acf/helpers/get_path', __FILE__),
 			'dir'				=> apply_filters('acf/helpers/get_dir', __FILE__),
 			'hook'				=> basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ),
+
 			'version'			=> '4.3.8',
 			'upgrade_version'	=> '3.4.1',
 			'include_3rd_party'	=> false
