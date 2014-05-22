@@ -5,17 +5,17 @@
     $email = $_GET['email'];
     $phone = $_GET['phone'];
     $comment = $_GET['comment'];
-    $builders = explode(',', $_GET['builders']);
+    $builders = ($_GET['builders'] !== 'false') ? explode(',', $_GET['builders']) : false;
 
-    if (in_array('KB Home', $builders)) {
+    if (in_array('KB Home', $builders) || !$builders) {
         generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
     }
 
-    if (in_array('Beazer Homes', $builders)) {
+    if (in_array('Beazer Homes', $builders) || !$builders) {
         generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
     }
 
-    if (in_array('Toll Brothers', $builders)) {
+    if (in_array('Toll Brothers', $builders) || !$builders) {
         generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
     }               
 ?>
@@ -33,7 +33,7 @@
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 
 <?php wp_head() ?></head>
-<body>sdsd
+<body>
 	<div id="wrapper">
 		<?php get_header() ?>
 		<div class="w1">

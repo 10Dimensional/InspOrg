@@ -281,7 +281,7 @@ function addLayer(layer, name, zIndex) {
                         var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');
             markerLayer.options.sanitizer = function(x) { return x; };
              markerLayer.setFilter(function(f) {
-                            return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available January 2015' || f.properties['title'] === 'Pardee Available June 2014'; 
+                            return f.properties['title'] === 'Pardee Future Development' || f.properties['title'] === 'Pardee Available January 2015' || f.properties['title'] === 'Pardee Available August 2014'; 
                         })
                     .addTo(map);
                     markerLayer.on('mouseover', function(e) {
