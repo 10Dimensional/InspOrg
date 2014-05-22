@@ -70,8 +70,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		</div>
 	</footer>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 088d4269edf3a53d6f5d6991504e4dfc8fad1fe8
