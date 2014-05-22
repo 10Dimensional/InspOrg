@@ -16,6 +16,25 @@
     }
     
     $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
+    
+    $first = $_GET['firstName'];
+    $last = $_GET['lastName'];
+    $email = $_GET['email'];
+    $phone = $_GET['phone'];
+    $comment = $_GET['comment'];
+    $builders = ($_GET['builders'] !== 'false') ? explode(',', $_GET['builders']) : false;
+    
+    if (in_array('KB Home', $builders) || !$builders) {
+        generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
+    }
+
+    if (in_array('Beazer Homes', $builders) || !$builders) {
+        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
+    }
+
+    if (in_array('Toll Brothers', $builders) || !$builders) {
+        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
+    }
 ?>
 <!DOCTYPE html>
 <html>
