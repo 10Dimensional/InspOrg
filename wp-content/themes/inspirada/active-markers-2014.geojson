@@ -328,6 +328,25 @@
       {
          "geometry":{
             "coordinates":[
+               40.078125,
+               -74.77584300649234
+            ],
+            "type":"Point"
+         },
+         "properties":{
+            "description":"<img src=\"http://23.253.101.150/wp-content/uploads/2014/01/pardee-logos-for-map.png\">",
+            "id":"marker-hqiaxki4x",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Pardee Available January 2015",
+            "category" : "Pardee Homes"
+         },
+         "type":"Feature"
+      },
+      {
+         "geometry":{
+            "coordinates":[
                48.8671875,
                -79.73428059335231
             ],
