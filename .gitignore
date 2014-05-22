@@ -50,6 +50,8 @@ wp-content/*
 #===========================#
  wp-content/plugins/*
  !wp-content/plugins/property-finder/
+ wp-content/plugins/property-finder/public/export/*
+
 #===========================#
 #     Specific Themes       #
 #===========================#
