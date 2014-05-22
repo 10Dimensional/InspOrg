@@ -185,7 +185,7 @@
         require_once "Mail/mime.php";
 
         $from = "Inspirada <info@inspirada.com>";
-        $subject = "Info Requested";
+        $subject = "Inspirada - Henderson - Info Requested";
 
         $host = "smtp.gmail.com";
         $port = '465';

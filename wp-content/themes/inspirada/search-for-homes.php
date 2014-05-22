@@ -367,7 +367,7 @@ We know that in Las Vegas, houses for sale may not always include the commitment
                             <div class="img-holder"><a href="/browse-the-builders/pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
                     
                             <dl>
-                                <dt><strong>Coming June 2014</strong></dt>
+                                <dt><strong>Coming August 2014</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
                                     <dd>(702) 604-3332</dd>

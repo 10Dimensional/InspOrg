@@ -205,7 +205,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
 //    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     require_once "Mail.php";
     require_once "Mail/mime.php";
-    $to = 'liz@lucidagency.com'; //'inspirada@kbhome.com';
+    $to = 'inspirada@kbhome.com';
 
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
     $xml .= '<hsleads>'.PHP_EOL;
