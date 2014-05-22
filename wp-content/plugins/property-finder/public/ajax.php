@@ -97,17 +97,17 @@
 
 
         // Store in DB
-        $wpdb->insert(
-        	'ap_leads',
-        	array(
-        		'first' => stripslashes($_POST['firstName']),
-        		'last' => stripslashes($_POST['lastName']),
-        		'email' => trim($_POST['email']),
-        		'phone' => trim($_POST['phone']),
-        		'comment' => trim($_POST['comment']),
-        		'builders' => (isset($_POST['builders'])) ? json_encode($_POST['builders']) : '',
-        		'properties' => json_encode($property_ids)
-        	)
+        $wpdb->insert( 
+            'ap_leads', 
+            array( 
+                'first' => stripslashes($_POST['firstName']), 
+                'last' => stripslashes($_POST['lastName']),
+                'email' => trim($_POST['email']),
+                'phone' => trim($_POST['phone']),
+                'comment' => trim($_POST['comment']),
+                'builders' => (isset($_POST['builders'])) ? json_encode($_POST['builders']) : '',
+                'properties' => json_encode($property_ids)
+            )
         );
     } else if ($_POST['type'] === 'toll') {
         print_r(generate_xml_soap_toll());
@@ -193,15 +193,16 @@
         $password = "0bbLsE9fRXGU";
 
         $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
-
-    	// Get form fields
-    	$name = stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']);
-    	$phone = trim($_POST['phone']);
-    	$email = trim($_POST['email']);
-    	$comment = trim($_POST['comment']);
-
-    	// Format Message
-    	$body = '<h1>'.$title.'</h1><br /><br />
+    
+        // Get form fields
+        $name = stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']);
+        $phone = trim($_POST['phone']);
+        $email = trim($_POST['email']);
+        $comment = trim($_POST['comment']);
+    
+        // Format Message
+        $body = '<h1>'.$title.'</h1><br /><br />
+>>>>>>> origin/staging
 <strong>Name:</strong><br />'.$name.'<br /><br />
 <strong>Phone Number:</strong><br />'.$phone.'<br /><br />
 <strong>Email:</strong><br />'.$email.'<br /><br />
@@ -315,11 +316,10 @@
 
         $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
 
-    	// Get form fields
 
-
-    	// Format Message
-    	$body = '';
+    
+        // Format Message
+        $body = '';
 
 
         $mime = new Mail_mime();
