@@ -177,7 +177,7 @@ img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !im
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
-                                    <label for="radio-03">Pardee Homes—June 2014</label>
+                                    <label for="radio-03">Pardee Homes—August 2014</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
@@ -367,7 +367,7 @@ We know that in Las Vegas, houses for sale may not always include the commitment
                             <div class="img-holder"><a href="/browse-the-builders/pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
                     
                             <dl>
-                                <dt><strong>Coming June 2014</strong></dt>
+                                <dt><strong>Coming August 2014</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
                                     <dd>(702) 604-3332</dd>
