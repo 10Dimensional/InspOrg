@@ -220,7 +220,7 @@ img.aligncenter{
 	padding:44px 0 0;
 	list-style:none;
 	float:right;
-	width:730px;
+	width:800px;
 	font:15px/17px 'arimobold', Arial, Helvetica, sans-serif;
 	text-transform:uppercase;
 	text-align:center;
@@ -651,7 +651,6 @@ margin-left: 7%;
 	max-width:1001px;
 	margin:157px auto 96px;
 	overflow:hidden;
-	border:1px solid #fff;
 }
 .vicinity-section .panel{
 	float:left;
@@ -967,7 +966,7 @@ margin: -7px 7px 0px;
 	box-sizing: border-box;
 }
 .filter-section .panel h1{
-	font:18px/24px 'roboto_slabbold', 'Times New Roman', Times, serif;
+	font:16px/24px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-transform:uppercase;
 	color:#295585;
 	text-align:center;
@@ -1143,7 +1142,7 @@ margin: -7px 7px 0px;
 }
 .filter-form .matches-counter{
 	overflow:hidden;
-	padding:0 5px 20px;
+	padding:0 5px 7px;
 	background:white;
 	font:25px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-transform:uppercase;
@@ -1152,9 +1151,9 @@ margin: -7px 7px 0px;
 }
 .matches-counter .number{
 	display:block;
-	font-size:115px;
-	line-height:120px;
-	margin:-6px 0;
+	font-size:80px;
+	line-height:82px;
+	/*margin:-6px 0;*/
 }
 .matches-counter p{
 	margin:0;
@@ -1259,7 +1258,7 @@ border: 1px #295585 solid;
 .info-table th{
 	vertical-align:top;
 	padding:8px 5px 8px 7px;
-	font:13px/18px 'roboto_slabbold', 'Times New Roman', Times, serif;
+	font:12px/18px 'roboto_slabbold', 'Times New Roman', Times, serif;
 	text-align:left;
 	color:#fff;
 	background:#003056;
@@ -3355,6 +3354,10 @@ overflow: hidden;
 	}
 }
 @media only screen and (max-width:1100px){
+	.hide-mobile {
+		display: block;
+	}
+
 	.btn-back-to-top{
 		position:static;
 		display:block;
@@ -3370,11 +3373,21 @@ overflow: hidden;
 	.events-section .text-wrap {
 		 height: 215px !important;
 	}
+	li.last-child {
+		margin-top: 0 !important;
+	}
+	#emailsignup {
+		margin-left: -115% !important;
+		margin-top: 27% !important;
+	}
 
 }
 @media only screen and (max-width:1023px){
 	body{
 		min-width:320px;
+	}
+	.scrollable-area-wrapper {
+		width: 780px !important;
 	}
 	#wrapper{
 		padding:0;
@@ -3447,7 +3460,8 @@ overflow: hidden;
 		width: 80% 
 		}
 	.events-section .box {
-		width: 20%
+		height: 360px !important;
+		margin-bottom: 20px !important;
 		}
 	#main {
 		width: 90%
@@ -3696,11 +3710,17 @@ overflow: hidden;
 		padding:30px 5px;
 	}
 	#content,
-	#sidebar{
+	#sidebar, #sidebar-builders{
 		float:none;
 		width:auto;
 		padding:10px 0;
 		height:auto !important;
+		clear: both;
+		margin: 0 auto;
+	}
+	#sidebar-builders {
+		width: 30%;
+		border-left: none;
 	}
 	#content:after,
 	#sidebar:after{
@@ -3948,6 +3968,8 @@ overflow: hidden;
 	.events-section .box{
 		width:33.33334%;
 		padding:0 0 20px 20px;
+		height: 360px !important;
+		margin-bottom: 20px !important;
 	}
 	.families-lightbox{
 		width:768px;
@@ -4614,19 +4636,19 @@ text-align: center;
 }
 .frmSub p {color:#033b4b; font:16px 'arimobold', Helvetica, sans-serif; padding-top: 5px;}
 .menu-one {
-	width: 15% !important
+	width: 13% !important
 }
 
 .menu-two {
-	width: 16% !important
+	width: 12% !important
 }
 
 .menu-four {
-	width: 22$ !important
+	width: 18% !important
 }
 
 .menu-five {
-	width: 21% !important
+	width: 17% !important
 }
 
 .cs-prev {
@@ -4668,6 +4690,9 @@ padding: 13px 32px 5px 0;
 -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 box-sizing: border-box;
+}
+#gform_10 .gfield_label {
+	display: none !important;
 }
 .gform_wrapper { 
 	overflow: visible !important;
@@ -4868,7 +4893,6 @@ line-height: 1em;
 #sidebar-vicinity{
 	float:right;
 	width:250px;
-	border:1px solid #fff;
 	padding:0 0 0 21px;
 	border-width:0 0 0 1px;
 	-moz-box-sizing: border-box;

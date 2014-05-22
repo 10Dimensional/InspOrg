@@ -49,7 +49,7 @@ class Property_Finder_Widget extends WP_Widget {
     							</div>
     							<div class="rad-holder">
        								<input id="radio-03" name="builder[]" value="Pardee" type="checkbox">
-    								<label for="radio-03">Pardee - Coming Soon</label>
+    								<label for="radio-03">Pardee - August 2014</label>
     							</div>
     							<div class="rad-holder">
     								<input id="radio-04" name="builder[]" value="Toll Brothers" type="checkbox">

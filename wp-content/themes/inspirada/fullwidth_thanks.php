@@ -1,30 +1,51 @@
 <?php
-                /*
-                	Template Name: Full Width Thank You
-                */ 
-                
-                $price = explode('to', str_replace(',', '', str_replace('$', '', $_GET['price_range'])));
-                $sqft = explode('to', str_replace(',', '', str_replace('sq ft', '', $_GET['sqft'])));
-                $property_id = array();
-                $price_min = ($_GET['price_range'] === 'below $200,000') ? 0 : $price[0];
-                
-                $price_max = ($_GET['price_range'] === 'over $500,000') ? 999999999 : (($_GET['price_range'] === 'below $200,000') ? 199999 : $price[1]);
+    /*
+    	Template Name: Full Width Thank You
+    */ 
     
-                $builder = (!isset($_GET['builder'])) ? false : $_GET['builder'];
-                $sq_ft_min = ($_GET['sqft'] === 'over 5,000 sq ft') ? 5000 : $sqft[0];
-                $sq_ft_max = ($_GET['sqft'] === 'over 5,000 sq ft') ? 99999999999 : $sqft[1];
-                
+    $price = explode('to', str_replace(',', '', str_replace('$', '', $_GET['price_range'])));
+    $sqft = explode('to', str_replace(',', '', str_replace('sq ft', '', $_GET['sqft'])));
+    $property_id = array();
+    $price_min = ($_GET['price_range'] === 'below $200,000') ? 0 : $price[0];
+    
+    $price_max = ($_GET['price_range'] === 'over $500,000') ? 999999999 : (($_GET['price_range'] === 'below $200,000') ? 199999 : $price[1]);
+    
+    $builder = (!isset($_GET['builder'])) ? false : $_GET['builder'];
+    $sq_ft_min = ($_GET['sqft'] === 'over 5,000 sq ft') ? 5000 : $sqft[0];
+    $sq_ft_max = ($_GET['sqft'] === 'over 5,000 sq ft') ? 99999999999 : $sqft[1];
+    
+    
+    $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND sq_ft >= '.$sq_ft_min.' AND sq_ft <= '.$sq_ft_max;    
+    
+    if ($builder) {
+        $where_clause .= " AND builder IN ('".implode("','",$builder).'\')';
+    }
+    
+                    
+    $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
+    
 
-                $where_clause = 'WHERE ((price_min >= '.$price_min.' AND price_max <= '.$price_max.') OR price_min = 0) AND sq_ft >= '.$sq_ft_min.' AND sq_ft <= '.$sq_ft_max;    
-                
-                if ($builder) {
-                    $where_clause .= " AND builder IN ('".implode("','",$builder).'\')';
-                }
-                
-                                
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY price_min ASC" );
+    $first = $_GET['firstName'];
+    $last = $_GET['lastName'];
+    $email = $_GET['email'];
+    $phone = $_GET['phone'];
+    $comment = null;
+    $builders = explode(',', $_GET['builders']);
 
-                ?>
+    if (in_array('KB Home', $builders)) {
+        generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
+    }
+
+    if (in_array('Beazer Homes', $builders)) {
+        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
+    }
+
+    if (in_array('Toll Brothers', $builders)) {
+        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
+    } 
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,6 +104,9 @@ var google_remarketing_only = false;
 <style>
 h1 {
 	font: 24px/28px 'roboto_slabbold', 'Times New Roman', Times, serif;
+}
+#wrapper {
+background: white;
 }
 </style>
 		<div id="main" style="background: white">

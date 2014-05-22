@@ -6,7 +6,7 @@
                 $price_min = ($_GET['price_min']) ? $_GET['price_min'] : 0;
                 $price_max = ($_GET['price_max']) ? $_GET['price_max'] : 999999999;
                 $beds = ($_GET['beds']) ? $_GET['beds'] : 0;
-                $builder = (!$_GET['builder'] || $_GET['builder'] === 'all') ? false : $_GET['builder'];
+                $builder = (!$_GET['builder']) ? false : $_GET['builder'];
                 $stories = ($_GET['stories'] === 0) ? false : $_GET['stories'];
                 $sq_ft = ($_GET['sq_ft']) ? $_GET['sq_ft'] : 0;
                 $garage_bays = ($_GET['garage_bays'] === 0) ? false : $_GET['garage_bays'];
@@ -25,8 +25,8 @@
                     $where_clause .= ' AND garage_bays_min = '.$garage_bays;
                 }
                                 
-                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause" );
-                
+
+                $properties = $wpdb->get_results("SELECT * FROM ap_properties $where_clause ORDER BY sq_ft ASC" );                
                 
                 ?>
 <!DOCTYPE html>
@@ -39,12 +39,32 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
+	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/>
+	   <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	   <![endif]-->
+<style>
+.list li {
+list-style-type: disc;
+}
+.map-block IMG {
+	width: auto !important; 
+	}
+.info-table {
+	background: #295585;
+}
+.filter-form .title {
+	color: white;
+}
+img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+1087bf@2x.png"]{opacity:0 !important;}
+</style>
 <?php wp_head() ?></head>
 <body>
-<div id="wrapper">
+<div id="wrapper" style="background: white;">
     <?php get_header() ?>
     <div class="w1">
-		<div id="bg" class="bg-with-mask">
+		<div id="bg" class="bg-without-mask">
 				<img src="<?php the_field('hero_image'); ?>" alt="">
 						</div>
 		<nav>
@@ -63,13 +83,12 @@
 					</div>
 	</section>
 	<div class="search-section">
-		<div class="holder">
+		<div class="holder" style="max-width: 1003px">
             <?php while ( have_posts() ) : the_post(); ?>
 
                 <?php the_content(); ?>
 
-            <?php endwhile; // end of the loop. ?>
-            
+            <?php endwhile; // end of the loop. ?>         
             
             <section class="filter-section">
                 <div class="panel">
@@ -86,8 +105,8 @@
                                         <input class="steps" type="hidden" value="10000" />
 										<input class="min" type="hidden" value="190000" /> 
                                         <input class="max" type="hidden" value="500000" />
-										<input class="v1" type="hidden" name="price_min" value="<?php echo ($_GET['price_min']) ? $_GET['price_min'] : '195000'; ?>" /> 
-                                        <input class="v2" type="hidden" name="price_max" value="<?php echo ($_GET['price_max']) ? $_GET['price_max'] : '350000'; ?>" />
+										<input class="v1" type="hidden" name="price_min" value="<?php echo ($_GET['price_min']) ? $_GET['price_min'] : '190000'; ?>" /> 
+                                        <input class="v2" type="hidden" name="price_max" value="<?php echo ($_GET['price_max']) ? $_GET['price_max'] : '500000'; ?>" />
                                     </div>
                                     <div class="range-values add">
                                         <strong>$<span class="disp-v1">195,000</span></strong>
@@ -150,7 +169,7 @@
                                 
                                 <div class="rad-holder">
                                     <input id="radio-01" type="checkbox" name="builder[]" value="Beazer" />
-                                    <label for="radio-01">Beazer <br>Coming Spring 2015</label>
+                                    <label for="radio-01">Beazer—Spring 2015</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-02" type="checkbox" name="builder[]" value="KB Home" />
@@ -158,7 +177,7 @@
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-03" type="checkbox" name="builder[]" value="Pardee" />
-                                    <label for="radio-03">Pardee Homes<br>Coming in June</label>
+                                    <label for="radio-03">Pardee Homes—June 2014</label>
                                 </div>
                                 <div class="rad-holder">
                                     <input id="radio-04" type="checkbox" name="builder[]" value="Toll Brothers" />
@@ -176,7 +195,9 @@
                         </fieldset>
                     </form>
                 </div>
-                <div class="map-block"><img class="placeholder" alt="image description" src="/wp-content/uploads/2013/12/map-placeholder.png" /></div>
+                    
+                    <div id="searchMap" class="map-block" style="float:right;"></div>
+     
             </section>
             
             <div id="result_shell">
@@ -184,9 +205,9 @@
                     <div class="holder">
                         <div class="info-block">
                             <div class="scrollable-area">
-                                <h1>Not Ready To Choose?</h1>
-                                <p>No problem. Let us send you more information on your builder(s) of interest. </p>								
-<a class="button reqInfo" href="#" data-toggle="modal" data-target="#requestInfo">Click Here</a>                            
+                                <h1>Download your info</h1>
+                                <h3><div id="builder-count">0</div><span style="font-size: 14px;">items in cart</span></h3><p>When you are ready to download your info, click the download button below.</p>                                                                
+<a class="button reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Send Me Information']);" data-toggle="modal" data-target="#requestInfo">Download Now</a>                           
                             </div>
                         </div>
                         <div class="table-block">
@@ -198,54 +219,54 @@
                                                 <tr>
                                                     <th><span>Builder</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Series</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Floorplan</span>
+                                                    <th><span>Floorplans</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
                                                     <th><span>Sq Ft</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Bdrms</span>
+                                                    <th><span>BDs</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Baths</span>
+                                                    <th><span>BAs</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Stories</span>
+                                                    <th class="hide-mobile"><span>ST</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Garages</span>
+                                                    <th class="hide-mobile"><span>GAR</span>
                                                         <ul class="sort-btns">
-                                                        	<li><a href="#">increase</a></li>
-                                                        	<li><a href="#">decrease</a></li>
+                                                                <li><a href="#">increase</a></li>
+                                                                <li><a href="#">decrease</a></li>
                                                         </ul>
                                                     </th>
-                                                    <th><span>Renderings</span></th>
-                                                    <th><span>Info Pack</span></th>
+                                                    <th><span>Images</span></th>
+                                                    <th><span>Floorplans & Pricing (info pack)</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="result_body">
@@ -262,43 +283,43 @@
                                                             <td><?php echo number_format($property->sq_ft); ?></td>
                                                             <td><?php echo $beds; ?></td>
                                                             <td><?php echo $baths; ?></td>
-                                                            <td><?php echo $property->stories; ?></td>
-                                                            <td><?php echo $garage_bays; ?></td>
+                                                            <td class="hide-mobile"><?php echo $property->stories; ?></td>
+                                                            <td class="hide-mobile"><?php echo $garage_bays; ?></td>
                                                             <td>
                                                                 <?php switch($property->model) {
                                                                     case 'Monet 1576':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1576">View</a>';
                                                                         break;
                                                                     case 'Monet 1736':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1736">View</a>';
                                                                         break;
                                                                     case 'Monet 1843':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Monet1843">View</a>';
                                                                         break;
                                                                     case 'Cordoba':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Cordoba">View</a>';
                                                                         break;
                                                                     case 'Madeira':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Madeira">View</a>';
                                                                         break;
                                                                     case 'Santiago':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Santiago">View</a>';
                                                                         break;
                                                                     case 'Catania':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Catania">View</a>';
                                                                         break;
                                                                     case 'Messina':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Messina">View</a>';
                                                                         break;
                                                                     case 'Trapani':
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Trapani">View</a>';
                                                                         break;
                                                                     default:
-                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">Slideshow</a>';
+                                                                        echo '<a href="#" data-toggle="modal" data-target="#Andora">View</a>';
                                                                         break;
                                                                 } ?>
                                                             </td>
-                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /></td>
+                                                            <td><input type="checkbox" name="request_info[]" value="<?php echo $property->id; ?>" /> Add to download cart</td>
                                                         </tr>
                                                     <?php } ?>                                 
                                                 
@@ -309,31 +330,59 @@
                             </div>
                         </div>
                     </div>
-                    <a class="button-request reqInfo" href="#" data-toggle="modal" data-target="#requestInfo" style="float:right; margin:-26px 200px 15px;">Request Information</a>
-                    <ul class="companies-list">
+<p>Homes at Inspirada are designed to accommodate the desires—and necessities—of today’s residents. When searching for Henderson houses for sale, important priorities often include exceptional home design, energy-efficiency, neighborhoods with parks, pools and activities, excellent nearby schools, and quick, easy access to the metro area. 
+We know that in Las Vegas, houses for sale may not always include the commitment to detail, efficiency, beauty and warrantied quality found at Inspirada. Our four nationally recognized builders have designed intelligent floor plans that work with you, for today and years to come.
+&nbsp;
+&nbsp;</p>
+<a class="button-request reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Request Information']);" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: 0px 0px 15px;">Request Information</a>
+                    <ul class="companies-list" style="margin-top: 70px;">
                     	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
-                            <strong class="title">Beazer Homes</strong>
+                            <div class="img-holder"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                     
-                            <dl><dt><strong>Coming Spring 2015</strong></dt><dd></dd><dt><strong>Phone:</strong></dt><dd>(702) 987-0055</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd></dl>
+                            <dl>
+                                <dt><strong>Coming Spring 2015</strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 837-2100</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd>
+                                </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="3"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
-                            <strong class="title">KB Home</strong>
+                            <div class="img-holder"><a href="/browse-the-builders/kb-home"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
                     
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 266-9900</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@kbhome.com">info@kbhome.com</a></dd></dl>
+                            <dl>
+                                <dt><strong>Available Now</strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 266-9900</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@kbhome.com">info@kbhome.com</a></dd>
+                            </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
-                            <strong class="title">Pardee Homes</strong>
+                            <div class="img-holder"><a href="/browse-the-builders/pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
                     
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 614-1400</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@pardeehomes.com">info@pardeehomes.com</a></dd></dl>
+                            <dl>
+                                <dt><strong>Coming June 2014</strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 604-3332</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@pardeehomes.com">info@pardeehomes.com</a></dd>
+                            </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="#"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
-                            <strong class="title">Toll Brothers</strong>
+                            <div class="img-holder"><a href="/browse-the-builders/toll-brothers"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
                     
-                            <dl><dt><strong>Phone:</strong></dt><dd>(702) 243-9800</dd><dt><strong>Email:</strong></dt><dd><a href="mailto:info@tollbrothers.com">info@tollbrothers.com</a></dd></dl>
+                            <dl>
+                                <dt><strong>Available Now</strong></dt>
+                                    <dd></dd>
+                                <dt><strong>Phone:</strong></dt>
+                                    <dd>(702) 243-9800</dd>
+                                <dt><strong>Email:</strong></dt>
+                                    <dd><a href="mailto:info@tollbrothers.com">info@tollbrothers.com</a></dd>
+                            </dl>
                         </li>
                     </ul>
                 </section>
@@ -348,9 +397,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
- <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information<br />are on their way!</div></h4>             </div>
-            <div class="modal-body">
-                <div class="step1">
+ <h4 class="modal-title" id="myModalLabel"><div class="step1_head">Please send me information about my requested home selections from:</div><div class="step2_head" style="display:none;"><strong>THANK YOU!</strong><br />Links to your requested information are on their way!</div></h4>             </div>
+            <div class="modal-body" style="width: 100%">
+                <div class="step1" style="padding-left: 25px; padding-right: 25px; padding-bottom: 25px;">
                     <form id="frmRequestInfo" role="form">
                         <div class="checkbox">
                             <label>
@@ -375,30 +424,30 @@
                         <div class="floatLeft">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" />
+                                <input type="text" class="form-control" id="firstName" name="firstName" />
                             </div>
                             <div class="form-group">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" />
+                                <input type="text" class="form-control" id="lastName" name="lastName" />
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                                <input type="email" class="form-control" id="email" name="email" />
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+                                <input type="text" class="form-control" id="phone" name="phone" />
                             </div>
                         </div>
                         <div class="floatRight">
                             <div class="form-group">
                                 <label for="comment">Comment</label>
-                                <textarea class="form-control" id="comment" name="comment" placeholder="Comment"></textarea>
+                                <textarea class="form-control" id="comment" name="comment"></textarea>
                             </div>
                         </div>
                     </form>
                     <div class="frmSub">
-                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be sent to your email address.</p>
+                        <p class="floatLeft threeHundred">Links to the requested information about these fine builders will be available immediately, and additional information will be sent to your email address.</p>
                         <button id="submitRequestInfo" type="button" class="btn btn-primary">Continue</button>
                     </div>
                 </div>
@@ -410,7 +459,7 @@
                           </div>	 	
 	                    <div class="builder_logos">	 	
                         <a href="http://www.beazer.com" target="_blank" class="beazer_homes"></a>	 	
-						<a href="http://www.kbhome.com/new-homes-las-vegas/home" target="_blank" class="kb_home"></a>	 	
+						<a href="http://www.kbhome.com/new-homes-las-vegas/inspirada" target="_blank" class="kb_home"></a>	 	
                        <a href="http://www.pardeehomes.com/" target="_blank" class="pardee_homes"></a>	 	
                         <a href="http://www.tollbrothers.com/NV/Toll_Brothers_at_Inspirada" target="_blank" class="toll_bros"></a>	
                     </div>
@@ -526,6 +575,50 @@
       <div class="modal-body">
         <button type="button" class="close slideshow-close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <?php echo do_shortcode("[metaslider id=899]"); ?>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Solista Park Modal -->
+<div class="modal fade" id="solistamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_SolistaPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Capriola Park Modal -->
+<div class="modal fade" id="capriolamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_CapriolaPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Potenza Park Modal -->
+<div class="modal fade" id="potenzamodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_PotenzaPark.jpg">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<!-- Potenza Park Modal -->
+<div class="modal fade" id="aventuramodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin: 15%;">
+    <div class="modal-content-parks">
+      <div class="modal-body" style="width: 160%; ">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <img src="<?php bloginfo('template_url') ?>/images/LightBox_AventuraPark.jpg">
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
