@@ -441,6 +441,13 @@ We know that in Las Vegas, houses for sale may not always include the commitment
                                 <label for="phone">Phone</label>
                                 <input type="text" class="form-control" id="phone" name="phone" />
                             </div>
+                            <div class="form-group">
+                                <div class="checkbox" style="width:100%;margin-bottom:-10px;padding-bottom:0;">
+                                    <label>
+                                        <input type="checkbox" name="subscribe" value="subscribe">Subscribe to receive updates
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="floatRight">
                             <div class="form-group">
