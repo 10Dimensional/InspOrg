@@ -201,7 +201,7 @@ var builder_layers = {
                     data: str+'&type=info',
                     dataType: 'json',
                     success: function(response) {
-                        if (response.status !== 'success') {
+                        if (response.status === 'success') {
                             window.location = '/thank-you-homes?interested_models='+response.interested_models+'&firstName='+response.firstName+'&lastName='+response.lastName+'&email='+response.email+'&phone='+response.phone+'&comment='+response.comment+'&builders='+response.builders;
                         }
                     }
