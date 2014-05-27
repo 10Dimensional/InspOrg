@@ -1,6 +1,9 @@
 <?php
     // Include Wordpress API
     include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php');
+    // Include Campaign Monitor API
+    include_once($_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/lib/createsend-php/csrest_general.php');
+    require_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/lib/createsend-php/csrest_subscribers.php';
 
     if ($_POST['type'] === 'info') {
         // Request Info
@@ -15,6 +18,7 @@
         $pardee_email = 'leadsource@ljgnetwork.com';
         $toll_email = 'inspirada@tollbrothers.com';
         $builders = $_POST['builders'];
+        $subscribe = $_POST['subscribe'];
         $status = 'success';
         $property_ids = array();
         $community_number = 0;
@@ -57,7 +61,7 @@
 
             if ($builder === 'kb home') {
                 $mail_now = 0;
-                generate_xml_email_kb($community_number);
+             //   generate_xml_email_kb($community_number);
             }
 
             if ($builder === 'beazer homes') {
@@ -65,7 +69,7 @@
                 $use_email = $beazer_email;
                 $use_array = $beazer_array;
 
-                generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number);
+               // generate_xml_email_beazer($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'], $_POST['comment'], $community_number);
             }
 
             if ($builder === 'pardee homes') {
@@ -90,10 +94,22 @@
 
         if (!$builders) {
             $has_toll = 1;
-            generate_xml_email_kb();
+            //generate_xml_email_kb();
         }
 
-        print_r(json_encode(array('status' => $status, 'interested_models' => $requested_properties, 'firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'email' => $_POST['email'], 'comment' => $_POST['comment'], 'phone' => $_POST['phone'])));
+        //Add to campaign monitor
+        if(isset($subscribe) && $subscribe == 'subscribe') {
+            $auth = array('api_key' => 'b76726b5487a8012d8dadf7fbde197ec');
+            $wrap = new CS_REST_Subscribers('af089ef176d2e472fae6c01c312eda7f', $auth);
+
+            $result = $wrap->add(array(
+                'EmailAddress' => trim($_POST['email']),
+                'Name' => stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']),
+                'Resubscribe' => true
+            ));
+        }
+
+        print_r(json_encode(array('status' => $status, 'interested_models' => $requested_properties, 'builders' => $builders, 'firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'email' => $_POST['email'], 'comment' => $_POST['comment'], 'phone' => $_POST['phone'])));
 
 
         // Store in DB
@@ -110,7 +126,7 @@
             )
         );
     } else if ($_POST['type'] === 'toll') {
-        print_r(generate_xml_soap_toll());
+        //print_r(generate_xml_soap_toll());
     } else {
         // Filter Results
         $price_min = ($_POST['price_min']) ? $_POST['price_min'] : 0;
@@ -235,150 +251,5 @@
 
         $mail = $smtp->send($to, $headers, $body);
         return (PEAR::isError($mail)) ? false : true;
-    }
-
-    function generate_xml_email_beazer($firstName, $lastName, $email, $phone, $comment, $community_number)
-    {
-        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
-        $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
-        $xml .= '<hsleads>'.PHP_EOL;
-        $xml .= '<lead>'.PHP_EOL;
-        $xml .= '<submit_date_time>'.str_replace('+00:00', '', date('c', strtotime('now'))).'</submit_date_time>'.PHP_EOL;
-        $xml .= '<firstname>'.substr($firstName, 0, 15).'</firstname>'.PHP_EOL;
-        $xml .= '<lastname>'.substr($lastName, 0, 40).'</lastname>'.PHP_EOL;
-        $xml .= '<email>'.substr($email, 0, 40).'</email>'.PHP_EOL;
-        $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$phone), 0, 10).'</phone>'.PHP_EOL;
-        $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
-        $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
-        $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-        $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
-        $xml .= '</lead>'.PHP_EOL;
-        $xml .= '</hsleads>';
-
-        $xmlobj = new SimpleXMLElement($xml);
-        $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
-
-        // open some file for reading
-        $file = $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/public/export/'.time().'.xml';
-
-
-        // set up basic connection
-        $conn_id = ftp_connect('64.94.4.105');
-        if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
-            if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
-                $msg = true;
-            } else {
-                $msg = error_get_last();
-            }
-        } else {
-            echo "Couldn't connect as $ftp_user\n";
-       }
-        // close the connection and the file handler
-        ftp_close($conn_id);
-
-        return $msg;
-    }
-
-    function generate_xml_email_kb($community_number='')
-    {
-    //    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
-        require_once "Mail.php";
-        require_once "Mail/mime.php";
-        $to = 'liz@lucidagency.com'; //'inspirada@kbhome.com';
-
-
-        $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
-        $xml .= '<hsleads>'.PHP_EOL;
-        $xml .= '<lead>'.PHP_EOL;
-        $xml .= '<submit_date_time>'.str_replace('+00:00', '', date('c', strtotime('now'))).'</submit_date_time>'.PHP_EOL;
-        $xml .= '<firstname>'.substr($_POST['firstName'], 0, 15).'</firstname>'.PHP_EOL;
-        $xml .= '<lastname>'.substr($_POST['lastName'], 0, 40).'</lastname>'.PHP_EOL;
-        $xml .= '<email>'.substr($_POST['email'], 0, 40).'</email>'.PHP_EOL;
-        $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$_POST['phone']), 0, 10).'</phone>'.PHP_EOL;
-        $xml .= '<message>'.substr($_POST['comment'], 0, 2048).'</message>'.PHP_EOL;
-        $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
-        $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-        $xml .= '<communitynumber>'.$community_number.'</communitynumber>'.PHP_EOL;
-        $xml .= '</lead>'.PHP_EOL;
-        $xml .= '</hsleads>';
-
-        header ("Content-Type: application/octet-stream");
-        header ("Content-disposition: attachment; filename=".time().".xml");
-
-        $from = "Inspirada <info@inspirada.com>";
-        $subject = "Inspirada - Henderson - Info Requested";
-
-        $host = "smtp.gmail.com";
-        $port = '465';
-        $username = "InspiradaHenderson@gmail.com";
-        $password = "0bbLsE9fRXGU";
-
-        $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
-
-
-    
-        // Format Message
-        $body = '';
-
-
-        $mime = new Mail_mime();
-        $mime->setHTMLBody($body);
-
-        $xmlobj = new SimpleXMLElement($xml);
-        $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml');
-
-        $mime->addAttachment(ABSPATH . 'wp-content/plugins/property-finder/public/export/text.xml', 'text/xml');
-
-        $body = $mime->get();
-        $headers = $mime->headers($headers);
-
-        $smtp = Mail::factory('smtp',
-            array (
-                'host' => $host,
-                //'port' => $port,
-                'auth' => true,
-                'username' => $username,
-                'password' => $password
-            )
-        );
-
-        $mail = $smtp->send($to, $headers, $body);
-        return (PEAR::isError($mail)) ? false : true;
-    }
-
-
-    function generate_xml_soap_toll()
-    {
-        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
-        ini_set("soap.wsdl_cache_enabled", "0");
-
-        try {
-            $client = new SoapClient(
-                "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(
-                "encoding" => "ISO-8859-1",
-                "trace" => 1,
-                "exceptions" => 1,
-                "connection_timeout" => 1000)
-            );
-
-            $auth = array('username' => "lucid_t", 'password' => "U0hVZLAup2sXVjP");
-            $lead = array(
-                'email' => $_POST['email'],
-                'comments' => $_POST['comment'],
-                'community_id' => "8566",
-                'first_name' => $_POST['firstName'],
-                'homephone' => $_POST['phone'],
-                'last_name' => $_POST['lastName'],
-                'mobilephone' => $_POST['phone'],
-                'requestdate' => date('Y/m/d', strtotime('now'))
-            );
-
-            $response = $client->SubmitLeads(array('Auth' => $auth, 'Lead' => array($lead)));
-            return $response;
-        } catch (SoapFault $e) {
-            return 'Caught SOAP exception: '.$e->getMessage();
-        } catch(Exception $e) {
-            return 'Caught exception: '. $e->getMessage();
-        }
     }
 ?>

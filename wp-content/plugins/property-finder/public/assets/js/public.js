@@ -1,3 +1,5 @@
+//Test ;)//
+
 var builder_layers = {
         'Beazer': 'http://23.253.101.150:8888/v2/beazer/{z}/{x}/{y}.png',
         'KB HOME': 'http://23.253.101.150:8888/v2/kb/{z}/{x}/{y}.png',
@@ -169,7 +171,7 @@ var builder_layers = {
 
         $('#frmRequestInfo').submit(function(e) {
             e.preventDefault();
-            var error = false;
+            var error = false; 
             $('#frmRequestInfo input').css('border', '');
 
             $('#frmRequestInfo input').each(function() {
@@ -200,7 +202,7 @@ var builder_layers = {
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'success') {
-                            window.location = '/thank-you-homes?interested_models='+response.interested_models+'&firstName='+response.firstName+'&lastName='+response.lastName+'&email='+response.email+'&phone='+response.phone+'&comment='+response.comment;
+                            window.location = '/thank-you-homes?interested_models='+response.interested_models+'&firstName='+response.firstName+'&lastName='+response.lastName+'&email='+response.email+'&phone='+response.phone+'&comment='+response.comment+'&builders='+response.builders;
                         }
                     }
                 });
