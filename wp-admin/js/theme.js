@@ -361,6 +361,7 @@ themes.view.Theme = wp.Backbone.View.extend({
 	html: themes.template( 'theme' ),
 
 	events: {
+
 		'click': themes.isInstall ? 'preview': 'expand',
 		'click .preview': 'preview',
 		'keydown': themes.isInstall ? 'preview': 'expand',

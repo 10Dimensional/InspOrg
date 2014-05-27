@@ -4,6 +4,7 @@
  *
  * @global string $wp_version
  */
+
 $wp_version = '3.9';
 
 /**

@@ -42,7 +42,6 @@ wp-content/*
 !wp-content/plugins/
 !wp-content/mu-plugins/
 !wp-content/themes/
-<<<<<<< HEAD
 # !wp-content/uploads ##=> It's a good idea to ignore uploads, especially if you are using git to deploy to live/dev environments. Un-comment this line to 'watch' uploads
 ## Use these to get more specific ##
 #===========================#
