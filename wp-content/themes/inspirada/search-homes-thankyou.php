@@ -1,11 +1,31 @@
 <?php
-                /*
-                	Template Name: Search Homes Thank You
-                */ 
-                $requested_properties = (isset($_GET['interested_models'])) ? $_GET['interested_models'] : array();
-                $properties = $wpdb->get_results('SELECT * FROM ap_properties WHERE id IN ('.$requested_properties.')');
+/*
+	Template Name: Search Homes Thank You
+*/ 
 
-                ?>
+    $requested_properties = (isset($_GET['interested_models'])) ? $_GET['interested_models'] : array();
+    $properties = $wpdb->get_results('SELECT * FROM ap_properties WHERE id IN ('.$requested_properties.')');
+    
+    $first = $_GET['firstName'];
+    $last = $_GET['lastName'];
+    $email = $_GET['email'];
+    $phone = $_GET['phone'];
+    $comment = $_GET['comment'];
+    $builders = ($_GET['builders'] !== 'false') ? explode(',', $_GET['builders']) : false;
+
+    if (in_array('kb home', $builders) || !$builders) {
+        generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
+    }
+
+    if (in_array('beazer homes', $builders) || !$builders) {
+        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
+    }
+
+    if (in_array('toll brothers', $builders) || !$builders) {
+        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
+    }  
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
