@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The WordPress Plugin Boilerplate.
@@ -26,6 +27,7 @@
  */
 
 // If this file is called directly, abort.
+//If this is live on the server you'll see a ;)
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
