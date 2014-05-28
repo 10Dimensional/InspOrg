@@ -9,20 +9,21 @@
     $first = $_GET['firstName'];
     $last = $_GET['lastName'];
     $email = $_GET['email'];
+    $community = $_GET['community'];
     $phone = $_GET['phone'];
     $comment = $_GET['comment'];
     $builders = ($_GET['builders'] !== 'false') ? explode(',', $_GET['builders']) : false;
 
     if (in_array('kb home', $builders) || !$builders) {
-        generate_xml_email_kb_main($first, $last, $email, $phone, $comment);
+        generate_xml_email_kb_main($first, $last, $email, $phone, $comment, $community);
     }
 
     if (in_array('beazer homes', $builders) || !$builders) {
-        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment);
+        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment, $community);
     }
 
     if (in_array('toll brothers', $builders) || !$builders) {
-        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last);
+        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last, $community);
     }  
 
 ?>

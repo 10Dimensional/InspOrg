@@ -202,7 +202,7 @@ var builder_layers = {
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'success') {
-                            window.location = '/thank-you-homes?interested_models='+response.interested_models+'&firstName='+response.firstName+'&lastName='+response.lastName+'&email='+response.email+'&phone='+response.phone+'&comment='+response.comment+'&builders='+response.builders;
+                            window.location = '/thank-you-homes?interested_models='+response.interested_models+'&firstName='+response.firstName+'&lastName='+response.lastName+'&email='+response.email+'&phone='+response.phone+'&community='+response.community+'&comment='+response.comment+'&builders='+response.builders;
                         }
                     }
                 });
