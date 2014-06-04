@@ -16,9 +16,14 @@
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	      <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
-
+<style>
+.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit] {
+font-size: 1em;
+float: left;
+}
+</style> 
 <?php wp_head() ?></head>
-<body>
+<body style="padding: 15px;">
 
 <?php while ( have_posts() ) : the_post(); ?>
 
