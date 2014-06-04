@@ -65,7 +65,7 @@
     $args=array(
       'post_type' 		=> 'post',
       'post_status' 	=> 'publish',
-      'posts_per_page'	=> 6,
+      'posts_per_page'	=> 8,
       'paged' 			=> $paged
       );
 
