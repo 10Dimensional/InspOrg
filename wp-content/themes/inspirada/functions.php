@@ -383,6 +383,10 @@ function myawesometheme_validate_gravity_default_values( $validation_result ) {
 }
 add_filter( 'gform_validation_7', 'myawesometheme_validate_gravity_default_values' );
 
+if ( function_exists( 'add_theme_support' ) ) {
+	add_theme_support( 'post-thumbnails' );
+        set_post_thumbnail_size( 221, 100 );
+}
 
 add_action('wp_head','google_analytics',1000,1);
 function google_analytics() {
