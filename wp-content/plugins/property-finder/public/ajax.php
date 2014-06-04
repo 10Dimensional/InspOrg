@@ -109,7 +109,7 @@
             ));
         }
 
-        print_r(json_encode(array('status' => $status, 'interested_models' => $requested_properties, 'builders' => $builders, 'firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'email' => $_POST['email'], 'comment' => $_POST['comment'], 'phone' => $_POST['phone'])));
+        print_r(json_encode(array('status' => $status, 'interested_models' => $requested_properties, 'builders' => $builders, 'firstName' => $_POST['firstName'], 'lastName' => $_POST['lastName'], 'community' => $community_number, 'email' => $_POST['email'], 'comment' => $_POST['comment'], 'phone' => $_POST['phone'])));
 
 
         // Store in DB
