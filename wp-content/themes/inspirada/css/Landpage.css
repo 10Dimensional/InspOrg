@@ -1,0 +1,296 @@
+
+img.headerimg{
+    height: auto;
+    width: 100%;
+    top: 10px;
+}
+
+.w1{
+	height: 500px;
+}
+
+.firstHead {
+	height: 100px;
+	color: #fff;
+	background-color: #8CA83D;
+	width: 100%;
+}
+
+.secondHead {
+	height: 200px;
+	color: #fff;
+	background-color: #0493A6;
+	width: 100%;
+}
+
+.headerContainer {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: roboto_slabregular, Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	font-size: 16px;
+}
+
+.main{
+	background-color: #fff;
+	color: #000;
+	padding-bottom: 50px;
+}
+
+.main h1, h2{
+	color: #0493A6;
+}
+
+.main h1{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 50px;
+	font-family: roboto_slabregular, 'Times New Roman', Times, serif;
+	font-size: 36px;
+}
+
+.main h2{
+	margin-bottom: 0px;
+	font-family: roboto_slabbold, 'Times New Roman', Times, serif;
+}
+
+.textContainer {
+	padding-top: 3px;
+	padding-bottom: 2px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+span {
+	font-weight: bold;
+}
+
+#pointer{
+	width: 124px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -1px;
+}
+
+#form-main{
+	background-color: rgba(0,0,0,0.5);
+	width: 975px;
+	height: 375px;
+	margin-left: auto;
+	margin-right: auto;
+	top: -25px;
+	padding-left: 20px;
+
+
+}
+
+.form-inputs{
+	padding: 10px;
+	color:	#B2B2B2;
+	width: 250px;
+	height: 17px;
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+#register{
+	float: right;
+	height: 375px;
+	width: 310px;
+	background-color: rgb(234,234,234);
+}
+
+.registerHead{
+	background-color: rgb(236, 106, 82);
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+h1.registerHead{
+	margin: 0px;
+	font-size: 24px;
+	font-weight: bold;
+	height: auto;
+	margin-top: -15px;
+	margin-bottom: -15px;
+	padding-left: 10px;
+	text-shadow: none;
+}
+
+h2.registerHead{
+	margin: 0px;
+	font-size: 18px;
+	height: auto;
+	color: #fff;
+	font-weight: normal;
+	padding-left: 10px;
+	text-shadow: none;
+}
+
+#btndiv{
+	width: 295px;
+	height: 61px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+}
+#regButton{
+	background-image: url(http://localhost/inspirada/images/Register-button.png);
+	padding-top: 5px;
+	padding-right: 25px;
+	padding-left: 27px;
+	padding-bottom: 10px;
+	text-decoration: none;
+	color: #fff;
+	text-shadow: none;
+	font-weight: lighter;
+	font-size: 33px;
+}
+
+a#regButton:hover{
+	background-image: url(http://localhost/inspirada/images/Register-hover.png);
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+h1#form-mainh1{
+	font-size: 56px;
+	margin-bottom: 0px;
+	padding-top: 10px;
+}
+
+h2#form-mainh2{
+	color: #fff;
+	margin-bottom: -5px;
+	margin-top: 0px;
+	font-weight: normal;
+	font-size: 28px;
+	padding-top: 15px;
+}
+
+p#form-mainp{
+	font-size: 17px;
+	margin: 0px;
+	font-weight: normal;
+	font-family: roboto_slabregular, 'Times New Roman', Times, serif;
+}
+
+input{
+	width: 270px;
+	margin-left: 20px;
+	margin-right: auto;
+	margin-top: 10px;
+}
+
+
+
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label span {
+	float: left;
+    display:inline-block;
+    width:26px;
+    height:26px;
+    margin:0;
+    margin-right: 10px;
+    background:url(http://localhost/inspirada/images/checkbox.jpg) left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label span {
+    background:url(http://localhost/inspirada/images/checked.jpg) top no-repeat;
+}
+
+.checkboxes{
+	width: 307px;
+	height: 210px;
+	margin-right: 10px;
+	float: left;
+}
+
+h1.checkBox{
+	margin-top: -16px;
+	margin-bottom: -27px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+p.checkBox{
+	margin-top: -10px;
+	font-size: 12px;
+	margin-bottom: 0px;
+	font-family: roboto_slabregular, 'Times New Roman', Times, serif;
+	font-weight: normal;
+}
+
+.thankMain{
+	margin-top: -20px;
+	background-color: #fff;
+	text-align: center;
+}
+
+.thankContainer{
+	width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 60px;
+}
+
+.thankMain h1{
+	padding-top: 20px;
+	color: rgb(236,106,82);
+	font-family: arimobold;
+}
+
+.thankMain h2{
+	color: #000;
+	font-weight: bolder;
+	font-family: arimobold;
+}
+
+.thankFoot{
+	width: 100%;
+	height: 150px;
+	background-color: rgb(26,149,170);
+}
+
+
+.thankButton{
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.thankButton a {
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-weight: lighter;
+	float: left;
+	padding-right: 70px;
+	font-size: 20px;
+	background:url(http://localhost/inspirada/images/buttonThank.png) left top no-repeat;
+	background-size: 290px;
+	padding-top: 8px;
+	padding-bottom: 15px;
+	padding-left: 70px;
+	margin-left:125px;
+	margin-top: -33px;
+}
+
+.thankButton a:hover {
+	background:url(http://localhost/inspirada/images/buttonThank-hover.png) left top no-repeat;
+	background-size: 290px;
+}
+
+.thankButton p{
+	width: 1250px;
+	margin-right: auto;
+	margin-left: auto;
+}
