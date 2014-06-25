@@ -380,7 +380,7 @@ function myawesometheme_validate_gravity_default_values( $validation_result ) {
     // Return the validation result
     return $validation_result;
 }
-add_filter( 'gform_validation_7', 'myawesometheme_validate_gravity_default_values' );
+add_filter( 'gform_validation_11', 'myawesometheme_validate_gravity_default_values' );
 
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );

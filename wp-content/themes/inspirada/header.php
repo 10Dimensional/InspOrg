@@ -38,9 +38,35 @@ jQuery(document).ready(function() {
 			this.value = this.defaultValue;
 		}
 	});
+
+	jQuery('#gform_11').submit(function (e) {
+		e.preventDefault();
+		if(jQuery('#input_11_1').val() === 'Full Name*') {
+			e.preventDefault();
+			jQuery('#input_11_1').css('border-color', 'red');
+		}
+	});
 };
 jQuery(".clearit input[type='text'], .clearit textarea").cleardefault();
+$(function(){
+    $('#header').data('size','big');
+});
 
+});
+$(function(){
+ var shrinkHeader = 300;
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+      if ( scroll >= shrinkHeader ) {
+           $('.header').addClass('shrink');
+        }
+        else {
+            $('.header').removeClass('shrink');
+        }
+  });
+function getCurrentScroll() {
+    return window.pageYOffset;
+    }
 });
 
 </script>
@@ -105,6 +131,14 @@ input#input_11_1.medium {
 input#gform_submit_button_11.button.gform_button {
 	width: 69%;
 	margin-right: 23% !important;
+}
+
+.header {
+	height: 100px;
+}
+
+.header.shrink {
+    height: 40px;
 }
 
 li.last-child.hover > a.last-child-a:after {display: none;}
