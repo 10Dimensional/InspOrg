@@ -401,3 +401,36 @@ function google_analytics() {
 
 </script>";
 }
+
+function gform_column_splits($content, $field, $value, $lead_id, $form_id) {
+	if(!IS_ADMIN) { // only perform on the front end
+
+		// target section breaks
+		if($field['type'] == 'section') {
+			$form = RGFormsModel::get_form_meta($form_id, true);
+
+			// check for the presence of our special multi-column form class
+			$form_class = explode(' ', $form['cssClass']);
+			$form_class_matches = array_intersect($form_class, array('two-column'));
+
+			// check for the presence of our special section break column class
+			$field_class = explode(' ', $field['cssClass']);
+			$field_class_matches = array_intersect($field_class, array('gform_column'));
+
+			// if we have a column break field in a multi-column form, perform the list split
+			if(!empty($form_class_matches) && !empty($field_class_matches)) {
+
+				// we'll need to retrieve the form's properties for consistency
+				$form = RGFormsModel::add_default_properties($form);
+				$description_class = rgar($form, 'descriptionPlacement') == 'above' ? 'description_above' : 'description_below';
+
+				// close current field's li and ul and begin a new list with the same form properties
+				return '</li></ul><ul class="gform_fields '.$form['labelPlacement'].' '.$description_class.' '.$field['cssClass'].'"><li class="gfield gsection">';
+
+			}
+		}
+	}
+
+	return $content;
+}
+add_filter('gform_field_content', 'gform_column_splits', 10, 5);
