@@ -58,6 +58,18 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+    font-family: 'sketch_rockwell';
+    src: url('../fonts/sketchrockwell-bold-webfont.eot');
+    src: url('../fonts/sketchrockwell-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sketchrockwell-bold-webfont.woff') format('woff'),
+         url('../fonts/sketchrockwell-bold-webfont.ttf') format('truetype'),
+         url('../fonts/sketchrockwell-bold-webfont.svg#sketch_rockwellregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 show-mobile.mobile-nav {
 	display: none;
 }
@@ -86,6 +98,17 @@ h2 {
  font-size: 17px;
  font-family:'roboto_slabregular', 'Times New Roman', Times, serif;
 }
+
+h1.sketch {
+font: 35px/44px  'sketch_rockwell', 'Times New Roman', Times, serif !important;
+text-transform: uppercase;
+	
+}
+
+span.numbers {
+	font: 32px/20px 'roboto_slabbold', 'Times New Roman', Times, serif; color: #fff;
+}
+
 a:hover{text-decoration:none;}
 a:active {background-color: transparent;}
 .ui-slider-handle:focus {outline: 0;}
@@ -377,11 +400,13 @@ li.menu-item-244 {
 
 }
 .intro-section p{
-margin: 0 0 15px;
+margin: 0 0 0px;
 text-align: right;
-font-size: 20px;
-font-weight: bold;
-line-height: 25px;
+font-size: 18px;
+font-weight: 100;
+letter-spacing: 1px;
+ font-family:'roboto_slabregular', 'Times New Roman', Times, serif;
+line-height: 36px;
 }
 .btn-explore{
 	float:right;
@@ -806,7 +831,7 @@ margin: -7px 7px 0px;
 .start-section{
 	width:100%;
 	overflow:hidden;
-	background:#28c1b9;
+	background:#0493a6;
 }
 .start-section > .holder{
 	max-width:876px;
@@ -2995,7 +3020,7 @@ margin-top: -9px;
 	display:block;
 	font-size:48px;
 	line-height:54px;
-	color:#ea6950;
+	color:#fff;
 }
 .start-section .image{
 	float:left;
