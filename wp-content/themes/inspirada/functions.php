@@ -271,7 +271,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     $xml .= '<lastname>'.substr($lastName, 0, 40).'</lastname>'.PHP_EOL;
     $xml .= '<email>'.substr($email, 0, 40).'</email>'.PHP_EOL;
     $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$phone), 0, 10).'</phone>'.PHP_EOL;
-    $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
+    $xml .= '<message>'.substr(strip_tags($comment), 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
     $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
