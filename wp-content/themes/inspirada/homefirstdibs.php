@@ -34,7 +34,7 @@
 			</div>
 			<div class="col-sm-4">
 			<p><?php echo $post->post_content ?> </p>
-			
+			<div class="register-now"><a href="#"></a></div>
 			</div>
 			<div class="col-sm-4">
 			<img src="<?php bloginfo('template_url') ?>/images/house2.png">
