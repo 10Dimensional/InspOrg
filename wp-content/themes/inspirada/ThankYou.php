@@ -1,4 +1,33 @@
+<?php
+                /*
+            	Template Name: event-thank
+            	Thank You Page
+                */ 
+                
+                ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/Landpage.css">
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
+	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
+	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
 
+	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
+	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+<?php wp_head() ?></head>
+
+
+	<body>
+	<div id="wrapper">
+
+
+		<!---->
 <!-- Google Code for Remarketing Tag -->
 <!--
 Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
@@ -19,7 +48,7 @@ var google_remarketing_only = true;
 </noscript>
 
 	<!--<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">-->
-	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
+	<!--<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">-->
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
@@ -38,35 +67,9 @@ jQuery(document).ready(function() {
 			this.value = this.defaultValue;
 		}
 	});
-
-	jQuery('#gform_11').submit(function (e) {
-		e.preventDefault();
-		if(jQuery('#input_11_1').val() === 'Full Name*') {
-			e.preventDefault();
-			jQuery('#input_11_1').css('border-color', 'red');
-		}
-	});
 };
 jQuery(".clearit input[type='text'], .clearit textarea").cleardefault();
-$(function(){
-    $('#header').data('size','big');
-});
 
-});
-$(function(){
- var shrinkHeader = 300;
-  $(window).scroll(function() {
-    var scroll = getCurrentScroll();
-      if ( scroll >= shrinkHeader ) {
-           $('.header').addClass('shrink');
-        }
-        else {
-            $('.header').removeClass('shrink');
-        }
-  });
-function getCurrentScroll() {
-    return window.pageYOffset;
-    }
 });
 
 </script>
@@ -133,14 +136,6 @@ input#gform_submit_button_11.button.gform_button {
 	margin-right: 23% !important;
 }
 
-.header {
-	height: 100px;
-}
-
-.header.shrink {
-    height: 40px;
-}
-
 li.last-child.hover > a.last-child-a:after {display: none;}
 @media only screen 
 and (min-device-width : 768px) 
@@ -171,26 +166,65 @@ float: right;">
 					</a>
 				</li>				
 			</ul>
-<!-- Button trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="emailsignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-  	<div class="modal-dialog" style="padding-top: 0px; margin-top: 0px;">
-    	<div class="modal-content" id="sign-up-form" style=" background: none; border-radius: 0px; box-shadow: none; border: none; width: 61%; margin-left: 85%;">
-    		<div class="modal-header" style="background: none; padding: 0; height: 0; min-height: 0; border: none;">
-        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="position: absolute; top: 5px; right: 66px; z-index: 9999;">&times;</button>
-     		</div>
-      		<div class="modal-body" style="background-color: #ffd61c; padding-top: 0px; padding-bottom: 10px; width: 85%;">
-	          	<img src="<?php bloginfo('template_url') ?>/images/signupheader.png" style="width: 100%">
-	     		<br><br>
-	           	<?php gravity_form(11, false, false, false, '', false); ?> 
-      		</div>
-      	</div>
-  	</div>
-</div>
 
 </nav>
 	</div>
 </header>
 <meta name="p:domain_verify" content="4da4f9ae5c143fe29aab861ee2cacadf"/>
+
+
+		<?php while ( have_posts() ) : the_post();
+
+		$url = wp_get_attachment_url( get_post_thumbnail_id() );?>
+
+		<img src="<?php echo $url; ?>" style"width:100%"/>
+		<div class="thankMain">
+			<div class="thankContainer">
+				<!--<h1>Thank You!</h1>
+				<h2>You Have First Dibs on August 2nd</h2>
+				<p>You are officially welcomed to step through the doors of Inspirada's <a>16 new models</a>, view never-before available home sites and enjoy Inspired Living presentaions.</p>
+				<p>Thank you for your registration.</p>
+				<h2>See you Saturday, Aug 2nd - doors open at 9 a.m.</h2>-->
+				<?php the_content() ?>
+                <?php endwhile; // end of the loop. ?>
+			</div>
+		</div>
+
+
+
+
+		<div class="thankFoot">
+			<div class="thankButton">
+				<p><a href="/see-for-yourself">Map / Directions</a>
+				<a id="learnmore" href="/living-inspired">Learn more about Inspirada</a></p>
+			</div>
+		</div>
+
+
+			
+
+
+
+		</div>
+	<?php get_footer() ?>
+<?php wp_footer() ?></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	
+</body>
+
+</html>
