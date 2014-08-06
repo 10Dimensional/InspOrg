@@ -1,4 +1,4 @@
-<?php
+﻿<?php
                 /*
                 	Template Name: search-for-homes
                 */ 
@@ -47,6 +47,9 @@
 <style>
 .list li {
 list-style-type: disc;
+}
+th.header {
+	height: 34px;
 }
 .map-block IMG {
 	width: auto !important; 
@@ -340,19 +343,19 @@ We know that in Las Vegas, houses for sale may not always include the commitment
 <a class="button-request reqInfo" href="#" onClick="_gaq.push(['_trackEvent', 'Action', 'Click', 'Search For Homes Request Information']);" data-toggle="modal" data-target="#requestInfo" style="float:right; margin: 0px 0px 15px;">Request Information</a>
                     <ul class="companies-list" style="margin-top: 70px;">
                     	<li>
-                            <div class="img-holder"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
+                            <div style="height: 100px !important;"><a href="/browse-the-builders/beazer-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-05.png" /></a></div>
                     
                             <dl>
                                 <dt><strong>Coming Spring 2015</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
-                                    <dd>(702) 837-2100</dd>
+                                    <dd>(702) 949-6223</dd>
                                 <dt><strong>Email:</strong></dt>
                                     <dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd>
                                 </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="/browse-the-builders/kb-home"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
+                            <div style="height: 100px !important; margin-right: 20px; margin-left: 23px;"><a href="/browse-the-builders/kb-home"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-06.png" /></a></div>
                     
                             <dl>
                                 <dt><strong>Available Now</strong></dt>
@@ -364,7 +367,7 @@ We know that in Las Vegas, houses for sale may not always include the commitment
                             </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="/browse-the-builders/pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
+                            <div style="height: 100px !important; margin-left: 20px;"><a href="/browse-the-builders/pardee-homes"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-07.png" /></a></div>
                     
                             <dl>
                                 <dt><strong>Coming August 2014</strong></dt>
@@ -376,7 +379,7 @@ We know that in Las Vegas, houses for sale may not always include the commitment
                             </dl>
                         </li>
                     	<li>
-                            <div class="img-holder"><a href="/browse-the-builders/toll-brothers"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
+                            <div style="height: 100px !important; margin-left: 20px;"><a href="/browse-the-builders/toll-brothers"><img alt="image description" src="/wp-content/uploads/2013/12/promo-logo-08.png" /></a></div>
                     
                             <dl>
                                 <dt><strong>Available Now</strong></dt>

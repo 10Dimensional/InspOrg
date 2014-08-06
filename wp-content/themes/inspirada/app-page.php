@@ -30,10 +30,9 @@
 				<h1><span>Inspirada App Now Available!</span></h1>
 				<div class="row">
 				<div class="col-sm-6">
-				<!--<img class="image" src="<?php bloginfo('template_url') ?>/images/arapp.png" alt="image description">-->
-                    <iframe width="460" height="315" src="//www.youtube.com/embed/ICe-yuikzUs" frameborder="0" allowfullscreen></iframe>
+				<img class="image" src="<?php bloginfo('template_url') ?>/images/arapp.png" alt="image description">
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-6"
 				<div class="text-box" style="color: white;">
 					<?php echo $post->post_content ?> 
 				</div>
