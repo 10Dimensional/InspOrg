@@ -13,13 +13,13 @@ var builder_layers = {
     },
     builder_active_layers = {
         'Beazer': 'http://23.253.101.150:8888/v2/beazer/{z}/{x}/{y}.png',
-        'KB HOME': 'http://166.78.0.133:8888/v2/kb2014/{z}/{x}/{y}.png',
+        'KB HOME': 'http://23.253.101.150:8888/v2/kb_current/{z}/{x}/{y}.png',
         'Necessities': 'http://23.253.101.150:8888/v2/neccessities/{z}/{x}/{y}.png',
-        'Pardee': 'http://166.78.0.133:8888/v2/pardee2014/{z}/{x}/{y}.png',
+        'Pardee': 'http://23.253.101.150:8888/v2/pardee_current/{z}/{x}/{y}.png',
         'Parks': 'http://23.253.101.150:8888/v2/parks/{z}/{x}/{y}.png',
         'Pools': 'http://23.253.101.150:8888/v2/pools/{z}/{x}/{y}.png',
         'schools': 'http://23.253.101.150:8888/v2/schools/{z}/{x}/{y}.png',
-        'Toll Brothers': 'http://166.78.0.133:8888/v2/toll2014/{z}/{x}/{y}.png',
+        'Toll Brothers': 'http://23.253.101.150:8888/v2/toll_current/{z}/{x}/{y}.png',
         'Trails': 'http://23.253.101.150:8888/v2/trails/{z}/{x}/{y}.png'
     };
 
@@ -33,7 +33,7 @@ var builder_layers = {
                 maxZoom: 6
             });
 
-            L.tileLayer('http://23.253.101.150:8888/v2/base/{z}/{x}/{y}.png').addTo(map);
+            L.tileLayer('http://23.253.101.150:8888/v2/newstreets/{z}/{x}/{y}.png').addTo(map);
             map.setView([-77, 22.763671875], 4);
 
             var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/markers.geojson');

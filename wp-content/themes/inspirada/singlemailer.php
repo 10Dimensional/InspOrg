@@ -1,14 +1,15 @@
 
 <?php
 /* Set e-mail recipient */
-$myemail  = "inspiradaevents@gmail.com";
+$myemail  = "samantha@lucidagency.com";
 
 /* Check all form inputs using check_input function */
 $firstname = check_input($_POST['firstname']);
 $lastname  = check_input($_POST['lastname']);
 $email    = check_input($_POST['email']);
 $subject = "First Dibs Email Notification";
-$presentation = check_input(implode(", " , $_POST['presentation']));
+$presentation = check_input($_POST['Presentation']);
+$time = check_input($_POST['time']);
 
 /* If e-mail is not valid show error message */
 if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email))
@@ -31,6 +32,8 @@ First name: $firstname
 Last Name: $lastname 
 E-mail: $email
 Presentation: $presentation
+Time: $time
+
 ";
 
 $headers = 'From: firstdibs@inspirada.com' . "\r\n" .
@@ -41,7 +44,7 @@ $headers = 'From: firstdibs@inspirada.com' . "\r\n" .
 mail($myemail, $subject, $message, $headers);
 
 /* Redirect visitor to the thank you page */
-header('Location: /test-thank');
+header('Location: /first-dibs-thank');
 exit();
 
 /* Functions we used */

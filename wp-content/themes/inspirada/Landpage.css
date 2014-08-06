@@ -58,7 +58,7 @@ padding-bottom: 4px;
 
 img.Sign-up{
 	padding-top: 20px;
-    width: 97%;
+    width: 90%;
 }
 
 .main h1{
@@ -186,8 +186,8 @@ h1#form-mainh1{
 
 h2#form-mainh2{
 	color: #fff;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin-bottom: -5px;
+	margin-top: 0px;
 	font-weight: normal;
 	font-size: 26px;
 	padding-top: 0px;
@@ -209,7 +209,7 @@ p#form-mainp{
 
 #form-dibs input[type="submit"] {
 	position: absolute;
-    margin-top: 0px !important;
+    margin-top: 12px !important;
     margin-left: 14px !important;
     width: 285px !important;
     height: 60px;
@@ -338,24 +338,7 @@ p.checkBox{
     padding-left: 25px;
 }
 
-.formLeft {
-    height: 388px;
-}
-
-#form-mainp {
-    font-size: 16px;
-    line-height: 25px;
-    width: 580px;
-    margin: 15px 0 10px;
-}
-
-.dibsParagraph {width: 585px; text-transform: none;}
-
 @media only screen and (max-width:975px){
-    #formLeft-single {height: 388px;}
-    .formLeft {height: 100%;}
-    .dibsParagraph {width: 425px !important;}
-    #form-mainp {width: 100%;}
     .textContainer {width: 98%;}
     .headerContainer {width: 100%;}
     .w1 {height: 1010px !important;}
@@ -367,8 +350,6 @@ p.checkBox{
 }
 
 @media only screen and (max-width:745px){
-    #formLeft-single {height: 100%;}
-    .dibsParagraph {width: 270px !important;}
     .checkboxes {width: 270px;}
     .textContainer {width: 98%;}
     .headerContainer {width: 100%;}
