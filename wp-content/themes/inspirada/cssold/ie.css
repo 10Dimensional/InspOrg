@@ -1,0 +1,102 @@
+.vicinity-section .panel{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4dfeffff', endColorstr='#4dfeffff',GradientType=0 );
+}
+.info-table tr.even td{
+	background:none;
+}
+.personality-section{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffffff', endColorstr='#40ffffff',GradientType=0 );
+}
+.photo-carousel .btn-next,
+.photo-carousel .btn-prev{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ea6950', endColorstr='#99ea6950',GradientType=0 );
+}
+.items-columns .box .hover-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#80000000',GradientType=0 );
+}
+.gallery-list .hover-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#80000000',GradientType=0 );
+}
+.items-columns .box .hover-box,
+.gallery-list .hover-box{
+	visibility:hidden;
+}
+.items-columns .box .holder:hover .hover-box,
+.gallery-list a:hover .hover-box{
+	visibility:visible;
+}
+.items-columns .box .holder:hover > img{
+	filter: alpha(opacity=50);
+}
+.cycle-gallery .text-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#cc000000',GradientType=0 );
+}
+.contact-block{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffffff', endColorstr='#40ffffff',GradientType=0 );
+}
+.news-block{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#80ffffff',GradientType=0 );
+}
+.tabs-area .tab-content{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#33ffffff',GradientType=0 );
+}
+.filter-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4dffffff', endColorstr='#4dffffff',GradientType=0 );
+}
+.filter-box h2{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3ffffff', endColorstr='#b3ffffff',GradientType=0 );
+}
+.filter-box .sliders-holder{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#80ffffff',GradientType=0 );
+}
+.widget-box{
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6ffffff', endColorstr='#a6ffffff',GradientType=0 );
+}
+.page-title{
+	max-width:865px;
+}
+.mobile-nav {display: none}
+
+.img-list:after {display: inline !important;}
+
+.img-list li {display: inline !important; float: left !important; width: 20% !important;}
+
+.img-list li {
+	display: inline !important;
+	width: 20%;
+}
+
+.img-list img {
+	width: 20%;
+}
+.page-title .text {
+zoom:1;z-index:1;
+	     filter: dropshadow(color=#000000, offx=1, offy=2); /* now both will work */  
+    color: #fff;
+    height:100px;
+    padding-top:25px;
+   }
+.intro-section h1 {
+zoom:1;z-index:1;
+	     filter: dropshadow(color=#000000, offx=1, offy=2); /* now both will work */  
+    height:100px;
+padding: 0 150px 0 0;
+font: 35px/47px 'roboto_slabbold', 'Times New Roman', Times, serif;
+text-align: right;
+margin: 0;
+padding-top: 29px;
+color: #f7d93e;
+}
+
+.intro-section p {
+zoom:1;z-index:1;
+	     filter: dropshadow(color=#000000, offx=1, offy=2); /* now both will work */  
+    color: #fff;
+    height:100px;
+    padding-top:25px;
+    }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+   /* IE10-specific styles go here */  
+   #nav { display: none; }
+}  
