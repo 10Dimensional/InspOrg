@@ -5276,3 +5276,12 @@ margin: 40px !important;
 a.moretag {
 	font-weight: 600;
 }
+
+.frame .box {
+    margin: 0 0 35px 0;
+}
+
+.frame .box img {
+    width: 157px;
+    height: 141px;
+}
