@@ -133,11 +133,7 @@ function addLayer(layer, name, zIndex) {
         <h4 class="modal-title" id="myModalLabel">To KB Home Model Center</h4>
       </div>
       <div class="modal-body" style="padding: 25px;">
-      <p><strong>From 1-15 South</strong>
-Take I-15 South to the St. Rose Parkway Exit and turn Left going East.<br>
-Go 2.5 miles to Executive Airport Drive and turn right going South.<br>
-Go 2 miles on Executive Airport Drive and it will transition into Bicentennial Parkway.<br>
-Proceed on Bicentennial Parkway for .25 miles and turn right into The Overlook (Visitor Center).<br>
+      <p><strong>From Bicentennial</strong><br>Turn Left on Via Firenze,<br>Left on Paladi,<br>Right on Borgaro to KB Home sales office.
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -152,15 +148,7 @@ Proceed on Bicentennial Parkway for .25 miles and turn right into The Overlook (
         <h4 class="modal-title" id="myModalLabel">To Toll Brothers Model Center</h4>
       </div>
       <div class="modal-body" style="padding: 25px;">
-            <p><strong>From St Rose Parkway</strong>
-Head south on Executive Airport Drive</br>
-Continue onto Via Inspirada</br>
-Continue onto Bicentennial Pkwy</br>
-Right onto Via Inspirada</br>
-Left onto Pavilio Drive and follow the signs to Alterra & Solano</br>
-</br>
-<strong>From Bicentennial Pkwy turn Right onto Via Inspirada</strong></br>
-Left onto Pavilio Drive and follow the signs to the Alterra & Solano Sales Gallery
+            <p><strong>From Bicentennial</strong><br>Turn North on Via Firenze,<br>Turn Left (West) on Via Festiva,<br>Continue as Via Festiva becomes Mantua Village Ave.<br>Follow Mantua Village,<br>Turn Left (South) on Via Delle Arti Street,<br>Sales Center is on your left.
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -172,18 +160,15 @@ Left onto Pavilio Drive and follow the signs to the Alterra & Solano Sales Galle
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">To Toll Brothers Model Center</h4>
+        <h4 class="modal-title" id="myModalLabel">To Pardee Model Center</h4>
       </div>
       <div class="modal-body" style="padding: 25px;">
-            <p><strong>From St Rose Parkway</strong>
+            <p><strong>From St Rose Parkway</strong><br>
 Head south on Executive Airport Drive</br>
 Continue onto Via Inspirada</br>
 Continue onto Bicentennial Pkwy</br>
 Right onto Via Inspirada</br>
 Left onto Pavilio Drive and follow the signs to Alterra & Solano</br></br>
-
-<strong>From Bicentennial Pkwy turn Right onto Via Inspirada</strong></br>
-Left onto Pavilio Drive and follow the signs to the Alterra & Solano Sales Gallery</p>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -191,6 +176,24 @@ Left onto Pavilio Drive and follow the signs to the Alterra & Solano Sales Galle
 </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="BeazerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:109px;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">To Beazer Model Center</h4>
+      </div>
+      <div class="modal-body" style="padding: 25px;">
+      <p><strong>From 1-15 South</strong>
+Take I-15 South to the St. Rose Parkway Exit and turn Left going East.<br>
+Go 2.5 miles to Executive Airport Drive and turn right going South.<br>
+Go 2 miles on Executive Airport Drive and it will transition into Bicentennial Parkway.<br>
+Proceed on Bicentennial Parkway for .25 miles and turn right into The Overlook (Visitor Center).<br>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div style="height: 30px; width: 100%; background: white;"></div>
 	<?php get_footer() ?>
 <?php wp_footer() ?></body>
