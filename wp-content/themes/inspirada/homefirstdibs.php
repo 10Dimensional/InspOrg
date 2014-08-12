@@ -57,16 +57,16 @@
                             </div>
 
                         </div>
-                    <!--<div class="item">
+                    <div class="item">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-8">
                                 <p>
                                     <?php the_field('slide_2_text'); ?></p>
                                 <a href="/first-dibs">
                                     <div class="register-now"></div>
                                 </a>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <img class="mobile-hide" src="<?php bloginfo('template_url') ?>/images/house3.png">
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 <img class="mobile-hide" src="<?php bloginfo('template_url') ?>/images/house4.png">
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                     </div>
                 </div>
             </div>
@@ -93,21 +93,14 @@
 
 
     </div>
-    <style>
-        #see-for-youself-link:hover {
-            background-color: #fff !important;
-            color: #FF6C36 !important;
-        }
-    </style>
     <section class="start-section add">
         <div class="holder" style=" padding-top: 25px; padding-bottom: 25px; ">
             <h1 style="margin-bottom: 15px;"><span>Download our new APP!</span></h1>
             <div class="row">
                 <div class="col-sm-6">
-                    <img class="image" style="margin-bottom: 10px;" src="<?php bloginfo('template_url') ?>/images/arapp.png" alt="image description">
-                    <a id="see-for-yourself-link" href="http://192.237.210.228/app-page" style="">Learn More About the App</a>
+                    <img class="image" src="<?php bloginfo('template_url') ?>/images/arapp.png" alt="image description">
                 </div>
-                <div class="col-sm-6"> <div class="text-box" style="color: white;">
+                <div class="col-sm-6" <div class="text-box" style="color: white;">
                     <p>With new neighborhoods, parks and trails, we wanted you to see Inspirada as it grows - <strong>with the new Inspirada app!</strong>
 
                         <p style="margin-bottom: 0px;">The specially designed technology lets you experience the Inspirada Vision at completion!</p>

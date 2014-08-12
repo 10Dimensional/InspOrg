@@ -17,6 +17,34 @@
       <link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
       <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js"></script>
       <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
+      <script type="text/javascript">
+        function valthisform()
+        {
+            var checkboxs=document.getElementsByName("presentation[]");
+            var okay=false;
+            for(var i=0,l=checkboxs.length;i<l;i++)
+            {
+                if(checkboxs[i].checked)
+                {
+                    okay=true;
+                }
+            }
+
+            return okay;
+        };
+
+        $(document).ready(function() {
+          $('#form-dibs').on('submit', function (event) {
+            if(!valthisform()) {
+              alert("Please check a checkbox");
+              return false;
+            } 
+
+            return true;
+
+          });
+        });
+      </script>    
       	   <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
       <!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
       <!--[if lt IE 9]> 
