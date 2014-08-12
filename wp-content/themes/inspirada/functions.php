@@ -271,7 +271,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     $xml .= '<lastname>'.substr($lastName, 0, 40).'</lastname>'.PHP_EOL;
     $xml .= '<email>'.substr($email, 0, 40).'</email>'.PHP_EOL;
     $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$phone), 0, 10).'</phone>'.PHP_EOL;
-    $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
+    $xml .= '<message>'.substr(strip_tags($comment), 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
     $xml .= '<communitynumber>'.$community.'</communitynumber>'.PHP_EOL;
@@ -291,6 +291,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     // set up basic connection
     $conn_id = ftp_connect('64.94.4.105');
     if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
+        //ftp_pasv($conn_id, true);
         if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
             $msg = true;
         } else {
@@ -382,12 +383,8 @@ function myawesometheme_validate_gravity_default_values( $validation_result ) {
     // Return the validation result
     return $validation_result;
 }
-add_filter( 'gform_validation_7', 'myawesometheme_validate_gravity_default_values' );
+add_filter( 'gform_validation_11', 'myawesometheme_validate_gravity_default_values' );
 
-if ( function_exists( 'add_theme_support' ) ) {
-	add_theme_support( 'post-thumbnails' );
-        set_post_thumbnail_size( 221, 100 );
-}
 
 add_action('wp_head','google_analytics',1000,1);
 function google_analytics() {
