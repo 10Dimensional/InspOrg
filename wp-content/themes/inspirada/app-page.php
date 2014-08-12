@@ -33,7 +33,7 @@
 				<!--<img class="image" src="<?php bloginfo('template_url') ?>/images/arapp.png" alt="image description">-->
                     <iframe id="app-video" width="460" height="315" src="//www.youtube.com/embed/ICe-yuikzUs" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-6"
 				<div class="text-box" style="color: white;">
 					<?php echo $post->post_content ?> 
 				</div>

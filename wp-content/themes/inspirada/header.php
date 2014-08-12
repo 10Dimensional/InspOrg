@@ -6,6 +6,12 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+	 <!--Shrink header -->
+	<script src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script src="<?php bloginfo('template_url') ?>/js/classie.js"></script>
+	<script src="<?php bloginfo('template_url') ?>/js/headerShrink.js"></script>
+	<!-- end shrink header stuff -->
+
 <script type="text/javascript">
 
 jQuery(document).ready(function() {
@@ -35,23 +41,9 @@ $(function(){
 });
 
 });
-$(function(){
- var shrinkHeader = 300;
-  $(window).scroll(function() {
-    var scroll = getCurrentScroll();
-      if ( scroll >= shrinkHeader ) {
-           $('.header').addClass('shrink');
-        }
-        else {
-            $('.header').removeClass('shrink');
-        }
-  });
-function getCurrentScroll() {
-    return window.pageYOffset;
-    }
-});
 
 </script>
+
 <style>
 #gform_wrapper_11 {
 	margin: 0;
@@ -133,7 +125,7 @@ and (orientation : landscape) {
 }
 }
 </style>
-<header id="header">
+<header id="header" class="header-large">
 	<div class="header-holder">
 		<strong class="logo"><a href="/">Inspirada - Live inspired</a></strong>
 		<nav class="open-close hide-mobile">

@@ -61,7 +61,9 @@
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f86767@2x.png"]{opacity:1 !important;}
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f1f075@2x.png"]{opacity:1 !important;}
   </style>
-<div id='map' style="height: 1060px; width: 1003px; margin: 0 auto;"></div>
+  <div class="holder" style="margin-bottom: 50px;">
+
+<div id='map' style="height: 1060px; width: 1003px; margin: 0 auto;"></div></div>
 <script>
 var map = L.map('map', {
 	minZoom: 2,
@@ -192,7 +194,6 @@ Proceed on Bicentennial Parkway for .25 miles and turn right into The Overlook (
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 <div style="height: 30px; width: 100%; background: white;"></div>
 	<?php get_footer() ?>
 <?php wp_footer() ?></body>

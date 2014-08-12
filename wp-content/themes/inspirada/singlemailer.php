@@ -36,12 +36,30 @@ Time: $time
 
 ";
 
+/* Prepare autoresponder subject */
+$respond_subject = "Thank You for Registering for First Dibs at Inspirada!";
+
+/* Prepare autoresponder message */
+$respond_message = "You've called First Dibs at Inspirada!
+
+Congratulations, you have First Dibs! Our all-day event features a variety of presentations, from the latest designing trends to cooking lessons from a gourmet chef and more summer fun! To see details about all of the presentations and register for more exciting events click here: (http://www.inspirada.com/first-dibs).
+
+Get ready to see our 17 new models, view the home sites and experience Inspirada. See you there!
+
+- Inspirada
+";
+
 $headers = 'From: firstdibs@inspirada.com' . "\r\n" .
     'Reply-To: noreply@inspirada.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
+    
+
+
 
 /* Send the message using mail() function */
 mail($myemail, $subject, $message, $headers);
+mail($email, $respond_subject, $respond_message, $headers);
+
 
 /* Redirect visitor to the thank you page */
 header('Location: /first-dibs-thank');
