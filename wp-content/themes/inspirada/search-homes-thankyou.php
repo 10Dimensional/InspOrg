@@ -19,7 +19,7 @@
     }
 
     if (in_array('beazer homes', $builders) || !$builders) {
-        generate_xml_email_beazer_main($first, $last, $email, $phone, $comment, $community);
+        $beazer = generate_xml_email_beazer_main($first, $last, $email, $phone, $community);
     }
 
     if (in_array('toll brothers', $builders) || !$builders) {

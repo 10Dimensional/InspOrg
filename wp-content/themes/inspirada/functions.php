@@ -271,7 +271,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     $xml .= '<lastname>'.substr($lastName, 0, 40).'</lastname>'.PHP_EOL;
     $xml .= '<email>'.substr($email, 0, 40).'</email>'.PHP_EOL;
     $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$phone), 0, 10).'</phone>'.PHP_EOL;
-    $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
+    $xml .= '<message>'.substr(strip_tags($comment), 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
     $xml .= '<communitynumber>'.$community.'</communitynumber>'.PHP_EOL;
@@ -289,8 +289,12 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     $file = $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/public/export/'.time().'.xml';
 
     // set up basic connection
-    $conn_id = ftp_connect('64.94.4.105');
+    //$conn_id = ftp_ssl_connect('64.94.4.105');
+
+
+    $conn_id = ftp_connect('64.94.4.105') or die('Could not connect');
     if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
+        ftp_pasv($conn_id, true);
         if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
             $msg = true;
         } else {
@@ -298,7 +302,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
         }
     } else {
         echo "Couldn't connect as $ftp_user\n";
-   }
+    }
     // close the connection and the file handler
     ftp_close($conn_id);
 
@@ -382,7 +386,7 @@ function myawesometheme_validate_gravity_default_values( $validation_result ) {
     // Return the validation result
     return $validation_result;
 }
-add_filter( 'gform_validation_7', 'myawesometheme_validate_gravity_default_values' );
+add_filter( 'gform_validation_11', 'myawesometheme_validate_gravity_default_values' );
 
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
@@ -403,3 +407,36 @@ function google_analytics() {
 
 </script>";
 }
+
+function gform_column_splits($content, $field, $value, $lead_id, $form_id) {
+	if(!IS_ADMIN) { // only perform on the front end
+
+		// target section breaks
+		if($field['type'] == 'section') {
+			$form = RGFormsModel::get_form_meta($form_id, true);
+
+			// check for the presence of our special multi-column form class
+			$form_class = explode(' ', $form['cssClass']);
+			$form_class_matches = array_intersect($form_class, array('two-column'));
+
+			// check for the presence of our special section break column class
+			$field_class = explode(' ', $field['cssClass']);
+			$field_class_matches = array_intersect($field_class, array('gform_column'));
+
+			// if we have a column break field in a multi-column form, perform the list split
+			if(!empty($form_class_matches) && !empty($field_class_matches)) {
+
+				// we'll need to retrieve the form's properties for consistency
+				$form = RGFormsModel::add_default_properties($form);
+				$description_class = rgar($form, 'descriptionPlacement') == 'above' ? 'description_above' : 'description_below';
+
+				// close current field's li and ul and begin a new list with the same form properties
+				return '</li></ul><ul class="gform_fields '.$form['labelPlacement'].' '.$description_class.' '.$field['cssClass'].'"><li class="gfield gsection">';
+
+			}
+		}
+	}
+
+	return $content;
+}
+add_filter('gform_field_content', 'gform_column_splits', 10, 5);

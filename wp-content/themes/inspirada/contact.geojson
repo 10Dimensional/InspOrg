@@ -1,0 +1,60 @@
+{  
+   "features":[  
+      {  
+         "geometry":{  
+            "coordinates":[  
+               48.27392578125,
+               -79.9474308573595
+            ],
+            "type":"Point"
+         },
+         "properties":{  
+            "description":"2524 Sable Creek Street<br>702.604.3332<br><a data-target=\"#PardeeModal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Driving Directions</a><br><img src=\"http://166.78.0.133/wp-content/themes/inspirada/images/pardee_sm.png\">",
+            "id":"marker-hxwadnfh0",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Pardee Homes Model Center"
+         },
+         "type":"Feature"
+      },
+      {  
+         "geometry":{  
+            "coordinates":[  
+               33.94775390625,
+               -76.63414717978068
+            ],
+            "type":"Point"
+         },
+         "properties":{  
+            "description":"3126 Biancavilla Avenue<br>(702) 266-9900<br><a data-target=\"#kbModal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Driving Directions</a><br><img src=\"http://23.253.101.150/wp-content/uploads/2014/01/kb-map-logo.png\">",
+            "id":"marker-hxwagchm1",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"KB Homes Model Center"
+         },
+         "type":"Feature"
+      },
+      {  
+         "geometry":{  
+            "coordinates":[  
+               31.9921875,
+               -68.0404612590484
+            ],
+            "type":"Point"
+         },
+         "properties":{  
+            "description":"3177 Mantua Village Ave.<br>(702) 399-2100<br><a data-target=\"#TollModal\"  role=\"button\" class=\"btn\" data-toggle=\"modal\">Driving Directions</a><br><img src=\"http://23.253.101.150/wp-content/uploads/2014/01/tb-map-logos.png\">",
+            "id":"marker-hxwahv5p2",
+            "marker-color":"#1087bf",
+            "marker-size":"medium",
+            "marker-symbol":"",
+            "title":"Toll Brothers Model Center"
+         },
+         "type":"Feature"
+      }
+   ],
+   "id":"finalphoenix.j18dda4l",
+   "type":"FeatureCollection"
+}

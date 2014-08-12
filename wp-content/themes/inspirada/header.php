@@ -1,22 +1,4 @@
 
-<!-- Google Code for Remarketing Tag -->
-<!--
-Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
--->
-<script type='text/javascript'>
-/* <![CDATA[ */
-var google_conversion_id = 974801844;
-var google_custom_params = window.google_tag_params;
-var google_remarketing_only = true;
-/* ]]> */
-</script>
-<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'>
-</script>
-<noscript>
-<div style='display:inline;'>
-<img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/974801844/?value=0&amp;guid=ON&amp;script=0'/>
-</div>
-</noscript>
 
 	<!--<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">-->
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/bootstrap.css">
@@ -24,6 +6,12 @@ var google_remarketing_only = true;
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
+	 <!--Shrink header -->
+	<script src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script src="<?php bloginfo('template_url') ?>/js/classie.js"></script>
+	<script src="<?php bloginfo('template_url') ?>/js/headerShrink.js"></script>
+	<!-- end shrink header stuff -->
+
 <script type="text/javascript">
 
 jQuery(document).ready(function() {
@@ -38,12 +26,24 @@ jQuery(document).ready(function() {
 			this.value = this.defaultValue;
 		}
 	});
+
+	jQuery('#gform_11').submit(function (e) {
+		e.preventDefault();
+		if(jQuery('#input_11_1').val() === 'Full Name*') {
+			e.preventDefault();
+			jQuery('#input_11_1').css('border-color', 'red');
+		}
+	});
 };
 jQuery(".clearit input[type='text'], .clearit textarea").cleardefault();
+$(function(){
+    $('#header').data('size','big');
+});
 
 });
 
 </script>
+
 <style>
 #gform_wrapper_11 {
 	margin: 0;
@@ -107,6 +107,14 @@ input#gform_submit_button_11.button.gform_button {
 	margin-right: 23% !important;
 }
 
+.header {
+	height: 100px;
+}
+
+.header.shrink {
+    height: 40px;
+}
+
 li.last-child.hover > a.last-child-a:after {display: none;}
 @media only screen 
 and (min-device-width : 768px) 
@@ -117,7 +125,7 @@ and (orientation : landscape) {
 }
 }
 </style>
-<header id="header">
+<header id="header" class="header-large">
 	<div class="header-holder">
 		<strong class="logo"><a href="/">Inspirada - Live inspired</a></strong>
 		<nav class="open-close hide-mobile">
@@ -129,13 +137,22 @@ and (orientation : landscape) {
 			 		<li><span><a href="<?php echo get_option('home'); ?>">Home</a><span></li>
 					<?php wp_list_pages('title_li=&depth=4&sort_column=menu_order'); ?>
 				<?php	} ?>	
-
-				<li style="margin-top: -14%;
+<li class="mobile">
+					<a data-toggle="modal" data-target="#emailsignup" data-backdrop="static" data-keyboard="false" href="#">
+  						Sign up For Email!
+					</a>
+					</li>
+				<li class="desktop" style="margin-top: -14%;
 float: right;">
 					<a data-toggle="modal" data-target="#emailsignup" data-backdrop="static" data-keyboard="false" href="#">
   						<img src="<?php bloginfo('template_url') ?>/images/signupbutton.png">
 					</a>
-				</li>				
+				</li>	
+					<li class="tablet" style="margin-top: -14%;">
+					<a data-toggle="modal" data-target="#emailsignup" data-backdrop="static" data-keyboard="false" href="#">
+  						<img src="<?php bloginfo('template_url') ?>/images/email-ipad.png">
+					</a>
+				</li>							
 			</ul>
 <!-- Button trigger modal -->
 

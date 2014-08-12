@@ -195,7 +195,7 @@
 
 
     function requestInfo($title, $to, $properties) {
-        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
+        if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return true;
         global $wpdb;
         require_once "Mail.php";
         require_once "Mail/mime.php";
