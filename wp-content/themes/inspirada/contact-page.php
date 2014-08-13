@@ -61,7 +61,9 @@
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f86767@2x.png"]{opacity:1 !important;}
     img[src="http://a.tiles.mapbox.com/v3/marker/pin-m+f1f075@2x.png"]{opacity:1 !important;}
   </style>
-<div id='map' style="height: 1060px; width: 1003px; margin: 0 auto;"></div>
+  <div class="holder" style="margin-bottom: 50px;">
+
+<div id='map' style="height: 1060px; width: 1003px; margin: 0 auto;"></div></div>
 <script>
 var map = L.map('map', {
 	minZoom: 2,
@@ -86,7 +88,7 @@ function addLayer(layer, name, zIndex) {
     var item = document.createElement('li');
     var link = document.createElement('a');
 
-    var markerLayer = L.mapbox.markerLayer().loadURL('/wp-content/themes/inspirada/contact.geojson').addTo(map);
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://192.237.210.228/wp-content/themes/inspirada/contact.geojson').addTo(map);
     markerLayer.options.sanitizer = function(x) { return x; };
 
 /*    markerLayer.on('mouseover', function(e) {

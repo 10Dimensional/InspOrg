@@ -60,7 +60,7 @@ mail($myemail, $subject, $message, $headers);
 mail($email, $respond_subject, $respond_message, $headers);
 
 /* Redirect visitor to the thank you page */
-header('Location: /first-dibs-thank');
+header('Location: /test-thank');
 exit();
 
 

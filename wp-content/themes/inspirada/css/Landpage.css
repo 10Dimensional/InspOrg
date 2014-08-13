@@ -1,0 +1,431 @@
+img.headerimg{
+    height: auto;
+    width: 100%;
+    margin-top: 51px;
+}
+
+h3, .h3 {
+    font-size: 18px !important;
+    font-family: 'roboto_slab', 'Times New Roman', Times, serif !important;
+}
+
+.w1{
+	height: 810px;
+}
+
+.firstHead {
+	height: 100px;
+	color: #fff;
+	background-color: #EC6A52;
+	width: 100%;
+}
+
+.secondHead {
+	height: auto;
+	color: #fff;
+	background-color: #1A95AA;
+	width: 100%;
+}
+
+.headerContainer {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: roboto_slabregular, Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	font-size: 14px;
+}
+
+.main{
+	background-color: #fff;
+	color: #000;
+	padding-bottom: 50px;
+}
+
+.main h1, h2{
+	color: #0493A6;
+}
+
+a > h1.white-center {
+	font-size: 36px;
+ text-align: center; 
+color: white;
+padding-bottom: 4px;
+}
+
+img.Sign-up{
+	padding-top: 20px;
+    width: 97%;
+}
+
+.main h1{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	font-family: roboto_slabregular, 'Times New Roman', Times, serif;
+	font-size: 36px;
+}
+
+.main h2{
+	margin-bottom: 0px;
+	font-family: roboto_slabbold, 'Times New Roman', Times, serif;
+}
+
+.textContainer {
+	padding-top: 3px;
+    padding-bottom: 2px;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+span {
+	font-weight: bold;
+}
+
+#pointer{
+	width: 124px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -1px;
+}
+
+#form-main{
+	background-color: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 375px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px !important;
+	top: -25px;
+	padding-left: 20px;
+
+
+}
+
+.form-inputs{
+	padding: 10px;
+	color:	#000;
+	width: 250px !important;
+	/*height: 17px;*/
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+#register{
+	/*float: right;*/
+	height: 388px;
+	width: 310px;
+	background-color: rgb(234,234,234);
+}
+
+.registerHead{
+	background-color: rgb(236, 106, 82);
+	height: 100px;
+	margin-bottom: 10px;
+    line-height: 30px;
+}
+
+h1.registerHead{
+	margin: 0px;
+	font-size: 24px;
+	font-weight: bold;
+	height: auto;
+	padding-left: 10px;
+	text-shadow: none;
+}
+
+h2.registerHead{
+	margin: 0px;
+	font-size: 18px;
+	height: auto;
+	color: #fff;
+	font-weight: normal;
+	padding-left: 10px;
+	text-shadow: none;
+    font-family:'roboto_slabregular', 'Times New Roman', Times, serif;
+}
+
+#btndiv{
+	width: 295px;
+	height: 61px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+}
+#regButton{
+	background-image: url(http://dev.lucidagency.com/inspirada/images/Register-button.png);
+	padding-top: 5px;
+	padding-right: 25px;
+	padding-left: 27px;
+	padding-bottom: 10px;
+	text-decoration: none;
+	color: #fff;
+	text-shadow: none;
+	font-weight: lighter;
+	font-size: 33px;
+}
+
+a#regButton:hover{
+	background-image: url(http://dev.lucidagency.com/inspirada/images/Register-hover.png);
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+h1#form-mainh1{
+	font-size: 56px;
+	margin-bottom: 0px;
+	padding-top: 10px;
+}
+
+h2#form-mainh2{
+	color: #fff;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	font-weight: normal;
+	font-size: 26px;
+	padding-top: 0px;
+}
+
+p#form-mainp{
+	font-size: 16px;
+	margin: 0px;
+	font-weight: normal;
+	font-family: roboto_slabregular, 'Times New Roman', Times, serif;
+}
+
+#form-dibs input{
+	width: 270px !important;
+	margin-left: 20px !important;
+	margin-right: auto !important;
+	margin-top: 10px !important;
+}
+
+#form-dibs input[type="submit"] {
+	position: absolute;
+    margin-top: 0px !important;
+    margin-left: 14px !important;
+    width: 285px !important;
+    height: 60px;
+    background: url(http://166.78.0.133/wp-content/themes/inspirada/images/Register-button.png) left top no-repeat;
+    color: transparent;
+    border-width: 0px;
+    padding: 0px;
+    cursor: pointer !important;
+}
+
+input[type="submit"]:hover {
+	background-image: url(http://166.78.0.133/wp-content/themes/inspirada/images/Register-hover.png);
+}
+
+#form-dibs input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label span {
+	float: left;
+    display:inline-block;
+    width:26px;
+    height:26px;
+    margin:0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background:url(http://dev.lucidagency.com/inspirada/images/checkbox.jpg) left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label span {
+    background:url(http://dev.lucidagency.com/inspirada/images/checked.jpg) top no-repeat;
+}
+
+.checkboxes{
+	width: 300px;
+    height: 210px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 0px;
+}
+
+h1.checkBox{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height:100%;
+}
+
+p.checkBox{
+	margin-top: 0px;
+	font-size: 12px;
+	margin-bottom: 15px;
+	font-family: roboto_slabregular, 'Times New Roman', Times, serif;
+	font-weight: normal;
+	line-height:130%;
+}
+
+.thankMain{
+	margin-top: -20px;
+	background-color: #fff;
+	text-align: center;
+}
+
+.thankContainer{
+	width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 60px;
+}
+
+.thankMain h1{
+	padding-top: 20px;
+	color: rgb(236,106,82);
+	font-family: arimobold;
+}
+
+.thankMain h2{
+	color: #000;
+	font-weight: bolder;
+	font-family: arimobold;
+}
+
+.thankFoot{
+	width: 100%;
+	height: 150px;
+	background-color: rgb(26,149,170);
+}
+
+
+.thankButton{
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.thankButton a {
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-weight: lighter;
+	float: left;
+	padding-right: 70px;
+	font-size: 20px;
+	background:url(http://dev.lucidagency.com/inspirada/images/buttonThank.png) left top no-repeat;
+	background-size: 290px;
+	padding-top: 8px;
+	padding-bottom: 15px;
+	padding-left: 70px;
+	margin-left:9%;
+	margin-top: -33px;
+}
+
+.thankButton a:hover {
+	background:url(http://dev.lucidagency.com/inspirada/images/buttonThank-hover.png) left top no-repeat;
+	background-size: 290px;
+}
+
+.thankButton p{
+	width: 1250px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#learnmore{
+    padding-left: 25px;
+}
+
+.formLeft {
+    height: 388px;
+}
+
+#form-mainp {
+    font-size: 16px;
+    line-height: 25px;
+    width: 580px;
+    margin: 15px 0 10px;
+}
+
+.dibsParagraph {width: 585px; text-transform: none;}
+
+@media only screen and (max-width:975px){
+    #formLeft-single {height: 388px;}
+    .formLeft {height: 100%;}
+    .dibsParagraph {width: 425px !important;}
+    #form-mainp {width: 100%;}
+    .textContainer {width: 98%;}
+    .headerContainer {width: 100%;}
+    .w1 {height: 1010px !important;}
+    .formLeft {width: 54% !important; margin-right: -6px !important;}
+    #dibs-bottom {width: 500px !important; margin-left: 360px !important; margin-right:auto; margin-top: 20px !important;}
+    #dibs-map {margin-top: -20px !important;}
+    #dibs-directions {margin-top: -35px !important; margin-left: -200px !important;}
+    #checkboxes1 {margin-bottom: 50px;}
+}
+
+@media only screen and (max-width:745px){
+    #formLeft-single {height: 100%;}
+    .dibsParagraph {width: 270px !important;}
+    .checkboxes {width: 270px;}
+    .textContainer {width: 98%;}
+    .headerContainer {width: 100%;}
+    .w1 {height: 1580px !important;}
+    #form-main {height: 1125px !important;}
+    .formLeft {width: 310px !important; margin-right: -6px !important; margin-left: 20px;}
+    .formRight {display: block !important; margin-right: -6px !important; margin-left: 20px;}
+    #dibs-bottom {width: 320px !important; margin-left: 20px !important; margin-right:auto; margin-top: 20px !important;}
+    #dibs-map {margin-top: -50px !important; width: 100%;}
+    #dibs-directions {width:94%; margin-top: -25px !important; margin-left: 10px !important;}
+    p#form-mainp {line-height: 20px; margin-top: 20px; padding-right: 10px;}
+    #checkboxes1 {margin-bottom: 45px;}
+}
+
+@media only screen and (max-width:640px){
+    .textContainer {width: 98%;}
+    .headerContainer {width: 100%;}
+    .w1 {height: 1610px !important;}
+    #form-dibs {margin-left: -15px !important;}
+    #form-main {height: 1125px !important;}
+    .formLeft {width: 310px !important; margin-right: -6px !important; margin-left: 0px !important;}
+    .formRight {display: block !important; margin-right: -6px !important; margin-left: 0px !important;}
+    #dibs-bottom {width: 320px !important; margin-left: 20px !important; margin-right:auto; margin-top: 20px !important;}
+    #dibs-map {margin-top: -50px !important; width: 100%; margin-left: -30px;}
+    #dibs-directions {width: 88%; margin-top: -25px !important; margin-left: 0px !important;}
+    p#form-mainp {line-height: 20px; margin-top: 20px; padding-right: 10px;}
+    #checkboxes1 {margin-bottom: 45px; margin-top: 10px;}
+}
+
+@media only screen and (max-width:479px){
+    .thankContainer {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 60px;
+    }
+
+    .thankButton a {
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        font-weight: lighter;
+        float: left;
+        padding-right: 70px;
+        display: block;
+        font-size: 20px;
+        background: url(http://dev.lucidagency.com/inspirada/images/buttonThank.png) left top no-repeat;
+        background-size: 290px;
+        padding-top: 8px;
+        padding-bottom: 15px;
+        padding-left: 70px;
+        /* margin-left: 5%; */
+        margin-top: -33px;
+        white-space: pre-line;
+    }
+ 
+}
+
+h1, h2, h3,h4, h5, h6, .h1, .h2, .h3,.h4, .h5, .h6 { 
+font-family: 'roboto_slabbold', 'Times New Roman', Times, serif !important;}

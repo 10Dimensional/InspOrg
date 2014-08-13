@@ -349,9 +349,9 @@ We know that in Las Vegas, houses for sale may not always include the commitment
                                 <dt><strong>Coming Spring 2015</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
-                                    <dd>(623) 949-6223</dd>
+                                    <dd>(702) 949-6223</dd>
                                 <dt><strong>Email:</strong></dt>
-                                    <dd><a href="mailto:inspirada@beazer.com">inspirada@beazer.com</a></dd>
+                                    <dd><a href="mailto:info@beazer.com">info@beazer.com</a></dd>
                                 </dl>
                         </li>
                     	<li>
@@ -385,9 +385,9 @@ We know that in Las Vegas, houses for sale may not always include the commitment
                                 <dt><strong>Available Now</strong></dt>
                                     <dd></dd>
                                 <dt><strong>Phone:</strong></dt>
-                                    <dd>(702) 399-2100</dd>
+                                    <dd>(702) 243-9800</dd>
                                 <dt><strong>Email:</strong></dt>
-                                    <dd><a href="mailto:inspirada@tollbrothers.com">inspirada@tollbrothers.com</a></dd>
+                                    <dd><a href="mailto:info@tollbrothers.com">info@tollbrothers.com</a></dd>
                             </dl>
                         </li>
                     </ul>

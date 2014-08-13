@@ -202,11 +202,11 @@
     <img src="http://192.237.210.228/wp-content/uploads/2014/08/insp-single-map1.jpg" width="100%">
 </div>
 <div class="map-links" style="padding-bottom: 100px;" style="width: 100%;">
-    <!--<div class="builder-wrap" style="width: 100%;">
+    <div class="builder-wrap" style="width: 100%;">
         <h1 style="padding-top: 30px; margin: 0px;">THE OUTLOOK</h1>
         <h3 style="margin-top: 5px; margin-bottom: 70px;">(Visitor Center)</h3>
         <a href="" style="margin-bottom: 30px;">Map It</a>
-    </div>-->
+    </div>
     <div class="builder-wrap">
         <img src="http://192.237.210.228/wp-content/uploads/2014/01/kb-for-contact.png" width="40%" style="margin: 80px 0%; padding-left: 28%;"><br>
         <a href="https://www.google.com/maps/dir//Epte+Poplars+St,+Henderson,+NV+89044/@35.957195,-115.1245985,17z/data=!4m13!1m4!3m3!1s0x80c8cda46e4ce157:0xdb1b5e18106175ff!2sEpte+Poplars+St!3b1!4m7!1m0!1m5!1m1!1s0x80c8cda46e4ce157:0xdb1b5e18106175ff!2m2!1d-115.1245942!2d35.9571524">Get Directions</a>
@@ -219,7 +219,7 @@
         <img src="http://192.237.210.228/wp-content/uploads/2014/01/toll-for-contact.png" width="40%" style="margin: 80px 0%;"><br>
         <a href="https://www.google.com/maps/dir//3177+Mantua+Village+Ave,+Henderson,+NV+89044/@35.956793,-115.126496,17z/data=!4m13!1m4!3m3!1s0x80c8cda44d01f11b:0xcb4b2cb3c49282d7!2s3177+Mantua+Village+Ave!3b1!4m7!1m0!1m5!1m1!1s0x80c8cda44d01f11b:0xcb4b2cb3c49282d7!2m2!1d-115.126496!2d35.956793">Get Directions</a>
     </div>
-    <div style="text-align: center;margin-top: 100px;"><a href="http://inspirada.com/living-inspired" style="text-decoration: none; padding: 20px 35px; color: black; background-color: white; font-size: 14px;">BACK TO FULL SITE</a>
+    <div style="text-align: center;margin-top: 100px;"><a href="http://166.78.0.133/first-dibs" style="text-decoration: none; padding: 20px 35px; color: black; background-color: white; font-size: 14px;">BACK TO FULL SITE</a>
     </div>
 </div>
 </section>
