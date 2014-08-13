@@ -7,7 +7,6 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
 	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	 <!--Shrink header -->
-	<script src="<?php bloginfo('template_url') ?>/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url') ?>/js/classie.js"></script>
 	<script src="<?php bloginfo('template_url') ?>/js/headerShrink.js"></script>
 	<!-- end shrink header stuff -->
