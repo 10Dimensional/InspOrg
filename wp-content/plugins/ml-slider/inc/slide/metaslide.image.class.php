@@ -19,24 +19,31 @@ class MetaImageSlide extends MetaSlide {
      */
     public function ajax_create_slide() {
         // security check
-        if ( !wp_verify_nonce( $_REQUEST['_wpnonce'], 'metaslider_addslide' ) ) {
+        if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'metaslider_addslide' ) ) {
             echo "<tr><td colspan='2'>" . __( "Security check failed. Refresh page and try again.", 'metaslider' ) . "</td></tr>";
-            die();
+            wp_die();
         }
 
         $slider_id = absint( $_POST['slider_id'] );
         $selection = $_POST['selection'];
 
         if ( is_array( $selection ) && count( $selection ) && $slider_id > 0 ) {
+
             foreach ( $selection as $slide_id ) {
+
                 $this->set_slide( $slide_id );
                 $this->set_slider( $slider_id );
 
                 if ( $this->slide_exists_in_slideshow( $slider_id, $slide_id ) ) {
+                    
                     echo "<tr><td colspan='2'>ID: {$slide_id} \"" . get_the_title( $slide_id ) . "\" - " . __( "Failed to add slide. Slide already exists in slideshow.", 'metaslider' ) . "</td></tr>";
+                
                 } else if ( !$this->slide_is_unassigned_or_image_slide( $slider_id, $slide_id ) ) {
-                        echo "<tr><td colspan='2'>ID: {$slide_id} \"" . get_the_title( $slide_id ) . "\" - " . __( "Failed to add slide. Slide is not of type 'image'.", 'metaslider' ) . "</td></tr>";
-                    }else {
+                    
+                    echo "<tr><td colspan='2'>ID: {$slide_id} \"" . get_the_title( $slide_id ) . "\" - " . __( "Failed to add slide. Slide is not of type 'image'.", 'metaslider' ) . "</td></tr>";
+                
+                } else {
+
                     $this->tag_slide_to_slider();
                     $this->add_or_update_or_delete_meta( $slide_id, 'type', 'image' );
 
@@ -45,17 +52,19 @@ class MetaImageSlide extends MetaSlide {
                     $this->settings['height'] = 0;
 
                     echo $this->get_admin_slide();
+
                 }
             }
         }
 
-        die();
+        wp_die();
     }
 
     /**
      * Create a new slide and echo the admin HTML
      */
     public function ajax_resize_slide() {
+
         check_admin_referer( 'metaslider_resize' );
 
         $slider_id = absint( $_POST['slider_id'] );
@@ -75,12 +84,15 @@ class MetaImageSlide extends MetaSlide {
             $this->use_wp_image_editor()
         );
 
-        $url = $imageHelper->get_image_url();
+        $url = $imageHelper->get_image_url( true );
 
         echo $url . " (" . $settings['width'] . 'x' . $settings['height'] . ")";
 
-        die();
+        do_action( "metaslider_ajax_resize_image_slide", $slide_id, $slider_id, $settings );
+
+        wp_die();
     }
+
 
     /**
      * Return the HTML used to display this slide in the admin screen
@@ -88,62 +100,105 @@ class MetaImageSlide extends MetaSlide {
      * @return string slide html
      */
     protected function get_admin_slide() {
+
         // get some slide settings
         $imageHelper = new MetaSliderImageHelper( $this->slide->ID, 150, 150, 'false', $this->use_wp_image_editor() );
         $thumb       = $imageHelper->get_image_url();
-        $url         = get_post_meta( $this->slide->ID, 'ml-slider_url', true );
-        $title       = get_post_meta( $this->slide->ID, 'ml-slider_title', true );
-        $alt         = get_post_meta( $this->slide->ID, '_wp_attachment_image_alt', true );
-        $target      = get_post_meta( $this->slide->ID, 'ml-slider_new_window', true ) ? 'checked=checked' : '';
-        $caption     = htmlentities( $this->slide->post_excerpt, ENT_QUOTES, 'UTF-8' );
-
-        // localisation
-        $str_caption    = __( "Caption", "metaslider" );
-        $str_new_window = __( "New Window", "metaslider" );
-        $str_url        = __( "URL", "metaslider" );
-        $str_label      = __( "Image Slide", "metaslider" );
-
-        $slide_label = apply_filters( "metaslider_image_slide_label", $str_label, $this->slide, $this->settings );
+        $slide_label = apply_filters( "metaslider_image_slide_label", __( "Image Slide", "metaslider" ), $this->slide, $this->settings );
 
         // slide row HTML
-        $row  = "<tr class='slide image flex responsive nivo coin'>";
-        $row .= "    <td class='col-1'>";
-        $row .= "        <div class='thumb' style='background-image: url({$thumb})'>";
-        $row .= "            <a class='delete-slide confirm' href='?page=metaslider&amp;id={$this->slider->ID}&amp;deleteSlide={$this->slide->ID}'>x</a>";
-        $row .= "            <span class='slide-details'>" . $slide_label . "</span>";
-        $row .= "        </div>";
-        $row .= "    </td>";
-        $row .= "    <td class='col-2'>";
-        $row .= "        <ul class='tabs'>";
-        $row .= "            <li class='selected' rel='tab-1'>" . __( "General", "metaslider" ) . "</li>";
-        $row .= "            <li rel='tab-2'>" . __( "SEO", "metaslider" ) . "</li>";
-        $row .= "        </ul>";
-        $row .= "        <div class='tabs-content'>";
-        $row .= "            <div class='tab tab-1'>";
-        if ( !$this->is_valid_image() ) {
-            $row .= "<div class='warning'>" . __( "Warning: Image data does not exist. Please re-upload the image.", "metaslider" ) . "</div>";
-        }
-        $row .= "                <textarea name='attachment[{$this->slide->ID}][post_excerpt]' placeholder='{$str_caption}'>{$caption}</textarea>";
-        $row .= "                <input class='url' type='text' name='attachment[{$this->slide->ID}][url]' placeholder='{$str_url}' value='{$url}' />";
-        $row .= "                <div class='new_window'>";
-        $row .= "                    <label>{$str_new_window}<input type='checkbox' name='attachment[{$this->slide->ID}][new_window]' {$target} /></label>";
-        $row .= "                </div>";
-        $row .= "            </div>";
-        $row .= "            <div class='tab tab-2' style='display: none;'>";
-        $row .= "                <div class='row'><label>" . __( "Image Title Text", "metaslider" ) . "</label></div>";
-        $row .= "                <div class='row'><input type='text' size='50' name='attachment[{$this->slide->ID}][title]' value='{$title}' /></div>";
-        $row .= "                <div class='row'><label>" . __( "Image Alt Text", "metaslider" ) . "</label></div>";
-        $row .= "                <div class='row'><input type='text' size='50' name='attachment[{$this->slide->ID}][alt]' value='{$alt}' /></div>";
-        $row .= "            </div>";
-        $row .= "        </div>";
-        $row .= "        <input type='hidden' name='attachment[{$this->slide->ID}][type]' value='image' />";
-        $row .= "        <input type='hidden' class='menu_order' name='attachment[{$this->slide->ID}][menu_order]' value='{$this->slide->menu_order}' />";
-        $row .= "        <input type='hidden' name='resize_slide_id' data-slide_id='{$this->slide->ID}' data-width='{$this->settings['width']}' data-height='{$this->settings['height']}' />";
-        $row .= "    </td>";
-        $row .= "</tr>";
+        $row  = "<tr class='slide image flex responsive nivo coin'>
+                    <td class='col-1'>
+                        <div class='thumb' style='background-image: url({$thumb})'>
+                            " . $this->get_delete_button_html() . "
+                            <span class='slide-details'>{$slide_label}</span>
+                        </div>
+                    </td>
+                    <td class='col-2'> 
+                        " . $this->get_admin_slide_tabs_html() . "
+                        <input type='hidden' name='attachment[{$this->slide->ID}][type]' value='image' />
+                        <input type='hidden' class='menu_order' name='attachment[{$this->slide->ID}][menu_order]' value='{$this->slide->menu_order}' />
+                        <input type='hidden' name='resize_slide_id' data-slide_id='{$this->slide->ID}' data-width='{$this->settings['width']}' data-height='{$this->settings['height']}' />
+                    </td>
+                </tr>";
 
         return $row;
+
     }
+
+    /**
+     * Build an array of tabs and their titles to use for the admin slide.
+     */
+    public function get_admin_tabs() {
+
+        $slide_id = absint( $this->slide->ID);
+        $alt = esc_attr( get_post_meta( $slide_id, '_wp_attachment_image_alt', true ) );
+        $url = esc_attr( get_post_meta( $slide_id, 'ml-slider_url', true ) );
+        $title = esc_attr( get_post_meta( $slide_id, 'ml-slider_title', true ) );
+        $target = get_post_meta( $slide_id, 'ml-slider_new_window', true ) ? 'checked=checked' : '';
+        $caption = esc_textarea( $this->slide->post_excerpt );
+        $crop_position = get_post_meta( $slide_id, 'ml-slider_crop_position', true);
+
+        if ( ! $crop_position ) {
+            $crop_position = 'center-center';
+        }
+
+        $general_tab = "<textarea name='attachment[{$slide_id}][post_excerpt]' placeholder='" . __( "Caption", "metaslider" ) . "'>{$caption}</textarea>
+                        <input class='url' type='text' name='attachment[{$slide_id}][url]' placeholder='" . __( "URL", "metaslider" ) . "' value='{$url}' />
+                        <div class='new_window'>
+                        <label>" . __( "New Window", "metaslider" ) . "<input type='checkbox' name='attachment[{$slide_id}][new_window]' {$target} /></label>
+                        </div>";
+
+        if ( ! $this->is_valid_image() ) {
+            $message = __( "Warning: Image data does not exist. Please re-upload the image.", "metaslider" );
+
+            $general_tab = "<div class='warning'>{$message}</div>" . $general_tab;
+        }
+
+        $seo_tab = "<div class='row'><label>" . __( "Image Title Text", "metaslider" ) . "</label></div>
+                    <div class='row'><input type='text' size='50' name='attachment[{$slide_id}][title]' value='{$title}' /></div>
+                    <div class='row'><label>" . __( "Image Alt Text", "metaslider" ) . "</label></div>
+                    <div class='row'><input type='text' size='50' name='attachment[{$slide_id}][alt]' value='{$alt}' /></div>";
+
+        $crop_tab = "<div class='row'><label>" . __( "Crop Position", "metaslider" ) . "</label></div>
+                    <div class='row'>
+                        <select class='crop_position' name='attachment[{$slide_id}][crop_position]'>
+                            <option value='left-top' " . selected( $crop_position, 'left-top', false ) . ">" . __( "Top Left", "metaslider" ) . "</option>
+                            <option value='center-top' " . selected( $crop_position, 'center-top', false ) . ">" . __( "Top Center", "metaslider" ) . "</option>
+                            <option value='right-top' " . selected( $crop_position, 'right-top', false ) . ">" . __( "Top Right", "metaslider" ) . "</option>
+                            <option value='left-center' " . selected( $crop_position, 'left-center', false ) . ">" . __( "Center Left", "metaslider" ) . "</option>
+                            <option value='center-center' " . selected( $crop_position, 'center-center', false ) . ">" . __( "Center Center", "metaslider" ) . "</option>
+                            <option value='right-center' " . selected( $crop_position, 'right-center', false ) . ">" . __( "Center Right", "metaslider" ) . "</option>
+                            <option value='left-bottom' " . selected( $crop_position, 'left-bottom', false ) . ">" . __( "Bottom Left", "metaslider" ) . "</option>
+                            <option value='center-bottom' " . selected( $crop_position, 'center-bottom', false ) . ">" . __( "Bottom Center", "metaslider" ) . "</option>
+                            <option value='right-bottom' " . selected( $crop_position, 'right-bottom', false ) . ">" . __( "Bottom Right", "metaslider" ) . "</option>
+                        </select>
+                    </div>";
+
+        $tabs = array(
+            'general' => array(
+                'title' => __( "General", "metaslider" ),
+                'content' => $general_tab
+            ),
+            'seo' => array(
+                'title' => __( "SEO", "metaslider" ),
+                'content' => $seo_tab
+            )
+        );
+
+        if ( version_compare( get_bloginfo('version'), 3.9, '>=' ) ) {
+
+            $tabs['crop'] = array(
+                'title' => __( "Crop", "metaslider" ),
+                'content' => $crop_tab
+            );
+            
+        }
+
+        return apply_filters("metaslider_image_slide_tabs", $tabs, $this->slide, $this->slider, $this->settings);
+
+    }
+
 
     /**
      * Check to see if metadata exists for this image. Assume the image is
@@ -153,9 +208,12 @@ class MetaImageSlide extends MetaSlide {
      * @return bool, true if metadata and size exists.
      */
     public function is_valid_image() {
+
         $meta = wp_get_attachment_metadata( $this->slide->ID );
         return isset( $meta['width'], $meta['height'] );
+
     }
+
 
     /**
      * Disable/enable image editor
@@ -163,7 +221,9 @@ class MetaImageSlide extends MetaSlide {
      * @return bool
      */
     public function use_wp_image_editor() {
+
         return apply_filters( 'metaslider_use_image_editor', $this->is_valid_image() );
+
     }
 
     /**
@@ -172,6 +232,7 @@ class MetaImageSlide extends MetaSlide {
      * @return string slide html
      */
     protected function get_public_slide() {
+
         // get the image url (and handle cropping)
         // disable wp_image_editor if metadata does not exist for the slide
         $imageHelper = new MetaSliderImageHelper(
@@ -211,17 +272,18 @@ class MetaImageSlide extends MetaSlide {
 
         // return the slide HTML
         switch ( $this->settings['type'] ) {
-        case "coin":
-            return $this->get_coin_slider_markup( $slide );
-        case "flex":
-            return $this->get_flex_slider_markup( $slide );
-        case "nivo":
-            return $this->get_nivo_slider_markup( $slide );
-        case "responsive":
-            return $this->get_responsive_slides_markup( $slide );
-        default:
-            return $this->get_flex_slider_markup( $slide );
+            case "coin":
+                return $this->get_coin_slider_markup( $slide );
+            case "flex":
+                return $this->get_flex_slider_markup( $slide );
+            case "nivo":
+                return $this->get_nivo_slider_markup( $slide );
+            case "responsive":
+                return $this->get_responsive_slides_markup( $slide );
+            default:
+                return $this->get_flex_slider_markup( $slide );
         }
+
     }
 
     /**
@@ -230,6 +292,7 @@ class MetaImageSlide extends MetaSlide {
      * @return string slide html
      */
     private function get_nivo_slider_markup( $slide ) {
+
         $attributes = apply_filters( 'metaslider_nivo_slider_image_attributes', array(
                 'src' => $slide['src'],
                 'height' => $slide['height'],
@@ -254,6 +317,7 @@ class MetaImageSlide extends MetaSlide {
         }
 
         return apply_filters( 'metaslider_image_nivo_slider_markup', $html, $slide, $this->settings );
+
     }
 
     /**
@@ -262,6 +326,7 @@ class MetaImageSlide extends MetaSlide {
      * @return string slide html
      */
     private function get_flex_slider_markup( $slide ) {
+
         $attributes = apply_filters( 'metaslider_flex_slider_image_attributes', array(
                 'src' => $slide['src'],
                 'height' => $slide['height'],
@@ -290,9 +355,10 @@ class MetaImageSlide extends MetaSlide {
 
         $thumb = isset( $slide['data-thumb'] ) && strlen( $slide['data-thumb'] ) ? " data-thumb=\"{$slide['data-thumb']}\"" : "";
 
-        $html = '<li style="display: none; float: left; width: 100%;"' . $thumb . '>' . $html . '</li>';
+        $html = '<li style="display: none; width: 100%;"' . $thumb . '>' . $html . '</li>';
 
         return apply_filters( 'metaslider_image_flex_slider_markup', $html, $slide, $this->settings );
+
     }
 
     /**
@@ -301,6 +367,7 @@ class MetaImageSlide extends MetaSlide {
      * @return string slide html
      */
     private function get_coin_slider_markup( $slide ) {
+
         $attributes = apply_filters( 'metaslider_coin_slider_image_attributes', array(
                 'src' => $slide['src'],
                 'height' => $slide['height'],
@@ -325,6 +392,7 @@ class MetaImageSlide extends MetaSlide {
         $html = $this->build_anchor_tag( $attributes, $html );
 
         return apply_filters( 'metaslider_image_coin_slider_markup', $html, $slide, $this->settings );
+
     }
 
     /**
@@ -333,6 +401,7 @@ class MetaImageSlide extends MetaSlide {
      * @return string slide html
      */
     private function get_responsive_slides_markup( $slide ) {
+
         $attributes = apply_filters( 'metaslider_responsive_slider_image_attributes', array(
                 'src' => $slide['src'],
                 'height' => $slide['height'],
@@ -359,12 +428,14 @@ class MetaImageSlide extends MetaSlide {
         }
 
         return apply_filters( 'metaslider_image_responsive_slider_markup', $html, $slide, $this->settings );
+
     }
 
     /**
      * Save
      */
     protected function save( $fields ) {
+
         // update the slide
         wp_update_post( array(
                 'ID' => $this->slide->ID,
@@ -377,6 +448,8 @@ class MetaImageSlide extends MetaSlide {
 
         $this->add_or_update_or_delete_meta( $this->slide->ID, 'title', $fields['title'] );
 
+        $this->add_or_update_or_delete_meta( $this->slide->ID, 'crop_position', $fields['crop_position'] );
+
         if ( isset( $fields['alt'] ) ) {
             update_post_meta( $this->slide->ID, '_wp_attachment_image_alt', $fields['alt'] );
         }
@@ -385,6 +458,6 @@ class MetaImageSlide extends MetaSlide {
         $new_window = isset( $fields['new_window'] ) && $fields['new_window'] == 'on' ? 'true' : 'false';
 
         $this->add_or_update_or_delete_meta( $this->slide->ID, 'new_window', $new_window );
+
     }
 }
-?>

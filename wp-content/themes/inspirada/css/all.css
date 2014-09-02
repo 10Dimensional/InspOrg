@@ -3209,7 +3209,7 @@ margin-top: -9px;
 
 #parks-video1 {display: inline;}
 #parks-video2 {display: none !important;}
-.fluid-width-video-wrapper {display: none;}
+.fluid-width-video-wrapper {display: block;}
 
 .carousel .mask .slideset {
 	width:100% !important;
@@ -5071,10 +5071,6 @@ text-transform: uppercase;
    border-width: 2px 0 0;
 }
 
-
-input[type="checkbox"] {
-	margin-left: 27px;
-}
 
 .rad-holder input[type="checkbox"] {
 margin-left: 0;

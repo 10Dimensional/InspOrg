@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<section class="features-section">
-				<h1>Points of Inspirada</h1>
+				<!--<h1>Points of Inspirada</h1>-->
 				<ul class="buttons-list">
 					<li><a href="/search-for-homes"><div class="btn-bg"></div><span><?php the_field('hex1'); ?></span></a></li>
 					<li class="style-1"><a href="/living-inspired"><div class="btn-bg"></div><span><?php the_field('hex2'); ?></span></a></li>
@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <img class="image" style="margin-bottom: 10px;" src="<?php bloginfo('template_url') ?>/images/arapp.png" alt="image description">
-                    <a id="see-for-youself-link" href="http://166.78.0.133/app-page" style="background-color: #FF6C36; text-decoration: none; color: white; font-weight: bold; padding: 10px; margin-left: 25%; font: 16px/22px 'roboto_slabbold', 'Times New Roman', Times, serif;">Learn More About the App</a>
+                    <a id="see-for-youself-link" href="/app" style="background-color: #FF6C36; text-decoration: none; color: white; font-weight: bold; padding: 10px; margin-left: 25%; font: 16px/22px 'roboto_slabbold', 'Times New Roman', Times, serif;">Learn More About the App</a>
                 </div>
                 <div class="col-sm-6"> <div class="text-box" style="color: white;">
                     <p>With new neighborhoods, parks and trails, we wanted you to see Inspirada as it grows - <strong>with the new Inspirada app!</strong>

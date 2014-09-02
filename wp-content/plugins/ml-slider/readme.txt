@@ -3,8 +3,8 @@ Contributors: matchalabs
 Tags: wordpress slideshow,seo,slideshow,slider,widget,wordpress slider,image slider,flexslider,flex slider,nivoslider,nivo slider,responsive,responsive slides,coinslider,coin slider,slideshow,carousel,responsive slider,vertical slides
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQ84KC4X8YKW8
 Requires at least: 3.5
-Tested up to: 3.8
-Stable tag: 2.8-beta
+Tested up to: 3.9
+Stable tag: 2.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,7 +61,11 @@ Upgrade to [Meta Slider Pro](http://www.metaslider.com/upgrade) to add support f
 * Taiwanese (thanks to 断青丝)
 * Norwegian (thanks to Dreamsoft)
 * Romanian (thanks to Octav Madalin Stanoaia)
+* Japanese (thanks to Dorrie)
+* Persian (thanks to aliamini)
+* Hungarian (thanks to szripio)
 * Croatian
+* Hebrew (thanks to Ahrale)
 
 Read more and thanks to:
 
@@ -135,6 +139,40 @@ See www.metaslider.com/documentation/image-cropping/
 6. Administration panel - selecting slides
 
 == Changelog ==
+
+= 3.0 [30/07/14] =
+
+**This is not a major update. We're just following the WordPress versioning conventions (3.0 comes after 2.9)**
+
+* New feature: Set crop position for slides (requires WP 3.9+)
+* New feature: Disable cropping setting
+* Fix: Use get_posts instead of WP_Query to extract slideshows (fix conflicts with plugins using get_post_type in admin_footer hooks)
+* Change: Add filter for capability required to use meta slider
+
+= 2.9.1 [15/07/14] =
+
+* New feature: Hungarian Language Pack added
+* Fix: Escape attributes and JS in slideshow output (credit to jwenerd!)
+* Fix: Escape attributes and text fields in admin
+* New feature: Admin slide tabs can be modified with filters
+
+= 2.9 [25/06/14] =
+
+* New feature: Japanese Language Pack added
+* New feature: Persian Language Pack added
+* New feature: Switch between tab and list view
+* New feature: Added ms-left and ms-right css classes to align slideshow to left or right
+* Improvement: Flex Slider updated to 2.3.0-bleeding (fix initial image fade)
+* Fix: reference to window.parent in media library
+* Fix: Thumbnail outline in firefox
+
+= 2.8.1 [28/04/14] =
+
+* Fix: All in One Events Calendar conflict fix (Advanced Settings not toggling)
+* Fix: CSS resets to avoid theme conflicts
+* Fix: Autoload visibility conflict (http://wordpress.org/support/topic/autoload-visibillity-conflict)
+* Fix: Layer Editor in IE11 - text fields not accessible in modal windows
+* Fix: FlexSlider IE11 Fade transition
 
 = 2.8 [28/04/14] =
 

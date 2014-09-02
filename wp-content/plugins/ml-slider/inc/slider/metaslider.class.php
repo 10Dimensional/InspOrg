@@ -125,7 +125,14 @@ class MetaSlider {
      * Save the slider details and initiate the update of all slides associated with slider.
      */
     private function save() {
-        if ( !is_admin() ) {
+
+        if ( ! is_admin() ) {
+            return;
+        }
+
+        $capability = apply_filters( 'metaslider_capability', 'edit_others_posts' );
+
+        if ( ! current_user_can( $capability ) ) {
             return;
         }
 
@@ -245,7 +252,7 @@ class MetaSlider {
      */
     public function render_public_slides() {
         $html[] = '<!-- meta slider -->';
-        $html[] = '<div style="' . $this->get_container_style() . '" class="' . $this->get_container_class() .'">';
+        $html[] = '<div style="' . $this->get_container_style() . '" class="' . esc_attr($this->get_container_class()) .'">';
         $html[] = '    ' . $this->get_inline_css();
         $html[] = '    <div id="' . $this->get_container_id() . '">';
         $html[] = '        ' . $this->get_html();
@@ -419,7 +426,7 @@ class MetaSlider {
                 if ( gettype( $default ) == 'integer' || $val == 'true' || $val == 'false' ) {
                     $options[$param] = $val;
                 } else {
-                    $options[$param] = '"' . $val . '"';
+                    $options[$param] = '"' . esc_js($val) . '"';
                 }
             }
         }
@@ -486,7 +493,7 @@ class MetaSlider {
         $old_settings = $this->get_settings();
 
         // convert submitted checkbox values from 'on' or 'off' to boolean values
-        $checkboxes = array( 'noConflict', 'fullWidth', 'hoverPause', 'links', 'reverse', 'random', 'printCss', 'printJs', 'smoothHeight', 'center', 'smartCrop', 'carouselMode', 'autoPlay' );
+        $checkboxes = apply_filters( "metaslider_checkbox_settings", array( 'noConflict', 'fullWidth', 'hoverPause', 'links', 'reverse', 'random', 'printCss', 'printJs', 'smoothHeight', 'center', 'carouselMode', 'autoPlay' ) );
 
         foreach ( $checkboxes as $checkbox ) {
             if ( isset( $new_settings[$checkbox] ) && $new_settings[$checkbox] == 'on' ) {
@@ -546,4 +553,3 @@ class MetaSlider {
         }
     }
 }
-?>
