@@ -294,7 +294,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
 
     $conn_id = ftp_connect('64.94.4.105') or die('Could not connect');
     if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
-        ftp_pasv($conn_id, true);
+   //     ftp_pasv($conn_id, true);
         if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
             $msg = true;
         } else {
