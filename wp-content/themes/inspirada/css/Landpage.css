@@ -77,7 +77,7 @@ img.Sign-up{
 .textContainer {
 	padding-top: 3px;
     padding-bottom: 2px;
-    width: 45%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 10px;
@@ -358,12 +358,13 @@ p.checkBox{
     #form-mainp {width: 100%;}
     .textContainer {width: 98%;}
     .headerContainer {width: 100%;}
-    .w1 {height: 1010px !important;}
+    .w1 {height: 1120px !important;}
     .formLeft {width: 54% !important; margin-right: -6px !important;}
-    #dibs-bottom {width: 500px !important; margin-left: 360px !important; margin-right:auto; margin-top: 20px !important;}
-    #dibs-map {margin-top: -20px !important;}
-    #dibs-directions {margin-top: -35px !important; margin-left: -200px !important;}
+    #dibs-bottom {width: 500px !important; margin-left: 360px !important; margin-right:auto; margin-top: 80px !important;}
+    #dibs-map {margin-top: 40px; margin-left: -200px; margin-bottom: 80px;}
+    #dibs-directions {margin-top: -35px !important; margin-left: -210px !important;}
     #checkboxes1 {margin-bottom: 50px;}
+    #event-logo {width: 100% !important;}
 }
 
 @media only screen and (max-width:745px){
@@ -386,19 +387,26 @@ p.checkBox{
 @media only screen and (max-width:640px){
     .textContainer {width: 98%;}
     .headerContainer {width: 100%;}
-    .w1 {height: 1610px !important;}
+    .w1 {height: 1410px !important;}
     #form-dibs {margin-left: -15px !important;}
-    #form-main {height: 1125px !important;}
+    #form-main {height: 525px !important;}
     .formLeft {width: 310px !important; margin-right: -6px !important; margin-left: 0px !important;}
-    .formRight {display: block !important; margin-right: -6px !important; margin-left: 0px !important;}
-    #dibs-bottom {width: 320px !important; margin-left: 20px !important; margin-right:auto; margin-top: 20px !important;}
+    .formRight {display: inline-block !important; margin-right: -6px !important; margin-left: 0px !important;}
+    #dibs-bottom {width: 100% !important; margin-left: 20px !important; margin-right:auto; margin-top: 20px !important;}
     #dibs-map {margin-top: -50px !important; width: 100%; margin-left: -30px;}
     #dibs-directions {width: 88%; margin-top: -25px !important; margin-left: 0px !important;}
     p#form-mainp {line-height: 20px; margin-top: 20px; padding-right: 10px;}
     #checkboxes1 {margin-bottom: 45px; margin-top: 10px;}
+    #event-logo {margin: -15px 0 0 -35px !important; width: 100% !important;}
+    #saturday-time {font-size: 20px !important;}
+    #saturday-time span {font-size: 25px !important;}
 }
 
 @media only screen and (max-width:479px){
+    #hex-2 {margin: 0 !important;}
+    .w1 {height: 1510px !important;}
+    #register {margin: 0 0 0 5px !important;}
+    #dibs-bottom {margin-top: 450px !important;}
     .thankContainer {
         width: 95%;
         margin-left: auto;

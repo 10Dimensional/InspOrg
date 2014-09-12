@@ -260,7 +260,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     return (PEAR::isError($mail)) ? false : true;
 }
 
-function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment)
+function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment, $community=false)
 {
     if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
@@ -274,7 +274,7 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
     $xml .= '<message>'.substr(strip_tags($comment), 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-    $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
+    $xml .= '<communitynumber>'.$community.'</communitynumber>'.PHP_EOL;
     $xml .= '</lead>'.PHP_EOL;
     $xml .= '</hsleads>';
 

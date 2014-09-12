@@ -19,12 +19,8 @@
     }
 
     if (in_array('beazer homes', $builders) || !$builders) {
-        $beazer = generate_xml_email_beazer_main($first, $last, $email, $phone, $community);
-    }
-
-    if (in_array('toll brothers', $builders) || !$builders) {
-        generate_xml_soap_toll_main($email, $comment, $first, $phone, $last, $community);
-    }  
+        generate_xml_email_beazer_main($first, $last, $email, $phone, $community);
+    } 
 
 ?>
 <!DOCTYPE html>
@@ -125,6 +121,39 @@ background: white;
 </div></div>
 	
 	
+    <script type="text/javascript">
+    	console.log('start');
+    	var data = {};
+    	data.first = '<?php echo $first; ?>';
+    	data.last = '<?php echo $last; ?>';
+    	data.email = '<?php echo $email; ?>';
+    	data.comment = '<?php echo $comment; ?>';
+    	data.phone = '<?php echo $phone; ?>';
+    	data.community = '<?php echo $community; ?>';
+    	
+    	
+    	<?php if (in_array('toll brothers', $builders) || !$builders) { ?>
+	    	jQuery.ajax({
+	    		type: 'POST',
+	    		url: '/process/toll.php',
+	    		data: data,
+	    		success: function(response) {
+	    			console.log(response);
+	    		},
+	    		error: function(response) {
+		    		console.log('fail');
+	    		}
+	    	});
+		<?php } ?>
+    </script>
+    
+    
+    <?php 
+	
+	    	//var_dump(generate_xml_soap_toll_main($email, $comment, $first, $phone, $last, $community));
+
+        
+?>
 	
 	
 	
