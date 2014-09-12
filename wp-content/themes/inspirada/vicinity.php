@@ -23,6 +23,11 @@
   <![endif]-->
 	<!--[if IE]><script type="text/javascript" src="js/ie.js"></script><![endif]-->
 	<!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" media="screen"/><![endif]-->
+<script src="http://static.dudamobile.com/DM_redirect.js" type="text/javascript"></script>
+<script type="text/javascript">
+DM_redirect("/search-for-homes/community-map-mobile");
+</script>
+
 <body>
 <div id="wrapper">
 		<?php wp_head() ?><?php get_header() ?>
@@ -43,6 +48,7 @@
 			<section class="vicinity-section" style="min-height:1060px;">
                 <div class="panel" style="position: absolute; z-index: 1000; margin-top: 10px; margin-left: 10px;">
                     <section>
+
                         <h1>Where's Inspirada?</h1>
                         <a href="#" data-toggle="modal" data-target="#wheresinspirada"><img src="<?php bloginfo('template_url') ?>/images/wheresinspirada.png"></a>
                     </section>

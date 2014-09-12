@@ -1,6 +1,6 @@
 <?php
    /*
-   	Template Name: generic-page
+   	Template Name: Seasonal Thank You Template
    */ 
    
    ?>

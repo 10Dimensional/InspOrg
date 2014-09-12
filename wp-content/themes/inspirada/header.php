@@ -5,6 +5,7 @@
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/fancybox.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/jcf.css">
 	<link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/all.css">
+    <link media="all" rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/responsive.css">
 	<!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
 	 <!--Shrink header -->
 	<script src="<?php bloginfo('template_url') ?>/js/classie.js"></script>

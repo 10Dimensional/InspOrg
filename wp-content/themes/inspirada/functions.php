@@ -200,7 +200,7 @@ function save_to_admin($first=null, $last=null, $email=null, $phone=null, $comme
     }
 }
 
-function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment, $community=false)
+function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comment)
 {
 //    if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     require_once "Mail.php";
@@ -218,7 +218,7 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     $xml .= '<message>'.substr($comment, 0, 2048).'</message>'.PHP_EOL;
     $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
     $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-    $xml .= '<communitynumber>'.$community.'</communitynumber>'.PHP_EOL;
+    $xml .= '<communitynumber></communitynumber>'.PHP_EOL;
     $xml .= '</lead>'.PHP_EOL;
     $xml .= '</hsleads>';
 
@@ -267,19 +267,17 @@ function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $
 }
 
 
-function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $lastName, $community=false)
+function generate_xml_soap_toll_main($email, $comment, $firstName, $phone, $lastName)
 {
     if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
     ini_set("soap.wsdl_cache_enabled", "0");
-    ini_set("default_socket_timeout", 5);
-    
     try {
         $client = new SoapClient(
             "https://ftp2.tollbrothers.com/Services/LeadService?wsdl", array(
             "encoding" => "ISO-8859-1",
             "trace" => 1,
             "exceptions" => 1,
-            "connection_timeout" => 60)
+            "connection_timeout" => 1000)
         );
 
         $auth = array('username' => "lucid_t", 'password' => "U0hVZLAup2sXVjP");

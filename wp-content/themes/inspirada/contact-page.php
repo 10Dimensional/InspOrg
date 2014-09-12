@@ -88,7 +88,7 @@ function addLayer(layer, name, zIndex) {
     var item = document.createElement('li');
     var link = document.createElement('a');
 
-    var markerLayer = L.mapbox.markerLayer().loadURL('http://192.237.210.228/wp-content/themes/inspirada/contact.geojson').addTo(map);
+    var markerLayer = L.mapbox.markerLayer().loadURL('http://23.253.101.150/wp-content/themes/inspirada/contact.geojson').addTo(map);
     markerLayer.options.sanitizer = function(x) { return x; };
 
 /*    markerLayer.on('mouseover', function(e) {

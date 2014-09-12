@@ -7,7 +7,26 @@ Description: Security solution as a smart, effectively plugin to protect your bl
 Author: Sergej M&uuml;ller
 Author URI: http://wpcoder.de
 Plugin URI: http://wpantivirus.com
-Version: 1.3.5
+License: GPLv2 or later
+Version: 1.3.8
+*/
+
+/*
+Copyright (C)  2009-2014 Sergej Müller
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 
@@ -394,7 +413,7 @@ class AntiVirus {
 	* Führt die Safe Browsing Prüfung aus
 	*
 	* @since   1.3.4
-	* @change  1.3.4
+	* @change  1.3.7
 	*/
 
 	private static function _check_safe_browsing()
@@ -407,8 +426,8 @@ class AntiVirus {
 		/* Start request */
 		$response = wp_remote_get(
 			sprintf(
-				'https://sb-ssl.google.com/safebrowsing/api/lookup?client=wpantivirus&apikey=%s&appver=0.1&pver=3.0&url=%s',
-				'ABQIAAAAsu9cf81zMEioUOLBi7TrhhTJnIkNNG4BG3awC5RGoTZgJ-xX-A', /* API Key reserved for AntiVirus */
+				'https://sb-ssl.google.com/safebrowsing/api/lookup?client=wpantivirus&key=%s&appver=1.3.7&pver=3.1&url=%s',
+				'AIzaSyALNYwuy-Pidn7vx3-In-hU0zgMH5Wr42U',
 				urlencode( get_bloginfo('url') )
 			),
 			array(
@@ -430,7 +449,7 @@ class AntiVirus {
 		self::_send_warning_notification(
 			esc_html__('Safe Browsing Alert', 'antivirus'),
 			sprintf(
-				"%s\r\nhttp://www.google.com/safebrowsing/diagnostic?site=%s&hl=%s",
+				"%s\r\nhttps://www.google.com/safebrowsing/diagnostic?site=%s&hl=%s",
 				esc_html__('Please check the Google Safe Browsing diagnostic page:', 'antivirus'),
 				urlencode( get_bloginfo('url') ),
 				substr(get_locale(), 0, 2)
@@ -475,7 +494,7 @@ class AntiVirus {
 	* Führt die Safe Browsing Prüfung aus
 	*
 	* @since   1.3.4
-	* @change  1.3.4
+	* @change  1.3.6
 	*
 	* @param   string  $subject  Betreff der E-Mail
 	* @param   string  $body     Inhalt der E-Mail
@@ -484,9 +503,10 @@ class AntiVirus {
 	private static function _send_warning_notification($subject, $body)
 	{
 		/* Receiver email address */
-		if ( $email = self::_get_option('notify_email') ) {
-			$email = sanitize_email($email);
-		}	else {
+		$email = self::_get_option('notify_email');
+
+		/* Email address fallback */
+		if ( ! is_email($email) ) {
 			$email = get_bloginfo('admin_email');
 		}
 
@@ -613,46 +633,30 @@ class AntiVirus {
 	* Rückgabe des aktuellen Theme
 	*
 	* @since   0.1
-	* @change  1.3.4
+	* @change  1.3.6
 	*
 	* @return  array  $themes  Array mit Theme-Eigenschaften
 	*/
 
 	private static function _get_current_theme()
 	{
-		/* Ab WP 3.4 */
-		if ( function_exists('wp_get_theme') ) {
-			/* Init */
-			$theme = wp_get_theme();
-			$name = $theme->get('Name');
-			$slug = $theme->get_stylesheet();
-			$files = $theme->get_files('php', 1);
+		/* Init */
+		$theme = wp_get_theme();
+		$name = $theme->get('Name');
+		$slug = $theme->get_stylesheet();
+		$files = $theme->get_files('php', 1);
 
-			/* Leer? */
-			if ( empty($name) OR empty($files) ) {
-				return false;
-			}
-
-			/* Rückgabe */
-			return array(
-				'Name' => $name,
-				'Slug' => $slug,
-				'Template Files' => $files
-			);
-		/* Bis WP 3.4 */
-		} else {
-			if ( $themes = get_themes() ) {
-				/* Aktuelles Theme */
-				if ( $theme = get_current_theme() ) {
-					if ( array_key_exists((string)$theme, $themes) ) {
-						return $themes[$theme];
-					}
-				}
-			}
-
+		/* Leer? */
+		if ( empty($name) OR empty($files) ) {
+			return false;
 		}
 
-		return false;
+		/* Rückgabe */
+		return array(
+			'Name' => $name,
+			'Slug' => $slug,
+			'Template Files' => $files
+		);
 	}
 
 
@@ -749,6 +753,11 @@ class AntiVirus {
 			exit();
 		}
 
+		/* Capability check */
+		if ( ! current_user_can('manage_options') ) {
+			return;
+		}
+
 		/* Init */
 		$values = array();
 		$output = '';
@@ -777,7 +786,7 @@ class AntiVirus {
 			break;
 
 			case 'update_white_list':
-				if ( ! empty($_POST['_file_md5']) ) {
+				if ( ! empty($_POST['_file_md5']) && preg_match('/^[a-f0-9]{32}$/', $_POST['_file_md5']) ) {
 					self::_update_option(
 						'white_list',
 						implode(
@@ -903,7 +912,7 @@ class AntiVirus {
 	* Prüfung einer Zeile
 	*
 	* @since   0.1
-	* @change  1.3.4
+	* @change  1.3.8
 	*
 	* @param   string   $line  Zeile zur Prüfung
 	* @param   integer  $num   Nummer zur Prüfung
@@ -936,6 +945,7 @@ class AntiVirus {
 			$results = $matches[1];
 		}
 
+
 		/* Base64 suchen */
 		preg_match_all(
 			'/[\'\"\$\\ \/]*?([a-zA-Z0-9]{' .strlen(base64_encode('sergej + swetlana = love.')). ',})/', /* get length of my life ;) */
@@ -948,6 +958,7 @@ class AntiVirus {
 			$results = array_merge($results, $matches[1]);
 		}
 
+
 		/* Frames suchen */
 		preg_match_all(
 			'/<\s*?(i?frame)/',
@@ -959,6 +970,20 @@ class AntiVirus {
 		if ( $matches[1] ) {
 			$results = array_merge($results, $matches[1]);
 		}
+
+
+		/* MailPoet Vulnerability */
+		preg_match_all(
+			'/explode\s?\(chr\s?\(\s?\(\d{3}\s?-\s?\d{3}\s?\)\s?\)\s?,/',
+			$line,
+			$matches
+		);
+
+		/* Ergebnis speichern */
+		if ( $matches[0] ) {
+			$results = array_merge($results, $matches[0]);
+		}
+
 
 		/* Option suchen */
 		preg_match(
@@ -1040,7 +1065,7 @@ class AntiVirus {
 	* Prüfung einer Datei
 	*
 	* @since   0.1
-	* @change  1.3.4
+	* @change  1.3.6
 	*
 	* @param   string  $file     Datei zur Prüfung
 	* @return  mixed   $results  Array mit Ergebnissen | FALSE im Fehlerfall
@@ -1048,6 +1073,16 @@ class AntiVirus {
 
 	private static function _check_theme_file($file)
 	{
+		/* Simple file path check */
+		if ( filter_var($file, FILTER_SANITIZE_URL) !== $file ) {
+			return false;
+		}
+
+		/* Sanitize file string */
+		if ( validate_file($file) !== 0 ) {
+			return false;
+		}
+
 		/* Kein File? */
 		if ( ! $file ) {
 			return false;
@@ -1139,7 +1174,7 @@ class AntiVirus {
 	* Anzeige der GUI
 	*
 	* @since   0.1
-	* @change  1.3.5
+	* @change  1.3.6
 	*/
 
 	public static function show_admin_menu() {
@@ -1151,7 +1186,7 @@ class AntiVirus {
 			/* Werte zuweisen */
 			$options = array(
 				'cronjob_enable' => (int)(!empty($_POST['av_cronjob_enable'])),
-				'notify_email'	 => is_email(@$_POST['av_notify_email']),
+				'notify_email'	 => sanitize_email(@$_POST['av_notify_email']),
 				'safe_browsing'  => (int)(!empty($_POST['av_safe_browsing']))
 			);
 

@@ -18,6 +18,19 @@
     <!--[if lt IE 9]><link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/ie.css" media="screen"/><![endif]-->
     <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/modernizr.js"></script>
     <?php wp_head() ?>
+    <style>
+        .intro-section {
+            max-width: 875px;
+            padding: 0px 20px 91px !important;
+            font-size: 16px;
+            line-height: 29px;
+            color: #fff;
+            overflow: hidden;
+            margin: 0 auto;
+            text-shadow: 0 0 10px rgba(0,0,0, 0.72);
+            margin-top: 40px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,67 +38,41 @@
         <?php get_header() ?>
         <div class="w1">
             <div id="bg">
-                <img src="<?php bloginfo('template_url') ?>/images/greenbg.jpg">
+                <img src="<?php bloginfo('template_url') ?>/images/dark-greenbg.jpg">
             </div>
-            <div class="intro-section">
+            <div class="intro-section" style="height: 500px; max-width: 1200px;">
 
  <div class="row">
-                                <div class="col-xs-12">
-                                    <img src="<?php bloginfo('template_url') ?>/images/eventheadlineribbon.png">
-                                </div>
-                            </div>
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 120%;">
   
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" style="overflow: visible;">
                         <div class="item active">
-                   
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <img src="<?php bloginfo('template_url') ?>/images/house1.png">
-                                </div>
-                                <div class="col-sm-4">
-                                    <p>
-                                        <?php echo $post->post_content ?></p>
-                                    <a href="/first-dibs">
-                                        <div class="register-now"></div>
-                                    </a>
-                                </div>
-                                <div class="col-sm-4">
-                                    <img class="mobile-hide" src="<?php bloginfo('template_url') ?>/images/house2.png">
-                                </div>
+                                <div class="col-sm-4" style="" id="saturday">
+                            <div style="background-image: url(<?php bloginfo('template_url') ?>/images/blue-ribbon.png); background-size: 170px 100px; background-position: 0px 90px; text-align: center; width: 170px; height: 90px; display: block; margin: auto;">
+                                        <a href="/super-saturday" style="color: white; text-decoration: none; font-family: 'roboto_slabregular', 'Times New Roman', Times, serif; font-size: 16px; display: block; padding-top: 15px; width: 80px; margin: auto; line-height: 20px;">REGISTER NOW</a>
                             </div>
-
-                        </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <p>
-                                    <?php the_field('slide_2_text'); ?></p>
-                                <a href="/first-dibs">
-                                    <div class="register-now"></div>
-                                </a>
+                            <div style="text-align: center; width: 100%;">
+                                <h2 style="font-size: 42px; font-weight: bold; line-height: 0px;">SUPER</h2>
+                                <h2 style="font-size: 34px; line-height: 35px;">SATURDAY@</h2>
+                                <img src="<?php bloginfo('template_url') ?>/images/INSP_LOGO_sat.png" style="width: 100%; margin: -15px 0 0 -20px;">
+                                <h2 style="font-size: 35px; line-height: 0px; vertical-align: top; padding: 0; margin: 25px 0 0 0;">OCTOBER <span style="font-size: 35px;">4</span><sup>TH</sup></h2>
+                                <p style="text-align: center; line-height: 22px; margin-top: 40px;"><span style="color: #f7d93e;">GRAND OPENING<br>
+                                OF 2 NEW PARKS!</span><br>
+                                TOUR 18 NEW<br>
+                                HOME MODELS!<br>
+                                <span style="color: #f7d93e;">GREAT FOOD</span><br>
+                                FAMILY FUN<br>
+                                <span style="color: #f7d93e;">SPORTS CLINICS</span><br>
+                                PET ADOPTION</p>
                             </div>
-                            <div class="col-sm-3">
-                                <img class="mobile-hide" src="<?php bloginfo('template_url') ?>/images/house3.png">
+                                </div>
+                                <div class="col-sm-6" style="display: inline-block; float: none;" id="saturday-video">
+                                    <iframe style="" src="//www.youtube.com/embed/aZCddvpFjYQ" frameborder="0" allowfullscreen></iframe>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                       
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p>
-                                    <?php the_field('slide_3_text'); ?></p>
-                                <a href="/first-dibs">
-                                    <div class="register-now"></div>
-                                </a>
-                            </div>
-                            <div class="col-sm-4">
-                                <img class="mobile-hide" src="<?php bloginfo('template_url') ?>/images/house4.png">
-                            </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
