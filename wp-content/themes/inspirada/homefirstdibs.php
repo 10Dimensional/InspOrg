@@ -40,7 +40,7 @@
             <div id="bg">
                 <img src="<?php bloginfo('template_url') ?>/images/dark-greenbg.jpg">
             </div>
-            <div class="intro-section" style="height: 500px; max-width: 1200px;">
+            <div class="intro-section" style="height: 580px; max-width: 1200px;">git ststu
 
  <div class="row">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 120%;">
@@ -58,17 +58,17 @@
                                 <h2 style="font-size: 34px; line-height: 35px;">SATURDAY@</h2>
                                 <img src="<?php bloginfo('template_url') ?>/images/INSP_LOGO_sat.png" style="width: 100%; margin: -15px 0 0 -20px;">
                                 <h2 style="font-size: 35px; line-height: 0px; vertical-align: top; padding: 0; margin: 25px 0 0 0;">OCTOBER <span style="font-size: 35px;">4</span><sup>TH</sup></h2>
-                                <p style="text-align: center; line-height: 22px; margin-top: 40px;"><span style="color: #f7d93e;">GRAND OPENING<br>
+                                <p style="text-align: center; line-height: 22px; margin-top: 40px; font-size: 16px;"><span style="color: #f7d93e;">GRAND OPENING<br>
                                 OF 2 NEW PARKS!</span><br>
                                 TOUR 18 NEW HOME MODELS!<br>
                                 <span style="color: #f7d93e;">GREAT FOOD</span><br>
                                 FAMILY FUN<br>
                                 <!--<span style="color: #f7d93e;">SPORTS CLINIC</span><br>-->
                                 PET ADOPTION</p>
-                                <p>JUST ANNOUNCED!<br>SKATEBOARDER LEGENDS TO APPEAR<br>JEREMY AND JONAS WRAY,<br>PAT CHANNITA AND PAUL LUNA</p>
+                                <p style="text-align: center; line-height: 22px; margin-top: 10px; color: #F7D93E; font-weight: bold; font-size: 16px;">JUST ANNOUNCED!<br>SKATEBOARDER LEGENDS TO APPEAR<br>JEREMY AND JONAS WRAY,<br>PAT CHANNITA AND PAUL LUNA</p>
                             </div>
                                 </div>
-                                <div class="col-sm-6" style="display: inline-block; float: none;" id="saturday-video">
+                                <div class="col-sm-6" style="display: inline-block; float: none; vertical-align: top; margin-top: 30px;" id="saturday-video">
                                     <iframe style="" src="//www.youtube.com/embed/aZCddvpFjYQ" frameborder="0" allowfullscreen></iframe>
                                 </div>
                             </div>
