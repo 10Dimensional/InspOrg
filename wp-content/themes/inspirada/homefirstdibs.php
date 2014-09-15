@@ -60,12 +60,12 @@
                                 <h2 style="font-size: 35px; line-height: 0px; vertical-align: top; padding: 0; margin: 25px 0 0 0;">OCTOBER <span style="font-size: 35px;">4</span><sup>TH</sup></h2>
                                 <p style="text-align: center; line-height: 22px; margin-top: 40px;"><span style="color: #f7d93e;">GRAND OPENING<br>
                                 OF 2 NEW PARKS!</span><br>
-                                TOUR 18 NEW<br>
-                                HOME MODELS!<br>
+                                TOUR 18 NEW HOME MODELS!<br>
                                 <span style="color: #f7d93e;">GREAT FOOD</span><br>
                                 FAMILY FUN<br>
-                                <span style="color: #f7d93e;">SPORTS CLINICS</span><br>
+                                <!--<span style="color: #f7d93e;">SPORTS CLINIC</span><br>-->
                                 PET ADOPTION</p>
+                                <p>JUST ANNOUNCED!<br>SKATEBOARDER LEGENDS TO APPEAR<br>JEREMY AND JONAS WRAY,<br>PAT CHANNITA AND PAUL LUNA</p>
                             </div>
                                 </div>
                                 <div class="col-sm-6" style="display: inline-block; float: none;" id="saturday-video">
