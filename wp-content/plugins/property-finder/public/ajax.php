@@ -253,6 +253,6 @@
         );
 
         $mail = $smtp->send($to, $headers, $body);
-        return (PEAR::isError($mail)) ? false : true;
+        return (PEAR::isError($mail)) ? false : 'success';
     }
 ?>
