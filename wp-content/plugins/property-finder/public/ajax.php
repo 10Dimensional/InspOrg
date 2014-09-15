@@ -15,6 +15,7 @@
         $toll_array = array();
         $beazer_email = 'lasvegashomes@beazer.com';
         $kb_email = 'inspirada@kbhome.com';
+        $kb_cc = 'dwalker@kbhome.com';
         $pardee_email = 'leadsource@ljgnetwork.com';
         $toll_email = 'inspirada@tollbrothers.com';
         $builders = $_POST['builders'];
@@ -22,6 +23,7 @@
         $status = 'success';
         $property_ids = array();
         $community_number = 0;
+        $cc = '';
 
         foreach ($properties as $property) {
             if ($property->builder === 'Beazer Homes') {
@@ -60,7 +62,10 @@
             $mail_now = 1;
 
             if ($builder === 'kb home') {
-                $mail_now = 0;
+            	$title = 'KB Homes';
+                $use_email = $kb_email;
+                $use_array = $kb_array;
+                $cc = $kb_cc;
              //   generate_xml_email_kb($community_number);
             }
 
@@ -86,9 +91,7 @@
             }
 
             if ($mail_now !== 0) {
-                if (!requestInfo($title, $use_email, $use_array)) {
-                    $status = 'fail';
-                }
+                $status = requestInfo($title, $use_email, $use_array, $cc);
             }
         }
 
@@ -194,7 +197,7 @@
 
 
 
-    function requestInfo($title, $to, $properties) {
+    function requestInfo($title, $to, $properties, $cc) {
         if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return true;
         global $wpdb;
         require_once "Mail.php";
@@ -206,9 +209,9 @@
         $host = "smtp.gmail.com";
         $port = '465';
         $username = "InspiradaHenderson@gmail.com";
-        $password = "0bbLsE9fRXGU";
+        $password = "DjNB76a!Z7b.E[.";
 
-        $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject);
+        $headers = array ('From' => $from, 'To' => $to, 'Subject' => $subject, 'Cc' => $cc);
     
         // Get form fields
         $name = stripslashes($_POST['firstName']) . ' ' . stripslashes($_POST['lastName']);
@@ -250,6 +253,6 @@
         );
 
         $mail = $smtp->send($to, $headers, $body);
-        return (PEAR::isError($mail)) ? false : true;
+        return (PEAR::isError($mail)) ? false : 'success';
     }
 ?>
