@@ -260,53 +260,10 @@ function generate_xml_email_kb_main($firstName, $lastName, $email, $phone, $comm
     return (PEAR::isError($mail)) ? false : true;
 }
 
-function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment, $community=false)
+function generate_xml_email_beazer_main($firstName, $lastName, $email, $phone, $comment)
 {
     if ($_SERVER['HTTP_HOST'] !== 'www.inspirada.com') return;
-    $xml = '<?xml version="1.0" encoding="UTF-8" ?>';
-    $xml .= '<hsleads>'.PHP_EOL;
-    $xml .= '<lead>'.PHP_EOL;
-    $xml .= '<submit_date_time>'.str_replace('+00:00', '', date('c', strtotime('now'))).'</submit_date_time>'.PHP_EOL;
-    $xml .= '<firstname>'.substr($firstName, 0, 15).'</firstname>'.PHP_EOL;
-    $xml .= '<lastname>'.substr($lastName, 0, 40).'</lastname>'.PHP_EOL;
-    $xml .= '<email>'.substr($email, 0, 40).'</email>'.PHP_EOL;
-    $xml .= '<phone>'.substr(preg_replace("/[^0-9]/","",$phone), 0, 10).'</phone>'.PHP_EOL;
-    $xml .= '<message>'.substr(strip_tags($comment), 0, 2048).'</message>'.PHP_EOL;
-    $xml .= '<buildernumber>00850</buildernumber>'.PHP_EOL;
-    $xml .= '<builderreportingname>Las Vegas</builderreportingname>'.PHP_EOL;
-    $xml .= '<communitynumber>'.$community.'</communitynumber>'.PHP_EOL;
-    $xml .= '</lead>'.PHP_EOL;
-    $xml .= '</hsleads>';
-
-    $xmlobj = new SimpleXMLElement($xml);
-    $xmlobj->asXML(ABSPATH . 'wp-content/plugins/property-finder/public/export/'.time().'.xml');
-
-    // open some file for reading
-    $file = 'wp-content/plugins/property-finder/public/export/'.time().'.xml';
-
-
-    // open some file for reading
-    $file = $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/property-finder/public/export/'.time().'.xml';
-
-    // set up basic connection
-    //$conn_id = ftp_ssl_connect('64.94.4.105');
-
-
-    $conn_id = ftp_connect('64.94.4.105') or die('Could not connect');
-    if (@ftp_login($conn_id, 'ftp-inspirada', 'M@st3rp1@n')) {
-   //     ftp_pasv($conn_id, true);
-        if (ftp_put($conn_id, time().'.xml', $file, FTP_ASCII)) {
-            $msg = true;
-        } else {
-            $msg = error_get_last();
-        }
-    } else {
-        echo "Couldn't connect as $ftp_user\n";
-    }
-    // close the connection and the file handler
-    ftp_close($conn_id);
-
-    return $msg;
+    system("php /var/www/inspirada.com/html/process/beazer.php -- '$firstName' '$lastName' '$email' '$phone' '$comment'");   
 }
 
 
