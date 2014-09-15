@@ -220,7 +220,7 @@ margin-top: 0px; text-transform: uppercase;">2. Select models that interest you 
                             <div class="scrollable-area anyscrollable">
                                 <div class="table-holder">
                                     <form id="frmPropertyList">
-                                        <table class="info-table table-wrap" id="#example">
+                                        <table class="info-table">
                                             <thead>
                                                 <tr>
                                                     <th><span>Builder</span>

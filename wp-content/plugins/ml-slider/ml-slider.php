@@ -5,9 +5,9 @@
  * Plugin Name: Meta Slider
  * Plugin URI:  http://www.metaslider.com
  * Description: Easy to use slideshow plugin. Create SEO optimised responsive slideshows with Nivo Slider, Flex Slider, Coin Slider and Responsive Slides.
- * Version:     3.0
+ * Version:     3.0.1
  * Author:      Matcha Labs
- * Author URI:  http://www.matchalabs.com
+ * Author URI:  http://www.metaslider.com
  * License:     GPL-2.0+
  * Copyright:   2014 Matcha Labs LTD
  *
@@ -31,7 +31,7 @@ class MetaSliderPlugin {
     /**
      * @var string
      */
-    public $version = '3.0';
+    public $version = '3.0.1';
 
 
     /**
@@ -286,17 +286,23 @@ class MetaSliderPlugin {
      */
     public function register_shortcode( $atts ) {
 
-        if ( !isset( $atts['id'] ) ) {
+        extract( shortcode_atts( array(
+            'id' => false,
+            'restrict_to' => false
+        ), $atts, 'metaslider' ) );
+
+
+        if ( ! $id ) {
             return false;
         }
 
         // handle [metaslider id=123 restrict_to=home]
-        if ( isset( $atts['restrict_to'] ) && $atts['restrict_to'] == 'home' && ! is_front_page() ) {
+        if ( $restrict_to == 'home' && ! is_front_page() ) {
             return;
         }
 
         // we have an ID to work with
-        $slider = get_post( $atts['id'] );
+        $slider = get_post( $id );
 
         // check the slider is published and the ID is correct
         if ( ! $slider || $slider->post_status != 'publish' || $slider->post_type != 'ml-slider' ) {
@@ -304,7 +310,7 @@ class MetaSliderPlugin {
         }
 
         // lets go
-        $this->set_slider( $atts['id'], $atts );
+        $this->set_slider( $id, $atts );
         $this->slider->enqueue_scripts();
 
         return $this->slider->render_public_slides();
@@ -861,7 +867,7 @@ class MetaSliderPlugin {
 
             // number input type
             if ( $row['type'] == 'number' ) {
-                $return .= "<tr class='{$row['type']}'><td class='tipsy-tooltip' title=\"{$row['helptext']}\">{$row['label']}</td><td><input class='option {$row['class']} {$id}' type='number' min='{$row['min']}' max='{$row['max']}' step='{$row['step']}' name='settings[{$id}]' value='{$row['value']}' /><span class='after'>{$row['after']}</span></td></tr>";
+                $return .= "<tr class='{$row['type']}'><td class='tipsy-tooltip' title=\"{$row['helptext']}\">{$row['label']}</td><td><input class='option {$row['class']} {$id}' type='number' min='{$row['min']}' max='{$row['max']}' step='{$row['step']}' name='settings[{$id}]' value='" . absint( $row['value'] ) . "' /><span class='after'>{$row['after']}</span></td></tr>";
             }
 
             // select drop down
@@ -891,7 +897,7 @@ class MetaSliderPlugin {
 
             // text input type
             if ( $row['type'] == 'text' ) {
-                $return .= "<tr class='{$row['type']}'><td class='tipsy-tooltip' title=\"{$row['helptext']}\">{$row['label']}</td><td><input class='option {$row['class']} {$id}' type='text' name='settings[{$id}]' value='{$row['value']}' /></td></tr>";
+                $return .= "<tr class='{$row['type']}'><td class='tipsy-tooltip' title=\"{$row['helptext']}\">{$row['label']}</td><td><input class='option {$row['class']} {$id}' type='text' name='settings[{$id}]' value='" . esc_attr( $row['value'] ) . "' /></td></tr>";
             }
 
             // text input type
@@ -901,7 +907,7 @@ class MetaSliderPlugin {
 
             // text input type
             if ( $row['type'] == 'title' ) {
-                $return .= "<tr class='{$row['type']}'><td class='tipsy-tooltip' title=\"{$row['helptext']}\">{$row['label']}</td><td><input class='option {$row['class']} {$id}' type='text' name='{$id}' value='{$row['value']}' /></td></tr>";
+                $return .= "<tr class='{$row['type']}'><td class='tipsy-tooltip' title=\"{$row['helptext']}\">{$row['label']}</td><td><input class='option {$row['class']} {$id}' type='text' name='{$id}' value='" . esc_attr( $row['value'] ) . "' /></td></tr>";
             }
         }
 
@@ -960,9 +966,9 @@ class MetaSliderPlugin {
                 foreach ( $tabs as $tab ) {
 
                     if ( $tab['active'] ) {
-                        echo "<div class='nav-tab nav-tab-active'><input type='text' name='title'  value='" . $tab['title'] . "' onfocus='this.style.width = ((this.value.length + 1) * 9) + \"px\"' /></div>";
+                        echo "<div class='nav-tab nav-tab-active'><input type='text' name='title'  value='" . esc_attr( $tab['title'] ) . "' onfocus='this.style.width = ((this.value.length + 1) * 9) + \"px\"' /></div>";
                     } else {
-                        echo "<a href='?page=metaslider&amp;id={$tab['id']}' class='nav-tab'>" . $tab['title'] . "</a>";
+                        echo "<a href='?page=metaslider&amp;id={$tab['id']}' class='nav-tab'>" . esc_html( $tab['title'] ) . "</a>";
                     }
 
                 }

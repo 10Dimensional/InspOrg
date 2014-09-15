@@ -4,8 +4,8 @@ Author URI: http://philbuchanan.com/
 Donate Link: http://philbuchanan.com/
 Tags: accordion, accordions, shortcodes
 Requires at least: 3.3
-Tested up to: 3.9
-Stable tag: 2.0
+Tested up to: 4.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,7 +141,9 @@ There are a few advanced settings you can add to the opening accordion shortcode
 
 **clicktoclose**: Sets whether clicking an open title closes it. Set `clicktoclose="true/false"` on the opening accordion tag like this: `[accordion clicktoclose="true"]`. Default is `false`.
 
-**scroll**: Sets whether to scroll to the title when it's clicked open. This is useful if you have a lot of content within your accordion items. Set `scroll="true/false"` on the opening accordion tag like this: `[accordion scroll="true"]`. Default is `false`.
+**scroll**: Sets whether to scroll to the title when it's clicked open. This is useful if you have a lot of content within your accordion items. Set `scroll="true/false"` on the opening accordion tag like this: `[accordion scroll="true"]`. Default is `false`. You may also specify an integer for a pixel offset if you'd like the page to scroll further (useful when the site uses a fixed position header navigation). NOTE: Only use pixel offset integers of > 0. If you do not want a scroll offset, but still want scrolling, simply use `scroll="true"`.
+
+**class**: Sets a custom CSS class for the accordion group or individual accordion items. Set `class="your-class-name"` on the opening accordion or accordion-item shortcode like this: `[accordion class="your-class-name"]` or `[accordion-item class="your-class-name"]`. Added a class to the accordion-item will add the class to the title HTML tag.
 
 **tag**: Set the global HTML tag to use for all accordion titles. Set `tag="h2"` on the opening accordion tag like this: `[accordion tag="h2"]`. Default is `h3`.
 
@@ -177,6 +179,11 @@ Thank you to [dgrevink](https://github.com/dgrevink) for his support in developi
 3. The Accordion Item shortcode insertion dialog box
 
 == Changelog ==
+= 2.0.1 =
+* NEW: Add a custom CSS classname to your accordion item group or accordion item shortcode
+* NEW: Set an integer for scroll property to offset the scrolling by that many pixels 
+* Now compatible up to WordPress 4.0
+
 = 2.0 =
 * NEW: Buttons in the editor to easily add shortcodes with various settings
 * NEW: Support for item IDs on accordion items and direct linking to a specific item
@@ -186,5 +193,8 @@ Thank you to [dgrevink](https://github.com/dgrevink) for his support in developi
 * FIXED: A few incredibly small bugs/annoyances
 
 == Upgrade Notice ==
+= 2.0.1 =
+WordPress 4.0 compatibility.
+
 = 2.0 =
 Big changes for version 2.0! See the [changelog](http://wordpress.org/plugins/accordion-shortcodes/changelog/) for details.
