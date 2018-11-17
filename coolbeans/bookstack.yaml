@@ -3,7 +3,7 @@ kind: ServiceAccount
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
+    chart: bookstack-0.1.2
     heritage: Tiller
     release: bookstack
   name: bookstack
@@ -13,7 +13,7 @@ kind: Role
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
+    chart: bookstack-0.1.2
     heritage: Tiller
     release: bookstack
   name: bookstack
@@ -30,7 +30,7 @@ kind: RoleBinding
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
+    chart: bookstack-0.1.2
     heritage: Tiller
     release: bookstack
   name: bookstack
@@ -109,7 +109,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
+    chart: bookstack-0.1.2
     heritage: Tiller
     release: bookstack
   name: bookstack-storage
@@ -125,7 +125,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
+    chart: bookstack-0.1.2
     heritage: Tiller
     release: bookstack
   name: bookstack-uploads
@@ -141,7 +141,7 @@ kind: Pod
 metadata:
   annotations:
     helm.sh/hook: test-success
-  name: bookstack-mariadb-test-vtoy3
+  name: bookstack-mariadb-test-9wogq
 spec:
   containers:
   - command:
@@ -186,8 +186,8 @@ spec:
 ---
 apiVersion: v1
 data:
-  mariadb-password: Q3lvczd4RWc0ag==
-  mariadb-root-password: QzhBSTRJQ2p5Mg==
+  mariadb-password: cFo2YnA5bk1ydQ==
+  mariadb-root-password: RkFlR1VGbkR5NA==
 kind: Secret
 metadata:
   labels:
@@ -224,7 +224,7 @@ kind: Service
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
+    chart: bookstack-0.1.2
     heritage: Tiller
     release: bookstack
   name: bookstack
@@ -244,7 +244,7 @@ kind: Deployment
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.0
+    chart: bookstack-0.1.4
     heritage: Tiller
     release: bookstack
   name: bookstack
@@ -273,7 +273,7 @@ spec:
             secretKeyRef:
               key: mariadb-password
               name: bookstack-mariadb
-        image: solidnerd/bookstack:0.24.1
+        image: solidnerd/bookstack:0.24.2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
