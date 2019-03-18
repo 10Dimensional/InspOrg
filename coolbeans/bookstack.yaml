@@ -3,8 +3,6 @@ kind: ServiceAccount
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
-    heritage: Tiller
     release: bookstack
   name: bookstack
 ---
@@ -13,8 +11,6 @@ kind: Role
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
-    heritage: Tiller
     release: bookstack
   name: bookstack
 rules:
@@ -30,8 +26,6 @@ kind: RoleBinding
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
-    heritage: Tiller
     release: bookstack
   name: bookstack
 roleRef:
@@ -52,9 +46,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: mariadb
-    chart: mariadb-4.4.2
     component: master
-    heritage: Tiller
     release: bookstack
   name: bookstack-mariadb-init-scripts
 ---
@@ -98,102 +90,18 @@ kind: ConfigMap
 metadata:
   labels:
     app: mariadb
-    chart: mariadb-4.4.2
     component: master
-    heritage: Tiller
     release: bookstack
   name: bookstack-mariadb
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  labels:
-    app: bookstack
-    chart: bookstack-0.1.1
-    heritage: Tiller
-    release: bookstack
-  name: bookstack-storage
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 8Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  labels:
-    app: bookstack
-    chart: bookstack-0.1.1
-    heritage: Tiller
-    release: bookstack
-  name: bookstack-uploads
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 8Gi
----
-apiVersion: v1
-kind: Pod
-metadata:
-  annotations:
-    helm.sh/hook: test-success
-  name: bookstack-mariadb-test-vtoy3
-spec:
-  containers:
-  - command:
-    - /tools/bats/bats
-    - -t
-    - /tests/run.sh
-    env:
-    - name: MARIADB_ROOT_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          key: mariadb-root-password
-          name: bookstack-mariadb
-    image: docker.io/bitnami/mariadb:10.1.36-debian-9
-    imagePullPolicy: IfNotPresent
-    name: mariadb-test
-    volumeMounts:
-    - mountPath: /tests
-      name: tests
-      readOnly: true
-    - mountPath: /tools
-      name: tools
-  initContainers:
-  - command:
-    - bash
-    - -c
-    - |
-      set -ex
-      # copy bats to tools dir
-      cp -R /usr/local/libexec/ /tools/bats/
-    image: dduportal/bats:0.4.0
-    name: test-framework
-    volumeMounts:
-    - mountPath: /tools
-      name: tools
-  restartPolicy: Never
-  volumes:
-  - configMap:
-      name: bookstack-mariadb-tests
-    name: tests
-  - emptyDir: {}
-    name: tools
----
-apiVersion: v1
 data:
-  mariadb-password: Q3lvczd4RWc0ag==
-  mariadb-root-password: QzhBSTRJQ2p5Mg==
+  mariadb-password: TGlVN2ZvQVg2Uw==
+  mariadb-root-password: VjViNE9iaFAyYQ==
 kind: Secret
 metadata:
   labels:
     app: mariadb
-    chart: mariadb-4.4.2
-    heritage: Tiller
     release: bookstack
   name: bookstack-mariadb
 type: Opaque
@@ -203,9 +111,7 @@ kind: Service
 metadata:
   labels:
     app: mariadb
-    chart: mariadb-4.4.2
     component: master
-    heritage: Tiller
     release: bookstack
   name: bookstack-mariadb
 spec:
@@ -224,8 +130,6 @@ kind: Service
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.1
-    heritage: Tiller
     release: bookstack
   name: bookstack
 spec:
@@ -244,7 +148,7 @@ kind: Deployment
 metadata:
   labels:
     app: bookstack
-    chart: bookstack-0.1.0
+    chart: bookstack-0.1.4
     heritage: Tiller
     release: bookstack
   name: bookstack
@@ -273,7 +177,7 @@ spec:
             secretKeyRef:
               key: mariadb-password
               name: bookstack-mariadb
-        image: solidnerd/bookstack:0.24.1
+        image: solidnerd/bookstack:0.25.2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -308,9 +212,7 @@ kind: StatefulSet
 metadata:
   labels:
     app: mariadb
-    chart: mariadb-4.4.2
     component: master
-    heritage: Tiller
     release: bookstack
   name: bookstack-mariadb
 spec:
@@ -401,3 +303,79 @@ spec:
         name: data
   updateStrategy:
     type: RollingUpdate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: bookstack
+    release: bookstack
+  name: bookstack-storage
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: bookstack
+    release: bookstack
+  name: bookstack-uploads
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    helm.sh/hook: test-success
+  name: bookstack-mariadb-test-g0ohu
+spec:
+  containers:
+  - command:
+    - /tools/bats/bats
+    - -t
+    - /tests/run.sh
+    env:
+    - name: MARIADB_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: mariadb-root-password
+          name: bookstack-mariadb
+    image: docker.io/bitnami/mariadb:10.1.36-debian-9
+    imagePullPolicy: IfNotPresent
+    name: mariadb-test
+    volumeMounts:
+    - mountPath: /tests
+      name: tests
+      readOnly: true
+    - mountPath: /tools
+      name: tools
+  initContainers:
+  - command:
+    - bash
+    - -c
+    - |
+      set -ex
+      # copy bats to tools dir
+      cp -R /usr/local/libexec/ /tools/bats/
+    image: dduportal/bats:0.4.0
+    name: test-framework
+    volumeMounts:
+    - mountPath: /tools
+      name: tools
+  restartPolicy: Never
+  volumes:
+  - configMap:
+      name: bookstack-mariadb-tests
+    name: tests
+  - emptyDir: {}
+    name: tools
